@@ -168,7 +168,9 @@ int main(void)
 			  if (userButton) {
 				  YELLOW3_TOGGLE();
 				  int feq = 100 - 100*(10*timer3_counter/timer_yellow);
+				  __HAL_TIM_SET_AUTORELOAD(&htim3,feq*5/2);
 				  __HAL_TIM_SetCompare (&htim3,TIM_CHANNEL_1,feq);
+				  HAL_Delay(100);
 			  }
 		  }
 	  	  else if(GREEN2_flag){

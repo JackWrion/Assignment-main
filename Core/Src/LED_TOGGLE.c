@@ -24,8 +24,8 @@ int GREEN3 = 0;
 //-------------------For TEST ONLY------------------////
 ///////////////////////////////////////////////////////
 
-
 /*
+
 // GROUP LED1;
 void LED1_OFF(){
 	HAL_GPIO_WritePin(LED_RED1_GPIO_Port, LED_RED1_Pin, RESET);
@@ -142,8 +142,8 @@ void GREEN3_TOGGLE(){
 	}
 }
 
-*/
 
+*/
 
 
 
@@ -157,14 +157,14 @@ void GREEN3_TOGGLE(){
 
 // GROUP LED1;
 void LED1_OFF(){
-	HAL_GPIO_WritePin(LED1A_GPIO_Port, LED1A_Pin, SET);
-	HAL_GPIO_WritePin(LED1B_GPIO_Port, LED1B_Pin, SET);
+	HAL_GPIO_WritePin(LED1A_GPIO_Port, LED1A_Pin, RESET);
+	HAL_GPIO_WritePin(LED1B_GPIO_Port, LED1B_Pin, RESET);
 }
 
 void RED1_TOGGLE(){
 	if (RED1 == 0){
-		HAL_GPIO_WritePin(LED1A_GPIO_Port, LED1A_Pin, RESET);
-		HAL_GPIO_WritePin(LED1B_GPIO_Port, LED1B_Pin, SET);
+		HAL_GPIO_WritePin(LED1A_GPIO_Port, LED1A_Pin, SET);
+		HAL_GPIO_WritePin(LED1B_GPIO_Port, LED1B_Pin, RESET);
 		RED1 = 1;
 	}
 	else{
@@ -175,7 +175,7 @@ void RED1_TOGGLE(){
 void YELLOW1_TOGGLE(){
 	if (YELLOW1 == 0){
 		HAL_GPIO_WritePin(LED1A_GPIO_Port, LED1A_Pin, SET);
-		HAL_GPIO_WritePin(LED1B_GPIO_Port, LED1B_Pin, RESET);
+		HAL_GPIO_WritePin(LED1B_GPIO_Port, LED1B_Pin, SET);
 		YELLOW1 = 1;
 	}
 	else{
@@ -186,7 +186,7 @@ void YELLOW1_TOGGLE(){
 void GREEN1_TOGGLE(){
 	if (GREEN1 == 0){
 		HAL_GPIO_WritePin(LED1A_GPIO_Port, LED1A_Pin, RESET);
-		HAL_GPIO_WritePin(LED1B_GPIO_Port, LED1B_Pin, RESET);
+		HAL_GPIO_WritePin(LED1B_GPIO_Port, LED1B_Pin, SET);
 		GREEN1 = 1;
 	}
 	else{
@@ -198,14 +198,14 @@ void GREEN1_TOGGLE(){
 
 //GROUP LED2
 void LED2_OFF(){
-	HAL_GPIO_WritePin(LED2A_GPIO_Port, LED2A_Pin, SET);
-	HAL_GPIO_WritePin(LED2B_GPIO_Port, LED2B_Pin, SET);
+	HAL_GPIO_WritePin(LED2A_GPIO_Port, LED2A_Pin, RESET);
+	HAL_GPIO_WritePin(LED2B_GPIO_Port, LED2B_Pin, RESET);
 }
 
 void RED2_TOGGLE(){
 	if (RED2 == 0){
-		HAL_GPIO_WritePin(LED2A_GPIO_Port, LED2A_Pin, RESET);
-		HAL_GPIO_WritePin(LED2B_GPIO_Port, LED2B_Pin, SET);
+		HAL_GPIO_WritePin(LED2A_GPIO_Port, LED2A_Pin, SET);
+		HAL_GPIO_WritePin(LED2B_GPIO_Port, LED2B_Pin, RESET);
 		RED2 = 1;
 	}
 	else{
@@ -216,7 +216,7 @@ void RED2_TOGGLE(){
 void YELLOW2_TOGGLE(){
 	if (YELLOW2 == 0){
 		HAL_GPIO_WritePin(LED2A_GPIO_Port, LED2A_Pin, SET);
-		HAL_GPIO_WritePin(LED2B_GPIO_Port, LED2B_Pin, RESET);
+		HAL_GPIO_WritePin(LED2B_GPIO_Port, LED2B_Pin, SET);
 		YELLOW2 = 1;
 	}
 	else{
@@ -227,7 +227,7 @@ void YELLOW2_TOGGLE(){
 void GREEN2_TOGGLE(){
 	if (GREEN2 == 0){
 		HAL_GPIO_WritePin(LED2A_GPIO_Port, LED2A_Pin, RESET);
-		HAL_GPIO_WritePin(LED2B_GPIO_Port, LED2B_Pin, RESET);
+		HAL_GPIO_WritePin(LED2B_GPIO_Port, LED2B_Pin, SET);
 		GREEN2 = 1;
 	}
 	else{
@@ -239,14 +239,14 @@ void GREEN2_TOGGLE(){
 
 //GROUP LED3
 void LED3_OFF(){
-	HAL_GPIO_WritePin(LED3A_GPIO_Port, LED3A_Pin, SET);
-	HAL_GPIO_WritePin(LED3B_GPIO_Port, LED3B_Pin, SET);
+	HAL_GPIO_WritePin(LED3A_GPIO_Port, LED3A_Pin, RESET);
+	HAL_GPIO_WritePin(LED3B_GPIO_Port, LED3B_Pin, RESET);
 }
 
 void RED3_TOGGLE(){
 	if (RED3 == 0){
-		HAL_GPIO_WritePin(LED3A_GPIO_Port, LED3A_Pin, RESET);
-		HAL_GPIO_WritePin(LED3B_GPIO_Port, LED3B_Pin, SET);
+		HAL_GPIO_WritePin(LED3A_GPIO_Port, LED3A_Pin, SET);
+		HAL_GPIO_WritePin(LED3B_GPIO_Port, LED3B_Pin, RESET);
 		RED3 = 1;
 	}
 	else{
@@ -257,7 +257,7 @@ void RED3_TOGGLE(){
 void YELLOW3_TOGGLE(){
 	if (YELLOW3 == 0){
 		HAL_GPIO_WritePin(LED3A_GPIO_Port, LED3A_Pin, SET);
-		HAL_GPIO_WritePin(LED3B_GPIO_Port, LED3B_Pin, RESET);
+		HAL_GPIO_WritePin(LED3B_GPIO_Port, LED3B_Pin, SET);
 		YELLOW3 = 1;
 	}
 	else{
@@ -268,7 +268,7 @@ void YELLOW3_TOGGLE(){
 void GREEN3_TOGGLE(){
 	if (GREEN3 == 0){
 		HAL_GPIO_WritePin(LED3A_GPIO_Port, LED3A_Pin, RESET);
-		HAL_GPIO_WritePin(LED3B_GPIO_Port, LED3B_Pin, RESET);
+		HAL_GPIO_WritePin(LED3B_GPIO_Port, LED3B_Pin, SET);
 		GREEN3 = 1;
 	}
 	else{

@@ -1,0 +1,1215 @@
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.arch armv7-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"Software_Timer.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.global	timer1_counter
+  18              		.section	.bss.timer1_counter,"aw",%nobits
+  19              		.align	2
+  22              	timer1_counter:
+  23 0000 00000000 		.space	4
+  24              		.global	timer2_counter
+  25              		.section	.bss.timer2_counter,"aw",%nobits
+  26              		.align	2
+  29              	timer2_counter:
+  30 0000 00000000 		.space	4
+  31              		.global	timer3_counter
+  32              		.section	.bss.timer3_counter,"aw",%nobits
+  33              		.align	2
+  36              	timer3_counter:
+  37 0000 00000000 		.space	4
+  38              		.global	timer4_counter
+  39              		.section	.bss.timer4_counter,"aw",%nobits
+  40              		.align	2
+  43              	timer4_counter:
+  44 0000 00000000 		.space	4
+  45              		.global	timer5_counter
+  46              		.section	.bss.timer5_counter,"aw",%nobits
+  47              		.align	2
+  50              	timer5_counter:
+  51 0000 00000000 		.space	4
+  52              		.global	timer6_counter
+  53              		.section	.bss.timer6_counter,"aw",%nobits
+  54              		.align	2
+  57              	timer6_counter:
+  58 0000 00000000 		.space	4
+  59              		.global	timer7_counter
+  60              		.section	.bss.timer7_counter,"aw",%nobits
+  61              		.align	2
+  64              	timer7_counter:
+  65 0000 00000000 		.space	4
+  66              		.global	timer8_counter
+  67              		.section	.bss.timer8_counter,"aw",%nobits
+  68              		.align	2
+  71              	timer8_counter:
+  72 0000 00000000 		.space	4
+  73              		.global	timer9_counter
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s 			page 2
+
+
+  74              		.section	.bss.timer9_counter,"aw",%nobits
+  75              		.align	2
+  78              	timer9_counter:
+  79 0000 00000000 		.space	4
+  80              		.global	timer10_counter
+  81              		.section	.bss.timer10_counter,"aw",%nobits
+  82              		.align	2
+  85              	timer10_counter:
+  86 0000 00000000 		.space	4
+  87              		.global	timer1_flag
+  88              		.section	.bss.timer1_flag,"aw",%nobits
+  89              		.align	2
+  92              	timer1_flag:
+  93 0000 00000000 		.space	4
+  94              		.global	timer2_flag
+  95              		.section	.bss.timer2_flag,"aw",%nobits
+  96              		.align	2
+  99              	timer2_flag:
+ 100 0000 00000000 		.space	4
+ 101              		.global	timer3_flag
+ 102              		.section	.bss.timer3_flag,"aw",%nobits
+ 103              		.align	2
+ 106              	timer3_flag:
+ 107 0000 00000000 		.space	4
+ 108              		.global	timer4_flag
+ 109              		.section	.bss.timer4_flag,"aw",%nobits
+ 110              		.align	2
+ 113              	timer4_flag:
+ 114 0000 00000000 		.space	4
+ 115              		.global	timer5_flag
+ 116              		.section	.bss.timer5_flag,"aw",%nobits
+ 117              		.align	2
+ 120              	timer5_flag:
+ 121 0000 00000000 		.space	4
+ 122              		.global	timer6_flag
+ 123              		.section	.bss.timer6_flag,"aw",%nobits
+ 124              		.align	2
+ 127              	timer6_flag:
+ 128 0000 00000000 		.space	4
+ 129              		.global	timer7_flag
+ 130              		.section	.bss.timer7_flag,"aw",%nobits
+ 131              		.align	2
+ 134              	timer7_flag:
+ 135 0000 00000000 		.space	4
+ 136              		.global	timer8_flag
+ 137              		.section	.bss.timer8_flag,"aw",%nobits
+ 138              		.align	2
+ 141              	timer8_flag:
+ 142 0000 00000000 		.space	4
+ 143              		.global	timer9_flag
+ 144              		.section	.bss.timer9_flag,"aw",%nobits
+ 145              		.align	2
+ 148              	timer9_flag:
+ 149 0000 00000000 		.space	4
+ 150              		.global	timer10_flag
+ 151              		.section	.bss.timer10_flag,"aw",%nobits
+ 152              		.align	2
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s 			page 3
+
+
+ 155              	timer10_flag:
+ 156 0000 00000000 		.space	4
+ 157              		.section	.text.setTimer1,"ax",%progbits
+ 158              		.align	1
+ 159              		.global	setTimer1
+ 160              		.syntax unified
+ 161              		.thumb
+ 162              		.thumb_func
+ 164              	setTimer1:
+ 165              	.LFB65:
+ 166              		.file 1 "./Core/Src/Software_Timer.c"
+   1:./Core/Src/Software_Timer.c **** /*
+   2:./Core/Src/Software_Timer.c ****  * Software_Timer.c
+   3:./Core/Src/Software_Timer.c ****  *
+   4:./Core/Src/Software_Timer.c ****  *  Created on: Oct 1, 2022
+   5:./Core/Src/Software_Timer.c ****  *      Author: ASUS
+   6:./Core/Src/Software_Timer.c ****  */
+   7:./Core/Src/Software_Timer.c **** 
+   8:./Core/Src/Software_Timer.c **** #include "Software_Timer.h"
+   9:./Core/Src/Software_Timer.c **** //
+  10:./Core/Src/Software_Timer.c **** int timer1_counter = 0;
+  11:./Core/Src/Software_Timer.c **** int timer2_counter = 0;
+  12:./Core/Src/Software_Timer.c **** int timer3_counter = 0;
+  13:./Core/Src/Software_Timer.c **** int timer4_counter = 0;
+  14:./Core/Src/Software_Timer.c **** int timer5_counter = 0;
+  15:./Core/Src/Software_Timer.c **** int timer6_counter = 0;
+  16:./Core/Src/Software_Timer.c **** int timer7_counter = 0;
+  17:./Core/Src/Software_Timer.c **** int timer8_counter = 0;
+  18:./Core/Src/Software_Timer.c **** int timer9_counter = 0;
+  19:./Core/Src/Software_Timer.c **** int timer10_counter = 0;
+  20:./Core/Src/Software_Timer.c **** //
+  21:./Core/Src/Software_Timer.c **** 
+  22:./Core/Src/Software_Timer.c **** 
+  23:./Core/Src/Software_Timer.c **** ///
+  24:./Core/Src/Software_Timer.c **** int timer1_flag = 0;
+  25:./Core/Src/Software_Timer.c **** int timer2_flag = 0;
+  26:./Core/Src/Software_Timer.c **** int timer3_flag = 0;
+  27:./Core/Src/Software_Timer.c **** int timer4_flag = 0;
+  28:./Core/Src/Software_Timer.c **** int timer5_flag = 0;
+  29:./Core/Src/Software_Timer.c **** int timer6_flag = 0;
+  30:./Core/Src/Software_Timer.c **** int timer7_flag = 0;
+  31:./Core/Src/Software_Timer.c **** int timer8_flag = 0;
+  32:./Core/Src/Software_Timer.c **** int timer9_flag = 0;
+  33:./Core/Src/Software_Timer.c **** int timer10_flag = 0;
+  34:./Core/Src/Software_Timer.c **** ///
+  35:./Core/Src/Software_Timer.c **** 
+  36:./Core/Src/Software_Timer.c **** 
+  37:./Core/Src/Software_Timer.c **** //*******
+  38:./Core/Src/Software_Timer.c **** void setTimer1(int duration){
+ 167              		.loc 1 38 29
+ 168              		.cfi_startproc
+ 169              		@ args = 0, pretend = 0, frame = 8
+ 170              		@ frame_needed = 1, uses_anonymous_args = 0
+ 171              		@ link register save eliminated.
+ 172 0000 80B4     		push	{r7}
+ 173              		.cfi_def_cfa_offset 4
+ 174              		.cfi_offset 7, -4
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s 			page 4
+
+
+ 175 0002 83B0     		sub	sp, sp, #12
+ 176              		.cfi_def_cfa_offset 16
+ 177 0004 00AF     		add	r7, sp, #0
+ 178              		.cfi_def_cfa_register 7
+ 179 0006 7860     		str	r0, [r7, #4]
+  39:./Core/Src/Software_Timer.c **** 	timer1_counter = duration/CLOCK_TIMER;
+ 180              		.loc 1 39 27
+ 181 0008 7B68     		ldr	r3, [r7, #4]
+ 182 000a 084A     		ldr	r2, .L2
+ 183 000c 82FB0312 		smull	r1, r2, r2, r3
+ 184 0010 9210     		asrs	r2, r2, #2
+ 185 0012 DB17     		asrs	r3, r3, #31
+ 186 0014 D31A     		subs	r3, r2, r3
+ 187              		.loc 1 39 17
+ 188 0016 064A     		ldr	r2, .L2+4
+ 189 0018 1360     		str	r3, [r2]
+  40:./Core/Src/Software_Timer.c **** 	timer1_flag = 0;
+ 190              		.loc 1 40 14
+ 191 001a 064B     		ldr	r3, .L2+8
+ 192 001c 0022     		movs	r2, #0
+ 193 001e 1A60     		str	r2, [r3]
+  41:./Core/Src/Software_Timer.c **** }
+ 194              		.loc 1 41 1
+ 195 0020 00BF     		nop
+ 196 0022 0C37     		adds	r7, r7, #12
+ 197              		.cfi_def_cfa_offset 4
+ 198 0024 BD46     		mov	sp, r7
+ 199              		.cfi_def_cfa_register 13
+ 200              		@ sp needed
+ 201 0026 80BC     		pop	{r7}
+ 202              		.cfi_restore 7
+ 203              		.cfi_def_cfa_offset 0
+ 204 0028 7047     		bx	lr
+ 205              	.L3:
+ 206 002a 00BF     		.align	2
+ 207              	.L2:
+ 208 002c 67666666 		.word	1717986919
+ 209 0030 00000000 		.word	timer1_counter
+ 210 0034 00000000 		.word	timer1_flag
+ 211              		.cfi_endproc
+ 212              	.LFE65:
+ 214              		.section	.text.setTimer2,"ax",%progbits
+ 215              		.align	1
+ 216              		.global	setTimer2
+ 217              		.syntax unified
+ 218              		.thumb
+ 219              		.thumb_func
+ 221              	setTimer2:
+ 222              	.LFB66:
+  42:./Core/Src/Software_Timer.c **** 
+  43:./Core/Src/Software_Timer.c **** void setTimer2(int duration){
+ 223              		.loc 1 43 29
+ 224              		.cfi_startproc
+ 225              		@ args = 0, pretend = 0, frame = 8
+ 226              		@ frame_needed = 1, uses_anonymous_args = 0
+ 227              		@ link register save eliminated.
+ 228 0000 80B4     		push	{r7}
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s 			page 5
+
+
+ 229              		.cfi_def_cfa_offset 4
+ 230              		.cfi_offset 7, -4
+ 231 0002 83B0     		sub	sp, sp, #12
+ 232              		.cfi_def_cfa_offset 16
+ 233 0004 00AF     		add	r7, sp, #0
+ 234              		.cfi_def_cfa_register 7
+ 235 0006 7860     		str	r0, [r7, #4]
+  44:./Core/Src/Software_Timer.c **** 	timer2_counter = duration/CLOCK_TIMER;
+ 236              		.loc 1 44 27
+ 237 0008 7B68     		ldr	r3, [r7, #4]
+ 238 000a 084A     		ldr	r2, .L5
+ 239 000c 82FB0312 		smull	r1, r2, r2, r3
+ 240 0010 9210     		asrs	r2, r2, #2
+ 241 0012 DB17     		asrs	r3, r3, #31
+ 242 0014 D31A     		subs	r3, r2, r3
+ 243              		.loc 1 44 17
+ 244 0016 064A     		ldr	r2, .L5+4
+ 245 0018 1360     		str	r3, [r2]
+  45:./Core/Src/Software_Timer.c **** 	timer2_flag = 0;
+ 246              		.loc 1 45 14
+ 247 001a 064B     		ldr	r3, .L5+8
+ 248 001c 0022     		movs	r2, #0
+ 249 001e 1A60     		str	r2, [r3]
+  46:./Core/Src/Software_Timer.c **** }
+ 250              		.loc 1 46 1
+ 251 0020 00BF     		nop
+ 252 0022 0C37     		adds	r7, r7, #12
+ 253              		.cfi_def_cfa_offset 4
+ 254 0024 BD46     		mov	sp, r7
+ 255              		.cfi_def_cfa_register 13
+ 256              		@ sp needed
+ 257 0026 80BC     		pop	{r7}
+ 258              		.cfi_restore 7
+ 259              		.cfi_def_cfa_offset 0
+ 260 0028 7047     		bx	lr
+ 261              	.L6:
+ 262 002a 00BF     		.align	2
+ 263              	.L5:
+ 264 002c 67666666 		.word	1717986919
+ 265 0030 00000000 		.word	timer2_counter
+ 266 0034 00000000 		.word	timer2_flag
+ 267              		.cfi_endproc
+ 268              	.LFE66:
+ 270              		.section	.text.setTimer3,"ax",%progbits
+ 271              		.align	1
+ 272              		.global	setTimer3
+ 273              		.syntax unified
+ 274              		.thumb
+ 275              		.thumb_func
+ 277              	setTimer3:
+ 278              	.LFB67:
+  47:./Core/Src/Software_Timer.c **** 
+  48:./Core/Src/Software_Timer.c **** void setTimer3(int duration){
+ 279              		.loc 1 48 29
+ 280              		.cfi_startproc
+ 281              		@ args = 0, pretend = 0, frame = 8
+ 282              		@ frame_needed = 1, uses_anonymous_args = 0
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s 			page 6
+
+
+ 283              		@ link register save eliminated.
+ 284 0000 80B4     		push	{r7}
+ 285              		.cfi_def_cfa_offset 4
+ 286              		.cfi_offset 7, -4
+ 287 0002 83B0     		sub	sp, sp, #12
+ 288              		.cfi_def_cfa_offset 16
+ 289 0004 00AF     		add	r7, sp, #0
+ 290              		.cfi_def_cfa_register 7
+ 291 0006 7860     		str	r0, [r7, #4]
+  49:./Core/Src/Software_Timer.c **** 	timer3_counter = duration/CLOCK_TIMER;
+ 292              		.loc 1 49 27
+ 293 0008 7B68     		ldr	r3, [r7, #4]
+ 294 000a 084A     		ldr	r2, .L8
+ 295 000c 82FB0312 		smull	r1, r2, r2, r3
+ 296 0010 9210     		asrs	r2, r2, #2
+ 297 0012 DB17     		asrs	r3, r3, #31
+ 298 0014 D31A     		subs	r3, r2, r3
+ 299              		.loc 1 49 17
+ 300 0016 064A     		ldr	r2, .L8+4
+ 301 0018 1360     		str	r3, [r2]
+  50:./Core/Src/Software_Timer.c **** 	timer3_flag = 0;
+ 302              		.loc 1 50 14
+ 303 001a 064B     		ldr	r3, .L8+8
+ 304 001c 0022     		movs	r2, #0
+ 305 001e 1A60     		str	r2, [r3]
+  51:./Core/Src/Software_Timer.c **** }
+ 306              		.loc 1 51 1
+ 307 0020 00BF     		nop
+ 308 0022 0C37     		adds	r7, r7, #12
+ 309              		.cfi_def_cfa_offset 4
+ 310 0024 BD46     		mov	sp, r7
+ 311              		.cfi_def_cfa_register 13
+ 312              		@ sp needed
+ 313 0026 80BC     		pop	{r7}
+ 314              		.cfi_restore 7
+ 315              		.cfi_def_cfa_offset 0
+ 316 0028 7047     		bx	lr
+ 317              	.L9:
+ 318 002a 00BF     		.align	2
+ 319              	.L8:
+ 320 002c 67666666 		.word	1717986919
+ 321 0030 00000000 		.word	timer3_counter
+ 322 0034 00000000 		.word	timer3_flag
+ 323              		.cfi_endproc
+ 324              	.LFE67:
+ 326              		.section	.text.setTimer4,"ax",%progbits
+ 327              		.align	1
+ 328              		.global	setTimer4
+ 329              		.syntax unified
+ 330              		.thumb
+ 331              		.thumb_func
+ 333              	setTimer4:
+ 334              	.LFB68:
+  52:./Core/Src/Software_Timer.c **** 
+  53:./Core/Src/Software_Timer.c **** void setTimer4(int duration){
+ 335              		.loc 1 53 29
+ 336              		.cfi_startproc
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s 			page 7
+
+
+ 337              		@ args = 0, pretend = 0, frame = 8
+ 338              		@ frame_needed = 1, uses_anonymous_args = 0
+ 339              		@ link register save eliminated.
+ 340 0000 80B4     		push	{r7}
+ 341              		.cfi_def_cfa_offset 4
+ 342              		.cfi_offset 7, -4
+ 343 0002 83B0     		sub	sp, sp, #12
+ 344              		.cfi_def_cfa_offset 16
+ 345 0004 00AF     		add	r7, sp, #0
+ 346              		.cfi_def_cfa_register 7
+ 347 0006 7860     		str	r0, [r7, #4]
+  54:./Core/Src/Software_Timer.c **** 	timer4_counter = duration/CLOCK_TIMER;
+ 348              		.loc 1 54 27
+ 349 0008 7B68     		ldr	r3, [r7, #4]
+ 350 000a 084A     		ldr	r2, .L11
+ 351 000c 82FB0312 		smull	r1, r2, r2, r3
+ 352 0010 9210     		asrs	r2, r2, #2
+ 353 0012 DB17     		asrs	r3, r3, #31
+ 354 0014 D31A     		subs	r3, r2, r3
+ 355              		.loc 1 54 17
+ 356 0016 064A     		ldr	r2, .L11+4
+ 357 0018 1360     		str	r3, [r2]
+  55:./Core/Src/Software_Timer.c **** 	timer4_flag = 0;
+ 358              		.loc 1 55 14
+ 359 001a 064B     		ldr	r3, .L11+8
+ 360 001c 0022     		movs	r2, #0
+ 361 001e 1A60     		str	r2, [r3]
+  56:./Core/Src/Software_Timer.c **** }
+ 362              		.loc 1 56 1
+ 363 0020 00BF     		nop
+ 364 0022 0C37     		adds	r7, r7, #12
+ 365              		.cfi_def_cfa_offset 4
+ 366 0024 BD46     		mov	sp, r7
+ 367              		.cfi_def_cfa_register 13
+ 368              		@ sp needed
+ 369 0026 80BC     		pop	{r7}
+ 370              		.cfi_restore 7
+ 371              		.cfi_def_cfa_offset 0
+ 372 0028 7047     		bx	lr
+ 373              	.L12:
+ 374 002a 00BF     		.align	2
+ 375              	.L11:
+ 376 002c 67666666 		.word	1717986919
+ 377 0030 00000000 		.word	timer4_counter
+ 378 0034 00000000 		.word	timer4_flag
+ 379              		.cfi_endproc
+ 380              	.LFE68:
+ 382              		.section	.text.setTimer5,"ax",%progbits
+ 383              		.align	1
+ 384              		.global	setTimer5
+ 385              		.syntax unified
+ 386              		.thumb
+ 387              		.thumb_func
+ 389              	setTimer5:
+ 390              	.LFB69:
+  57:./Core/Src/Software_Timer.c **** 
+  58:./Core/Src/Software_Timer.c **** void setTimer5(int duration){
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s 			page 8
+
+
+ 391              		.loc 1 58 29
+ 392              		.cfi_startproc
+ 393              		@ args = 0, pretend = 0, frame = 8
+ 394              		@ frame_needed = 1, uses_anonymous_args = 0
+ 395              		@ link register save eliminated.
+ 396 0000 80B4     		push	{r7}
+ 397              		.cfi_def_cfa_offset 4
+ 398              		.cfi_offset 7, -4
+ 399 0002 83B0     		sub	sp, sp, #12
+ 400              		.cfi_def_cfa_offset 16
+ 401 0004 00AF     		add	r7, sp, #0
+ 402              		.cfi_def_cfa_register 7
+ 403 0006 7860     		str	r0, [r7, #4]
+  59:./Core/Src/Software_Timer.c **** 	timer5_counter = duration/CLOCK_TIMER;
+ 404              		.loc 1 59 27
+ 405 0008 7B68     		ldr	r3, [r7, #4]
+ 406 000a 084A     		ldr	r2, .L14
+ 407 000c 82FB0312 		smull	r1, r2, r2, r3
+ 408 0010 9210     		asrs	r2, r2, #2
+ 409 0012 DB17     		asrs	r3, r3, #31
+ 410 0014 D31A     		subs	r3, r2, r3
+ 411              		.loc 1 59 17
+ 412 0016 064A     		ldr	r2, .L14+4
+ 413 0018 1360     		str	r3, [r2]
+  60:./Core/Src/Software_Timer.c **** 	timer5_flag = 0;
+ 414              		.loc 1 60 14
+ 415 001a 064B     		ldr	r3, .L14+8
+ 416 001c 0022     		movs	r2, #0
+ 417 001e 1A60     		str	r2, [r3]
+  61:./Core/Src/Software_Timer.c **** }
+ 418              		.loc 1 61 1
+ 419 0020 00BF     		nop
+ 420 0022 0C37     		adds	r7, r7, #12
+ 421              		.cfi_def_cfa_offset 4
+ 422 0024 BD46     		mov	sp, r7
+ 423              		.cfi_def_cfa_register 13
+ 424              		@ sp needed
+ 425 0026 80BC     		pop	{r7}
+ 426              		.cfi_restore 7
+ 427              		.cfi_def_cfa_offset 0
+ 428 0028 7047     		bx	lr
+ 429              	.L15:
+ 430 002a 00BF     		.align	2
+ 431              	.L14:
+ 432 002c 67666666 		.word	1717986919
+ 433 0030 00000000 		.word	timer5_counter
+ 434 0034 00000000 		.word	timer5_flag
+ 435              		.cfi_endproc
+ 436              	.LFE69:
+ 438              		.section	.text.setTimer6,"ax",%progbits
+ 439              		.align	1
+ 440              		.global	setTimer6
+ 441              		.syntax unified
+ 442              		.thumb
+ 443              		.thumb_func
+ 445              	setTimer6:
+ 446              	.LFB70:
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s 			page 9
+
+
+  62:./Core/Src/Software_Timer.c **** 
+  63:./Core/Src/Software_Timer.c **** void setTimer6(int duration){
+ 447              		.loc 1 63 29
+ 448              		.cfi_startproc
+ 449              		@ args = 0, pretend = 0, frame = 8
+ 450              		@ frame_needed = 1, uses_anonymous_args = 0
+ 451              		@ link register save eliminated.
+ 452 0000 80B4     		push	{r7}
+ 453              		.cfi_def_cfa_offset 4
+ 454              		.cfi_offset 7, -4
+ 455 0002 83B0     		sub	sp, sp, #12
+ 456              		.cfi_def_cfa_offset 16
+ 457 0004 00AF     		add	r7, sp, #0
+ 458              		.cfi_def_cfa_register 7
+ 459 0006 7860     		str	r0, [r7, #4]
+  64:./Core/Src/Software_Timer.c **** 	timer6_counter = duration/CLOCK_TIMER;
+ 460              		.loc 1 64 27
+ 461 0008 7B68     		ldr	r3, [r7, #4]
+ 462 000a 084A     		ldr	r2, .L17
+ 463 000c 82FB0312 		smull	r1, r2, r2, r3
+ 464 0010 9210     		asrs	r2, r2, #2
+ 465 0012 DB17     		asrs	r3, r3, #31
+ 466 0014 D31A     		subs	r3, r2, r3
+ 467              		.loc 1 64 17
+ 468 0016 064A     		ldr	r2, .L17+4
+ 469 0018 1360     		str	r3, [r2]
+  65:./Core/Src/Software_Timer.c **** 	timer6_flag = 0;
+ 470              		.loc 1 65 14
+ 471 001a 064B     		ldr	r3, .L17+8
+ 472 001c 0022     		movs	r2, #0
+ 473 001e 1A60     		str	r2, [r3]
+  66:./Core/Src/Software_Timer.c **** }
+ 474              		.loc 1 66 1
+ 475 0020 00BF     		nop
+ 476 0022 0C37     		adds	r7, r7, #12
+ 477              		.cfi_def_cfa_offset 4
+ 478 0024 BD46     		mov	sp, r7
+ 479              		.cfi_def_cfa_register 13
+ 480              		@ sp needed
+ 481 0026 80BC     		pop	{r7}
+ 482              		.cfi_restore 7
+ 483              		.cfi_def_cfa_offset 0
+ 484 0028 7047     		bx	lr
+ 485              	.L18:
+ 486 002a 00BF     		.align	2
+ 487              	.L17:
+ 488 002c 67666666 		.word	1717986919
+ 489 0030 00000000 		.word	timer6_counter
+ 490 0034 00000000 		.word	timer6_flag
+ 491              		.cfi_endproc
+ 492              	.LFE70:
+ 494              		.section	.text.setTimer7,"ax",%progbits
+ 495              		.align	1
+ 496              		.global	setTimer7
+ 497              		.syntax unified
+ 498              		.thumb
+ 499              		.thumb_func
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s 			page 10
+
+
+ 501              	setTimer7:
+ 502              	.LFB71:
+  67:./Core/Src/Software_Timer.c **** 
+  68:./Core/Src/Software_Timer.c **** 
+  69:./Core/Src/Software_Timer.c **** void setTimer7(int duration){
+ 503              		.loc 1 69 29
+ 504              		.cfi_startproc
+ 505              		@ args = 0, pretend = 0, frame = 8
+ 506              		@ frame_needed = 1, uses_anonymous_args = 0
+ 507              		@ link register save eliminated.
+ 508 0000 80B4     		push	{r7}
+ 509              		.cfi_def_cfa_offset 4
+ 510              		.cfi_offset 7, -4
+ 511 0002 83B0     		sub	sp, sp, #12
+ 512              		.cfi_def_cfa_offset 16
+ 513 0004 00AF     		add	r7, sp, #0
+ 514              		.cfi_def_cfa_register 7
+ 515 0006 7860     		str	r0, [r7, #4]
+  70:./Core/Src/Software_Timer.c **** 	timer7_counter = duration/CLOCK_TIMER;
+ 516              		.loc 1 70 27
+ 517 0008 7B68     		ldr	r3, [r7, #4]
+ 518 000a 084A     		ldr	r2, .L20
+ 519 000c 82FB0312 		smull	r1, r2, r2, r3
+ 520 0010 9210     		asrs	r2, r2, #2
+ 521 0012 DB17     		asrs	r3, r3, #31
+ 522 0014 D31A     		subs	r3, r2, r3
+ 523              		.loc 1 70 17
+ 524 0016 064A     		ldr	r2, .L20+4
+ 525 0018 1360     		str	r3, [r2]
+  71:./Core/Src/Software_Timer.c **** 	timer7_flag = 0;
+ 526              		.loc 1 71 14
+ 527 001a 064B     		ldr	r3, .L20+8
+ 528 001c 0022     		movs	r2, #0
+ 529 001e 1A60     		str	r2, [r3]
+  72:./Core/Src/Software_Timer.c **** }
+ 530              		.loc 1 72 1
+ 531 0020 00BF     		nop
+ 532 0022 0C37     		adds	r7, r7, #12
+ 533              		.cfi_def_cfa_offset 4
+ 534 0024 BD46     		mov	sp, r7
+ 535              		.cfi_def_cfa_register 13
+ 536              		@ sp needed
+ 537 0026 80BC     		pop	{r7}
+ 538              		.cfi_restore 7
+ 539              		.cfi_def_cfa_offset 0
+ 540 0028 7047     		bx	lr
+ 541              	.L21:
+ 542 002a 00BF     		.align	2
+ 543              	.L20:
+ 544 002c 67666666 		.word	1717986919
+ 545 0030 00000000 		.word	timer7_counter
+ 546 0034 00000000 		.word	timer7_flag
+ 547              		.cfi_endproc
+ 548              	.LFE71:
+ 550              		.section	.text.setTimer8,"ax",%progbits
+ 551              		.align	1
+ 552              		.global	setTimer8
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s 			page 11
+
+
+ 553              		.syntax unified
+ 554              		.thumb
+ 555              		.thumb_func
+ 557              	setTimer8:
+ 558              	.LFB72:
+  73:./Core/Src/Software_Timer.c **** 
+  74:./Core/Src/Software_Timer.c **** void setTimer8(int duration){
+ 559              		.loc 1 74 29
+ 560              		.cfi_startproc
+ 561              		@ args = 0, pretend = 0, frame = 8
+ 562              		@ frame_needed = 1, uses_anonymous_args = 0
+ 563              		@ link register save eliminated.
+ 564 0000 80B4     		push	{r7}
+ 565              		.cfi_def_cfa_offset 4
+ 566              		.cfi_offset 7, -4
+ 567 0002 83B0     		sub	sp, sp, #12
+ 568              		.cfi_def_cfa_offset 16
+ 569 0004 00AF     		add	r7, sp, #0
+ 570              		.cfi_def_cfa_register 7
+ 571 0006 7860     		str	r0, [r7, #4]
+  75:./Core/Src/Software_Timer.c **** 	timer8_counter = duration/CLOCK_TIMER;
+ 572              		.loc 1 75 27
+ 573 0008 7B68     		ldr	r3, [r7, #4]
+ 574 000a 084A     		ldr	r2, .L23
+ 575 000c 82FB0312 		smull	r1, r2, r2, r3
+ 576 0010 9210     		asrs	r2, r2, #2
+ 577 0012 DB17     		asrs	r3, r3, #31
+ 578 0014 D31A     		subs	r3, r2, r3
+ 579              		.loc 1 75 17
+ 580 0016 064A     		ldr	r2, .L23+4
+ 581 0018 1360     		str	r3, [r2]
+  76:./Core/Src/Software_Timer.c **** 	timer8_flag = 0;
+ 582              		.loc 1 76 14
+ 583 001a 064B     		ldr	r3, .L23+8
+ 584 001c 0022     		movs	r2, #0
+ 585 001e 1A60     		str	r2, [r3]
+  77:./Core/Src/Software_Timer.c **** }
+ 586              		.loc 1 77 1
+ 587 0020 00BF     		nop
+ 588 0022 0C37     		adds	r7, r7, #12
+ 589              		.cfi_def_cfa_offset 4
+ 590 0024 BD46     		mov	sp, r7
+ 591              		.cfi_def_cfa_register 13
+ 592              		@ sp needed
+ 593 0026 80BC     		pop	{r7}
+ 594              		.cfi_restore 7
+ 595              		.cfi_def_cfa_offset 0
+ 596 0028 7047     		bx	lr
+ 597              	.L24:
+ 598 002a 00BF     		.align	2
+ 599              	.L23:
+ 600 002c 67666666 		.word	1717986919
+ 601 0030 00000000 		.word	timer8_counter
+ 602 0034 00000000 		.word	timer8_flag
+ 603              		.cfi_endproc
+ 604              	.LFE72:
+ 606              		.section	.text.setTimer9,"ax",%progbits
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s 			page 12
+
+
+ 607              		.align	1
+ 608              		.global	setTimer9
+ 609              		.syntax unified
+ 610              		.thumb
+ 611              		.thumb_func
+ 613              	setTimer9:
+ 614              	.LFB73:
+  78:./Core/Src/Software_Timer.c **** 
+  79:./Core/Src/Software_Timer.c **** void setTimer9(int duration){
+ 615              		.loc 1 79 29
+ 616              		.cfi_startproc
+ 617              		@ args = 0, pretend = 0, frame = 8
+ 618              		@ frame_needed = 1, uses_anonymous_args = 0
+ 619              		@ link register save eliminated.
+ 620 0000 80B4     		push	{r7}
+ 621              		.cfi_def_cfa_offset 4
+ 622              		.cfi_offset 7, -4
+ 623 0002 83B0     		sub	sp, sp, #12
+ 624              		.cfi_def_cfa_offset 16
+ 625 0004 00AF     		add	r7, sp, #0
+ 626              		.cfi_def_cfa_register 7
+ 627 0006 7860     		str	r0, [r7, #4]
+  80:./Core/Src/Software_Timer.c **** 	timer9_counter = duration/CLOCK_TIMER;
+ 628              		.loc 1 80 27
+ 629 0008 7B68     		ldr	r3, [r7, #4]
+ 630 000a 084A     		ldr	r2, .L26
+ 631 000c 82FB0312 		smull	r1, r2, r2, r3
+ 632 0010 9210     		asrs	r2, r2, #2
+ 633 0012 DB17     		asrs	r3, r3, #31
+ 634 0014 D31A     		subs	r3, r2, r3
+ 635              		.loc 1 80 17
+ 636 0016 064A     		ldr	r2, .L26+4
+ 637 0018 1360     		str	r3, [r2]
+  81:./Core/Src/Software_Timer.c **** 	timer9_flag = 0;
+ 638              		.loc 1 81 14
+ 639 001a 064B     		ldr	r3, .L26+8
+ 640 001c 0022     		movs	r2, #0
+ 641 001e 1A60     		str	r2, [r3]
+  82:./Core/Src/Software_Timer.c **** }
+ 642              		.loc 1 82 1
+ 643 0020 00BF     		nop
+ 644 0022 0C37     		adds	r7, r7, #12
+ 645              		.cfi_def_cfa_offset 4
+ 646 0024 BD46     		mov	sp, r7
+ 647              		.cfi_def_cfa_register 13
+ 648              		@ sp needed
+ 649 0026 80BC     		pop	{r7}
+ 650              		.cfi_restore 7
+ 651              		.cfi_def_cfa_offset 0
+ 652 0028 7047     		bx	lr
+ 653              	.L27:
+ 654 002a 00BF     		.align	2
+ 655              	.L26:
+ 656 002c 67666666 		.word	1717986919
+ 657 0030 00000000 		.word	timer9_counter
+ 658 0034 00000000 		.word	timer9_flag
+ 659              		.cfi_endproc
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s 			page 13
+
+
+ 660              	.LFE73:
+ 662              		.section	.text.setTimer10,"ax",%progbits
+ 663              		.align	1
+ 664              		.global	setTimer10
+ 665              		.syntax unified
+ 666              		.thumb
+ 667              		.thumb_func
+ 669              	setTimer10:
+ 670              	.LFB74:
+  83:./Core/Src/Software_Timer.c **** 
+  84:./Core/Src/Software_Timer.c **** void setTimer10(int duration){
+ 671              		.loc 1 84 30
+ 672              		.cfi_startproc
+ 673              		@ args = 0, pretend = 0, frame = 8
+ 674              		@ frame_needed = 1, uses_anonymous_args = 0
+ 675              		@ link register save eliminated.
+ 676 0000 80B4     		push	{r7}
+ 677              		.cfi_def_cfa_offset 4
+ 678              		.cfi_offset 7, -4
+ 679 0002 83B0     		sub	sp, sp, #12
+ 680              		.cfi_def_cfa_offset 16
+ 681 0004 00AF     		add	r7, sp, #0
+ 682              		.cfi_def_cfa_register 7
+ 683 0006 7860     		str	r0, [r7, #4]
+  85:./Core/Src/Software_Timer.c **** 	timer10_counter = duration/CLOCK_TIMER;
+ 684              		.loc 1 85 28
+ 685 0008 7B68     		ldr	r3, [r7, #4]
+ 686 000a 084A     		ldr	r2, .L29
+ 687 000c 82FB0312 		smull	r1, r2, r2, r3
+ 688 0010 9210     		asrs	r2, r2, #2
+ 689 0012 DB17     		asrs	r3, r3, #31
+ 690 0014 D31A     		subs	r3, r2, r3
+ 691              		.loc 1 85 18
+ 692 0016 064A     		ldr	r2, .L29+4
+ 693 0018 1360     		str	r3, [r2]
+  86:./Core/Src/Software_Timer.c **** 	timer10_flag = 0;
+ 694              		.loc 1 86 15
+ 695 001a 064B     		ldr	r3, .L29+8
+ 696 001c 0022     		movs	r2, #0
+ 697 001e 1A60     		str	r2, [r3]
+  87:./Core/Src/Software_Timer.c **** }
+ 698              		.loc 1 87 1
+ 699 0020 00BF     		nop
+ 700 0022 0C37     		adds	r7, r7, #12
+ 701              		.cfi_def_cfa_offset 4
+ 702 0024 BD46     		mov	sp, r7
+ 703              		.cfi_def_cfa_register 13
+ 704              		@ sp needed
+ 705 0026 80BC     		pop	{r7}
+ 706              		.cfi_restore 7
+ 707              		.cfi_def_cfa_offset 0
+ 708 0028 7047     		bx	lr
+ 709              	.L30:
+ 710 002a 00BF     		.align	2
+ 711              	.L29:
+ 712 002c 67666666 		.word	1717986919
+ 713 0030 00000000 		.word	timer10_counter
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s 			page 14
+
+
+ 714 0034 00000000 		.word	timer10_flag
+ 715              		.cfi_endproc
+ 716              	.LFE74:
+ 718              		.section	.text.timerRun,"ax",%progbits
+ 719              		.align	1
+ 720              		.global	timerRun
+ 721              		.syntax unified
+ 722              		.thumb
+ 723              		.thumb_func
+ 725              	timerRun:
+ 726              	.LFB75:
+  88:./Core/Src/Software_Timer.c **** //**********
+  89:./Core/Src/Software_Timer.c **** 
+  90:./Core/Src/Software_Timer.c **** 
+  91:./Core/Src/Software_Timer.c **** 
+  92:./Core/Src/Software_Timer.c **** void timerRun(){
+ 727              		.loc 1 92 16
+ 728              		.cfi_startproc
+ 729              		@ args = 0, pretend = 0, frame = 0
+ 730              		@ frame_needed = 1, uses_anonymous_args = 0
+ 731              		@ link register save eliminated.
+ 732 0000 80B4     		push	{r7}
+ 733              		.cfi_def_cfa_offset 4
+ 734              		.cfi_offset 7, -4
+ 735 0002 00AF     		add	r7, sp, #0
+ 736              		.cfi_def_cfa_register 7
+  93:./Core/Src/Software_Timer.c **** 	if (timer1_counter == 1 ){
+ 737              		.loc 1 93 21
+ 738 0004 424B     		ldr	r3, .L53
+ 739 0006 1B68     		ldr	r3, [r3]
+ 740              		.loc 1 93 5
+ 741 0008 012B     		cmp	r3, #1
+ 742 000a 03D1     		bne	.L32
+  94:./Core/Src/Software_Timer.c **** 		//BEGIN-TODO
+  95:./Core/Src/Software_Timer.c **** 		timer1_flag = 1;
+ 743              		.loc 1 95 15
+ 744 000c 414B     		ldr	r3, .L53+4
+ 745 000e 0122     		movs	r2, #1
+ 746 0010 1A60     		str	r2, [r3]
+ 747 0012 04E0     		b	.L33
+ 748              	.L32:
+  96:./Core/Src/Software_Timer.c **** 		//END-TODO
+  97:./Core/Src/Software_Timer.c **** 	}
+  98:./Core/Src/Software_Timer.c **** 	else timer1_counter--;
+ 749              		.loc 1 98 21
+ 750 0014 3E4B     		ldr	r3, .L53
+ 751 0016 1B68     		ldr	r3, [r3]
+ 752 0018 013B     		subs	r3, r3, #1
+ 753 001a 3D4A     		ldr	r2, .L53
+ 754 001c 1360     		str	r3, [r2]
+ 755              	.L33:
+  99:./Core/Src/Software_Timer.c **** 
+ 100:./Core/Src/Software_Timer.c **** 	if (timer2_counter == 1 ) timer2_flag = 1;
+ 756              		.loc 1 100 21
+ 757 001e 3E4B     		ldr	r3, .L53+8
+ 758 0020 1B68     		ldr	r3, [r3]
+ 759              		.loc 1 100 5
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s 			page 15
+
+
+ 760 0022 012B     		cmp	r3, #1
+ 761 0024 03D1     		bne	.L34
+ 762              		.loc 1 100 40 discriminator 1
+ 763 0026 3D4B     		ldr	r3, .L53+12
+ 764 0028 0122     		movs	r2, #1
+ 765 002a 1A60     		str	r2, [r3]
+ 766 002c 04E0     		b	.L35
+ 767              	.L34:
+ 101:./Core/Src/Software_Timer.c **** 	else timer2_counter--;
+ 768              		.loc 1 101 21
+ 769 002e 3A4B     		ldr	r3, .L53+8
+ 770 0030 1B68     		ldr	r3, [r3]
+ 771 0032 013B     		subs	r3, r3, #1
+ 772 0034 384A     		ldr	r2, .L53+8
+ 773 0036 1360     		str	r3, [r2]
+ 774              	.L35:
+ 102:./Core/Src/Software_Timer.c **** 
+ 103:./Core/Src/Software_Timer.c **** 	if (timer3_counter == 1 ) timer3_flag = 1;
+ 775              		.loc 1 103 21
+ 776 0038 394B     		ldr	r3, .L53+16
+ 777 003a 1B68     		ldr	r3, [r3]
+ 778              		.loc 1 103 5
+ 779 003c 012B     		cmp	r3, #1
+ 780 003e 03D1     		bne	.L36
+ 781              		.loc 1 103 40 discriminator 1
+ 782 0040 384B     		ldr	r3, .L53+20
+ 783 0042 0122     		movs	r2, #1
+ 784 0044 1A60     		str	r2, [r3]
+ 785 0046 04E0     		b	.L37
+ 786              	.L36:
+ 104:./Core/Src/Software_Timer.c **** 	else timer3_counter--;
+ 787              		.loc 1 104 21
+ 788 0048 354B     		ldr	r3, .L53+16
+ 789 004a 1B68     		ldr	r3, [r3]
+ 790 004c 013B     		subs	r3, r3, #1
+ 791 004e 344A     		ldr	r2, .L53+16
+ 792 0050 1360     		str	r3, [r2]
+ 793              	.L37:
+ 105:./Core/Src/Software_Timer.c **** 
+ 106:./Core/Src/Software_Timer.c **** 	if (timer4_counter == 1 ) timer4_flag = 1;
+ 794              		.loc 1 106 21
+ 795 0052 354B     		ldr	r3, .L53+24
+ 796 0054 1B68     		ldr	r3, [r3]
+ 797              		.loc 1 106 5
+ 798 0056 012B     		cmp	r3, #1
+ 799 0058 03D1     		bne	.L38
+ 800              		.loc 1 106 40 discriminator 1
+ 801 005a 344B     		ldr	r3, .L53+28
+ 802 005c 0122     		movs	r2, #1
+ 803 005e 1A60     		str	r2, [r3]
+ 804 0060 04E0     		b	.L39
+ 805              	.L38:
+ 107:./Core/Src/Software_Timer.c **** 	else timer4_counter--;
+ 806              		.loc 1 107 21
+ 807 0062 314B     		ldr	r3, .L53+24
+ 808 0064 1B68     		ldr	r3, [r3]
+ 809 0066 013B     		subs	r3, r3, #1
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s 			page 16
+
+
+ 810 0068 2F4A     		ldr	r2, .L53+24
+ 811 006a 1360     		str	r3, [r2]
+ 812              	.L39:
+ 108:./Core/Src/Software_Timer.c **** 
+ 109:./Core/Src/Software_Timer.c **** 	if (timer5_counter == 1 ) timer5_flag = 1;
+ 813              		.loc 1 109 21
+ 814 006c 304B     		ldr	r3, .L53+32
+ 815 006e 1B68     		ldr	r3, [r3]
+ 816              		.loc 1 109 5
+ 817 0070 012B     		cmp	r3, #1
+ 818 0072 03D1     		bne	.L40
+ 819              		.loc 1 109 40 discriminator 1
+ 820 0074 2F4B     		ldr	r3, .L53+36
+ 821 0076 0122     		movs	r2, #1
+ 822 0078 1A60     		str	r2, [r3]
+ 823 007a 04E0     		b	.L41
+ 824              	.L40:
+ 110:./Core/Src/Software_Timer.c **** 	else timer5_counter--;
+ 825              		.loc 1 110 21
+ 826 007c 2C4B     		ldr	r3, .L53+32
+ 827 007e 1B68     		ldr	r3, [r3]
+ 828 0080 013B     		subs	r3, r3, #1
+ 829 0082 2B4A     		ldr	r2, .L53+32
+ 830 0084 1360     		str	r3, [r2]
+ 831              	.L41:
+ 111:./Core/Src/Software_Timer.c **** 
+ 112:./Core/Src/Software_Timer.c **** 	if (timer6_counter == 1 ) timer6_flag = 1;
+ 832              		.loc 1 112 21
+ 833 0086 2C4B     		ldr	r3, .L53+40
+ 834 0088 1B68     		ldr	r3, [r3]
+ 835              		.loc 1 112 5
+ 836 008a 012B     		cmp	r3, #1
+ 837 008c 03D1     		bne	.L42
+ 838              		.loc 1 112 40 discriminator 1
+ 839 008e 2B4B     		ldr	r3, .L53+44
+ 840 0090 0122     		movs	r2, #1
+ 841 0092 1A60     		str	r2, [r3]
+ 842 0094 04E0     		b	.L43
+ 843              	.L42:
+ 113:./Core/Src/Software_Timer.c **** 	else timer6_counter--;
+ 844              		.loc 1 113 21
+ 845 0096 284B     		ldr	r3, .L53+40
+ 846 0098 1B68     		ldr	r3, [r3]
+ 847 009a 013B     		subs	r3, r3, #1
+ 848 009c 264A     		ldr	r2, .L53+40
+ 849 009e 1360     		str	r3, [r2]
+ 850              	.L43:
+ 114:./Core/Src/Software_Timer.c **** 
+ 115:./Core/Src/Software_Timer.c **** 
+ 116:./Core/Src/Software_Timer.c **** 	if (timer7_counter == 1 ) timer7_flag = 1;
+ 851              		.loc 1 116 21
+ 852 00a0 274B     		ldr	r3, .L53+48
+ 853 00a2 1B68     		ldr	r3, [r3]
+ 854              		.loc 1 116 5
+ 855 00a4 012B     		cmp	r3, #1
+ 856 00a6 03D1     		bne	.L44
+ 857              		.loc 1 116 40 discriminator 1
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s 			page 17
+
+
+ 858 00a8 264B     		ldr	r3, .L53+52
+ 859 00aa 0122     		movs	r2, #1
+ 860 00ac 1A60     		str	r2, [r3]
+ 861 00ae 04E0     		b	.L45
+ 862              	.L44:
+ 117:./Core/Src/Software_Timer.c **** 	else timer7_counter--;
+ 863              		.loc 1 117 21
+ 864 00b0 234B     		ldr	r3, .L53+48
+ 865 00b2 1B68     		ldr	r3, [r3]
+ 866 00b4 013B     		subs	r3, r3, #1
+ 867 00b6 224A     		ldr	r2, .L53+48
+ 868 00b8 1360     		str	r3, [r2]
+ 869              	.L45:
+ 118:./Core/Src/Software_Timer.c **** 
+ 119:./Core/Src/Software_Timer.c **** 	if (timer8_counter == 1 ) timer8_flag = 1;
+ 870              		.loc 1 119 21
+ 871 00ba 234B     		ldr	r3, .L53+56
+ 872 00bc 1B68     		ldr	r3, [r3]
+ 873              		.loc 1 119 5
+ 874 00be 012B     		cmp	r3, #1
+ 875 00c0 03D1     		bne	.L46
+ 876              		.loc 1 119 40 discriminator 1
+ 877 00c2 224B     		ldr	r3, .L53+60
+ 878 00c4 0122     		movs	r2, #1
+ 879 00c6 1A60     		str	r2, [r3]
+ 880 00c8 04E0     		b	.L47
+ 881              	.L46:
+ 120:./Core/Src/Software_Timer.c **** 	else timer8_counter--;
+ 882              		.loc 1 120 21
+ 883 00ca 1F4B     		ldr	r3, .L53+56
+ 884 00cc 1B68     		ldr	r3, [r3]
+ 885 00ce 013B     		subs	r3, r3, #1
+ 886 00d0 1D4A     		ldr	r2, .L53+56
+ 887 00d2 1360     		str	r3, [r2]
+ 888              	.L47:
+ 121:./Core/Src/Software_Timer.c **** 
+ 122:./Core/Src/Software_Timer.c **** 	if (timer9_counter == 1 ) timer9_flag = 1;
+ 889              		.loc 1 122 21
+ 890 00d4 1E4B     		ldr	r3, .L53+64
+ 891 00d6 1B68     		ldr	r3, [r3]
+ 892              		.loc 1 122 5
+ 893 00d8 012B     		cmp	r3, #1
+ 894 00da 03D1     		bne	.L48
+ 895              		.loc 1 122 40 discriminator 1
+ 896 00dc 1D4B     		ldr	r3, .L53+68
+ 897 00de 0122     		movs	r2, #1
+ 898 00e0 1A60     		str	r2, [r3]
+ 899 00e2 04E0     		b	.L49
+ 900              	.L48:
+ 123:./Core/Src/Software_Timer.c **** 	else timer9_counter--;
+ 901              		.loc 1 123 21
+ 902 00e4 1A4B     		ldr	r3, .L53+64
+ 903 00e6 1B68     		ldr	r3, [r3]
+ 904 00e8 013B     		subs	r3, r3, #1
+ 905 00ea 194A     		ldr	r2, .L53+64
+ 906 00ec 1360     		str	r3, [r2]
+ 907              	.L49:
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s 			page 18
+
+
+ 124:./Core/Src/Software_Timer.c **** 
+ 125:./Core/Src/Software_Timer.c **** 	if (timer10_counter == 1 ) timer10_flag = 1;
+ 908              		.loc 1 125 22
+ 909 00ee 1A4B     		ldr	r3, .L53+72
+ 910 00f0 1B68     		ldr	r3, [r3]
+ 911              		.loc 1 125 5
+ 912 00f2 012B     		cmp	r3, #1
+ 913 00f4 03D1     		bne	.L50
+ 914              		.loc 1 125 42 discriminator 1
+ 915 00f6 194B     		ldr	r3, .L53+76
+ 916 00f8 0122     		movs	r2, #1
+ 917 00fa 1A60     		str	r2, [r3]
+ 126:./Core/Src/Software_Timer.c **** 	else timer10_counter--;
+ 127:./Core/Src/Software_Timer.c **** 
+ 128:./Core/Src/Software_Timer.c **** 
+ 129:./Core/Src/Software_Timer.c **** }
+ 918              		.loc 1 129 1 discriminator 1
+ 919 00fc 04E0     		b	.L52
+ 920              	.L50:
+ 126:./Core/Src/Software_Timer.c **** 	else timer10_counter--;
+ 921              		.loc 1 126 22
+ 922 00fe 164B     		ldr	r3, .L53+72
+ 923 0100 1B68     		ldr	r3, [r3]
+ 924 0102 013B     		subs	r3, r3, #1
+ 925 0104 144A     		ldr	r2, .L53+72
+ 926 0106 1360     		str	r3, [r2]
+ 927              	.L52:
+ 928              		.loc 1 129 1
+ 929 0108 00BF     		nop
+ 930 010a BD46     		mov	sp, r7
+ 931              		.cfi_def_cfa_register 13
+ 932              		@ sp needed
+ 933 010c 80BC     		pop	{r7}
+ 934              		.cfi_restore 7
+ 935              		.cfi_def_cfa_offset 0
+ 936 010e 7047     		bx	lr
+ 937              	.L54:
+ 938              		.align	2
+ 939              	.L53:
+ 940 0110 00000000 		.word	timer1_counter
+ 941 0114 00000000 		.word	timer1_flag
+ 942 0118 00000000 		.word	timer2_counter
+ 943 011c 00000000 		.word	timer2_flag
+ 944 0120 00000000 		.word	timer3_counter
+ 945 0124 00000000 		.word	timer3_flag
+ 946 0128 00000000 		.word	timer4_counter
+ 947 012c 00000000 		.word	timer4_flag
+ 948 0130 00000000 		.word	timer5_counter
+ 949 0134 00000000 		.word	timer5_flag
+ 950 0138 00000000 		.word	timer6_counter
+ 951 013c 00000000 		.word	timer6_flag
+ 952 0140 00000000 		.word	timer7_counter
+ 953 0144 00000000 		.word	timer7_flag
+ 954 0148 00000000 		.word	timer8_counter
+ 955 014c 00000000 		.word	timer8_flag
+ 956 0150 00000000 		.word	timer9_counter
+ 957 0154 00000000 		.word	timer9_flag
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s 			page 19
+
+
+ 958 0158 00000000 		.word	timer10_counter
+ 959 015c 00000000 		.word	timer10_flag
+ 960              		.cfi_endproc
+ 961              	.LFE75:
+ 963              		.text
+ 964              	.Letext0:
+ 965              		.file 2 "Core/Inc/Software_Timer.h"
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s 			page 20
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 Software_Timer.c
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:22     .bss.timer1_counter:0000000000000000 timer1_counter
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:19     .bss.timer1_counter:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:29     .bss.timer2_counter:0000000000000000 timer2_counter
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:26     .bss.timer2_counter:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:36     .bss.timer3_counter:0000000000000000 timer3_counter
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:33     .bss.timer3_counter:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:43     .bss.timer4_counter:0000000000000000 timer4_counter
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:40     .bss.timer4_counter:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:50     .bss.timer5_counter:0000000000000000 timer5_counter
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:47     .bss.timer5_counter:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:57     .bss.timer6_counter:0000000000000000 timer6_counter
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:54     .bss.timer6_counter:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:64     .bss.timer7_counter:0000000000000000 timer7_counter
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:61     .bss.timer7_counter:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:71     .bss.timer8_counter:0000000000000000 timer8_counter
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:68     .bss.timer8_counter:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:78     .bss.timer9_counter:0000000000000000 timer9_counter
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:75     .bss.timer9_counter:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:85     .bss.timer10_counter:0000000000000000 timer10_counter
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:82     .bss.timer10_counter:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:92     .bss.timer1_flag:0000000000000000 timer1_flag
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:89     .bss.timer1_flag:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:99     .bss.timer2_flag:0000000000000000 timer2_flag
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:96     .bss.timer2_flag:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:106    .bss.timer3_flag:0000000000000000 timer3_flag
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:103    .bss.timer3_flag:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:113    .bss.timer4_flag:0000000000000000 timer4_flag
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:110    .bss.timer4_flag:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:120    .bss.timer5_flag:0000000000000000 timer5_flag
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:117    .bss.timer5_flag:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:127    .bss.timer6_flag:0000000000000000 timer6_flag
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:124    .bss.timer6_flag:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:134    .bss.timer7_flag:0000000000000000 timer7_flag
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:131    .bss.timer7_flag:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:141    .bss.timer8_flag:0000000000000000 timer8_flag
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:138    .bss.timer8_flag:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:148    .bss.timer9_flag:0000000000000000 timer9_flag
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:145    .bss.timer9_flag:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:155    .bss.timer10_flag:0000000000000000 timer10_flag
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:152    .bss.timer10_flag:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:158    .text.setTimer1:0000000000000000 $t
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:164    .text.setTimer1:0000000000000000 setTimer1
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:208    .text.setTimer1:000000000000002c $d
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:215    .text.setTimer2:0000000000000000 $t
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:221    .text.setTimer2:0000000000000000 setTimer2
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:264    .text.setTimer2:000000000000002c $d
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:271    .text.setTimer3:0000000000000000 $t
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:277    .text.setTimer3:0000000000000000 setTimer3
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:320    .text.setTimer3:000000000000002c $d
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:327    .text.setTimer4:0000000000000000 $t
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:333    .text.setTimer4:0000000000000000 setTimer4
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:376    .text.setTimer4:000000000000002c $d
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:383    .text.setTimer5:0000000000000000 $t
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:389    .text.setTimer5:0000000000000000 setTimer5
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:432    .text.setTimer5:000000000000002c $d
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s 			page 21
+
+
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:439    .text.setTimer6:0000000000000000 $t
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:445    .text.setTimer6:0000000000000000 setTimer6
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:488    .text.setTimer6:000000000000002c $d
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:495    .text.setTimer7:0000000000000000 $t
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:501    .text.setTimer7:0000000000000000 setTimer7
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:544    .text.setTimer7:000000000000002c $d
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:551    .text.setTimer8:0000000000000000 $t
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:557    .text.setTimer8:0000000000000000 setTimer8
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:600    .text.setTimer8:000000000000002c $d
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:607    .text.setTimer9:0000000000000000 $t
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:613    .text.setTimer9:0000000000000000 setTimer9
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:656    .text.setTimer9:000000000000002c $d
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:663    .text.setTimer10:0000000000000000 $t
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:669    .text.setTimer10:0000000000000000 setTimer10
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:712    .text.setTimer10:000000000000002c $d
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:719    .text.timerRun:0000000000000000 $t
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:725    .text.timerRun:0000000000000000 timerRun
+C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s:940    .text.timerRun:0000000000000110 $d
+                           .group:0000000000000000 wm4.0.cb5f01749778df26340c4505df3d34d0
+                           .group:0000000000000000 wm4.stm32f1xx_hal_conf.h.22.9203001c8f439cc72798ab2500313551
+                           .group:0000000000000000 wm4.stm32f1xx.h.39.208bb8a61c892b7c37d899c49a031330
+                           .group:0000000000000000 wm4.stm32f103xb.h.38.ec967d5ad9d3269cb0788eebda048e38
+                           .group:0000000000000000 wm4._newlib_version.h.4.bfdf54b0af045d4a71376ae00f63a22c
+                           .group:0000000000000000 wm4.features.h.33.318b64d71e0957639cfb30f1db1f7ec8
+                           .group:0000000000000000 wm4._default_types.h.15.247e5cd201eca3442cbf5404108c4935
+                           .group:0000000000000000 wm4._intsup.h.10.48bafbb683905c4daa4565a85aeeb264
+                           .group:0000000000000000 wm4._stdint.h.10.c24fa3af3bc1706662bb5593a907e841
+                           .group:0000000000000000 wm4.stdint.h.23.d53047a68f4a85177f80b422d52785ed
+                           .group:0000000000000000 wm4.cmsis_version.h.32.4d5822004c01a829a975260e854b5f8e
+                           .group:0000000000000000 wm4.core_cm3.h.66.fc46cac19810db8f98d67da7ef88f42c
+                           .group:0000000000000000 wm4.cmsis_gcc.h.26.4f5798e999d5690b80e6ded3ecc94b37
+                           .group:0000000000000000 wm4.core_cm3.h.127.f4474120f1a7524deb56f9d74ff175da
+                           .group:0000000000000000 wm4.stm32f103xb.h.573.10249aa7473ca93be896fed94046a725
+                           .group:0000000000000000 wm4.stm32f1xx.h.162.96b09079a093c34dbd7f0b85cbd0ddee
+                           .group:0000000000000000 wm4.stm32_hal_legacy.h.23.91ba5b544a4c2be2620a1e7ff0049e10
+                           .group:0000000000000000 wm4.stddef.h.39.144cf5ddcd53cbfdac30259dc1a6c87f
+                           .group:0000000000000000 wm4.stm32f1xx_hal_def.h.57.18d01ce1aa74e9fb44dbf16f821a574a
+                           .group:0000000000000000 wm4.stm32f1xx_hal_rcc.h.95.21591bbc513aaa813c0b8640c3b32517
+                           .group:0000000000000000 wm4.stm32f1xx_hal_rcc_ex.h.22.8763f99bc1e3e2dcf0febe9161d81b37
+                           .group:0000000000000000 wm4.stm32f1xx_hal_rcc.h.1202.f8e5f9e0cf4eef7840facf5396029056
+                           .group:0000000000000000 wm4.stm32f1xx_hal_gpio.h.22.fa638d688dcc57ca806fe6a7831b0d04
+                           .group:0000000000000000 wm4.stm32f1xx_hal_gpio_ex.h.22.51a50ef3512cd78017ce666a32d364bf
+                           .group:0000000000000000 wm4.stm32f1xx_hal_gpio.h.263.f5ebf2f545ade59412ab9261c8e35dc4
+                           .group:0000000000000000 wm4.stm32f1xx_hal_exti.h.22.e26491d042c8079c3ca67eca341af862
+                           .group:0000000000000000 wm4.stm32f1xx_hal_dma.h.22.3c14338534886827bf3aeaa2a7f412a1
+                           .group:0000000000000000 wm4.stm32f1xx_hal_dma_ex.h.22.001ac4d7f81ccbdcae49bd65c13858c8
+                           .group:0000000000000000 wm4.stm32f1xx_hal_dma.h.409.cafcd2cfe701091535636be537c18293
+                           .group:0000000000000000 wm4.stm32f1xx_hal_cortex.h.22.b5f4174bb6a50d95405567b8f50e0900
+                           .group:0000000000000000 wm4.stm32f1xx_hal_flash.h.22.5cea9a7210e6315b41724b47b5fdf203
+                           .group:0000000000000000 wm4.stm32f1xx_hal_flash_ex.h.22.d4e19c21f2a86fa2f8ec2c2d5f1ab2af
+                           .group:0000000000000000 wm4.stm32f1xx_hal_pwr.h.22.3438c476faafc3240bf146f143df3fcd
+                           .group:0000000000000000 wm4.stm32f1xx_hal_tim.h.22.a16e206564e97dbace9faae59a0d6008
+                           .group:0000000000000000 wm4.stm32f1xx_hal_uart.h.22.5f7992e497faa36aa98f09f7214f4dbb
+                           .group:0000000000000000 wm4.stm32f1xx_hal.h.88.91065c0692bed6019c34f1e9c00589fd
+                           .group:0000000000000000 wm4.main.h.62.215d12b3f54334165c3eb9a2c23b6466
+                           .group:0000000000000000 wm4.button.h.13.502414bc4624a6b62bdc27e8db5e0ac4
+                           .group:0000000000000000 wm4.global.h.15.407c81abcec812c5d10654add0683a73
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccB1XOkh.s 			page 22
+
+
+
+NO UNDEFINED SYMBOLS

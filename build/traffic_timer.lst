@@ -1,0 +1,639 @@
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJqufAB.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.arch armv7-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"traffic_timer.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.global	RED1_flag
+  18              		.section	.bss.RED1_flag,"aw",%nobits
+  19              		.align	2
+  22              	RED1_flag:
+  23 0000 00000000 		.space	4
+  24              		.global	RED2_flag
+  25              		.section	.bss.RED2_flag,"aw",%nobits
+  26              		.align	2
+  29              	RED2_flag:
+  30 0000 00000000 		.space	4
+  31              		.global	YELLOW1_flag
+  32              		.section	.bss.YELLOW1_flag,"aw",%nobits
+  33              		.align	2
+  36              	YELLOW1_flag:
+  37 0000 00000000 		.space	4
+  38              		.global	YELLOW2_flag
+  39              		.section	.bss.YELLOW2_flag,"aw",%nobits
+  40              		.align	2
+  43              	YELLOW2_flag:
+  44 0000 00000000 		.space	4
+  45              		.global	GREEN1_flag
+  46              		.section	.bss.GREEN1_flag,"aw",%nobits
+  47              		.align	2
+  50              	GREEN1_flag:
+  51 0000 00000000 		.space	4
+  52              		.global	GREEN2_flag
+  53              		.section	.bss.GREEN2_flag,"aw",%nobits
+  54              		.align	2
+  57              	GREEN2_flag:
+  58 0000 00000000 		.space	4
+  59              		.global	status_light1
+  60              		.section	.data.status_light1,"aw"
+  61              		.align	2
+  64              	status_light1:
+  65 0000 13000000 		.word	19
+  66              		.global	status_light2
+  67              		.section	.data.status_light2,"aw"
+  68              		.align	2
+  71              	status_light2:
+  72 0000 17000000 		.word	23
+  73              		.section	.text.light_control_1,"ax",%progbits
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJqufAB.s 			page 2
+
+
+  74              		.align	1
+  75              		.global	light_control_1
+  76              		.syntax unified
+  77              		.thumb
+  78              		.thumb_func
+  80              	light_control_1:
+  81              	.LFB65:
+  82              		.file 1 "./Core/Src/traffic_timer.c"
+   1:./Core/Src/traffic_timer.c **** /*
+   2:./Core/Src/traffic_timer.c ****  * traffic_timer.c
+   3:./Core/Src/traffic_timer.c ****  *
+   4:./Core/Src/traffic_timer.c ****  *  Created on: Oct 31, 2022
+   5:./Core/Src/traffic_timer.c ****  *      Author: ASUS
+   6:./Core/Src/traffic_timer.c ****  */
+   7:./Core/Src/traffic_timer.c **** 
+   8:./Core/Src/traffic_timer.c **** #include "traffic_timer.h"
+   9:./Core/Src/traffic_timer.c **** 
+  10:./Core/Src/traffic_timer.c **** 
+  11:./Core/Src/traffic_timer.c **** int RED1_flag = 0;
+  12:./Core/Src/traffic_timer.c **** int RED2_flag = 0;
+  13:./Core/Src/traffic_timer.c **** int YELLOW1_flag = 0;
+  14:./Core/Src/traffic_timer.c **** int YELLOW2_flag = 0;
+  15:./Core/Src/traffic_timer.c **** int GREEN1_flag = 0;
+  16:./Core/Src/traffic_timer.c **** int GREEN2_flag = 0;
+  17:./Core/Src/traffic_timer.c **** 
+  18:./Core/Src/traffic_timer.c **** 
+  19:./Core/Src/traffic_timer.c **** int status_light1 = INIT1;
+  20:./Core/Src/traffic_timer.c **** int status_light2 = INIT2;
+  21:./Core/Src/traffic_timer.c **** 
+  22:./Core/Src/traffic_timer.c **** 
+  23:./Core/Src/traffic_timer.c **** void light_control_1(){
+  83              		.loc 1 23 23
+  84              		.cfi_startproc
+  85              		@ args = 0, pretend = 0, frame = 0
+  86              		@ frame_needed = 1, uses_anonymous_args = 0
+  87 0000 80B5     		push	{r7, lr}
+  88              		.cfi_def_cfa_offset 8
+  89              		.cfi_offset 7, -8
+  90              		.cfi_offset 14, -4
+  91 0002 00AF     		add	r7, sp, #0
+  92              		.cfi_def_cfa_register 7
+  24:./Core/Src/traffic_timer.c **** 
+  25:./Core/Src/traffic_timer.c **** 	switch(status_light1){
+  93              		.loc 1 25 2
+  94 0004 314B     		ldr	r3, .L17
+  95 0006 1B68     		ldr	r3, [r3]
+  96 0008 133B     		subs	r3, r3, #19
+  97 000a 032B     		cmp	r3, #3
+  98 000c 54D8     		bhi	.L12
+  99 000e 01A2     		adr	r2, .L4
+ 100 0010 52F823F0 		ldr	pc, [r2, r3, lsl #2]
+ 101              		.p2align 2
+ 102              	.L4:
+ 103 0014 25000000 		.word	.L7+1
+ 104 0018 3B000000 		.word	.L6+1
+ 105 001c 8F000000 		.word	.L5+1
+ 106 0020 65000000 		.word	.L3+1
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJqufAB.s 			page 3
+
+
+ 107              		.p2align 1
+ 108              	.L7:
+  26:./Core/Src/traffic_timer.c **** 
+  27:./Core/Src/traffic_timer.c **** 		case INIT1:
+  28:./Core/Src/traffic_timer.c **** 			setTimer2(timer_red);
+ 109              		.loc 1 28 4
+ 110 0024 2A4B     		ldr	r3, .L17+4
+ 111 0026 1B68     		ldr	r3, [r3]
+ 112 0028 1846     		mov	r0, r3
+ 113 002a FFF7FEFF 		bl	setTimer2
+  29:./Core/Src/traffic_timer.c **** 			LED1_OFF();
+ 114              		.loc 1 29 4
+ 115 002e FFF7FEFF 		bl	LED1_OFF
+  30:./Core/Src/traffic_timer.c **** 			status_light1 = AUTO_RED1;
+ 116              		.loc 1 30 18
+ 117 0032 264B     		ldr	r3, .L17
+ 118 0034 1422     		movs	r2, #20
+ 119 0036 1A60     		str	r2, [r3]
+  31:./Core/Src/traffic_timer.c **** 			break;
+ 120              		.loc 1 31 4
+ 121 0038 45E0     		b	.L8
+ 122              	.L6:
+  32:./Core/Src/traffic_timer.c **** 
+  33:./Core/Src/traffic_timer.c **** 		case AUTO_RED1:
+  34:./Core/Src/traffic_timer.c **** 			RED1_flag = 1;
+ 123              		.loc 1 34 14
+ 124 003a 264B     		ldr	r3, .L17+8
+ 125 003c 0122     		movs	r2, #1
+ 126 003e 1A60     		str	r2, [r3]
+  35:./Core/Src/traffic_timer.c **** 
+  36:./Core/Src/traffic_timer.c **** 			if(timer2_flag == 1){
+ 127              		.loc 1 36 19
+ 128 0040 254B     		ldr	r3, .L17+12
+ 129 0042 1B68     		ldr	r3, [r3]
+ 130              		.loc 1 36 6
+ 131 0044 012B     		cmp	r3, #1
+ 132 0046 39D1     		bne	.L13
+  37:./Core/Src/traffic_timer.c **** 				setTimer2(timer_green);
+ 133              		.loc 1 37 5
+ 134 0048 244B     		ldr	r3, .L17+16
+ 135 004a 1B68     		ldr	r3, [r3]
+ 136 004c 1846     		mov	r0, r3
+ 137 004e FFF7FEFF 		bl	setTimer2
+  38:./Core/Src/traffic_timer.c **** 				LED1_OFF();
+ 138              		.loc 1 38 5
+ 139 0052 FFF7FEFF 		bl	LED1_OFF
+  39:./Core/Src/traffic_timer.c **** 				RED1_flag = 0;
+ 140              		.loc 1 39 15
+ 141 0056 1F4B     		ldr	r3, .L17+8
+ 142 0058 0022     		movs	r2, #0
+ 143 005a 1A60     		str	r2, [r3]
+  40:./Core/Src/traffic_timer.c **** 				status_light1 = AUTO_GREEN1;
+ 144              		.loc 1 40 19
+ 145 005c 1B4B     		ldr	r3, .L17
+ 146 005e 1622     		movs	r2, #22
+ 147 0060 1A60     		str	r2, [r3]
+  41:./Core/Src/traffic_timer.c **** 			}
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJqufAB.s 			page 4
+
+
+  42:./Core/Src/traffic_timer.c **** 			break;
+ 148              		.loc 1 42 4
+ 149 0062 2BE0     		b	.L13
+ 150              	.L3:
+  43:./Core/Src/traffic_timer.c **** 
+  44:./Core/Src/traffic_timer.c **** 		case AUTO_GREEN1:
+  45:./Core/Src/traffic_timer.c **** 			GREEN1_flag = 1;
+ 151              		.loc 1 45 16
+ 152 0064 1E4B     		ldr	r3, .L17+20
+ 153 0066 0122     		movs	r2, #1
+ 154 0068 1A60     		str	r2, [r3]
+  46:./Core/Src/traffic_timer.c **** 
+  47:./Core/Src/traffic_timer.c **** 			if(timer2_flag == 1){
+ 155              		.loc 1 47 19
+ 156 006a 1B4B     		ldr	r3, .L17+12
+ 157 006c 1B68     		ldr	r3, [r3]
+ 158              		.loc 1 47 6
+ 159 006e 012B     		cmp	r3, #1
+ 160 0070 26D1     		bne	.L14
+  48:./Core/Src/traffic_timer.c **** 				setTimer2(timer_yellow);
+ 161              		.loc 1 48 5
+ 162 0072 1C4B     		ldr	r3, .L17+24
+ 163 0074 1B68     		ldr	r3, [r3]
+ 164 0076 1846     		mov	r0, r3
+ 165 0078 FFF7FEFF 		bl	setTimer2
+  49:./Core/Src/traffic_timer.c **** 				LED1_OFF();
+ 166              		.loc 1 49 5
+ 167 007c FFF7FEFF 		bl	LED1_OFF
+  50:./Core/Src/traffic_timer.c **** 				GREEN1_flag = 0;
+ 168              		.loc 1 50 17
+ 169 0080 174B     		ldr	r3, .L17+20
+ 170 0082 0022     		movs	r2, #0
+ 171 0084 1A60     		str	r2, [r3]
+  51:./Core/Src/traffic_timer.c **** 				status_light1 = AUTO_YELLOW1;
+ 172              		.loc 1 51 19
+ 173 0086 114B     		ldr	r3, .L17
+ 174 0088 1522     		movs	r2, #21
+ 175 008a 1A60     		str	r2, [r3]
+  52:./Core/Src/traffic_timer.c **** 			}
+  53:./Core/Src/traffic_timer.c **** 			break;
+ 176              		.loc 1 53 4
+ 177 008c 18E0     		b	.L14
+ 178              	.L5:
+  54:./Core/Src/traffic_timer.c **** 
+  55:./Core/Src/traffic_timer.c **** 		case AUTO_YELLOW1:
+  56:./Core/Src/traffic_timer.c **** 			YELLOW1_flag = 1;
+ 179              		.loc 1 56 17
+ 180 008e 164B     		ldr	r3, .L17+28
+ 181 0090 0122     		movs	r2, #1
+ 182 0092 1A60     		str	r2, [r3]
+  57:./Core/Src/traffic_timer.c **** 
+  58:./Core/Src/traffic_timer.c **** 			if(timer2_flag == 1){
+ 183              		.loc 1 58 19
+ 184 0094 104B     		ldr	r3, .L17+12
+ 185 0096 1B68     		ldr	r3, [r3]
+ 186              		.loc 1 58 6
+ 187 0098 012B     		cmp	r3, #1
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJqufAB.s 			page 5
+
+
+ 188 009a 13D1     		bne	.L15
+  59:./Core/Src/traffic_timer.c **** 				setTimer2(timer_red);
+ 189              		.loc 1 59 5
+ 190 009c 0C4B     		ldr	r3, .L17+4
+ 191 009e 1B68     		ldr	r3, [r3]
+ 192 00a0 1846     		mov	r0, r3
+ 193 00a2 FFF7FEFF 		bl	setTimer2
+  60:./Core/Src/traffic_timer.c **** 				LED1_OFF();
+ 194              		.loc 1 60 5
+ 195 00a6 FFF7FEFF 		bl	LED1_OFF
+  61:./Core/Src/traffic_timer.c **** 				YELLOW1_flag = 0;
+ 196              		.loc 1 61 18
+ 197 00aa 0F4B     		ldr	r3, .L17+28
+ 198 00ac 0022     		movs	r2, #0
+ 199 00ae 1A60     		str	r2, [r3]
+  62:./Core/Src/traffic_timer.c **** 				status_light1 = AUTO_RED1;
+ 200              		.loc 1 62 19
+ 201 00b0 064B     		ldr	r3, .L17
+ 202 00b2 1422     		movs	r2, #20
+ 203 00b4 1A60     		str	r2, [r3]
+  63:./Core/Src/traffic_timer.c **** 			}
+  64:./Core/Src/traffic_timer.c **** 			break;
+ 204              		.loc 1 64 4
+ 205 00b6 05E0     		b	.L15
+ 206              	.L12:
+  65:./Core/Src/traffic_timer.c **** 		default:
+  66:./Core/Src/traffic_timer.c **** 			break;
+ 207              		.loc 1 66 4
+ 208 00b8 00BF     		nop
+ 209 00ba 04E0     		b	.L16
+ 210              	.L13:
+  42:./Core/Src/traffic_timer.c **** 
+ 211              		.loc 1 42 4
+ 212 00bc 00BF     		nop
+ 213 00be 02E0     		b	.L16
+ 214              	.L14:
+  53:./Core/Src/traffic_timer.c **** 
+ 215              		.loc 1 53 4
+ 216 00c0 00BF     		nop
+ 217 00c2 00E0     		b	.L16
+ 218              	.L15:
+  64:./Core/Src/traffic_timer.c **** 		default:
+ 219              		.loc 1 64 4
+ 220 00c4 00BF     		nop
+ 221              	.L8:
+ 222              	.L16:
+  67:./Core/Src/traffic_timer.c **** 		}
+  68:./Core/Src/traffic_timer.c **** 
+  69:./Core/Src/traffic_timer.c **** }
+ 223              		.loc 1 69 1
+ 224 00c6 00BF     		nop
+ 225 00c8 80BD     		pop	{r7, pc}
+ 226              	.L18:
+ 227 00ca 00BF     		.align	2
+ 228              	.L17:
+ 229 00cc 00000000 		.word	status_light1
+ 230 00d0 00000000 		.word	timer_red
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJqufAB.s 			page 6
+
+
+ 231 00d4 00000000 		.word	RED1_flag
+ 232 00d8 00000000 		.word	timer2_flag
+ 233 00dc 00000000 		.word	timer_green
+ 234 00e0 00000000 		.word	GREEN1_flag
+ 235 00e4 00000000 		.word	timer_yellow
+ 236 00e8 00000000 		.word	YELLOW1_flag
+ 237              		.cfi_endproc
+ 238              	.LFE65:
+ 240              		.section	.text.light_control_2,"ax",%progbits
+ 241              		.align	1
+ 242              		.global	light_control_2
+ 243              		.syntax unified
+ 244              		.thumb
+ 245              		.thumb_func
+ 247              	light_control_2:
+ 248              	.LFB66:
+  70:./Core/Src/traffic_timer.c **** 
+  71:./Core/Src/traffic_timer.c **** 
+  72:./Core/Src/traffic_timer.c **** 
+  73:./Core/Src/traffic_timer.c **** 
+  74:./Core/Src/traffic_timer.c **** void light_control_2(){
+ 249              		.loc 1 74 23
+ 250              		.cfi_startproc
+ 251              		@ args = 0, pretend = 0, frame = 0
+ 252              		@ frame_needed = 1, uses_anonymous_args = 0
+ 253 0000 80B5     		push	{r7, lr}
+ 254              		.cfi_def_cfa_offset 8
+ 255              		.cfi_offset 7, -8
+ 256              		.cfi_offset 14, -4
+ 257 0002 00AF     		add	r7, sp, #0
+ 258              		.cfi_def_cfa_register 7
+  75:./Core/Src/traffic_timer.c **** 
+  76:./Core/Src/traffic_timer.c **** 	switch(status_light2){
+ 259              		.loc 1 76 2
+ 260 0004 344B     		ldr	r3, .L35
+ 261 0006 1B68     		ldr	r3, [r3]
+ 262 0008 173B     		subs	r3, r3, #23
+ 263 000a 032B     		cmp	r3, #3
+ 264 000c 5AD8     		bhi	.L30
+ 265 000e 01A2     		adr	r2, .L22
+ 266 0010 52F823F0 		ldr	pc, [r2, r3, lsl #2]
+ 267              		.p2align 2
+ 268              	.L22:
+ 269 0014 25000000 		.word	.L25+1
+ 270 0018 47000000 		.word	.L24+1
+ 271 001c 71000000 		.word	.L23+1
+ 272 0020 9B000000 		.word	.L21+1
+ 273              		.p2align 1
+ 274              	.L25:
+  77:./Core/Src/traffic_timer.c **** 
+  78:./Core/Src/traffic_timer.c **** 		case INIT2:
+  79:./Core/Src/traffic_timer.c **** 			setTimer3(timer_green);
+ 275              		.loc 1 79 4
+ 276 0024 2D4B     		ldr	r3, .L35+4
+ 277 0026 1B68     		ldr	r3, [r3]
+ 278 0028 1846     		mov	r0, r3
+ 279 002a FFF7FEFF 		bl	setTimer3
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJqufAB.s 			page 7
+
+
+  80:./Core/Src/traffic_timer.c **** 			LED2_OFF();
+ 280              		.loc 1 80 4
+ 281 002e FFF7FEFF 		bl	LED2_OFF
+  81:./Core/Src/traffic_timer.c **** 			RED2_flag = 0;
+ 282              		.loc 1 81 14
+ 283 0032 2B4B     		ldr	r3, .L35+8
+ 284 0034 0022     		movs	r2, #0
+ 285 0036 1A60     		str	r2, [r3]
+  82:./Core/Src/traffic_timer.c **** 			YELLOW2_flag = 0;
+ 286              		.loc 1 82 17
+ 287 0038 2A4B     		ldr	r3, .L35+12
+ 288 003a 0022     		movs	r2, #0
+ 289 003c 1A60     		str	r2, [r3]
+  83:./Core/Src/traffic_timer.c **** 			status_light2 = AUTO_GREEN2;
+ 290              		.loc 1 83 18
+ 291 003e 264B     		ldr	r3, .L35
+ 292 0040 1A22     		movs	r2, #26
+ 293 0042 1A60     		str	r2, [r3]
+  84:./Core/Src/traffic_timer.c **** 			break;
+ 294              		.loc 1 84 4
+ 295 0044 45E0     		b	.L26
+ 296              	.L24:
+  85:./Core/Src/traffic_timer.c **** 
+  86:./Core/Src/traffic_timer.c **** 		case AUTO_RED2:
+  87:./Core/Src/traffic_timer.c **** 			RED2_flag = 1;
+ 297              		.loc 1 87 14
+ 298 0046 264B     		ldr	r3, .L35+8
+ 299 0048 0122     		movs	r2, #1
+ 300 004a 1A60     		str	r2, [r3]
+  88:./Core/Src/traffic_timer.c **** 			if(timer3_flag == 1){
+ 301              		.loc 1 88 19
+ 302 004c 264B     		ldr	r3, .L35+16
+ 303 004e 1B68     		ldr	r3, [r3]
+ 304              		.loc 1 88 6
+ 305 0050 012B     		cmp	r3, #1
+ 306 0052 39D1     		bne	.L31
+  89:./Core/Src/traffic_timer.c **** 				setTimer3(timer_green);
+ 307              		.loc 1 89 5
+ 308 0054 214B     		ldr	r3, .L35+4
+ 309 0056 1B68     		ldr	r3, [r3]
+ 310 0058 1846     		mov	r0, r3
+ 311 005a FFF7FEFF 		bl	setTimer3
+  90:./Core/Src/traffic_timer.c **** 				LED2_OFF();
+ 312              		.loc 1 90 5
+ 313 005e FFF7FEFF 		bl	LED2_OFF
+  91:./Core/Src/traffic_timer.c **** 				RED2_flag = 0;
+ 314              		.loc 1 91 15
+ 315 0062 1F4B     		ldr	r3, .L35+8
+ 316 0064 0022     		movs	r2, #0
+ 317 0066 1A60     		str	r2, [r3]
+  92:./Core/Src/traffic_timer.c **** 				status_light2 = AUTO_GREEN2;
+ 318              		.loc 1 92 19
+ 319 0068 1B4B     		ldr	r3, .L35
+ 320 006a 1A22     		movs	r2, #26
+ 321 006c 1A60     		str	r2, [r3]
+  93:./Core/Src/traffic_timer.c **** 			}
+  94:./Core/Src/traffic_timer.c **** 			break;
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJqufAB.s 			page 8
+
+
+ 322              		.loc 1 94 4
+ 323 006e 2BE0     		b	.L31
+ 324              	.L23:
+  95:./Core/Src/traffic_timer.c **** 
+  96:./Core/Src/traffic_timer.c **** 		case AUTO_YELLOW2:
+  97:./Core/Src/traffic_timer.c **** 			YELLOW2_flag = 1;
+ 325              		.loc 1 97 17
+ 326 0070 1C4B     		ldr	r3, .L35+12
+ 327 0072 0122     		movs	r2, #1
+ 328 0074 1A60     		str	r2, [r3]
+  98:./Core/Src/traffic_timer.c **** 			if(timer3_flag == 1){
+ 329              		.loc 1 98 19
+ 330 0076 1C4B     		ldr	r3, .L35+16
+ 331 0078 1B68     		ldr	r3, [r3]
+ 332              		.loc 1 98 6
+ 333 007a 012B     		cmp	r3, #1
+ 334 007c 26D1     		bne	.L32
+  99:./Core/Src/traffic_timer.c **** 				setTimer3(timer_red);
+ 335              		.loc 1 99 5
+ 336 007e 1B4B     		ldr	r3, .L35+20
+ 337 0080 1B68     		ldr	r3, [r3]
+ 338 0082 1846     		mov	r0, r3
+ 339 0084 FFF7FEFF 		bl	setTimer3
+ 100:./Core/Src/traffic_timer.c **** 				LED2_OFF();
+ 340              		.loc 1 100 5
+ 341 0088 FFF7FEFF 		bl	LED2_OFF
+ 101:./Core/Src/traffic_timer.c **** 				YELLOW2_flag = 0;
+ 342              		.loc 1 101 18
+ 343 008c 154B     		ldr	r3, .L35+12
+ 344 008e 0022     		movs	r2, #0
+ 345 0090 1A60     		str	r2, [r3]
+ 102:./Core/Src/traffic_timer.c **** 				status_light2 = AUTO_RED2;
+ 346              		.loc 1 102 19
+ 347 0092 114B     		ldr	r3, .L35
+ 348 0094 1822     		movs	r2, #24
+ 349 0096 1A60     		str	r2, [r3]
+ 103:./Core/Src/traffic_timer.c **** 			}
+ 104:./Core/Src/traffic_timer.c **** 			break;
+ 350              		.loc 1 104 4
+ 351 0098 18E0     		b	.L32
+ 352              	.L21:
+ 105:./Core/Src/traffic_timer.c **** 
+ 106:./Core/Src/traffic_timer.c **** 		case AUTO_GREEN2:
+ 107:./Core/Src/traffic_timer.c **** 			GREEN2_flag = 1;
+ 353              		.loc 1 107 16
+ 354 009a 154B     		ldr	r3, .L35+24
+ 355 009c 0122     		movs	r2, #1
+ 356 009e 1A60     		str	r2, [r3]
+ 108:./Core/Src/traffic_timer.c **** 			if(timer3_flag == 1){
+ 357              		.loc 1 108 19
+ 358 00a0 114B     		ldr	r3, .L35+16
+ 359 00a2 1B68     		ldr	r3, [r3]
+ 360              		.loc 1 108 6
+ 361 00a4 012B     		cmp	r3, #1
+ 362 00a6 13D1     		bne	.L33
+ 109:./Core/Src/traffic_timer.c **** 				setTimer3(timer_yellow);
+ 363              		.loc 1 109 5
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJqufAB.s 			page 9
+
+
+ 364 00a8 124B     		ldr	r3, .L35+28
+ 365 00aa 1B68     		ldr	r3, [r3]
+ 366 00ac 1846     		mov	r0, r3
+ 367 00ae FFF7FEFF 		bl	setTimer3
+ 110:./Core/Src/traffic_timer.c **** 				LED2_OFF();
+ 368              		.loc 1 110 5
+ 369 00b2 FFF7FEFF 		bl	LED2_OFF
+ 111:./Core/Src/traffic_timer.c **** 				GREEN2_flag = 0;
+ 370              		.loc 1 111 17
+ 371 00b6 0E4B     		ldr	r3, .L35+24
+ 372 00b8 0022     		movs	r2, #0
+ 373 00ba 1A60     		str	r2, [r3]
+ 112:./Core/Src/traffic_timer.c **** 				status_light2 = AUTO_YELLOW2;
+ 374              		.loc 1 112 19
+ 375 00bc 064B     		ldr	r3, .L35
+ 376 00be 1922     		movs	r2, #25
+ 377 00c0 1A60     		str	r2, [r3]
+ 113:./Core/Src/traffic_timer.c **** 			}
+ 114:./Core/Src/traffic_timer.c **** 			break;
+ 378              		.loc 1 114 4
+ 379 00c2 05E0     		b	.L33
+ 380              	.L30:
+ 115:./Core/Src/traffic_timer.c **** 		default:
+ 116:./Core/Src/traffic_timer.c **** 			break;
+ 381              		.loc 1 116 4
+ 382 00c4 00BF     		nop
+ 383 00c6 04E0     		b	.L34
+ 384              	.L31:
+  94:./Core/Src/traffic_timer.c **** 
+ 385              		.loc 1 94 4
+ 386 00c8 00BF     		nop
+ 387 00ca 02E0     		b	.L34
+ 388              	.L32:
+ 104:./Core/Src/traffic_timer.c **** 
+ 389              		.loc 1 104 4
+ 390 00cc 00BF     		nop
+ 391 00ce 00E0     		b	.L34
+ 392              	.L33:
+ 114:./Core/Src/traffic_timer.c **** 		default:
+ 393              		.loc 1 114 4
+ 394 00d0 00BF     		nop
+ 395              	.L26:
+ 396              	.L34:
+ 117:./Core/Src/traffic_timer.c **** 		}
+ 118:./Core/Src/traffic_timer.c **** 
+ 119:./Core/Src/traffic_timer.c **** }
+ 397              		.loc 1 119 1
+ 398 00d2 00BF     		nop
+ 399 00d4 80BD     		pop	{r7, pc}
+ 400              	.L36:
+ 401 00d6 00BF     		.align	2
+ 402              	.L35:
+ 403 00d8 00000000 		.word	status_light2
+ 404 00dc 00000000 		.word	timer_green
+ 405 00e0 00000000 		.word	RED2_flag
+ 406 00e4 00000000 		.word	YELLOW2_flag
+ 407 00e8 00000000 		.word	timer3_flag
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJqufAB.s 			page 10
+
+
+ 408 00ec 00000000 		.word	timer_red
+ 409 00f0 00000000 		.word	GREEN2_flag
+ 410 00f4 00000000 		.word	timer_yellow
+ 411              		.cfi_endproc
+ 412              	.LFE66:
+ 414              		.text
+ 415              	.Letext0:
+ 416              		.file 2 "Core/Inc/Software_Timer.h"
+ 417              		.file 3 "Core/Inc/global.h"
+ 418              		.file 4 "Core/Inc/traffic_timer.h"
+ 419              		.file 5 "Core/Inc/LED_TOGGLE.h"
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJqufAB.s 			page 11
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 traffic_timer.c
+C:\Users\ASUS\AppData\Local\Temp\ccJqufAB.s:22     .bss.RED1_flag:0000000000000000 RED1_flag
+C:\Users\ASUS\AppData\Local\Temp\ccJqufAB.s:19     .bss.RED1_flag:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\ccJqufAB.s:29     .bss.RED2_flag:0000000000000000 RED2_flag
+C:\Users\ASUS\AppData\Local\Temp\ccJqufAB.s:26     .bss.RED2_flag:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\ccJqufAB.s:36     .bss.YELLOW1_flag:0000000000000000 YELLOW1_flag
+C:\Users\ASUS\AppData\Local\Temp\ccJqufAB.s:33     .bss.YELLOW1_flag:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\ccJqufAB.s:43     .bss.YELLOW2_flag:0000000000000000 YELLOW2_flag
+C:\Users\ASUS\AppData\Local\Temp\ccJqufAB.s:40     .bss.YELLOW2_flag:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\ccJqufAB.s:50     .bss.GREEN1_flag:0000000000000000 GREEN1_flag
+C:\Users\ASUS\AppData\Local\Temp\ccJqufAB.s:47     .bss.GREEN1_flag:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\ccJqufAB.s:57     .bss.GREEN2_flag:0000000000000000 GREEN2_flag
+C:\Users\ASUS\AppData\Local\Temp\ccJqufAB.s:54     .bss.GREEN2_flag:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\ccJqufAB.s:64     .data.status_light1:0000000000000000 status_light1
+C:\Users\ASUS\AppData\Local\Temp\ccJqufAB.s:61     .data.status_light1:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\ccJqufAB.s:71     .data.status_light2:0000000000000000 status_light2
+C:\Users\ASUS\AppData\Local\Temp\ccJqufAB.s:68     .data.status_light2:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\ccJqufAB.s:74     .text.light_control_1:0000000000000000 $t
+C:\Users\ASUS\AppData\Local\Temp\ccJqufAB.s:80     .text.light_control_1:0000000000000000 light_control_1
+C:\Users\ASUS\AppData\Local\Temp\ccJqufAB.s:103    .text.light_control_1:0000000000000014 $d
+C:\Users\ASUS\AppData\Local\Temp\ccJqufAB.s:107    .text.light_control_1:0000000000000024 $t
+C:\Users\ASUS\AppData\Local\Temp\ccJqufAB.s:229    .text.light_control_1:00000000000000cc $d
+C:\Users\ASUS\AppData\Local\Temp\ccJqufAB.s:241    .text.light_control_2:0000000000000000 $t
+C:\Users\ASUS\AppData\Local\Temp\ccJqufAB.s:247    .text.light_control_2:0000000000000000 light_control_2
+C:\Users\ASUS\AppData\Local\Temp\ccJqufAB.s:269    .text.light_control_2:0000000000000014 $d
+C:\Users\ASUS\AppData\Local\Temp\ccJqufAB.s:273    .text.light_control_2:0000000000000024 $t
+C:\Users\ASUS\AppData\Local\Temp\ccJqufAB.s:403    .text.light_control_2:00000000000000d8 $d
+                           .group:0000000000000000 wm4.0.cb5f01749778df26340c4505df3d34d0
+                           .group:0000000000000000 wm4.stm32f1xx_hal_conf.h.22.9203001c8f439cc72798ab2500313551
+                           .group:0000000000000000 wm4.stm32f1xx.h.39.208bb8a61c892b7c37d899c49a031330
+                           .group:0000000000000000 wm4.stm32f103xb.h.38.ec967d5ad9d3269cb0788eebda048e38
+                           .group:0000000000000000 wm4._newlib_version.h.4.bfdf54b0af045d4a71376ae00f63a22c
+                           .group:0000000000000000 wm4.features.h.33.318b64d71e0957639cfb30f1db1f7ec8
+                           .group:0000000000000000 wm4._default_types.h.15.247e5cd201eca3442cbf5404108c4935
+                           .group:0000000000000000 wm4._intsup.h.10.48bafbb683905c4daa4565a85aeeb264
+                           .group:0000000000000000 wm4._stdint.h.10.c24fa3af3bc1706662bb5593a907e841
+                           .group:0000000000000000 wm4.stdint.h.23.d53047a68f4a85177f80b422d52785ed
+                           .group:0000000000000000 wm4.cmsis_version.h.32.4d5822004c01a829a975260e854b5f8e
+                           .group:0000000000000000 wm4.core_cm3.h.66.fc46cac19810db8f98d67da7ef88f42c
+                           .group:0000000000000000 wm4.cmsis_gcc.h.26.4f5798e999d5690b80e6ded3ecc94b37
+                           .group:0000000000000000 wm4.core_cm3.h.127.f4474120f1a7524deb56f9d74ff175da
+                           .group:0000000000000000 wm4.stm32f103xb.h.573.10249aa7473ca93be896fed94046a725
+                           .group:0000000000000000 wm4.stm32f1xx.h.162.96b09079a093c34dbd7f0b85cbd0ddee
+                           .group:0000000000000000 wm4.stm32_hal_legacy.h.23.91ba5b544a4c2be2620a1e7ff0049e10
+                           .group:0000000000000000 wm4.stddef.h.39.144cf5ddcd53cbfdac30259dc1a6c87f
+                           .group:0000000000000000 wm4.stm32f1xx_hal_def.h.57.18d01ce1aa74e9fb44dbf16f821a574a
+                           .group:0000000000000000 wm4.stm32f1xx_hal_rcc.h.95.21591bbc513aaa813c0b8640c3b32517
+                           .group:0000000000000000 wm4.stm32f1xx_hal_rcc_ex.h.22.8763f99bc1e3e2dcf0febe9161d81b37
+                           .group:0000000000000000 wm4.stm32f1xx_hal_rcc.h.1202.f8e5f9e0cf4eef7840facf5396029056
+                           .group:0000000000000000 wm4.stm32f1xx_hal_gpio.h.22.fa638d688dcc57ca806fe6a7831b0d04
+                           .group:0000000000000000 wm4.stm32f1xx_hal_gpio_ex.h.22.51a50ef3512cd78017ce666a32d364bf
+                           .group:0000000000000000 wm4.stm32f1xx_hal_gpio.h.263.f5ebf2f545ade59412ab9261c8e35dc4
+                           .group:0000000000000000 wm4.stm32f1xx_hal_exti.h.22.e26491d042c8079c3ca67eca341af862
+                           .group:0000000000000000 wm4.stm32f1xx_hal_dma.h.22.3c14338534886827bf3aeaa2a7f412a1
+                           .group:0000000000000000 wm4.stm32f1xx_hal_dma_ex.h.22.001ac4d7f81ccbdcae49bd65c13858c8
+                           .group:0000000000000000 wm4.stm32f1xx_hal_dma.h.409.cafcd2cfe701091535636be537c18293
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccJqufAB.s 			page 12
+
+
+                           .group:0000000000000000 wm4.stm32f1xx_hal_cortex.h.22.b5f4174bb6a50d95405567b8f50e0900
+                           .group:0000000000000000 wm4.stm32f1xx_hal_flash.h.22.5cea9a7210e6315b41724b47b5fdf203
+                           .group:0000000000000000 wm4.stm32f1xx_hal_flash_ex.h.22.d4e19c21f2a86fa2f8ec2c2d5f1ab2af
+                           .group:0000000000000000 wm4.stm32f1xx_hal_pwr.h.22.3438c476faafc3240bf146f143df3fcd
+                           .group:0000000000000000 wm4.stm32f1xx_hal_tim.h.22.a16e206564e97dbace9faae59a0d6008
+                           .group:0000000000000000 wm4.stm32f1xx_hal_uart.h.22.5f7992e497faa36aa98f09f7214f4dbb
+                           .group:0000000000000000 wm4.stm32f1xx_hal.h.88.91065c0692bed6019c34f1e9c00589fd
+                           .group:0000000000000000 wm4.main.h.62.215d12b3f54334165c3eb9a2c23b6466
+                           .group:0000000000000000 wm4.button.h.13.502414bc4624a6b62bdc27e8db5e0ac4
+                           .group:0000000000000000 wm4.global.h.15.407c81abcec812c5d10654add0683a73
+                           .group:0000000000000000 wm4.traffic_timer.h.13.bdcc39e68e651b3c13e4ed9df2162d1e
+
+UNDEFINED SYMBOLS
+setTimer2
+LED1_OFF
+timer_red
+timer2_flag
+timer_green
+timer_yellow
+setTimer3
+LED2_OFF
+timer3_flag

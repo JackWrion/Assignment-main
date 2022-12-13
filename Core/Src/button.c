@@ -229,7 +229,7 @@ void getKeyInput4(){
 	KeyReg0_4 = KeyReg1_4;
 	KeyReg1_4 = KeyReg2_4;
 	//KeyReg2_4 = HAL_GPIO_ReadPin(BUTTONUSER_GPIO_Port,BUTTONUSER_Pin);
-	KeyReg2_4 = HAL_GPIO_ReadPin(B1_GPIO_Port,B1_Pin);
+	KeyReg2_4 = HAL_GPIO_ReadPin(BUTTONUSER_GPIO_Port,BUTTONUSER_Pin);
 
 
 	if (KeyReg0_4 == KeyReg1_4 && KeyReg1_4 == KeyReg2_4){
