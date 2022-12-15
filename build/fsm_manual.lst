@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxIxBab.s 			page 1
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cckcmQOV.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -27,47 +27,59 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxIxBab.s 			page 1
   26              		.align	2
   29              	temp_timer:
   30 0000 00000000 		.space	4
-  31              		.section	.rodata
-  32              		.align	2
-  33              	.LC0:
-  34 0000 21415554 		.ascii	"!AUTO MODE----#\015\012\000"
-  34      4F204D4F 
-  34      44452D2D 
-  34      2D2D230D 
-  34      0A00
-  35 0012 0000     		.align	2
-  36              	.LC1:
-  37 0014 21524544 		.ascii	"!RED MODE----#\015\012\000"
-  37      204D4F44 
-  37      452D2D2D 
-  37      2D230D0A 
-  37      00
-  38 0025 000000   		.align	2
-  39              	.LC2:
-  40 0028 2159454C 		.ascii	"!YELLOW MODE----#\015\012\000"
-  40      4C4F5720 
-  40      4D4F4445 
-  40      2D2D2D2D 
-  40      230D0A00 
-  41              		.align	2
-  42              	.LC3:
-  43 003c 21475245 		.ascii	"!GREEN MODE----#\015\012\000"
-  43      454E204D 
-  43      4F44452D 
-  43      2D2D2D23 
-  43      0D0A00
-  44              		.section	.text.printstatus,"ax",%progbits
-  45              		.align	1
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxIxBab.s 			page 2
+  31              		.global	reset
+  32              		.section	.bss.reset,"aw",%nobits
+  33              		.align	2
+  36              	reset:
+  37 0000 00000000 		.space	4
+  38              		.section	.rodata
+  39              		.align	2
+  40              	.LC0:
+  41 0000 21524553 		.ascii	"!RESET ALL----#\015\012\000"
+  41      45542041 
+  41      4C4C2D2D 
+  41      2D2D230D 
+  41      0A00
+  42 0012 0000     		.align	2
+  43              	.LC1:
+  44 0014 21415554 		.ascii	"!AUTO MODE----#\015\012\000"
+  44      4F204D4F 
+  44      44452D2D 
+  44      2D2D230D 
+  44      0A00
+  45 0026 0000     		.align	2
+  46              	.LC2:
+  47 0028 21524544 		.ascii	"!RED MODE----#\015\012\000"
+  47      204D4F44 
+  47      452D2D2D 
+  47      2D230D0A 
+  47      00
+  48 0039 000000   		.align	2
+  49              	.LC3:
+  50 003c 2159454C 		.ascii	"!YELLOW MODE----#\015\012\000"
+  50      4C4F5720 
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cckcmQOV.s 			page 2
 
 
-  46              		.global	printstatus
-  47              		.syntax unified
-  48              		.thumb
-  49              		.thumb_func
-  51              	printstatus:
-  52              	.LFB68:
-  53              		.file 1 "./Core/Src/fsm_manual.c"
+  50      4D4F4445 
+  50      2D2D2D2D 
+  50      230D0A00 
+  51              		.align	2
+  52              	.LC4:
+  53 0050 21475245 		.ascii	"!GREEN MODE----#\015\012\000"
+  53      454E204D 
+  53      4F44452D 
+  53      2D2D2D23 
+  53      0D0A00
+  54              		.section	.text.printstatus,"ax",%progbits
+  55              		.align	1
+  56              		.global	printstatus
+  57              		.syntax unified
+  58              		.thumb
+  59              		.thumb_func
+  61              	printstatus:
+  62              	.LFB68:
+  63              		.file 1 "./Core/Src/fsm_manual.c"
    1:./Core/Src/fsm_manual.c **** /*
    2:./Core/Src/fsm_manual.c ****  * fsm_automatic.c
    3:./Core/Src/fsm_manual.c ****  *
@@ -81,740 +93,779 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxIxBab.s 			page 1
   11:./Core/Src/fsm_manual.c **** 
   12:./Core/Src/fsm_manual.c **** int status_man = INIT;
   13:./Core/Src/fsm_manual.c **** int temp_timer = 0;
-  14:./Core/Src/fsm_manual.c **** 
-  15:./Core/Src/fsm_manual.c **** void printstatus(){
-  54              		.loc 1 15 19
-  55              		.cfi_startproc
-  56              		@ args = 0, pretend = 0, frame = 104
-  57              		@ frame_needed = 1, uses_anonymous_args = 0
-  58 0000 80B5     		push	{r7, lr}
-  59              		.cfi_def_cfa_offset 8
-  60              		.cfi_offset 7, -8
-  61              		.cfi_offset 14, -4
-  62 0002 9AB0     		sub	sp, sp, #104
-  63              		.cfi_def_cfa_offset 112
-  64 0004 00AF     		add	r7, sp, #0
-  65              		.cfi_def_cfa_register 7
-  16:./Core/Src/fsm_manual.c **** 
-  17:./Core/Src/fsm_manual.c **** 	switch(status_man){
-  66              		.loc 1 17 2
-  67 0006 274B     		ldr	r3, .L10
-  68 0008 1B68     		ldr	r3, [r3]
-  69 000a 653B     		subs	r3, r3, #101
-  70 000c 032B     		cmp	r3, #3
-  71 000e 43D8     		bhi	.L9
-  72 0010 01A2     		adr	r2, .L4
-  73 0012 52F823F0 		ldr	pc, [r2, r3, lsl #2]
-  74 0016 00BF     		.p2align 2
-  75              	.L4:
-  76 0018 29000000 		.word	.L7+1
-  77 001c 45000000 		.word	.L6+1
-  78 0020 7D000000 		.word	.L5+1
-  79 0024 61000000 		.word	.L3+1
-  80              		.p2align 1
-  81              	.L7:
-  82              	.LBB2:
-  18:./Core/Src/fsm_manual.c **** 	case INIT:
-  19:./Core/Src/fsm_manual.c **** 	{
-  20:./Core/Src/fsm_manual.c **** 		char str2[100];
-  21:./Core/Src/fsm_manual.c **** 		HAL_UART_Transmit(&huart2,(uint8_t*) str2, sprintf(str2, "!AUTO MODE----#\r\n"), 1000);
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxIxBab.s 			page 3
+  14:./Core/Src/fsm_manual.c **** int reset = 0;
+  15:./Core/Src/fsm_manual.c **** 
+  16:./Core/Src/fsm_manual.c **** void printstatus(){
+  64              		.loc 1 16 19
+  65              		.cfi_startproc
+  66              		@ args = 0, pretend = 0, frame = 104
+  67              		@ frame_needed = 1, uses_anonymous_args = 0
+  68 0000 80B5     		push	{r7, lr}
+  69              		.cfi_def_cfa_offset 8
+  70              		.cfi_offset 7, -8
+  71              		.cfi_offset 14, -4
+  72 0002 9AB0     		sub	sp, sp, #104
+  73              		.cfi_def_cfa_offset 112
+  74 0004 00AF     		add	r7, sp, #0
+  75              		.cfi_def_cfa_register 7
+  17:./Core/Src/fsm_manual.c **** 
+  18:./Core/Src/fsm_manual.c **** 	switch(status_man){
+  76              		.loc 1 18 2
+  77 0006 314B     		ldr	r3, .L11
+  78 0008 1B68     		ldr	r3, [r3]
+  79 000a 653B     		subs	r3, r3, #101
+  80 000c 032B     		cmp	r3, #3
+  81 000e 54D8     		bhi	.L10
+  82 0010 01A2     		adr	r2, .L4
+  83 0012 52F823F0 		ldr	pc, [r2, r3, lsl #2]
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cckcmQOV.s 			page 3
 
 
-  83              		.loc 1 21 46
-  84 0028 3B1D     		adds	r3, r7, #4
-  85 002a 1F49     		ldr	r1, .L10+4
-  86 002c 1846     		mov	r0, r3
-  87 002e FFF7FEFF 		bl	sprintf
-  88 0032 0346     		mov	r3, r0
-  89              		.loc 1 21 3
-  90 0034 9AB2     		uxth	r2, r3
-  91 0036 391D     		adds	r1, r7, #4
-  92 0038 4FF47A73 		mov	r3, #1000
-  93 003c 1B48     		ldr	r0, .L10+8
-  94 003e FFF7FEFF 		bl	HAL_UART_Transmit
-  95              	.LBE2:
-  22:./Core/Src/fsm_manual.c **** 	}
-  23:./Core/Src/fsm_manual.c **** 		break;
-  96              		.loc 1 23 3
-  97 0042 2AE0     		b	.L8
-  98              	.L6:
-  99              	.LBB3:
-  24:./Core/Src/fsm_manual.c **** 
-  25:./Core/Src/fsm_manual.c **** 	case MAN_RED:
-  26:./Core/Src/fsm_manual.c **** 	{
-  27:./Core/Src/fsm_manual.c **** 		char str2[100];
-  28:./Core/Src/fsm_manual.c **** 		HAL_UART_Transmit(&huart2,(uint8_t*) str2, sprintf(str2, "!RED MODE----#\r\n"), 1000);
- 100              		.loc 1 28 46
- 101 0044 3B1D     		adds	r3, r7, #4
- 102 0046 1A49     		ldr	r1, .L10+12
- 103 0048 1846     		mov	r0, r3
- 104 004a FFF7FEFF 		bl	sprintf
- 105 004e 0346     		mov	r3, r0
- 106              		.loc 1 28 3
- 107 0050 9AB2     		uxth	r2, r3
- 108 0052 391D     		adds	r1, r7, #4
- 109 0054 4FF47A73 		mov	r3, #1000
- 110 0058 1448     		ldr	r0, .L10+8
- 111 005a FFF7FEFF 		bl	HAL_UART_Transmit
- 112              	.LBE3:
-  29:./Core/Src/fsm_manual.c **** 	}
-  30:./Core/Src/fsm_manual.c **** 		break;
- 113              		.loc 1 30 3
- 114 005e 1CE0     		b	.L8
- 115              	.L3:
- 116              	.LBB4:
-  31:./Core/Src/fsm_manual.c **** 
-  32:./Core/Src/fsm_manual.c **** 	case MAN_YELLOW:
-  33:./Core/Src/fsm_manual.c **** 	{
-  34:./Core/Src/fsm_manual.c **** 		char str2[100];
-  35:./Core/Src/fsm_manual.c **** 		HAL_UART_Transmit(&huart2,(uint8_t*) str2, sprintf(str2, "!YELLOW MODE----#\r\n"), 1000);
- 117              		.loc 1 35 46
- 118 0060 3B1D     		adds	r3, r7, #4
- 119 0062 1449     		ldr	r1, .L10+16
- 120 0064 1846     		mov	r0, r3
- 121 0066 FFF7FEFF 		bl	sprintf
- 122 006a 0346     		mov	r3, r0
- 123              		.loc 1 35 3
- 124 006c 9AB2     		uxth	r2, r3
- 125 006e 391D     		adds	r1, r7, #4
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxIxBab.s 			page 4
+  84 0016 00BF     		.p2align 2
+  85              	.L4:
+  86 0018 29000000 		.word	.L7+1
+  87 001c 67000000 		.word	.L6+1
+  88 0020 9F000000 		.word	.L5+1
+  89 0024 83000000 		.word	.L3+1
+  90              		.p2align 1
+  91              	.L7:
+  92              	.LBB2:
+  19:./Core/Src/fsm_manual.c **** 	case INIT:
+  20:./Core/Src/fsm_manual.c **** 	{
+  21:./Core/Src/fsm_manual.c **** 		char str2[100];
+  22:./Core/Src/fsm_manual.c **** 		if (reset) HAL_UART_Transmit(&huart2,(uint8_t*) str2, sprintf(str2, "!RESET ALL----#\r\n"), 1000)
+  93              		.loc 1 22 7
+  94 0028 294B     		ldr	r3, .L11+4
+  95 002a 1B68     		ldr	r3, [r3]
+  96              		.loc 1 22 6
+  97 002c 002B     		cmp	r3, #0
+  98 002e 0CD0     		beq	.L8
+  99              		.loc 1 22 57 discriminator 1
+ 100 0030 3B1D     		adds	r3, r7, #4
+ 101 0032 2849     		ldr	r1, .L11+8
+ 102 0034 1846     		mov	r0, r3
+ 103 0036 FFF7FEFF 		bl	sprintf
+ 104 003a 0346     		mov	r3, r0
+ 105              		.loc 1 22 14 discriminator 1
+ 106 003c 9AB2     		uxth	r2, r3
+ 107 003e 391D     		adds	r1, r7, #4
+ 108 0040 4FF47A73 		mov	r3, #1000
+ 109 0044 2448     		ldr	r0, .L11+12
+ 110 0046 FFF7FEFF 		bl	HAL_UART_Transmit
+ 111              	.L8:
+  23:./Core/Src/fsm_manual.c **** 		HAL_UART_Transmit(&huart2,(uint8_t*) str2, sprintf(str2, "!AUTO MODE----#\r\n"), 1000);
+ 112              		.loc 1 23 46
+ 113 004a 3B1D     		adds	r3, r7, #4
+ 114 004c 2349     		ldr	r1, .L11+16
+ 115 004e 1846     		mov	r0, r3
+ 116 0050 FFF7FEFF 		bl	sprintf
+ 117 0054 0346     		mov	r3, r0
+ 118              		.loc 1 23 3
+ 119 0056 9AB2     		uxth	r2, r3
+ 120 0058 391D     		adds	r1, r7, #4
+ 121 005a 4FF47A73 		mov	r3, #1000
+ 122 005e 1E48     		ldr	r0, .L11+12
+ 123 0060 FFF7FEFF 		bl	HAL_UART_Transmit
+ 124              	.LBE2:
+  24:./Core/Src/fsm_manual.c **** 	}
+  25:./Core/Src/fsm_manual.c **** 		break;
+ 125              		.loc 1 25 3
+ 126 0064 2AE0     		b	.L9
+ 127              	.L6:
+ 128              	.LBB3:
+  26:./Core/Src/fsm_manual.c **** 
+  27:./Core/Src/fsm_manual.c **** 	case MAN_RED:
+  28:./Core/Src/fsm_manual.c **** 	{
+  29:./Core/Src/fsm_manual.c **** 		char str2[100];
+  30:./Core/Src/fsm_manual.c **** 		HAL_UART_Transmit(&huart2,(uint8_t*) str2, sprintf(str2, "!RED MODE----#\r\n"), 1000);
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cckcmQOV.s 			page 4
 
 
- 126 0070 4FF47A73 		mov	r3, #1000
- 127 0074 0D48     		ldr	r0, .L10+8
- 128 0076 FFF7FEFF 		bl	HAL_UART_Transmit
- 129              	.LBE4:
-  36:./Core/Src/fsm_manual.c **** 	}
-  37:./Core/Src/fsm_manual.c **** 		break;
- 130              		.loc 1 37 3
- 131 007a 0EE0     		b	.L8
- 132              	.L5:
- 133              	.LBB5:
-  38:./Core/Src/fsm_manual.c **** 
-  39:./Core/Src/fsm_manual.c **** 	case MAN_GREEN:
-  40:./Core/Src/fsm_manual.c **** 	{
-  41:./Core/Src/fsm_manual.c **** 		char str2[100];
-  42:./Core/Src/fsm_manual.c **** 		HAL_UART_Transmit(&huart2,(uint8_t*) str2, sprintf(str2, "!GREEN MODE----#\r\n"), 1000);
- 134              		.loc 1 42 46
- 135 007c 3B1D     		adds	r3, r7, #4
- 136 007e 0E49     		ldr	r1, .L10+20
- 137 0080 1846     		mov	r0, r3
- 138 0082 FFF7FEFF 		bl	sprintf
- 139 0086 0346     		mov	r3, r0
- 140              		.loc 1 42 3
- 141 0088 9AB2     		uxth	r2, r3
- 142 008a 391D     		adds	r1, r7, #4
- 143 008c 4FF47A73 		mov	r3, #1000
- 144 0090 0648     		ldr	r0, .L10+8
- 145 0092 FFF7FEFF 		bl	HAL_UART_Transmit
- 146              	.LBE5:
-  43:./Core/Src/fsm_manual.c **** 	}
-  44:./Core/Src/fsm_manual.c **** 		break;
- 147              		.loc 1 44 3
- 148 0096 00E0     		b	.L8
- 149              	.L9:
-  45:./Core/Src/fsm_manual.c **** 
-  46:./Core/Src/fsm_manual.c **** 	default:
-  47:./Core/Src/fsm_manual.c **** 		break;
- 150              		.loc 1 47 3
- 151 0098 00BF     		nop
- 152              	.L8:
-  48:./Core/Src/fsm_manual.c **** 	}
-  49:./Core/Src/fsm_manual.c **** 
-  50:./Core/Src/fsm_manual.c **** 
-  51:./Core/Src/fsm_manual.c **** }
- 153              		.loc 1 51 1
- 154 009a 00BF     		nop
- 155 009c 6837     		adds	r7, r7, #104
- 156              		.cfi_def_cfa_offset 8
- 157 009e BD46     		mov	sp, r7
- 158              		.cfi_def_cfa_register 13
- 159              		@ sp needed
- 160 00a0 80BD     		pop	{r7, pc}
- 161              	.L11:
- 162 00a2 00BF     		.align	2
- 163              	.L10:
- 164 00a4 00000000 		.word	status_man
- 165 00a8 00000000 		.word	.LC0
- 166 00ac 00000000 		.word	huart2
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxIxBab.s 			page 5
+ 129              		.loc 1 30 46
+ 130 0066 3B1D     		adds	r3, r7, #4
+ 131 0068 1D49     		ldr	r1, .L11+20
+ 132 006a 1846     		mov	r0, r3
+ 133 006c FFF7FEFF 		bl	sprintf
+ 134 0070 0346     		mov	r3, r0
+ 135              		.loc 1 30 3
+ 136 0072 9AB2     		uxth	r2, r3
+ 137 0074 391D     		adds	r1, r7, #4
+ 138 0076 4FF47A73 		mov	r3, #1000
+ 139 007a 1748     		ldr	r0, .L11+12
+ 140 007c FFF7FEFF 		bl	HAL_UART_Transmit
+ 141              	.LBE3:
+  31:./Core/Src/fsm_manual.c **** 	}
+  32:./Core/Src/fsm_manual.c **** 		break;
+ 142              		.loc 1 32 3
+ 143 0080 1CE0     		b	.L9
+ 144              	.L3:
+ 145              	.LBB4:
+  33:./Core/Src/fsm_manual.c **** 
+  34:./Core/Src/fsm_manual.c **** 	case MAN_YELLOW:
+  35:./Core/Src/fsm_manual.c **** 	{
+  36:./Core/Src/fsm_manual.c **** 		char str2[100];
+  37:./Core/Src/fsm_manual.c **** 		HAL_UART_Transmit(&huart2,(uint8_t*) str2, sprintf(str2, "!YELLOW MODE----#\r\n"), 1000);
+ 146              		.loc 1 37 46
+ 147 0082 3B1D     		adds	r3, r7, #4
+ 148 0084 1749     		ldr	r1, .L11+24
+ 149 0086 1846     		mov	r0, r3
+ 150 0088 FFF7FEFF 		bl	sprintf
+ 151 008c 0346     		mov	r3, r0
+ 152              		.loc 1 37 3
+ 153 008e 9AB2     		uxth	r2, r3
+ 154 0090 391D     		adds	r1, r7, #4
+ 155 0092 4FF47A73 		mov	r3, #1000
+ 156 0096 1048     		ldr	r0, .L11+12
+ 157 0098 FFF7FEFF 		bl	HAL_UART_Transmit
+ 158              	.LBE4:
+  38:./Core/Src/fsm_manual.c **** 	}
+  39:./Core/Src/fsm_manual.c **** 		break;
+ 159              		.loc 1 39 3
+ 160 009c 0EE0     		b	.L9
+ 161              	.L5:
+ 162              	.LBB5:
+  40:./Core/Src/fsm_manual.c **** 
+  41:./Core/Src/fsm_manual.c **** 	case MAN_GREEN:
+  42:./Core/Src/fsm_manual.c **** 	{
+  43:./Core/Src/fsm_manual.c **** 		char str2[100];
+  44:./Core/Src/fsm_manual.c **** 		HAL_UART_Transmit(&huart2,(uint8_t*) str2, sprintf(str2, "!GREEN MODE----#\r\n"), 1000);
+ 163              		.loc 1 44 46
+ 164 009e 3B1D     		adds	r3, r7, #4
+ 165 00a0 1149     		ldr	r1, .L11+28
+ 166 00a2 1846     		mov	r0, r3
+ 167 00a4 FFF7FEFF 		bl	sprintf
+ 168 00a8 0346     		mov	r3, r0
+ 169              		.loc 1 44 3
+ 170 00aa 9AB2     		uxth	r2, r3
+ 171 00ac 391D     		adds	r1, r7, #4
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cckcmQOV.s 			page 5
 
 
- 167 00b0 14000000 		.word	.LC1
- 168 00b4 28000000 		.word	.LC2
- 169 00b8 3C000000 		.word	.LC3
- 170              		.cfi_endproc
- 171              	.LFE68:
- 173              		.section	.rodata
- 174 004f 00       		.align	2
- 175              	.LC4:
- 176 0050 21494E43 		.ascii	"!INC: %d#\015\012\000"
- 176      3A202564 
- 176      230D0A00 
- 177              		.section	.text.fsm_manual_run,"ax",%progbits
- 178              		.align	1
- 179              		.global	fsm_manual_run
- 180              		.syntax unified
- 181              		.thumb
- 182              		.thumb_func
- 184              	fsm_manual_run:
- 185              	.LFB69:
-  52:./Core/Src/fsm_manual.c **** 
+ 172 00ae 4FF47A73 		mov	r3, #1000
+ 173 00b2 0948     		ldr	r0, .L11+12
+ 174 00b4 FFF7FEFF 		bl	HAL_UART_Transmit
+ 175              	.LBE5:
+  45:./Core/Src/fsm_manual.c **** 	}
+  46:./Core/Src/fsm_manual.c **** 		break;
+ 176              		.loc 1 46 3
+ 177 00b8 00E0     		b	.L9
+ 178              	.L10:
+  47:./Core/Src/fsm_manual.c **** 
+  48:./Core/Src/fsm_manual.c **** 	default:
+  49:./Core/Src/fsm_manual.c **** 		break;
+ 179              		.loc 1 49 3
+ 180 00ba 00BF     		nop
+ 181              	.L9:
+  50:./Core/Src/fsm_manual.c **** 	}
+  51:./Core/Src/fsm_manual.c **** 
+  52:./Core/Src/fsm_manual.c **** 	reset = 0;
+ 182              		.loc 1 52 8
+ 183 00bc 044B     		ldr	r3, .L11+4
+ 184 00be 0022     		movs	r2, #0
+ 185 00c0 1A60     		str	r2, [r3]
   53:./Core/Src/fsm_manual.c **** 
-  54:./Core/Src/fsm_manual.c **** void fsm_manual_run(){
- 186              		.loc 1 54 22
- 187              		.cfi_startproc
- 188              		@ args = 0, pretend = 0, frame = 104
- 189              		@ frame_needed = 1, uses_anonymous_args = 0
- 190 0000 80B5     		push	{r7, lr}
- 191              		.cfi_def_cfa_offset 8
- 192              		.cfi_offset 7, -8
- 193              		.cfi_offset 14, -4
- 194 0002 9AB0     		sub	sp, sp, #104
- 195              		.cfi_def_cfa_offset 112
- 196 0004 00AF     		add	r7, sp, #0
- 197              		.cfi_def_cfa_register 7
+  54:./Core/Src/fsm_manual.c **** }
+ 186              		.loc 1 54 1
+ 187 00c2 00BF     		nop
+ 188 00c4 6837     		adds	r7, r7, #104
+ 189              		.cfi_def_cfa_offset 8
+ 190 00c6 BD46     		mov	sp, r7
+ 191              		.cfi_def_cfa_register 13
+ 192              		@ sp needed
+ 193 00c8 80BD     		pop	{r7, pc}
+ 194              	.L12:
+ 195 00ca 00BF     		.align	2
+ 196              	.L11:
+ 197 00cc 00000000 		.word	status_man
+ 198 00d0 00000000 		.word	reset
+ 199 00d4 00000000 		.word	.LC0
+ 200 00d8 00000000 		.word	huart2
+ 201 00dc 14000000 		.word	.LC1
+ 202 00e0 28000000 		.word	.LC2
+ 203 00e4 3C000000 		.word	.LC3
+ 204 00e8 50000000 		.word	.LC4
+ 205              		.cfi_endproc
+ 206              	.LFE68:
+ 208              		.section	.rodata
+ 209 0063 00       		.align	2
+ 210              	.LC5:
+ 211 0064 21494E43 		.ascii	"!INC: %d#\015\012\000"
+ 211      3A202564 
+ 211      230D0A00 
+ 212              		.section	.text.fsm_manual_run,"ax",%progbits
+ 213              		.align	1
+ 214              		.global	fsm_manual_run
+ 215              		.syntax unified
+ 216              		.thumb
+ 217              		.thumb_func
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cckcmQOV.s 			page 6
+
+
+ 219              	fsm_manual_run:
+ 220              	.LFB69:
   55:./Core/Src/fsm_manual.c **** 
-  56:./Core/Src/fsm_manual.c **** 	switch(status_man){
- 198              		.loc 1 56 2
- 199 0006 924B     		ldr	r3, .L41
- 200 0008 1B68     		ldr	r3, [r3]
- 201 000a 653B     		subs	r3, r3, #101
- 202 000c 032B     		cmp	r3, #3
- 203 000e 00F21181 		bhi	.L35
- 204 0012 01A2     		adr	r2, .L15
- 205 0014 52F823F0 		ldr	pc, [r2, r3, lsl #2]
- 206              		.p2align 2
- 207              	.L15:
- 208 0018 29000000 		.word	.L18+1
- 209 001c 7F000000 		.word	.L17+1
- 210 0020 A9010000 		.word	.L16+1
- 211 0024 1D010000 		.word	.L14+1
- 212              		.p2align 1
- 213              	.L18:
-  57:./Core/Src/fsm_manual.c **** 
-  58:./Core/Src/fsm_manual.c **** 	case INIT:
-  59:./Core/Src/fsm_manual.c **** 		if (isButton1Pressed()){
- 214              		.loc 1 59 7
- 215 0028 FFF7FEFF 		bl	isButton1Pressed
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxIxBab.s 			page 6
+  56:./Core/Src/fsm_manual.c **** 
+  57:./Core/Src/fsm_manual.c **** void fsm_manual_run(){
+ 221              		.loc 1 57 22
+ 222              		.cfi_startproc
+ 223              		@ args = 0, pretend = 0, frame = 104
+ 224              		@ frame_needed = 1, uses_anonymous_args = 0
+ 225 0000 80B5     		push	{r7, lr}
+ 226              		.cfi_def_cfa_offset 8
+ 227              		.cfi_offset 7, -8
+ 228              		.cfi_offset 14, -4
+ 229 0002 9AB0     		sub	sp, sp, #104
+ 230              		.cfi_def_cfa_offset 112
+ 231 0004 00AF     		add	r7, sp, #0
+ 232              		.cfi_def_cfa_register 7
+  58:./Core/Src/fsm_manual.c **** 
+  59:./Core/Src/fsm_manual.c **** 	switch(status_man){
+ 233              		.loc 1 59 2
+ 234 0006 934B     		ldr	r3, .L42
+ 235 0008 1B68     		ldr	r3, [r3]
+ 236 000a 653B     		subs	r3, r3, #101
+ 237 000c 032B     		cmp	r3, #3
+ 238 000e 00F21481 		bhi	.L36
+ 239 0012 01A2     		adr	r2, .L16
+ 240 0014 52F823F0 		ldr	pc, [r2, r3, lsl #2]
+ 241              		.p2align 2
+ 242              	.L16:
+ 243 0018 29000000 		.word	.L19+1
+ 244 001c 85000000 		.word	.L18+1
+ 245 0020 AF010000 		.word	.L17+1
+ 246 0024 23010000 		.word	.L15+1
+ 247              		.p2align 1
+ 248              	.L19:
+  60:./Core/Src/fsm_manual.c **** 
+  61:./Core/Src/fsm_manual.c **** 	case INIT:
+  62:./Core/Src/fsm_manual.c **** 		if (isButton1Pressed()){
+ 249              		.loc 1 62 7
+ 250 0028 FFF7FEFF 		bl	isButton1Pressed
+ 251 002c 0346     		mov	r3, r0
+ 252              		.loc 1 62 6
+ 253 002e 002B     		cmp	r3, #0
+ 254 0030 07D0     		beq	.L20
+  63:./Core/Src/fsm_manual.c **** 			status_man = MAN_RED;
+ 255              		.loc 1 63 15
+ 256 0032 884B     		ldr	r3, .L42
+ 257 0034 6622     		movs	r2, #102
+ 258 0036 1A60     		str	r2, [r3]
+  64:./Core/Src/fsm_manual.c **** 			temp_timer = 0;
+ 259              		.loc 1 64 15
+ 260 0038 874B     		ldr	r3, .L42+4
+ 261 003a 0022     		movs	r2, #0
+ 262 003c 1A60     		str	r2, [r3]
+  65:./Core/Src/fsm_manual.c **** 			printstatus();
+ 263              		.loc 1 65 4
+ 264 003e FFF7FEFF 		bl	printstatus
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cckcmQOV.s 			page 7
 
 
- 216 002c 0346     		mov	r3, r0
- 217              		.loc 1 59 6
- 218 002e 002B     		cmp	r3, #0
- 219 0030 07D0     		beq	.L19
-  60:./Core/Src/fsm_manual.c **** 			status_man = MAN_RED;
- 220              		.loc 1 60 15
- 221 0032 874B     		ldr	r3, .L41
- 222 0034 6622     		movs	r2, #102
- 223 0036 1A60     		str	r2, [r3]
-  61:./Core/Src/fsm_manual.c **** 			temp_timer = 0;
- 224              		.loc 1 61 15
- 225 0038 864B     		ldr	r3, .L41+4
- 226 003a 0022     		movs	r2, #0
- 227 003c 1A60     		str	r2, [r3]
-  62:./Core/Src/fsm_manual.c **** 			printstatus();
- 228              		.loc 1 62 4
- 229 003e FFF7FEFF 		bl	printstatus
- 230              	.L19:
-  63:./Core/Src/fsm_manual.c **** 		}
-  64:./Core/Src/fsm_manual.c **** 		if (isButton3Pressed()){
- 231              		.loc 1 64 7
- 232 0042 FFF7FEFF 		bl	isButton3Pressed
- 233 0046 0346     		mov	r3, r0
- 234              		.loc 1 64 6
- 235 0048 002B     		cmp	r3, #0
- 236 004a 00F0F580 		beq	.L36
-  65:./Core/Src/fsm_manual.c **** 			timer_red = RED_TIME;
- 237              		.loc 1 65 14
- 238 004e 824B     		ldr	r3, .L41+8
- 239 0050 42F21072 		movw	r2, #10000
- 240 0054 1A60     		str	r2, [r3]
-  66:./Core/Src/fsm_manual.c **** 			timer_green = GREEN_TIME;
- 241              		.loc 1 66 16
- 242 0056 814B     		ldr	r3, .L41+12
- 243 0058 41F27072 		movw	r2, #6000
- 244 005c 1A60     		str	r2, [r3]
-  67:./Core/Src/fsm_manual.c **** 			timer_yellow = YELLOW_TIME;
- 245              		.loc 1 67 17
- 246 005e 804B     		ldr	r3, .L41+16
- 247 0060 4FF47A62 		mov	r2, #4000
- 248 0064 1A60     		str	r2, [r3]
-  68:./Core/Src/fsm_manual.c **** 			status_light1 = INIT1;
- 249              		.loc 1 68 18
- 250 0066 7F4B     		ldr	r3, .L41+20
- 251 0068 1322     		movs	r2, #19
- 252 006a 1A60     		str	r2, [r3]
-  69:./Core/Src/fsm_manual.c **** 			status_light2 = INIT2;
- 253              		.loc 1 69 18
- 254 006c 7E4B     		ldr	r3, .L41+24
- 255 006e 1722     		movs	r2, #23
- 256 0070 1A60     		str	r2, [r3]
-  70:./Core/Src/fsm_manual.c **** 			status_man = INIT;
- 257              		.loc 1 70 15
- 258 0072 774B     		ldr	r3, .L41
- 259 0074 6522     		movs	r2, #101
- 260 0076 1A60     		str	r2, [r3]
-  71:./Core/Src/fsm_manual.c **** 			printstatus();
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxIxBab.s 			page 7
-
-
- 261              		.loc 1 71 4
- 262 0078 FFF7FEFF 		bl	printstatus
-  72:./Core/Src/fsm_manual.c **** 		}
-  73:./Core/Src/fsm_manual.c **** 		break;
- 263              		.loc 1 73 3
- 264 007c DCE0     		b	.L36
- 265              	.L17:
-  74:./Core/Src/fsm_manual.c **** 
-  75:./Core/Src/fsm_manual.c **** 
-  76:./Core/Src/fsm_manual.c **** 
-  77:./Core/Src/fsm_manual.c **** 	case MAN_RED:
+ 265              	.L20:
+  66:./Core/Src/fsm_manual.c **** 		}
+  67:./Core/Src/fsm_manual.c **** 		if (isButton3DoubleClick()){
+ 266              		.loc 1 67 7
+ 267 0042 FFF7FEFF 		bl	isButton3DoubleClick
+ 268 0046 0346     		mov	r3, r0
+ 269              		.loc 1 67 6
+ 270 0048 002B     		cmp	r3, #0
+ 271 004a 00F0F880 		beq	.L37
+  68:./Core/Src/fsm_manual.c **** 			timer_red = RED_TIME;
+ 272              		.loc 1 68 14
+ 273 004e 834B     		ldr	r3, .L42+8
+ 274 0050 42F21072 		movw	r2, #10000
+ 275 0054 1A60     		str	r2, [r3]
+  69:./Core/Src/fsm_manual.c **** 			timer_green = GREEN_TIME;
+ 276              		.loc 1 69 16
+ 277 0056 824B     		ldr	r3, .L42+12
+ 278 0058 41F27072 		movw	r2, #6000
+ 279 005c 1A60     		str	r2, [r3]
+  70:./Core/Src/fsm_manual.c **** 			timer_yellow = YELLOW_TIME;
+ 280              		.loc 1 70 17
+ 281 005e 814B     		ldr	r3, .L42+16
+ 282 0060 4FF47A62 		mov	r2, #4000
+ 283 0064 1A60     		str	r2, [r3]
+  71:./Core/Src/fsm_manual.c **** 			status_light1 = INIT1;
+ 284              		.loc 1 71 18
+ 285 0066 804B     		ldr	r3, .L42+20
+ 286 0068 1322     		movs	r2, #19
+ 287 006a 1A60     		str	r2, [r3]
+  72:./Core/Src/fsm_manual.c **** 			status_light2 = INIT2;
+ 288              		.loc 1 72 18
+ 289 006c 7F4B     		ldr	r3, .L42+24
+ 290 006e 1722     		movs	r2, #23
+ 291 0070 1A60     		str	r2, [r3]
+  73:./Core/Src/fsm_manual.c **** 			status_man = INIT;
+ 292              		.loc 1 73 15
+ 293 0072 784B     		ldr	r3, .L42
+ 294 0074 6522     		movs	r2, #101
+ 295 0076 1A60     		str	r2, [r3]
+  74:./Core/Src/fsm_manual.c **** 			reset = 1;
+ 296              		.loc 1 74 10
+ 297 0078 7D4B     		ldr	r3, .L42+28
+ 298 007a 0122     		movs	r2, #1
+ 299 007c 1A60     		str	r2, [r3]
+  75:./Core/Src/fsm_manual.c **** 			printstatus();
+ 300              		.loc 1 75 4
+ 301 007e FFF7FEFF 		bl	printstatus
+  76:./Core/Src/fsm_manual.c **** 		}
+  77:./Core/Src/fsm_manual.c **** 		break;
+ 302              		.loc 1 77 3
+ 303 0082 DCE0     		b	.L37
+ 304              	.L18:
   78:./Core/Src/fsm_manual.c **** 
-  79:./Core/Src/fsm_manual.c **** 		if (isButton1Pressed()){
- 266              		.loc 1 79 7
- 267 007e FFF7FEFF 		bl	isButton1Pressed
- 268 0082 0346     		mov	r3, r0
- 269              		.loc 1 79 6
- 270 0084 002B     		cmp	r3, #0
- 271 0086 07D0     		beq	.L22
-  80:./Core/Src/fsm_manual.c **** 			status_man = MAN_YELLOW;
- 272              		.loc 1 80 15
- 273 0088 714B     		ldr	r3, .L41
- 274 008a 6822     		movs	r2, #104
- 275 008c 1A60     		str	r2, [r3]
-  81:./Core/Src/fsm_manual.c **** 			temp_timer = 0;
- 276              		.loc 1 81 15
- 277 008e 714B     		ldr	r3, .L41+4
- 278 0090 0022     		movs	r2, #0
- 279 0092 1A60     		str	r2, [r3]
-  82:./Core/Src/fsm_manual.c **** 			printstatus();
- 280              		.loc 1 82 4
- 281 0094 FFF7FEFF 		bl	printstatus
- 282              	.L22:
-  83:./Core/Src/fsm_manual.c **** 		}
-  84:./Core/Src/fsm_manual.c **** 		if (isButton2Pressed()){
- 283              		.loc 1 84 7
- 284 0098 FFF7FEFF 		bl	isButton2Pressed
- 285 009c 0346     		mov	r3, r0
- 286              		.loc 1 84 6
- 287 009e 002B     		cmp	r3, #0
- 288 00a0 14D0     		beq	.L23
- 289              	.LBB6:
-  85:./Core/Src/fsm_manual.c **** 			temp_timer = temp_timer + 1000;
- 290              		.loc 1 85 28
- 291 00a2 6C4B     		ldr	r3, .L41+4
- 292 00a4 1B68     		ldr	r3, [r3]
- 293 00a6 03F57A73 		add	r3, r3, #1000
- 294              		.loc 1 85 15
- 295 00aa 6A4A     		ldr	r2, .L41+4
- 296 00ac 1360     		str	r3, [r2]
-  86:./Core/Src/fsm_manual.c **** 			char str[100];
-  87:./Core/Src/fsm_manual.c **** 			HAL_UART_Transmit(&huart2,(uint8_t*) str, sprintf(str, "!INC: %d#\r\n",temp_timer), 1000);
- 297              		.loc 1 87 46
- 298 00ae 694B     		ldr	r3, .L41+4
- 299 00b0 1A68     		ldr	r2, [r3]
- 300 00b2 3B1D     		adds	r3, r7, #4
- 301 00b4 6D49     		ldr	r1, .L41+28
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxIxBab.s 			page 8
+  79:./Core/Src/fsm_manual.c **** 
+  80:./Core/Src/fsm_manual.c **** 
+  81:./Core/Src/fsm_manual.c **** 	case MAN_RED:
+  82:./Core/Src/fsm_manual.c **** 
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cckcmQOV.s 			page 8
 
 
- 302 00b6 1846     		mov	r0, r3
- 303 00b8 FFF7FEFF 		bl	sprintf
- 304 00bc 0346     		mov	r3, r0
- 305              		.loc 1 87 4
- 306 00be 9AB2     		uxth	r2, r3
- 307 00c0 391D     		adds	r1, r7, #4
- 308 00c2 4FF47A73 		mov	r3, #1000
- 309 00c6 6A48     		ldr	r0, .L41+32
- 310 00c8 FFF7FEFF 		bl	HAL_UART_Transmit
- 311              	.L23:
- 312              	.LBE6:
-  88:./Core/Src/fsm_manual.c **** 		}
-  89:./Core/Src/fsm_manual.c **** 		if (isButton3Pressed()){
- 313              		.loc 1 89 7
- 314 00cc FFF7FEFF 		bl	isButton3Pressed
- 315 00d0 0346     		mov	r3, r0
- 316              		.loc 1 89 6
- 317 00d2 002B     		cmp	r3, #0
- 318 00d4 00F0B280 		beq	.L37
-  90:./Core/Src/fsm_manual.c **** 			timer_red = temp_timer;
- 319              		.loc 1 90 14
- 320 00d8 5E4B     		ldr	r3, .L41+4
- 321 00da 1B68     		ldr	r3, [r3]
- 322 00dc 5E4A     		ldr	r2, .L41+8
- 323 00de 1360     		str	r3, [r2]
-  91:./Core/Src/fsm_manual.c **** 			if (timer_red < timer_green + timer_yellow) timer_red = timer_green + timer_yellow;
- 324              		.loc 1 91 32
- 325 00e0 5E4B     		ldr	r3, .L41+12
- 326 00e2 1A68     		ldr	r2, [r3]
- 327 00e4 5E4B     		ldr	r3, .L41+16
- 328 00e6 1B68     		ldr	r3, [r3]
- 329 00e8 1A44     		add	r2, r2, r3
- 330              		.loc 1 91 18
- 331 00ea 5B4B     		ldr	r3, .L41+8
- 332 00ec 1B68     		ldr	r3, [r3]
- 333              		.loc 1 91 7
- 334 00ee 9A42     		cmp	r2, r3
- 335 00f0 07DD     		ble	.L25
- 336              		.loc 1 91 72 discriminator 1
- 337 00f2 5A4B     		ldr	r3, .L41+12
- 338 00f4 1A68     		ldr	r2, [r3]
- 339 00f6 5A4B     		ldr	r3, .L41+16
- 340 00f8 1B68     		ldr	r3, [r3]
- 341 00fa 1344     		add	r3, r3, r2
- 342              		.loc 1 91 58 discriminator 1
- 343 00fc 564A     		ldr	r2, .L41+8
- 344 00fe 1360     		str	r3, [r2]
- 345 0100 06E0     		b	.L26
- 346              	.L25:
-  92:./Core/Src/fsm_manual.c **** 			else timer_green = timer_red - timer_yellow;
- 347              		.loc 1 92 33
- 348 0102 554B     		ldr	r3, .L41+8
- 349 0104 1A68     		ldr	r2, [r3]
- 350 0106 564B     		ldr	r3, .L41+16
- 351 0108 1B68     		ldr	r3, [r3]
- 352 010a D31A     		subs	r3, r2, r3
- 353              		.loc 1 92 21
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxIxBab.s 			page 9
+  83:./Core/Src/fsm_manual.c **** 		if (isButton1Pressed()){
+ 305              		.loc 1 83 7
+ 306 0084 FFF7FEFF 		bl	isButton1Pressed
+ 307 0088 0346     		mov	r3, r0
+ 308              		.loc 1 83 6
+ 309 008a 002B     		cmp	r3, #0
+ 310 008c 07D0     		beq	.L23
+  84:./Core/Src/fsm_manual.c **** 			status_man = MAN_YELLOW;
+ 311              		.loc 1 84 15
+ 312 008e 714B     		ldr	r3, .L42
+ 313 0090 6822     		movs	r2, #104
+ 314 0092 1A60     		str	r2, [r3]
+  85:./Core/Src/fsm_manual.c **** 			temp_timer = 0;
+ 315              		.loc 1 85 15
+ 316 0094 704B     		ldr	r3, .L42+4
+ 317 0096 0022     		movs	r2, #0
+ 318 0098 1A60     		str	r2, [r3]
+  86:./Core/Src/fsm_manual.c **** 			printstatus();
+ 319              		.loc 1 86 4
+ 320 009a FFF7FEFF 		bl	printstatus
+ 321              	.L23:
+  87:./Core/Src/fsm_manual.c **** 		}
+  88:./Core/Src/fsm_manual.c **** 		if (isButton2Pressed()){
+ 322              		.loc 1 88 7
+ 323 009e FFF7FEFF 		bl	isButton2Pressed
+ 324 00a2 0346     		mov	r3, r0
+ 325              		.loc 1 88 6
+ 326 00a4 002B     		cmp	r3, #0
+ 327 00a6 14D0     		beq	.L24
+ 328              	.LBB6:
+  89:./Core/Src/fsm_manual.c **** 			temp_timer = temp_timer + 1000;
+ 329              		.loc 1 89 28
+ 330 00a8 6B4B     		ldr	r3, .L42+4
+ 331 00aa 1B68     		ldr	r3, [r3]
+ 332 00ac 03F57A73 		add	r3, r3, #1000
+ 333              		.loc 1 89 15
+ 334 00b0 694A     		ldr	r2, .L42+4
+ 335 00b2 1360     		str	r3, [r2]
+  90:./Core/Src/fsm_manual.c **** 			char str[100];
+  91:./Core/Src/fsm_manual.c **** 			HAL_UART_Transmit(&huart2,(uint8_t*) str, sprintf(str, "!INC: %d#\r\n",temp_timer), 1000);
+ 336              		.loc 1 91 46
+ 337 00b4 684B     		ldr	r3, .L42+4
+ 338 00b6 1A68     		ldr	r2, [r3]
+ 339 00b8 3B1D     		adds	r3, r7, #4
+ 340 00ba 6E49     		ldr	r1, .L42+32
+ 341 00bc 1846     		mov	r0, r3
+ 342 00be FFF7FEFF 		bl	sprintf
+ 343 00c2 0346     		mov	r3, r0
+ 344              		.loc 1 91 4
+ 345 00c4 9AB2     		uxth	r2, r3
+ 346 00c6 391D     		adds	r1, r7, #4
+ 347 00c8 4FF47A73 		mov	r3, #1000
+ 348 00cc 6A48     		ldr	r0, .L42+36
+ 349 00ce FFF7FEFF 		bl	HAL_UART_Transmit
+ 350              	.L24:
+ 351              	.LBE6:
+  92:./Core/Src/fsm_manual.c **** 		}
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cckcmQOV.s 			page 9
 
 
- 354 010c 534A     		ldr	r2, .L41+12
- 355 010e 1360     		str	r3, [r2]
- 356              	.L26:
-  93:./Core/Src/fsm_manual.c **** 			status_man = INIT;
- 357              		.loc 1 93 15
- 358 0110 4F4B     		ldr	r3, .L41
- 359 0112 6522     		movs	r2, #101
- 360 0114 1A60     		str	r2, [r3]
-  94:./Core/Src/fsm_manual.c **** 			printstatus();
- 361              		.loc 1 94 4
- 362 0116 FFF7FEFF 		bl	printstatus
-  95:./Core/Src/fsm_manual.c **** 		}
-  96:./Core/Src/fsm_manual.c **** 		break;
- 363              		.loc 1 96 3
- 364 011a 8FE0     		b	.L37
- 365              	.L14:
-  97:./Core/Src/fsm_manual.c **** 
-  98:./Core/Src/fsm_manual.c **** 
-  99:./Core/Src/fsm_manual.c **** 	case MAN_YELLOW:
- 100:./Core/Src/fsm_manual.c **** 		if (isButton1Pressed()){
- 366              		.loc 1 100 7
- 367 011c FFF7FEFF 		bl	isButton1Pressed
- 368 0120 0346     		mov	r3, r0
- 369              		.loc 1 100 6
- 370 0122 002B     		cmp	r3, #0
- 371 0124 07D0     		beq	.L27
- 101:./Core/Src/fsm_manual.c **** 			temp_timer = 0;
- 372              		.loc 1 101 15
- 373 0126 4B4B     		ldr	r3, .L41+4
- 374 0128 0022     		movs	r2, #0
- 375 012a 1A60     		str	r2, [r3]
- 102:./Core/Src/fsm_manual.c **** 			status_man = MAN_GREEN;
- 376              		.loc 1 102 15
- 377 012c 484B     		ldr	r3, .L41
- 378 012e 6722     		movs	r2, #103
- 379 0130 1A60     		str	r2, [r3]
- 103:./Core/Src/fsm_manual.c **** 			printstatus();
- 380              		.loc 1 103 4
- 381 0132 FFF7FEFF 		bl	printstatus
- 382              	.L27:
- 104:./Core/Src/fsm_manual.c **** 		}
- 105:./Core/Src/fsm_manual.c **** 		if (isButton2Pressed()){
- 383              		.loc 1 105 7
- 384 0136 FFF7FEFF 		bl	isButton2Pressed
- 385 013a 0346     		mov	r3, r0
- 386              		.loc 1 105 6
- 387 013c 002B     		cmp	r3, #0
- 388 013e 14D0     		beq	.L28
- 389              	.LBB7:
- 106:./Core/Src/fsm_manual.c **** 			temp_timer = temp_timer + 1000;
- 390              		.loc 1 106 28
- 391 0140 444B     		ldr	r3, .L41+4
- 392 0142 1B68     		ldr	r3, [r3]
- 393 0144 03F57A73 		add	r3, r3, #1000
- 394              		.loc 1 106 15
- 395 0148 424A     		ldr	r2, .L41+4
- 396 014a 1360     		str	r3, [r2]
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxIxBab.s 			page 10
+  93:./Core/Src/fsm_manual.c **** 		if (isButton3Pressed()){
+ 352              		.loc 1 93 7
+ 353 00d2 FFF7FEFF 		bl	isButton3Pressed
+ 354 00d6 0346     		mov	r3, r0
+ 355              		.loc 1 93 6
+ 356 00d8 002B     		cmp	r3, #0
+ 357 00da 00F0B280 		beq	.L38
+  94:./Core/Src/fsm_manual.c **** 			timer_red = temp_timer;
+ 358              		.loc 1 94 14
+ 359 00de 5E4B     		ldr	r3, .L42+4
+ 360 00e0 1B68     		ldr	r3, [r3]
+ 361 00e2 5E4A     		ldr	r2, .L42+8
+ 362 00e4 1360     		str	r3, [r2]
+  95:./Core/Src/fsm_manual.c **** 			if (timer_red < timer_green + timer_yellow) timer_red = timer_green + timer_yellow;
+ 363              		.loc 1 95 32
+ 364 00e6 5E4B     		ldr	r3, .L42+12
+ 365 00e8 1A68     		ldr	r2, [r3]
+ 366 00ea 5E4B     		ldr	r3, .L42+16
+ 367 00ec 1B68     		ldr	r3, [r3]
+ 368 00ee 1A44     		add	r2, r2, r3
+ 369              		.loc 1 95 18
+ 370 00f0 5A4B     		ldr	r3, .L42+8
+ 371 00f2 1B68     		ldr	r3, [r3]
+ 372              		.loc 1 95 7
+ 373 00f4 9A42     		cmp	r2, r3
+ 374 00f6 07DD     		ble	.L26
+ 375              		.loc 1 95 72 discriminator 1
+ 376 00f8 594B     		ldr	r3, .L42+12
+ 377 00fa 1A68     		ldr	r2, [r3]
+ 378 00fc 594B     		ldr	r3, .L42+16
+ 379 00fe 1B68     		ldr	r3, [r3]
+ 380 0100 1344     		add	r3, r3, r2
+ 381              		.loc 1 95 58 discriminator 1
+ 382 0102 564A     		ldr	r2, .L42+8
+ 383 0104 1360     		str	r3, [r2]
+ 384 0106 06E0     		b	.L27
+ 385              	.L26:
+  96:./Core/Src/fsm_manual.c **** 			else timer_green = timer_red - timer_yellow;
+ 386              		.loc 1 96 33
+ 387 0108 544B     		ldr	r3, .L42+8
+ 388 010a 1A68     		ldr	r2, [r3]
+ 389 010c 554B     		ldr	r3, .L42+16
+ 390 010e 1B68     		ldr	r3, [r3]
+ 391 0110 D31A     		subs	r3, r2, r3
+ 392              		.loc 1 96 21
+ 393 0112 534A     		ldr	r2, .L42+12
+ 394 0114 1360     		str	r3, [r2]
+ 395              	.L27:
+  97:./Core/Src/fsm_manual.c **** 			status_man = INIT;
+ 396              		.loc 1 97 15
+ 397 0116 4F4B     		ldr	r3, .L42
+ 398 0118 6522     		movs	r2, #101
+ 399 011a 1A60     		str	r2, [r3]
+  98:./Core/Src/fsm_manual.c **** 			printstatus();
+ 400              		.loc 1 98 4
+ 401 011c FFF7FEFF 		bl	printstatus
+  99:./Core/Src/fsm_manual.c **** 		}
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cckcmQOV.s 			page 10
 
 
- 107:./Core/Src/fsm_manual.c **** 			char str[100];
- 108:./Core/Src/fsm_manual.c **** 			HAL_UART_Transmit(&huart2,(uint8_t*) str, sprintf(str, "!INC: %d#\r\n",temp_timer), 1000);
- 397              		.loc 1 108 46
- 398 014c 414B     		ldr	r3, .L41+4
- 399 014e 1A68     		ldr	r2, [r3]
- 400 0150 3B1D     		adds	r3, r7, #4
- 401 0152 4649     		ldr	r1, .L41+28
- 402 0154 1846     		mov	r0, r3
- 403 0156 FFF7FEFF 		bl	sprintf
- 404 015a 0346     		mov	r3, r0
- 405              		.loc 1 108 4
- 406 015c 9AB2     		uxth	r2, r3
- 407 015e 391D     		adds	r1, r7, #4
- 408 0160 4FF47A73 		mov	r3, #1000
- 409 0164 4248     		ldr	r0, .L41+32
- 410 0166 FFF7FEFF 		bl	HAL_UART_Transmit
- 411              	.L28:
- 412              	.LBE7:
- 109:./Core/Src/fsm_manual.c **** 		}
- 110:./Core/Src/fsm_manual.c **** 		if (isButton3Pressed()){
- 413              		.loc 1 110 7
- 414 016a FFF7FEFF 		bl	isButton3Pressed
- 415 016e 0346     		mov	r3, r0
- 416              		.loc 1 110 6
- 417 0170 002B     		cmp	r3, #0
- 418 0172 65D0     		beq	.L38
- 111:./Core/Src/fsm_manual.c **** 			timer_yellow = temp_timer;
- 419              		.loc 1 111 17
- 420 0174 374B     		ldr	r3, .L41+4
- 421 0176 1B68     		ldr	r3, [r3]
- 422 0178 394A     		ldr	r2, .L41+16
- 423 017a 1360     		str	r3, [r2]
- 112:./Core/Src/fsm_manual.c **** 			if (timer_red != timer_green + timer_yellow) timer_red = timer_green + timer_yellow;
- 424              		.loc 1 112 33
- 425 017c 374B     		ldr	r3, .L41+12
- 426 017e 1A68     		ldr	r2, [r3]
- 427 0180 374B     		ldr	r3, .L41+16
- 428 0182 1B68     		ldr	r3, [r3]
- 429 0184 1A44     		add	r2, r2, r3
- 430              		.loc 1 112 18
- 431 0186 344B     		ldr	r3, .L41+8
- 432 0188 1B68     		ldr	r3, [r3]
- 433              		.loc 1 112 7
- 434 018a 9A42     		cmp	r2, r3
- 435 018c 06D0     		beq	.L30
- 436              		.loc 1 112 73 discriminator 1
- 437 018e 334B     		ldr	r3, .L41+12
- 438 0190 1A68     		ldr	r2, [r3]
- 439 0192 334B     		ldr	r3, .L41+16
- 440 0194 1B68     		ldr	r3, [r3]
- 441 0196 1344     		add	r3, r3, r2
- 442              		.loc 1 112 59 discriminator 1
- 443 0198 2F4A     		ldr	r2, .L41+8
- 444 019a 1360     		str	r3, [r2]
- 445              	.L30:
- 113:./Core/Src/fsm_manual.c **** 			status_man = INIT;
- 446              		.loc 1 113 15
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxIxBab.s 			page 11
+ 100:./Core/Src/fsm_manual.c **** 		break;
+ 402              		.loc 1 100 3
+ 403 0120 8FE0     		b	.L38
+ 404              	.L15:
+ 101:./Core/Src/fsm_manual.c **** 
+ 102:./Core/Src/fsm_manual.c **** 
+ 103:./Core/Src/fsm_manual.c **** 	case MAN_YELLOW:
+ 104:./Core/Src/fsm_manual.c **** 		if (isButton1Pressed()){
+ 405              		.loc 1 104 7
+ 406 0122 FFF7FEFF 		bl	isButton1Pressed
+ 407 0126 0346     		mov	r3, r0
+ 408              		.loc 1 104 6
+ 409 0128 002B     		cmp	r3, #0
+ 410 012a 07D0     		beq	.L28
+ 105:./Core/Src/fsm_manual.c **** 			temp_timer = 0;
+ 411              		.loc 1 105 15
+ 412 012c 4A4B     		ldr	r3, .L42+4
+ 413 012e 0022     		movs	r2, #0
+ 414 0130 1A60     		str	r2, [r3]
+ 106:./Core/Src/fsm_manual.c **** 			status_man = MAN_GREEN;
+ 415              		.loc 1 106 15
+ 416 0132 484B     		ldr	r3, .L42
+ 417 0134 6722     		movs	r2, #103
+ 418 0136 1A60     		str	r2, [r3]
+ 107:./Core/Src/fsm_manual.c **** 			printstatus();
+ 419              		.loc 1 107 4
+ 420 0138 FFF7FEFF 		bl	printstatus
+ 421              	.L28:
+ 108:./Core/Src/fsm_manual.c **** 		}
+ 109:./Core/Src/fsm_manual.c **** 		if (isButton2Pressed()){
+ 422              		.loc 1 109 7
+ 423 013c FFF7FEFF 		bl	isButton2Pressed
+ 424 0140 0346     		mov	r3, r0
+ 425              		.loc 1 109 6
+ 426 0142 002B     		cmp	r3, #0
+ 427 0144 14D0     		beq	.L29
+ 428              	.LBB7:
+ 110:./Core/Src/fsm_manual.c **** 			temp_timer = temp_timer + 1000;
+ 429              		.loc 1 110 28
+ 430 0146 444B     		ldr	r3, .L42+4
+ 431 0148 1B68     		ldr	r3, [r3]
+ 432 014a 03F57A73 		add	r3, r3, #1000
+ 433              		.loc 1 110 15
+ 434 014e 424A     		ldr	r2, .L42+4
+ 435 0150 1360     		str	r3, [r2]
+ 111:./Core/Src/fsm_manual.c **** 			char str[100];
+ 112:./Core/Src/fsm_manual.c **** 			HAL_UART_Transmit(&huart2,(uint8_t*) str, sprintf(str, "!INC: %d#\r\n",temp_timer), 1000);
+ 436              		.loc 1 112 46
+ 437 0152 414B     		ldr	r3, .L42+4
+ 438 0154 1A68     		ldr	r2, [r3]
+ 439 0156 3B1D     		adds	r3, r7, #4
+ 440 0158 4649     		ldr	r1, .L42+32
+ 441 015a 1846     		mov	r0, r3
+ 442 015c FFF7FEFF 		bl	sprintf
+ 443 0160 0346     		mov	r3, r0
+ 444              		.loc 1 112 4
+ 445 0162 9AB2     		uxth	r2, r3
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cckcmQOV.s 			page 11
 
 
- 447 019c 2C4B     		ldr	r3, .L41
- 448 019e 6522     		movs	r2, #101
- 449 01a0 1A60     		str	r2, [r3]
- 114:./Core/Src/fsm_manual.c **** 			printstatus();
- 450              		.loc 1 114 4
- 451 01a2 FFF7FEFF 		bl	printstatus
- 115:./Core/Src/fsm_manual.c **** 		}
- 116:./Core/Src/fsm_manual.c **** 		break;
- 452              		.loc 1 116 3
- 453 01a6 4BE0     		b	.L38
- 454              	.L16:
- 117:./Core/Src/fsm_manual.c **** 
- 118:./Core/Src/fsm_manual.c **** 
- 119:./Core/Src/fsm_manual.c **** 	case MAN_GREEN:
- 120:./Core/Src/fsm_manual.c **** 
- 121:./Core/Src/fsm_manual.c **** 		if (isButton1Pressed()){
- 455              		.loc 1 121 7
- 456 01a8 FFF7FEFF 		bl	isButton1Pressed
- 457 01ac 0346     		mov	r3, r0
- 458              		.loc 1 121 6
- 459 01ae 002B     		cmp	r3, #0
- 460 01b0 07D0     		beq	.L31
- 122:./Core/Src/fsm_manual.c **** 			temp_timer = 0;
- 461              		.loc 1 122 15
- 462 01b2 284B     		ldr	r3, .L41+4
- 463 01b4 0022     		movs	r2, #0
- 464 01b6 1A60     		str	r2, [r3]
- 123:./Core/Src/fsm_manual.c **** 			status_man = INIT;
- 465              		.loc 1 123 15
- 466 01b8 254B     		ldr	r3, .L41
- 467 01ba 6522     		movs	r2, #101
- 468 01bc 1A60     		str	r2, [r3]
- 124:./Core/Src/fsm_manual.c **** 			printstatus();
- 469              		.loc 1 124 4
- 470 01be FFF7FEFF 		bl	printstatus
- 471              	.L31:
- 125:./Core/Src/fsm_manual.c **** 		}
- 126:./Core/Src/fsm_manual.c **** 		if (isButton2Pressed()){
- 472              		.loc 1 126 7
- 473 01c2 FFF7FEFF 		bl	isButton2Pressed
- 474 01c6 0346     		mov	r3, r0
- 475              		.loc 1 126 6
- 476 01c8 002B     		cmp	r3, #0
- 477 01ca 14D0     		beq	.L32
- 478              	.LBB8:
- 127:./Core/Src/fsm_manual.c **** 			temp_timer = temp_timer + 1000;
- 479              		.loc 1 127 28
- 480 01cc 214B     		ldr	r3, .L41+4
- 481 01ce 1B68     		ldr	r3, [r3]
- 482 01d0 03F57A73 		add	r3, r3, #1000
- 483              		.loc 1 127 15
- 484 01d4 1F4A     		ldr	r2, .L41+4
- 485 01d6 1360     		str	r3, [r2]
- 128:./Core/Src/fsm_manual.c **** 			char str[100];
- 129:./Core/Src/fsm_manual.c **** 			HAL_UART_Transmit(&huart2,(uint8_t*) str, sprintf(str, "!INC: %d#\r\n",temp_timer), 1000);
- 486              		.loc 1 129 46
- 487 01d8 1E4B     		ldr	r3, .L41+4
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxIxBab.s 			page 12
+ 446 0164 391D     		adds	r1, r7, #4
+ 447 0166 4FF47A73 		mov	r3, #1000
+ 448 016a 4348     		ldr	r0, .L42+36
+ 449 016c FFF7FEFF 		bl	HAL_UART_Transmit
+ 450              	.L29:
+ 451              	.LBE7:
+ 113:./Core/Src/fsm_manual.c **** 		}
+ 114:./Core/Src/fsm_manual.c **** 		if (isButton3Pressed()){
+ 452              		.loc 1 114 7
+ 453 0170 FFF7FEFF 		bl	isButton3Pressed
+ 454 0174 0346     		mov	r3, r0
+ 455              		.loc 1 114 6
+ 456 0176 002B     		cmp	r3, #0
+ 457 0178 65D0     		beq	.L39
+ 115:./Core/Src/fsm_manual.c **** 			timer_yellow = temp_timer;
+ 458              		.loc 1 115 17
+ 459 017a 374B     		ldr	r3, .L42+4
+ 460 017c 1B68     		ldr	r3, [r3]
+ 461 017e 394A     		ldr	r2, .L42+16
+ 462 0180 1360     		str	r3, [r2]
+ 116:./Core/Src/fsm_manual.c **** 			if (timer_red != timer_green + timer_yellow) timer_red = timer_green + timer_yellow;
+ 463              		.loc 1 116 33
+ 464 0182 374B     		ldr	r3, .L42+12
+ 465 0184 1A68     		ldr	r2, [r3]
+ 466 0186 374B     		ldr	r3, .L42+16
+ 467 0188 1B68     		ldr	r3, [r3]
+ 468 018a 1A44     		add	r2, r2, r3
+ 469              		.loc 1 116 18
+ 470 018c 334B     		ldr	r3, .L42+8
+ 471 018e 1B68     		ldr	r3, [r3]
+ 472              		.loc 1 116 7
+ 473 0190 9A42     		cmp	r2, r3
+ 474 0192 06D0     		beq	.L31
+ 475              		.loc 1 116 73 discriminator 1
+ 476 0194 324B     		ldr	r3, .L42+12
+ 477 0196 1A68     		ldr	r2, [r3]
+ 478 0198 324B     		ldr	r3, .L42+16
+ 479 019a 1B68     		ldr	r3, [r3]
+ 480 019c 1344     		add	r3, r3, r2
+ 481              		.loc 1 116 59 discriminator 1
+ 482 019e 2F4A     		ldr	r2, .L42+8
+ 483 01a0 1360     		str	r3, [r2]
+ 484              	.L31:
+ 117:./Core/Src/fsm_manual.c **** 			status_man = INIT;
+ 485              		.loc 1 117 15
+ 486 01a2 2C4B     		ldr	r3, .L42
+ 487 01a4 6522     		movs	r2, #101
+ 488 01a6 1A60     		str	r2, [r3]
+ 118:./Core/Src/fsm_manual.c **** 			printstatus();
+ 489              		.loc 1 118 4
+ 490 01a8 FFF7FEFF 		bl	printstatus
+ 119:./Core/Src/fsm_manual.c **** 		}
+ 120:./Core/Src/fsm_manual.c **** 		break;
+ 491              		.loc 1 120 3
+ 492 01ac 4BE0     		b	.L39
+ 493              	.L17:
+ 121:./Core/Src/fsm_manual.c **** 
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cckcmQOV.s 			page 12
 
 
- 488 01da 1A68     		ldr	r2, [r3]
- 489 01dc 3B1D     		adds	r3, r7, #4
- 490 01de 2349     		ldr	r1, .L41+28
- 491 01e0 1846     		mov	r0, r3
- 492 01e2 FFF7FEFF 		bl	sprintf
- 493 01e6 0346     		mov	r3, r0
- 494              		.loc 1 129 4
- 495 01e8 9AB2     		uxth	r2, r3
- 496 01ea 391D     		adds	r1, r7, #4
- 497 01ec 4FF47A73 		mov	r3, #1000
- 498 01f0 1F48     		ldr	r0, .L41+32
- 499 01f2 FFF7FEFF 		bl	HAL_UART_Transmit
- 500              	.L32:
- 501              	.LBE8:
- 130:./Core/Src/fsm_manual.c **** 		}
- 131:./Core/Src/fsm_manual.c **** 		if (isButton3Pressed()){
- 502              		.loc 1 131 7
- 503 01f6 FFF7FEFF 		bl	isButton3Pressed
- 504 01fa 0346     		mov	r3, r0
- 505              		.loc 1 131 6
- 506 01fc 002B     		cmp	r3, #0
- 507 01fe 21D0     		beq	.L39
- 132:./Core/Src/fsm_manual.c **** 			timer_green = temp_timer;
- 508              		.loc 1 132 16
- 509 0200 144B     		ldr	r3, .L41+4
- 510 0202 1B68     		ldr	r3, [r3]
- 511 0204 154A     		ldr	r2, .L41+12
- 512 0206 1360     		str	r3, [r2]
- 133:./Core/Src/fsm_manual.c **** 			if (timer_red != timer_green + timer_yellow) timer_red = timer_green + timer_yellow;
- 513              		.loc 1 133 33
- 514 0208 144B     		ldr	r3, .L41+12
- 515 020a 1A68     		ldr	r2, [r3]
- 516 020c 144B     		ldr	r3, .L41+16
- 517 020e 1B68     		ldr	r3, [r3]
- 518 0210 1A44     		add	r2, r2, r3
- 519              		.loc 1 133 18
- 520 0212 114B     		ldr	r3, .L41+8
- 521 0214 1B68     		ldr	r3, [r3]
- 522              		.loc 1 133 7
- 523 0216 9A42     		cmp	r2, r3
- 524 0218 06D0     		beq	.L34
- 525              		.loc 1 133 73 discriminator 1
- 526 021a 104B     		ldr	r3, .L41+12
- 527 021c 1A68     		ldr	r2, [r3]
- 528 021e 104B     		ldr	r3, .L41+16
- 529 0220 1B68     		ldr	r3, [r3]
- 530 0222 1344     		add	r3, r3, r2
- 531              		.loc 1 133 59 discriminator 1
- 532 0224 0C4A     		ldr	r2, .L41+8
- 533 0226 1360     		str	r3, [r2]
- 534              	.L34:
- 134:./Core/Src/fsm_manual.c **** 			status_man = INIT;
- 535              		.loc 1 134 15
- 536 0228 094B     		ldr	r3, .L41
- 537 022a 6522     		movs	r2, #101
- 538 022c 1A60     		str	r2, [r3]
- 135:./Core/Src/fsm_manual.c **** 			printstatus();
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxIxBab.s 			page 13
+ 122:./Core/Src/fsm_manual.c **** 
+ 123:./Core/Src/fsm_manual.c **** 	case MAN_GREEN:
+ 124:./Core/Src/fsm_manual.c **** 
+ 125:./Core/Src/fsm_manual.c **** 		if (isButton1Pressed()){
+ 494              		.loc 1 125 7
+ 495 01ae FFF7FEFF 		bl	isButton1Pressed
+ 496 01b2 0346     		mov	r3, r0
+ 497              		.loc 1 125 6
+ 498 01b4 002B     		cmp	r3, #0
+ 499 01b6 07D0     		beq	.L32
+ 126:./Core/Src/fsm_manual.c **** 			temp_timer = 0;
+ 500              		.loc 1 126 15
+ 501 01b8 274B     		ldr	r3, .L42+4
+ 502 01ba 0022     		movs	r2, #0
+ 503 01bc 1A60     		str	r2, [r3]
+ 127:./Core/Src/fsm_manual.c **** 			status_man = INIT;
+ 504              		.loc 1 127 15
+ 505 01be 254B     		ldr	r3, .L42
+ 506 01c0 6522     		movs	r2, #101
+ 507 01c2 1A60     		str	r2, [r3]
+ 128:./Core/Src/fsm_manual.c **** 			printstatus();
+ 508              		.loc 1 128 4
+ 509 01c4 FFF7FEFF 		bl	printstatus
+ 510              	.L32:
+ 129:./Core/Src/fsm_manual.c **** 		}
+ 130:./Core/Src/fsm_manual.c **** 		if (isButton2Pressed()){
+ 511              		.loc 1 130 7
+ 512 01c8 FFF7FEFF 		bl	isButton2Pressed
+ 513 01cc 0346     		mov	r3, r0
+ 514              		.loc 1 130 6
+ 515 01ce 002B     		cmp	r3, #0
+ 516 01d0 14D0     		beq	.L33
+ 517              	.LBB8:
+ 131:./Core/Src/fsm_manual.c **** 			temp_timer = temp_timer + 1000;
+ 518              		.loc 1 131 28
+ 519 01d2 214B     		ldr	r3, .L42+4
+ 520 01d4 1B68     		ldr	r3, [r3]
+ 521 01d6 03F57A73 		add	r3, r3, #1000
+ 522              		.loc 1 131 15
+ 523 01da 1F4A     		ldr	r2, .L42+4
+ 524 01dc 1360     		str	r3, [r2]
+ 132:./Core/Src/fsm_manual.c **** 			char str[100];
+ 133:./Core/Src/fsm_manual.c **** 			HAL_UART_Transmit(&huart2,(uint8_t*) str, sprintf(str, "!INC: %d#\r\n",temp_timer), 1000);
+ 525              		.loc 1 133 46
+ 526 01de 1E4B     		ldr	r3, .L42+4
+ 527 01e0 1A68     		ldr	r2, [r3]
+ 528 01e2 3B1D     		adds	r3, r7, #4
+ 529 01e4 2349     		ldr	r1, .L42+32
+ 530 01e6 1846     		mov	r0, r3
+ 531 01e8 FFF7FEFF 		bl	sprintf
+ 532 01ec 0346     		mov	r3, r0
+ 533              		.loc 1 133 4
+ 534 01ee 9AB2     		uxth	r2, r3
+ 535 01f0 391D     		adds	r1, r7, #4
+ 536 01f2 4FF47A73 		mov	r3, #1000
+ 537 01f6 2048     		ldr	r0, .L42+36
+ 538 01f8 FFF7FEFF 		bl	HAL_UART_Transmit
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cckcmQOV.s 			page 13
 
 
- 539              		.loc 1 135 4
- 540 022e FFF7FEFF 		bl	printstatus
- 136:./Core/Src/fsm_manual.c **** 		}
- 137:./Core/Src/fsm_manual.c **** 		break;
- 541              		.loc 1 137 3
- 542 0232 07E0     		b	.L39
- 543              	.L35:
- 138:./Core/Src/fsm_manual.c **** 
- 139:./Core/Src/fsm_manual.c **** 	default:
- 140:./Core/Src/fsm_manual.c **** 		break;
- 544              		.loc 1 140 3
- 545 0234 00BF     		nop
- 546 0236 06E0     		b	.L40
- 547              	.L36:
-  73:./Core/Src/fsm_manual.c **** 
- 548              		.loc 1 73 3
- 549 0238 00BF     		nop
- 550 023a 04E0     		b	.L40
- 551              	.L37:
-  96:./Core/Src/fsm_manual.c **** 
- 552              		.loc 1 96 3
- 553 023c 00BF     		nop
- 554 023e 02E0     		b	.L40
- 555              	.L38:
- 116:./Core/Src/fsm_manual.c **** 
- 556              		.loc 1 116 3
- 557 0240 00BF     		nop
- 558 0242 00E0     		b	.L40
- 559              	.L39:
- 137:./Core/Src/fsm_manual.c **** 
- 560              		.loc 1 137 3
- 561 0244 00BF     		nop
- 562              	.L40:
- 141:./Core/Src/fsm_manual.c **** 	}
+ 539              	.L33:
+ 540              	.LBE8:
+ 134:./Core/Src/fsm_manual.c **** 		}
+ 135:./Core/Src/fsm_manual.c **** 		if (isButton3Pressed()){
+ 541              		.loc 1 135 7
+ 542 01fc FFF7FEFF 		bl	isButton3Pressed
+ 543 0200 0346     		mov	r3, r0
+ 544              		.loc 1 135 6
+ 545 0202 002B     		cmp	r3, #0
+ 546 0204 21D0     		beq	.L40
+ 136:./Core/Src/fsm_manual.c **** 			timer_green = temp_timer;
+ 547              		.loc 1 136 16
+ 548 0206 144B     		ldr	r3, .L42+4
+ 549 0208 1B68     		ldr	r3, [r3]
+ 550 020a 154A     		ldr	r2, .L42+12
+ 551 020c 1360     		str	r3, [r2]
+ 137:./Core/Src/fsm_manual.c **** 			if (timer_red != timer_green + timer_yellow) timer_red = timer_green + timer_yellow;
+ 552              		.loc 1 137 33
+ 553 020e 144B     		ldr	r3, .L42+12
+ 554 0210 1A68     		ldr	r2, [r3]
+ 555 0212 144B     		ldr	r3, .L42+16
+ 556 0214 1B68     		ldr	r3, [r3]
+ 557 0216 1A44     		add	r2, r2, r3
+ 558              		.loc 1 137 18
+ 559 0218 104B     		ldr	r3, .L42+8
+ 560 021a 1B68     		ldr	r3, [r3]
+ 561              		.loc 1 137 7
+ 562 021c 9A42     		cmp	r2, r3
+ 563 021e 06D0     		beq	.L35
+ 564              		.loc 1 137 73 discriminator 1
+ 565 0220 0F4B     		ldr	r3, .L42+12
+ 566 0222 1A68     		ldr	r2, [r3]
+ 567 0224 0F4B     		ldr	r3, .L42+16
+ 568 0226 1B68     		ldr	r3, [r3]
+ 569 0228 1344     		add	r3, r3, r2
+ 570              		.loc 1 137 59 discriminator 1
+ 571 022a 0C4A     		ldr	r2, .L42+8
+ 572 022c 1360     		str	r3, [r2]
+ 573              	.L35:
+ 138:./Core/Src/fsm_manual.c **** 			status_man = INIT;
+ 574              		.loc 1 138 15
+ 575 022e 094B     		ldr	r3, .L42
+ 576 0230 6522     		movs	r2, #101
+ 577 0232 1A60     		str	r2, [r3]
+ 139:./Core/Src/fsm_manual.c **** 			printstatus();
+ 578              		.loc 1 139 4
+ 579 0234 FFF7FEFF 		bl	printstatus
+ 140:./Core/Src/fsm_manual.c **** 		}
+ 141:./Core/Src/fsm_manual.c **** 		break;
+ 580              		.loc 1 141 3
+ 581 0238 07E0     		b	.L40
+ 582              	.L36:
  142:./Core/Src/fsm_manual.c **** 
- 143:./Core/Src/fsm_manual.c **** }
- 563              		.loc 1 143 1
- 564 0246 00BF     		nop
- 565 0248 6837     		adds	r7, r7, #104
- 566              		.cfi_def_cfa_offset 8
- 567 024a BD46     		mov	sp, r7
- 568              		.cfi_def_cfa_register 13
- 569              		@ sp needed
- 570 024c 80BD     		pop	{r7, pc}
- 571              	.L42:
- 572 024e 00BF     		.align	2
- 573              	.L41:
- 574 0250 00000000 		.word	status_man
- 575 0254 00000000 		.word	temp_timer
- 576 0258 00000000 		.word	timer_red
- 577 025c 00000000 		.word	timer_green
- 578 0260 00000000 		.word	timer_yellow
- 579 0264 00000000 		.word	status_light1
- 580 0268 00000000 		.word	status_light2
- 581 026c 50000000 		.word	.LC4
- 582 0270 00000000 		.word	huart2
- 583              		.cfi_endproc
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxIxBab.s 			page 14
+ 143:./Core/Src/fsm_manual.c **** 	default:
+ 144:./Core/Src/fsm_manual.c **** 		break;
+ 583              		.loc 1 144 3
+ 584 023a 00BF     		nop
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cckcmQOV.s 			page 14
 
 
- 584              	.LFE69:
- 586              		.text
- 587              	.Letext0:
- 588              		.file 2 "c:\\st\\stm32cubeide_1.7.0\\stm32cubeide\\plugins\\com.st.stm32cube.ide.mcu.externaltools
- 589              		.file 3 "c:\\st\\stm32cubeide_1.7.0\\stm32cubeide\\plugins\\com.st.stm32cube.ide.mcu.externaltools
- 590              		.file 4 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
- 591              		.file 5 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h"
- 592              		.file 6 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h"
- 593              		.file 7 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h"
- 594              		.file 8 "Core/Inc/global.h"
- 595              		.file 9 "Core/Inc/traffic_timer.h"
- 596              		.file 10 "Core/Inc/fsm_manual.h"
- 597              		.file 11 "Core/Inc/button.h"
- 598              		.file 12 "c:\\st\\stm32cubeide_1.7.0\\stm32cubeide\\plugins\\com.st.stm32cube.ide.mcu.externaltool
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxIxBab.s 			page 15
+ 585 023c 06E0     		b	.L41
+ 586              	.L37:
+  77:./Core/Src/fsm_manual.c **** 
+ 587              		.loc 1 77 3
+ 588 023e 00BF     		nop
+ 589 0240 04E0     		b	.L41
+ 590              	.L38:
+ 100:./Core/Src/fsm_manual.c **** 
+ 591              		.loc 1 100 3
+ 592 0242 00BF     		nop
+ 593 0244 02E0     		b	.L41
+ 594              	.L39:
+ 120:./Core/Src/fsm_manual.c **** 
+ 595              		.loc 1 120 3
+ 596 0246 00BF     		nop
+ 597 0248 00E0     		b	.L41
+ 598              	.L40:
+ 141:./Core/Src/fsm_manual.c **** 
+ 599              		.loc 1 141 3
+ 600 024a 00BF     		nop
+ 601              	.L41:
+ 145:./Core/Src/fsm_manual.c **** 	}
+ 146:./Core/Src/fsm_manual.c **** 
+ 147:./Core/Src/fsm_manual.c **** }
+ 602              		.loc 1 147 1
+ 603 024c 00BF     		nop
+ 604 024e 6837     		adds	r7, r7, #104
+ 605              		.cfi_def_cfa_offset 8
+ 606 0250 BD46     		mov	sp, r7
+ 607              		.cfi_def_cfa_register 13
+ 608              		@ sp needed
+ 609 0252 80BD     		pop	{r7, pc}
+ 610              	.L43:
+ 611              		.align	2
+ 612              	.L42:
+ 613 0254 00000000 		.word	status_man
+ 614 0258 00000000 		.word	temp_timer
+ 615 025c 00000000 		.word	timer_red
+ 616 0260 00000000 		.word	timer_green
+ 617 0264 00000000 		.word	timer_yellow
+ 618 0268 00000000 		.word	status_light1
+ 619 026c 00000000 		.word	status_light2
+ 620 0270 00000000 		.word	reset
+ 621 0274 64000000 		.word	.LC5
+ 622 0278 00000000 		.word	huart2
+ 623              		.cfi_endproc
+ 624              	.LFE69:
+ 626              		.text
+ 627              	.Letext0:
+ 628              		.file 2 "c:\\st\\stm32cubeide_1.7.0\\stm32cubeide\\plugins\\com.st.stm32cube.ide.mcu.externaltools
+ 629              		.file 3 "c:\\st\\stm32cubeide_1.7.0\\stm32cubeide\\plugins\\com.st.stm32cube.ide.mcu.externaltools
+ 630              		.file 4 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
+ 631              		.file 5 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h"
+ 632              		.file 6 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h"
+ 633              		.file 7 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h"
+ 634              		.file 8 "Core/Inc/global.h"
+ 635              		.file 9 "Core/Inc/traffic_timer.h"
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cckcmQOV.s 			page 15
+
+
+ 636              		.file 10 "Core/Inc/fsm_manual.h"
+ 637              		.file 11 "Core/Inc/button.h"
+ 638              		.file 12 "c:\\st\\stm32cubeide_1.7.0\\stm32cubeide\\plugins\\com.st.stm32cube.ide.mcu.externaltool
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cckcmQOV.s 			page 16
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 fsm_manual.c
-C:\Users\ASUS\AppData\Local\Temp\ccxIxBab.s:22     .data.status_man:0000000000000000 status_man
-C:\Users\ASUS\AppData\Local\Temp\ccxIxBab.s:19     .data.status_man:0000000000000000 $d
-C:\Users\ASUS\AppData\Local\Temp\ccxIxBab.s:29     .bss.temp_timer:0000000000000000 temp_timer
-C:\Users\ASUS\AppData\Local\Temp\ccxIxBab.s:26     .bss.temp_timer:0000000000000000 $d
-C:\Users\ASUS\AppData\Local\Temp\ccxIxBab.s:32     .rodata:0000000000000000 $d
-C:\Users\ASUS\AppData\Local\Temp\ccxIxBab.s:45     .text.printstatus:0000000000000000 $t
-C:\Users\ASUS\AppData\Local\Temp\ccxIxBab.s:51     .text.printstatus:0000000000000000 printstatus
-C:\Users\ASUS\AppData\Local\Temp\ccxIxBab.s:76     .text.printstatus:0000000000000018 $d
-C:\Users\ASUS\AppData\Local\Temp\ccxIxBab.s:80     .text.printstatus:0000000000000028 $t
-C:\Users\ASUS\AppData\Local\Temp\ccxIxBab.s:164    .text.printstatus:00000000000000a4 $d
-C:\Users\ASUS\AppData\Local\Temp\ccxIxBab.s:178    .text.fsm_manual_run:0000000000000000 $t
-C:\Users\ASUS\AppData\Local\Temp\ccxIxBab.s:184    .text.fsm_manual_run:0000000000000000 fsm_manual_run
-C:\Users\ASUS\AppData\Local\Temp\ccxIxBab.s:208    .text.fsm_manual_run:0000000000000018 $d
-C:\Users\ASUS\AppData\Local\Temp\ccxIxBab.s:212    .text.fsm_manual_run:0000000000000028 $t
-C:\Users\ASUS\AppData\Local\Temp\ccxIxBab.s:574    .text.fsm_manual_run:0000000000000250 $d
+C:\Users\ASUS\AppData\Local\Temp\cckcmQOV.s:22     .data.status_man:0000000000000000 status_man
+C:\Users\ASUS\AppData\Local\Temp\cckcmQOV.s:19     .data.status_man:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\cckcmQOV.s:29     .bss.temp_timer:0000000000000000 temp_timer
+C:\Users\ASUS\AppData\Local\Temp\cckcmQOV.s:26     .bss.temp_timer:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\cckcmQOV.s:36     .bss.reset:0000000000000000 reset
+C:\Users\ASUS\AppData\Local\Temp\cckcmQOV.s:33     .bss.reset:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\cckcmQOV.s:39     .rodata:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\cckcmQOV.s:55     .text.printstatus:0000000000000000 $t
+C:\Users\ASUS\AppData\Local\Temp\cckcmQOV.s:61     .text.printstatus:0000000000000000 printstatus
+C:\Users\ASUS\AppData\Local\Temp\cckcmQOV.s:86     .text.printstatus:0000000000000018 $d
+C:\Users\ASUS\AppData\Local\Temp\cckcmQOV.s:90     .text.printstatus:0000000000000028 $t
+C:\Users\ASUS\AppData\Local\Temp\cckcmQOV.s:197    .text.printstatus:00000000000000cc $d
+C:\Users\ASUS\AppData\Local\Temp\cckcmQOV.s:213    .text.fsm_manual_run:0000000000000000 $t
+C:\Users\ASUS\AppData\Local\Temp\cckcmQOV.s:219    .text.fsm_manual_run:0000000000000000 fsm_manual_run
+C:\Users\ASUS\AppData\Local\Temp\cckcmQOV.s:243    .text.fsm_manual_run:0000000000000018 $d
+C:\Users\ASUS\AppData\Local\Temp\cckcmQOV.s:247    .text.fsm_manual_run:0000000000000028 $t
+C:\Users\ASUS\AppData\Local\Temp\cckcmQOV.s:613    .text.fsm_manual_run:0000000000000254 $d
                            .group:0000000000000000 wm4.0.cb5f01749778df26340c4505df3d34d0
                            .group:0000000000000000 wm4.stm32f1xx_hal_conf.h.22.9203001c8f439cc72798ab2500313551
                            .group:0000000000000000 wm4.stm32f1xx.h.39.208bb8a61c892b7c37d899c49a031330
@@ -853,11 +904,11 @@ C:\Users\ASUS\AppData\Local\Temp\ccxIxBab.s:574    .text.fsm_manual_run:00000000
                            .group:0000000000000000 wm4.stm32f1xx_hal.h.88.91065c0692bed6019c34f1e9c00589fd
                            .group:0000000000000000 wm4.main.h.62.215d12b3f54334165c3eb9a2c23b6466
                            .group:0000000000000000 wm4.button.h.13.502414bc4624a6b62bdc27e8db5e0ac4
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cckcmQOV.s 			page 17
+
+
                            .group:0000000000000000 wm4.global.h.15.407c81abcec812c5d10654add0683a73
                            .group:0000000000000000 wm4.traffic_timer.h.9.fca55a36339f465b6b310ca07e089e8e
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccxIxBab.s 			page 16
-
-
                            .group:0000000000000000 wm4.fsm_manual.h.14.6e2b6c7085662bcab0aa42ad23d56cc3
                            .group:0000000000000000 wm4.newlib.h.8.7cb3972cd43265932d4782d5eb589854
                            .group:0000000000000000 wm4.ieeefp.h.77.25247dc27dbe3b23bfe98c2dc18f6ac5
@@ -890,8 +941,9 @@ sprintf
 HAL_UART_Transmit
 huart2
 isButton1Pressed
-isButton3Pressed
+isButton3DoubleClick
 isButton2Pressed
+isButton3Pressed
 timer_red
 timer_green
 timer_yellow

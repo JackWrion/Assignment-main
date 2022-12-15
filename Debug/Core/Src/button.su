@@ -1,8 +1,9 @@
 ../Core/Src/button.c:29:5:isButton1Pressed	4	static
 ../Core/Src/button.c:37:6:getKeyInput1	8	static
-../Core/Src/button.c:91:5:isButton2Pressed	4	static
-../Core/Src/button.c:99:6:getKeyInput2	8	static
-../Core/Src/button.c:161:5:isButton3Pressed	4	static
-../Core/Src/button.c:169:6:getKeyInput3	8	static
-../Core/Src/button.c:220:5:isButton4Pressed	4	static
-../Core/Src/button.c:228:6:getKeyInput4	8	static
+../Core/Src/button.c:90:5:isButton2Pressed	4	static
+../Core/Src/button.c:98:6:getKeyInput2	8	static
+../Core/Src/button.c:160:5:isButton3Pressed	4	static
+../Core/Src/button.c:169:5:isButton3DoubleClick	4	static
+../Core/Src/button.c:179:6:getKeyInput3	8	static
+../Core/Src/button.c:234:5:isButton4Pressed	4	static
+../Core/Src/button.c:244:6:getKeyInput4	8	static

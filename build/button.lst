@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s 			page 1
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -32,53 +32,58 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s 			page 1
   33              		.align	2
   36              	button3_flag:
   37 0000 00000000 		.space	4
-  38              		.global	button4_flag
-  39              		.section	.bss.button4_flag,"aw",%nobits
+  38              		.global	button3_dbclick
+  39              		.section	.bss.button3_dbclick,"aw",%nobits
   40              		.align	2
-  43              	button4_flag:
+  43              	button3_dbclick:
   44 0000 00000000 		.space	4
-  45              		.global	button5_flag
-  46              		.section	.bss.button5_flag,"aw",%nobits
+  45              		.global	button4_flag
+  46              		.section	.bss.button4_flag,"aw",%nobits
   47              		.align	2
-  50              	button5_flag:
+  50              	button4_flag:
   51 0000 00000000 		.space	4
-  52              		.global	KeyReg0_1
-  53              		.section	.data.KeyReg0_1,"aw"
+  52              		.global	button5_flag
+  53              		.section	.bss.button5_flag,"aw",%nobits
   54              		.align	2
-  57              	KeyReg0_1:
-  58 0000 01000000 		.word	1
-  59              		.global	KeyReg1_1
-  60              		.section	.data.KeyReg1_1,"aw"
+  57              	button5_flag:
+  58 0000 00000000 		.space	4
+  59              		.global	KeyReg0_1
+  60              		.section	.data.KeyReg0_1,"aw"
   61              		.align	2
-  64              	KeyReg1_1:
+  64              	KeyReg0_1:
   65 0000 01000000 		.word	1
-  66              		.global	KeyReg2_1
-  67              		.section	.data.KeyReg2_1,"aw"
+  66              		.global	KeyReg1_1
+  67              		.section	.data.KeyReg1_1,"aw"
   68              		.align	2
-  71              	KeyReg2_1:
+  71              	KeyReg1_1:
   72 0000 01000000 		.word	1
-  73              		.global	KeyReg3_1
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s 			page 2
+  73              		.global	KeyReg2_1
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s 			page 2
 
 
-  74              		.section	.data.KeyReg3_1,"aw"
+  74              		.section	.data.KeyReg2_1,"aw"
   75              		.align	2
-  78              	KeyReg3_1:
+  78              	KeyReg2_1:
   79 0000 01000000 		.word	1
-  80              		.global	TimerforKeyPRESS1
-  81              		.section	.data.TimerforKeyPRESS1,"aw"
+  80              		.global	KeyReg3_1
+  81              		.section	.data.KeyReg3_1,"aw"
   82              		.align	2
-  85              	TimerforKeyPRESS1:
-  86 0000 C8000000 		.word	200
-  87              		.section	.text.isButton1Pressed,"ax",%progbits
-  88              		.align	1
-  89              		.global	isButton1Pressed
-  90              		.syntax unified
-  91              		.thumb
-  92              		.thumb_func
-  94              	isButton1Pressed:
-  95              	.LFB65:
-  96              		.file 1 "./Core/Src/button.c"
+  85              	KeyReg3_1:
+  86 0000 01000000 		.word	1
+  87              		.global	TimerforKeyPRESS1
+  88              		.section	.data.TimerforKeyPRESS1,"aw"
+  89              		.align	2
+  92              	TimerforKeyPRESS1:
+  93 0000 C8000000 		.word	200
+  94              		.section	.text.isButton1Pressed,"ax",%progbits
+  95              		.align	1
+  96              		.global	isButton1Pressed
+  97              		.syntax unified
+  98              		.thumb
+  99              		.thumb_func
+ 101              	isButton1Pressed:
+ 102              	.LFB65:
+ 103              		.file 1 "./Core/Src/button.c"
    1:./Core/Src/button.c **** /*
    2:./Core/Src/button.c ****  * button.c
    3:./Core/Src/button.c ****  *
@@ -91,7 +96,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s 			page 1
   10:./Core/Src/button.c **** 
   11:./Core/Src/button.c **** int button1_flag = 0;
   12:./Core/Src/button.c **** int button2_flag = 0;
-  13:./Core/Src/button.c **** int button3_flag = 0;
+  13:./Core/Src/button.c **** int button3_flag = 0; int button3_dbclick = 0;
   14:./Core/Src/button.c **** int button4_flag = 0;
   15:./Core/Src/button.c **** int button5_flag = 0;
   16:./Core/Src/button.c **** 
@@ -108,151 +113,151 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s 			page 1
   27:./Core/Src/button.c **** int TimerforKeyPRESS1 = 200;
   28:./Core/Src/button.c **** 
   29:./Core/Src/button.c **** int isButton1Pressed(){
-  97              		.loc 1 29 23
-  98              		.cfi_startproc
-  99              		@ args = 0, pretend = 0, frame = 0
- 100              		@ frame_needed = 1, uses_anonymous_args = 0
- 101              		@ link register save eliminated.
- 102 0000 80B4     		push	{r7}
- 103              		.cfi_def_cfa_offset 4
- 104              		.cfi_offset 7, -4
- 105 0002 00AF     		add	r7, sp, #0
- 106              		.cfi_def_cfa_register 7
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s 			page 3
+ 104              		.loc 1 29 23
+ 105              		.cfi_startproc
+ 106              		@ args = 0, pretend = 0, frame = 0
+ 107              		@ frame_needed = 1, uses_anonymous_args = 0
+ 108              		@ link register save eliminated.
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s 			page 3
 
 
+ 109 0000 80B4     		push	{r7}
+ 110              		.cfi_def_cfa_offset 4
+ 111              		.cfi_offset 7, -4
+ 112 0002 00AF     		add	r7, sp, #0
+ 113              		.cfi_def_cfa_register 7
   30:./Core/Src/button.c **** 	if (button1_flag == 1){
- 107              		.loc 1 30 19
- 108 0004 064B     		ldr	r3, .L4
- 109 0006 1B68     		ldr	r3, [r3]
- 110              		.loc 1 30 5
- 111 0008 012B     		cmp	r3, #1
- 112 000a 04D1     		bne	.L2
+ 114              		.loc 1 30 19
+ 115 0004 064B     		ldr	r3, .L4
+ 116 0006 1B68     		ldr	r3, [r3]
+ 117              		.loc 1 30 5
+ 118 0008 012B     		cmp	r3, #1
+ 119 000a 04D1     		bne	.L2
   31:./Core/Src/button.c **** 		button1_flag = 0;
- 113              		.loc 1 31 16
- 114 000c 044B     		ldr	r3, .L4
- 115 000e 0022     		movs	r2, #0
- 116 0010 1A60     		str	r2, [r3]
+ 120              		.loc 1 31 16
+ 121 000c 044B     		ldr	r3, .L4
+ 122 000e 0022     		movs	r2, #0
+ 123 0010 1A60     		str	r2, [r3]
   32:./Core/Src/button.c **** 		return 1;
- 117              		.loc 1 32 10
- 118 0012 0123     		movs	r3, #1
- 119 0014 00E0     		b	.L3
- 120              	.L2:
+ 124              		.loc 1 32 10
+ 125 0012 0123     		movs	r3, #1
+ 126 0014 00E0     		b	.L3
+ 127              	.L2:
   33:./Core/Src/button.c **** 	}
   34:./Core/Src/button.c **** 	else return 0;
- 121              		.loc 1 34 14
- 122 0016 0023     		movs	r3, #0
- 123              	.L3:
+ 128              		.loc 1 34 14
+ 129 0016 0023     		movs	r3, #0
+ 130              	.L3:
   35:./Core/Src/button.c **** }
- 124              		.loc 1 35 1
- 125 0018 1846     		mov	r0, r3
- 126 001a BD46     		mov	sp, r7
- 127              		.cfi_def_cfa_register 13
- 128              		@ sp needed
- 129 001c 80BC     		pop	{r7}
- 130              		.cfi_restore 7
- 131              		.cfi_def_cfa_offset 0
- 132 001e 7047     		bx	lr
- 133              	.L5:
- 134              		.align	2
- 135              	.L4:
- 136 0020 00000000 		.word	button1_flag
- 137              		.cfi_endproc
- 138              	.LFE65:
- 140              		.section	.text.getKeyInput1,"ax",%progbits
- 141              		.align	1
- 142              		.global	getKeyInput1
- 143              		.syntax unified
- 144              		.thumb
- 145              		.thumb_func
- 147              	getKeyInput1:
- 148              	.LFB66:
+ 131              		.loc 1 35 1
+ 132 0018 1846     		mov	r0, r3
+ 133 001a BD46     		mov	sp, r7
+ 134              		.cfi_def_cfa_register 13
+ 135              		@ sp needed
+ 136 001c 80BC     		pop	{r7}
+ 137              		.cfi_restore 7
+ 138              		.cfi_def_cfa_offset 0
+ 139 001e 7047     		bx	lr
+ 140              	.L5:
+ 141              		.align	2
+ 142              	.L4:
+ 143 0020 00000000 		.word	button1_flag
+ 144              		.cfi_endproc
+ 145              	.LFE65:
+ 147              		.section	.text.getKeyInput1,"ax",%progbits
+ 148              		.align	1
+ 149              		.global	getKeyInput1
+ 150              		.syntax unified
+ 151              		.thumb
+ 152              		.thumb_func
+ 154              	getKeyInput1:
+ 155              	.LFB66:
   36:./Core/Src/button.c **** //
   37:./Core/Src/button.c **** void getKeyInput1(){
- 149              		.loc 1 37 20
- 150              		.cfi_startproc
- 151              		@ args = 0, pretend = 0, frame = 0
- 152              		@ frame_needed = 1, uses_anonymous_args = 0
- 153 0000 80B5     		push	{r7, lr}
- 154              		.cfi_def_cfa_offset 8
- 155              		.cfi_offset 7, -8
- 156              		.cfi_offset 14, -4
- 157 0002 00AF     		add	r7, sp, #0
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s 			page 4
+ 156              		.loc 1 37 20
+ 157              		.cfi_startproc
+ 158              		@ args = 0, pretend = 0, frame = 0
+ 159              		@ frame_needed = 1, uses_anonymous_args = 0
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s 			page 4
 
 
- 158              		.cfi_def_cfa_register 7
+ 160 0000 80B5     		push	{r7, lr}
+ 161              		.cfi_def_cfa_offset 8
+ 162              		.cfi_offset 7, -8
+ 163              		.cfi_offset 14, -4
+ 164 0002 00AF     		add	r7, sp, #0
+ 165              		.cfi_def_cfa_register 7
   38:./Core/Src/button.c **** 	KeyReg0_1 = KeyReg1_1;
- 159              		.loc 1 38 12
- 160 0004 244B     		ldr	r3, .L11
- 161 0006 1B68     		ldr	r3, [r3]
- 162 0008 244A     		ldr	r2, .L11+4
- 163 000a 1360     		str	r3, [r2]
+ 166              		.loc 1 38 12
+ 167 0004 244B     		ldr	r3, .L11
+ 168 0006 1B68     		ldr	r3, [r3]
+ 169 0008 244A     		ldr	r2, .L11+4
+ 170 000a 1360     		str	r3, [r2]
   39:./Core/Src/button.c **** 	KeyReg1_1 = KeyReg2_1;
- 164              		.loc 1 39 12
- 165 000c 244B     		ldr	r3, .L11+8
- 166 000e 1B68     		ldr	r3, [r3]
- 167 0010 214A     		ldr	r2, .L11
- 168 0012 1360     		str	r3, [r2]
+ 171              		.loc 1 39 12
+ 172 000c 244B     		ldr	r3, .L11+8
+ 173 000e 1B68     		ldr	r3, [r3]
+ 174 0010 214A     		ldr	r2, .L11
+ 175 0012 1360     		str	r3, [r2]
   40:./Core/Src/button.c **** 	KeyReg2_1 = HAL_GPIO_ReadPin(BUTTON1_GPIO_Port, BUTTON1_Pin);
- 169              		.loc 1 40 14
- 170 0014 0221     		movs	r1, #2
- 171 0016 2348     		ldr	r0, .L11+12
- 172 0018 FFF7FEFF 		bl	HAL_GPIO_ReadPin
- 173 001c 0346     		mov	r3, r0
- 174 001e 1A46     		mov	r2, r3
- 175              		.loc 1 40 12
- 176 0020 1F4B     		ldr	r3, .L11+8
- 177 0022 1A60     		str	r2, [r3]
+ 176              		.loc 1 40 14
+ 177 0014 0221     		movs	r1, #2
+ 178 0016 2348     		ldr	r0, .L11+12
+ 179 0018 FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 180 001c 0346     		mov	r3, r0
+ 181 001e 1A46     		mov	r2, r3
+ 182              		.loc 1 40 12
+ 183 0020 1F4B     		ldr	r3, .L11+8
+ 184 0022 1A60     		str	r2, [r3]
   41:./Core/Src/button.c **** 
   42:./Core/Src/button.c **** 	if (KeyReg0_1 == KeyReg1_1 && KeyReg1_1 == KeyReg2_1){
- 178              		.loc 1 42 16
- 179 0024 1D4B     		ldr	r3, .L11+4
- 180 0026 1A68     		ldr	r2, [r3]
- 181 0028 1B4B     		ldr	r3, .L11
- 182 002a 1B68     		ldr	r3, [r3]
- 183              		.loc 1 42 5
- 184 002c 9A42     		cmp	r2, r3
- 185 002e 31D1     		bne	.L10
- 186              		.loc 1 42 42 discriminator 1
- 187 0030 194B     		ldr	r3, .L11
- 188 0032 1A68     		ldr	r2, [r3]
- 189 0034 1A4B     		ldr	r3, .L11+8
- 190 0036 1B68     		ldr	r3, [r3]
- 191              		.loc 1 42 29 discriminator 1
- 192 0038 9A42     		cmp	r2, r3
- 193 003a 2BD1     		bne	.L10
+ 185              		.loc 1 42 16
+ 186 0024 1D4B     		ldr	r3, .L11+4
+ 187 0026 1A68     		ldr	r2, [r3]
+ 188 0028 1B4B     		ldr	r3, .L11
+ 189 002a 1B68     		ldr	r3, [r3]
+ 190              		.loc 1 42 5
+ 191 002c 9A42     		cmp	r2, r3
+ 192 002e 31D1     		bne	.L10
+ 193              		.loc 1 42 42 discriminator 1
+ 194 0030 194B     		ldr	r3, .L11
+ 195 0032 1A68     		ldr	r2, [r3]
+ 196 0034 1A4B     		ldr	r3, .L11+8
+ 197 0036 1B68     		ldr	r3, [r3]
+ 198              		.loc 1 42 29 discriminator 1
+ 199 0038 9A42     		cmp	r2, r3
+ 200 003a 2BD1     		bne	.L10
   43:./Core/Src/button.c **** 
   44:./Core/Src/button.c **** 		if (KeyReg2_1 != KeyReg3_1){					//Nhan doi trang thai
- 194              		.loc 1 44 17
- 195 003c 184B     		ldr	r3, .L11+8
- 196 003e 1A68     		ldr	r2, [r3]
- 197 0040 194B     		ldr	r3, .L11+16
- 198 0042 1B68     		ldr	r3, [r3]
- 199              		.loc 1 44 6
- 200 0044 9A42     		cmp	r2, r3
- 201 0046 12D0     		beq	.L8
+ 201              		.loc 1 44 17
+ 202 003c 184B     		ldr	r3, .L11+8
+ 203 003e 1A68     		ldr	r2, [r3]
+ 204 0040 194B     		ldr	r3, .L11+16
+ 205 0042 1B68     		ldr	r3, [r3]
+ 206              		.loc 1 44 6
+ 207 0044 9A42     		cmp	r2, r3
+ 208 0046 12D0     		beq	.L8
   45:./Core/Src/button.c **** 			KeyReg3_1 = KeyReg2_1;
- 202              		.loc 1 45 14
- 203 0048 154B     		ldr	r3, .L11+8
- 204 004a 1B68     		ldr	r3, [r3]
- 205 004c 164A     		ldr	r2, .L11+16
- 206 004e 1360     		str	r3, [r2]
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s 			page 5
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s 			page 5
 
 
+ 209              		.loc 1 45 14
+ 210 0048 154B     		ldr	r3, .L11+8
+ 211 004a 1B68     		ldr	r3, [r3]
+ 212 004c 164A     		ldr	r2, .L11+16
+ 213 004e 1360     		str	r3, [r2]
   46:./Core/Src/button.c **** 			if (KeyReg2_1 == PRESSED_STATE){			//Neu dang nhan
- 207              		.loc 1 46 18
- 208 0050 134B     		ldr	r3, .L11+8
- 209 0052 1B68     		ldr	r3, [r3]
- 210              		.loc 1 46 7
- 211 0054 002B     		cmp	r3, #0
- 212 0056 03D1     		bne	.L9
+ 214              		.loc 1 46 18
+ 215 0050 134B     		ldr	r3, .L11+8
+ 216 0052 1B68     		ldr	r3, [r3]
+ 217              		.loc 1 46 7
+ 218 0054 002B     		cmp	r3, #0
+ 219 0056 03D1     		bne	.L9
   47:./Core/Src/button.c **** 				button1_flag = 1;
- 213              		.loc 1 47 18
- 214 0058 144B     		ldr	r3, .L11+20
- 215 005a 0122     		movs	r2, #1
- 216 005c 1A60     		str	r2, [r3]
+ 220              		.loc 1 47 18
+ 221 0058 144B     		ldr	r3, .L11+20
+ 222 005a 0122     		movs	r2, #1
+ 223 005c 1A60     		str	r2, [r3]
   48:./Core/Src/button.c **** 			}
   49:./Core/Src/button.c **** 			else{									//Luc truoc thi nhan, bay gio dang tha ra
   50:./Core/Src/button.c **** 				button1_flag = 0;
@@ -275,110 +280,110 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s 			page 1
   67:./Core/Src/button.c **** 	}
   68:./Core/Src/button.c **** 
   69:./Core/Src/button.c **** }
- 217              		.loc 1 69 1
- 218 005e 19E0     		b	.L10
- 219              	.L9:
+ 224              		.loc 1 69 1
+ 225 005e 19E0     		b	.L10
+ 226              	.L9:
   50:./Core/Src/button.c **** 				TimerforKeyPRESS1 = 200;				//khi release thi RESET nhan de 1 giay
- 220              		.loc 1 50 18
- 221 0060 124B     		ldr	r3, .L11+20
- 222 0062 0022     		movs	r2, #0
- 223 0064 1A60     		str	r2, [r3]
+ 227              		.loc 1 50 18
+ 228 0060 124B     		ldr	r3, .L11+20
+ 229 0062 0022     		movs	r2, #0
+ 230 0064 1A60     		str	r2, [r3]
   51:./Core/Src/button.c **** 													//neu nhan lai trong 1 giay thi tinh la nhan de
- 224              		.loc 1 51 23
- 225 0066 124B     		ldr	r3, .L11+24
- 226 0068 C822     		movs	r2, #200
- 227 006a 1A60     		str	r2, [r3]
- 228              		.loc 1 69 1
- 229 006c 12E0     		b	.L10
- 230              	.L8:
+ 231              		.loc 1 51 23
+ 232 0066 124B     		ldr	r3, .L11+24
+ 233 0068 C822     		movs	r2, #200
+ 234 006a 1A60     		str	r2, [r3]
+ 235              		.loc 1 69 1
+ 236 006c 12E0     		b	.L10
+ 237              	.L8:
   57:./Core/Src/button.c **** 				TimerforKeyPRESS1--;
- 231              		.loc 1 57 17
- 232 006e 0C4B     		ldr	r3, .L11+8
- 233 0070 1B68     		ldr	r3, [r3]
-  57:./Core/Src/button.c **** 				TimerforKeyPRESS1--;
- 234              		.loc 1 57 6
- 235 0072 002B     		cmp	r3, #0
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s 			page 6
+ 238              		.loc 1 57 17
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s 			page 6
 
 
- 236 0074 0ED1     		bne	.L10
+ 239 006e 0C4B     		ldr	r3, .L11+8
+ 240 0070 1B68     		ldr	r3, [r3]
+  57:./Core/Src/button.c **** 				TimerforKeyPRESS1--;
+ 241              		.loc 1 57 6
+ 242 0072 002B     		cmp	r3, #0
+ 243 0074 0ED1     		bne	.L10
   58:./Core/Src/button.c **** 				if (TimerforKeyPRESS1 == 0){			// Nhan de thanh cong
- 237              		.loc 1 58 22
- 238 0076 0E4B     		ldr	r3, .L11+24
- 239 0078 1B68     		ldr	r3, [r3]
- 240 007a 013B     		subs	r3, r3, #1
- 241 007c 0C4A     		ldr	r2, .L11+24
- 242 007e 1360     		str	r3, [r2]
+ 244              		.loc 1 58 22
+ 245 0076 0E4B     		ldr	r3, .L11+24
+ 246 0078 1B68     		ldr	r3, [r3]
+ 247 007a 013B     		subs	r3, r3, #1
+ 248 007c 0C4A     		ldr	r2, .L11+24
+ 249 007e 1360     		str	r3, [r2]
   59:./Core/Src/button.c **** 					TimerforKeyPRESS1 = 100;			// Moi 1s nhan de thi RETURN button_flag 1 lan
- 243              		.loc 1 59 27
- 244 0080 0B4B     		ldr	r3, .L11+24
- 245 0082 1B68     		ldr	r3, [r3]
+ 250              		.loc 1 59 27
+ 251 0080 0B4B     		ldr	r3, .L11+24
+ 252 0082 1B68     		ldr	r3, [r3]
   59:./Core/Src/button.c **** 					TimerforKeyPRESS1 = 100;			// Moi 1s nhan de thi RETURN button_flag 1 lan
- 246              		.loc 1 59 8
- 247 0084 002B     		cmp	r3, #0
- 248 0086 05D1     		bne	.L10
+ 253              		.loc 1 59 8
+ 254 0084 002B     		cmp	r3, #0
+ 255 0086 05D1     		bne	.L10
   60:./Core/Src/button.c **** 					button1_flag = 1;
- 249              		.loc 1 60 24
- 250 0088 094B     		ldr	r3, .L11+24
- 251 008a 6422     		movs	r2, #100
- 252 008c 1A60     		str	r2, [r3]
+ 256              		.loc 1 60 24
+ 257 0088 094B     		ldr	r3, .L11+24
+ 258 008a 6422     		movs	r2, #100
+ 259 008c 1A60     		str	r2, [r3]
   61:./Core/Src/button.c **** 				}
- 253              		.loc 1 61 19
- 254 008e 074B     		ldr	r3, .L11+20
- 255 0090 0122     		movs	r2, #1
- 256 0092 1A60     		str	r2, [r3]
- 257              	.L10:
- 258              		.loc 1 69 1
- 259 0094 00BF     		nop
- 260 0096 80BD     		pop	{r7, pc}
- 261              	.L12:
- 262              		.align	2
- 263              	.L11:
- 264 0098 00000000 		.word	KeyReg1_1
- 265 009c 00000000 		.word	KeyReg0_1
- 266 00a0 00000000 		.word	KeyReg2_1
- 267 00a4 00080140 		.word	1073809408
- 268 00a8 00000000 		.word	KeyReg3_1
- 269 00ac 00000000 		.word	button1_flag
- 270 00b0 00000000 		.word	TimerforKeyPRESS1
- 271              		.cfi_endproc
- 272              	.LFE66:
- 274              		.global	KeyReg0_2
- 275              		.section	.data.KeyReg0_2,"aw"
- 276              		.align	2
- 279              	KeyReg0_2:
- 280 0000 01000000 		.word	1
- 281              		.global	KeyReg1_2
- 282              		.section	.data.KeyReg1_2,"aw"
+ 260              		.loc 1 61 19
+ 261 008e 074B     		ldr	r3, .L11+20
+ 262 0090 0122     		movs	r2, #1
+ 263 0092 1A60     		str	r2, [r3]
+ 264              	.L10:
+ 265              		.loc 1 69 1
+ 266 0094 00BF     		nop
+ 267 0096 80BD     		pop	{r7, pc}
+ 268              	.L12:
+ 269              		.align	2
+ 270              	.L11:
+ 271 0098 00000000 		.word	KeyReg1_1
+ 272 009c 00000000 		.word	KeyReg0_1
+ 273 00a0 00000000 		.word	KeyReg2_1
+ 274 00a4 00080140 		.word	1073809408
+ 275 00a8 00000000 		.word	KeyReg3_1
+ 276 00ac 00000000 		.word	button1_flag
+ 277 00b0 00000000 		.word	TimerforKeyPRESS1
+ 278              		.cfi_endproc
+ 279              	.LFE66:
+ 281              		.global	KeyReg0_2
+ 282              		.section	.data.KeyReg0_2,"aw"
  283              		.align	2
- 286              	KeyReg1_2:
+ 286              	KeyReg0_2:
  287 0000 01000000 		.word	1
- 288              		.global	KeyReg2_2
- 289              		.section	.data.KeyReg2_2,"aw"
+ 288              		.global	KeyReg1_2
+ 289              		.section	.data.KeyReg1_2,"aw"
  290              		.align	2
- 293              	KeyReg2_2:
+ 293              	KeyReg1_2:
  294 0000 01000000 		.word	1
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s 			page 7
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s 			page 7
 
 
- 295              		.global	KeyReg3_2
- 296              		.section	.data.KeyReg3_2,"aw"
+ 295              		.global	KeyReg2_2
+ 296              		.section	.data.KeyReg2_2,"aw"
  297              		.align	2
- 300              	KeyReg3_2:
+ 300              	KeyReg2_2:
  301 0000 01000000 		.word	1
- 302              		.global	TimerforKeyPRESS2
- 303              		.section	.data.TimerforKeyPRESS2,"aw"
+ 302              		.global	KeyReg3_2
+ 303              		.section	.data.KeyReg3_2,"aw"
  304              		.align	2
- 307              	TimerforKeyPRESS2:
- 308 0000 C8000000 		.word	200
- 309              		.section	.text.isButton2Pressed,"ax",%progbits
- 310              		.align	1
- 311              		.global	isButton2Pressed
- 312              		.syntax unified
- 313              		.thumb
- 314              		.thumb_func
- 316              	isButton2Pressed:
- 317              	.LFB67:
+ 307              	KeyReg3_2:
+ 308 0000 01000000 		.word	1
+ 309              		.global	TimerforKeyPRESS2
+ 310              		.section	.data.TimerforKeyPRESS2,"aw"
+ 311              		.align	2
+ 314              	TimerforKeyPRESS2:
+ 315 0000 C8000000 		.word	200
+ 316              		.section	.text.isButton2Pressed,"ax",%progbits
+ 317              		.align	1
+ 318              		.global	isButton2Pressed
+ 319              		.syntax unified
+ 320              		.thumb
+ 321              		.thumb_func
+ 323              	isButton2Pressed:
+ 324              	.LFB67:
   70:./Core/Src/button.c **** 
   71:./Core/Src/button.c **** 
   72:./Core/Src/button.c **** 
@@ -399,925 +404,1036 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s 			page 1
   87:./Core/Src/button.c **** int TimerforKeyPRESS2 = 200;
   88:./Core/Src/button.c **** 
   89:./Core/Src/button.c **** 
-  90:./Core/Src/button.c **** 
-  91:./Core/Src/button.c **** int isButton2Pressed(){
- 318              		.loc 1 91 23
- 319              		.cfi_startproc
- 320              		@ args = 0, pretend = 0, frame = 0
- 321              		@ frame_needed = 1, uses_anonymous_args = 0
- 322              		@ link register save eliminated.
- 323 0000 80B4     		push	{r7}
- 324              		.cfi_def_cfa_offset 4
- 325              		.cfi_offset 7, -4
- 326 0002 00AF     		add	r7, sp, #0
- 327              		.cfi_def_cfa_register 7
-  92:./Core/Src/button.c **** 	if (button2_flag == 1){
- 328              		.loc 1 92 19
- 329 0004 064B     		ldr	r3, .L16
- 330 0006 1B68     		ldr	r3, [r3]
- 331              		.loc 1 92 5
- 332 0008 012B     		cmp	r3, #1
- 333 000a 04D1     		bne	.L14
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s 			page 8
+  90:./Core/Src/button.c **** int isButton2Pressed(){
+ 325              		.loc 1 90 23
+ 326              		.cfi_startproc
+ 327              		@ args = 0, pretend = 0, frame = 0
+ 328              		@ frame_needed = 1, uses_anonymous_args = 0
+ 329              		@ link register save eliminated.
+ 330 0000 80B4     		push	{r7}
+ 331              		.cfi_def_cfa_offset 4
+ 332              		.cfi_offset 7, -4
+ 333 0002 00AF     		add	r7, sp, #0
+ 334              		.cfi_def_cfa_register 7
+  91:./Core/Src/button.c **** 	if (button2_flag == 1){
+ 335              		.loc 1 91 19
+ 336 0004 064B     		ldr	r3, .L16
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s 			page 8
 
 
-  93:./Core/Src/button.c **** 		button2_flag = 0;
- 334              		.loc 1 93 16
- 335 000c 044B     		ldr	r3, .L16
- 336 000e 0022     		movs	r2, #0
- 337 0010 1A60     		str	r2, [r3]
-  94:./Core/Src/button.c **** 		return 1;
- 338              		.loc 1 94 10
- 339 0012 0123     		movs	r3, #1
- 340 0014 00E0     		b	.L15
- 341              	.L14:
-  95:./Core/Src/button.c **** 	}
-  96:./Core/Src/button.c **** 	else return 0;
- 342              		.loc 1 96 14
- 343 0016 0023     		movs	r3, #0
- 344              	.L15:
-  97:./Core/Src/button.c **** }
- 345              		.loc 1 97 1
- 346 0018 1846     		mov	r0, r3
- 347 001a BD46     		mov	sp, r7
- 348              		.cfi_def_cfa_register 13
- 349              		@ sp needed
- 350 001c 80BC     		pop	{r7}
- 351              		.cfi_restore 7
- 352              		.cfi_def_cfa_offset 0
- 353 001e 7047     		bx	lr
- 354              	.L17:
- 355              		.align	2
- 356              	.L16:
- 357 0020 00000000 		.word	button2_flag
- 358              		.cfi_endproc
- 359              	.LFE67:
- 361              		.section	.text.getKeyInput2,"ax",%progbits
- 362              		.align	1
- 363              		.global	getKeyInput2
- 364              		.syntax unified
- 365              		.thumb
- 366              		.thumb_func
- 368              	getKeyInput2:
- 369              	.LFB68:
-  98:./Core/Src/button.c **** //
-  99:./Core/Src/button.c **** void getKeyInput2(){
- 370              		.loc 1 99 20
- 371              		.cfi_startproc
- 372              		@ args = 0, pretend = 0, frame = 0
- 373              		@ frame_needed = 1, uses_anonymous_args = 0
- 374 0000 80B5     		push	{r7, lr}
- 375              		.cfi_def_cfa_offset 8
- 376              		.cfi_offset 7, -8
- 377              		.cfi_offset 14, -4
- 378 0002 00AF     		add	r7, sp, #0
- 379              		.cfi_def_cfa_register 7
- 100:./Core/Src/button.c **** 	KeyReg0_2 = KeyReg1_2;
- 380              		.loc 1 100 12
- 381 0004 244B     		ldr	r3, .L23
- 382 0006 1B68     		ldr	r3, [r3]
- 383 0008 244A     		ldr	r2, .L23+4
- 384 000a 1360     		str	r3, [r2]
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s 			page 9
+ 337 0006 1B68     		ldr	r3, [r3]
+ 338              		.loc 1 91 5
+ 339 0008 012B     		cmp	r3, #1
+ 340 000a 04D1     		bne	.L14
+  92:./Core/Src/button.c **** 		button2_flag = 0;
+ 341              		.loc 1 92 16
+ 342 000c 044B     		ldr	r3, .L16
+ 343 000e 0022     		movs	r2, #0
+ 344 0010 1A60     		str	r2, [r3]
+  93:./Core/Src/button.c **** 		return 1;
+ 345              		.loc 1 93 10
+ 346 0012 0123     		movs	r3, #1
+ 347 0014 00E0     		b	.L15
+ 348              	.L14:
+  94:./Core/Src/button.c **** 	}
+  95:./Core/Src/button.c **** 	else return 0;
+ 349              		.loc 1 95 14
+ 350 0016 0023     		movs	r3, #0
+ 351              	.L15:
+  96:./Core/Src/button.c **** }
+ 352              		.loc 1 96 1
+ 353 0018 1846     		mov	r0, r3
+ 354 001a BD46     		mov	sp, r7
+ 355              		.cfi_def_cfa_register 13
+ 356              		@ sp needed
+ 357 001c 80BC     		pop	{r7}
+ 358              		.cfi_restore 7
+ 359              		.cfi_def_cfa_offset 0
+ 360 001e 7047     		bx	lr
+ 361              	.L17:
+ 362              		.align	2
+ 363              	.L16:
+ 364 0020 00000000 		.word	button2_flag
+ 365              		.cfi_endproc
+ 366              	.LFE67:
+ 368              		.section	.text.getKeyInput2,"ax",%progbits
+ 369              		.align	1
+ 370              		.global	getKeyInput2
+ 371              		.syntax unified
+ 372              		.thumb
+ 373              		.thumb_func
+ 375              	getKeyInput2:
+ 376              	.LFB68:
+  97:./Core/Src/button.c **** //
+  98:./Core/Src/button.c **** void getKeyInput2(){
+ 377              		.loc 1 98 20
+ 378              		.cfi_startproc
+ 379              		@ args = 0, pretend = 0, frame = 0
+ 380              		@ frame_needed = 1, uses_anonymous_args = 0
+ 381 0000 80B5     		push	{r7, lr}
+ 382              		.cfi_def_cfa_offset 8
+ 383              		.cfi_offset 7, -8
+ 384              		.cfi_offset 14, -4
+ 385 0002 00AF     		add	r7, sp, #0
+ 386              		.cfi_def_cfa_register 7
+  99:./Core/Src/button.c **** 	KeyReg0_2 = KeyReg1_2;
+ 387              		.loc 1 99 12
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s 			page 9
 
 
- 101:./Core/Src/button.c **** 	KeyReg1_2 = KeyReg2_2;
- 385              		.loc 1 101 12
- 386 000c 244B     		ldr	r3, .L23+8
- 387 000e 1B68     		ldr	r3, [r3]
- 388 0010 214A     		ldr	r2, .L23
- 389 0012 1360     		str	r3, [r2]
- 102:./Core/Src/button.c **** 	KeyReg2_2 = HAL_GPIO_ReadPin(BUTTON2_GPIO_Port, BUTTON2_Pin);
- 390              		.loc 1 102 14
- 391 0014 1021     		movs	r1, #16
- 392 0016 2348     		ldr	r0, .L23+12
- 393 0018 FFF7FEFF 		bl	HAL_GPIO_ReadPin
- 394 001c 0346     		mov	r3, r0
- 395 001e 1A46     		mov	r2, r3
- 396              		.loc 1 102 12
- 397 0020 1F4B     		ldr	r3, .L23+8
- 398 0022 1A60     		str	r2, [r3]
+ 388 0004 244B     		ldr	r3, .L23
+ 389 0006 1B68     		ldr	r3, [r3]
+ 390 0008 244A     		ldr	r2, .L23+4
+ 391 000a 1360     		str	r3, [r2]
+ 100:./Core/Src/button.c **** 	KeyReg1_2 = KeyReg2_2;
+ 392              		.loc 1 100 12
+ 393 000c 244B     		ldr	r3, .L23+8
+ 394 000e 1B68     		ldr	r3, [r3]
+ 395 0010 214A     		ldr	r2, .L23
+ 396 0012 1360     		str	r3, [r2]
+ 101:./Core/Src/button.c **** 	KeyReg2_2 = HAL_GPIO_ReadPin(BUTTON2_GPIO_Port, BUTTON2_Pin);
+ 397              		.loc 1 101 14
+ 398 0014 1021     		movs	r1, #16
+ 399 0016 2348     		ldr	r0, .L23+12
+ 400 0018 FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 401 001c 0346     		mov	r3, r0
+ 402 001e 1A46     		mov	r2, r3
+ 403              		.loc 1 101 12
+ 404 0020 1F4B     		ldr	r3, .L23+8
+ 405 0022 1A60     		str	r2, [r3]
+ 102:./Core/Src/button.c **** 
  103:./Core/Src/button.c **** 
- 104:./Core/Src/button.c **** 
- 105:./Core/Src/button.c **** 	if (KeyReg0_2 == KeyReg1_2 && KeyReg1_2 == KeyReg2_2){
- 399              		.loc 1 105 16
- 400 0024 1D4B     		ldr	r3, .L23+4
- 401 0026 1A68     		ldr	r2, [r3]
- 402 0028 1B4B     		ldr	r3, .L23
- 403 002a 1B68     		ldr	r3, [r3]
- 404              		.loc 1 105 5
- 405 002c 9A42     		cmp	r2, r3
- 406 002e 31D1     		bne	.L22
- 407              		.loc 1 105 42 discriminator 1
- 408 0030 194B     		ldr	r3, .L23
- 409 0032 1A68     		ldr	r2, [r3]
- 410 0034 1A4B     		ldr	r3, .L23+8
- 411 0036 1B68     		ldr	r3, [r3]
- 412              		.loc 1 105 29 discriminator 1
- 413 0038 9A42     		cmp	r2, r3
- 414 003a 2BD1     		bne	.L22
- 106:./Core/Src/button.c **** 
- 107:./Core/Src/button.c **** 		if (KeyReg2_2 != KeyReg3_2){					//Nhan doi trang thai
- 415              		.loc 1 107 17
- 416 003c 184B     		ldr	r3, .L23+8
- 417 003e 1A68     		ldr	r2, [r3]
- 418 0040 194B     		ldr	r3, .L23+16
- 419 0042 1B68     		ldr	r3, [r3]
- 420              		.loc 1 107 6
- 421 0044 9A42     		cmp	r2, r3
- 422 0046 12D0     		beq	.L20
- 108:./Core/Src/button.c **** 			KeyReg3_2 = KeyReg2_2;
- 423              		.loc 1 108 14
- 424 0048 154B     		ldr	r3, .L23+8
- 425 004a 1B68     		ldr	r3, [r3]
- 426 004c 164A     		ldr	r2, .L23+16
- 427 004e 1360     		str	r3, [r2]
- 109:./Core/Src/button.c **** 			if (KeyReg2_2 == PRESSED_STATE){			//Neu dang nhan
- 428              		.loc 1 109 18
- 429 0050 134B     		ldr	r3, .L23+8
- 430 0052 1B68     		ldr	r3, [r3]
- 431              		.loc 1 109 7
- 432 0054 002B     		cmp	r3, #0
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s 			page 10
+ 104:./Core/Src/button.c **** 	if (KeyReg0_2 == KeyReg1_2 && KeyReg1_2 == KeyReg2_2){
+ 406              		.loc 1 104 16
+ 407 0024 1D4B     		ldr	r3, .L23+4
+ 408 0026 1A68     		ldr	r2, [r3]
+ 409 0028 1B4B     		ldr	r3, .L23
+ 410 002a 1B68     		ldr	r3, [r3]
+ 411              		.loc 1 104 5
+ 412 002c 9A42     		cmp	r2, r3
+ 413 002e 31D1     		bne	.L22
+ 414              		.loc 1 104 42 discriminator 1
+ 415 0030 194B     		ldr	r3, .L23
+ 416 0032 1A68     		ldr	r2, [r3]
+ 417 0034 1A4B     		ldr	r3, .L23+8
+ 418 0036 1B68     		ldr	r3, [r3]
+ 419              		.loc 1 104 29 discriminator 1
+ 420 0038 9A42     		cmp	r2, r3
+ 421 003a 2BD1     		bne	.L22
+ 105:./Core/Src/button.c **** 
+ 106:./Core/Src/button.c **** 		if (KeyReg2_2 != KeyReg3_2){					//Nhan doi trang thai
+ 422              		.loc 1 106 17
+ 423 003c 184B     		ldr	r3, .L23+8
+ 424 003e 1A68     		ldr	r2, [r3]
+ 425 0040 194B     		ldr	r3, .L23+16
+ 426 0042 1B68     		ldr	r3, [r3]
+ 427              		.loc 1 106 6
+ 428 0044 9A42     		cmp	r2, r3
+ 429 0046 12D0     		beq	.L20
+ 107:./Core/Src/button.c **** 			KeyReg3_2 = KeyReg2_2;
+ 430              		.loc 1 107 14
+ 431 0048 154B     		ldr	r3, .L23+8
+ 432 004a 1B68     		ldr	r3, [r3]
+ 433 004c 164A     		ldr	r2, .L23+16
+ 434 004e 1360     		str	r3, [r2]
+ 108:./Core/Src/button.c **** 			if (KeyReg2_2 == PRESSED_STATE){			//Neu dang nhan
+ 435              		.loc 1 108 18
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s 			page 10
 
 
- 433 0056 03D1     		bne	.L21
- 110:./Core/Src/button.c **** 				button2_flag = 1;
- 434              		.loc 1 110 18
- 435 0058 144B     		ldr	r3, .L23+20
- 436 005a 0122     		movs	r2, #1
- 437 005c 1A60     		str	r2, [r3]
- 111:./Core/Src/button.c **** 			}
- 112:./Core/Src/button.c **** 			else{									//Luc truoc thi nhan, bay gio dang tha ra
- 113:./Core/Src/button.c **** 				button2_flag = 0;
- 114:./Core/Src/button.c **** 				TimerforKeyPRESS2 = 100;				//khi release thi RESET nhan de 1 giay
- 115:./Core/Src/button.c **** 													//neu nhan lai trong 1 giay thi tinh la nhan de
- 116:./Core/Src/button.c **** 			}
- 117:./Core/Src/button.c **** 
- 118:./Core/Src/button.c **** 		}
- 119:./Core/Src/button.c **** 		else{										//Nhan de
- 120:./Core/Src/button.c **** 			if(KeyReg2_2 == PRESSED_STATE){			// Neu dang nhan de
- 121:./Core/Src/button.c **** 				TimerforKeyPRESS2--;
- 122:./Core/Src/button.c **** 				if (TimerforKeyPRESS2 == 0){			// Nhan de thanh cong
- 123:./Core/Src/button.c **** 					TimerforKeyPRESS2 = 50;			// Moi 1s nhan de thi RETURN button_flag 1 lan
- 124:./Core/Src/button.c **** 					button2_flag = 1;
- 125:./Core/Src/button.c **** 				}
- 126:./Core/Src/button.c **** 			}
- 127:./Core/Src/button.c **** 		}
- 128:./Core/Src/button.c **** 
- 129:./Core/Src/button.c **** 
- 130:./Core/Src/button.c **** 	}
- 131:./Core/Src/button.c **** 
- 132:./Core/Src/button.c **** }
- 438              		.loc 1 132 1
- 439 005e 19E0     		b	.L22
- 440              	.L21:
+ 436 0050 134B     		ldr	r3, .L23+8
+ 437 0052 1B68     		ldr	r3, [r3]
+ 438              		.loc 1 108 7
+ 439 0054 002B     		cmp	r3, #0
+ 440 0056 03D1     		bne	.L21
+ 109:./Core/Src/button.c **** 				button2_flag = 1;
+ 441              		.loc 1 109 18
+ 442 0058 144B     		ldr	r3, .L23+20
+ 443 005a 0122     		movs	r2, #1
+ 444 005c 1A60     		str	r2, [r3]
+ 110:./Core/Src/button.c **** 			}
+ 111:./Core/Src/button.c **** 			else{									//Luc truoc thi nhan, bay gio dang tha ra
+ 112:./Core/Src/button.c **** 				button2_flag = 0;
  113:./Core/Src/button.c **** 				TimerforKeyPRESS2 = 100;				//khi release thi RESET nhan de 1 giay
- 441              		.loc 1 113 18
- 442 0060 124B     		ldr	r3, .L23+20
- 443 0062 0022     		movs	r2, #0
- 444 0064 1A60     		str	r2, [r3]
  114:./Core/Src/button.c **** 													//neu nhan lai trong 1 giay thi tinh la nhan de
- 445              		.loc 1 114 23
- 446 0066 124B     		ldr	r3, .L23+24
- 447 0068 6422     		movs	r2, #100
- 448 006a 1A60     		str	r2, [r3]
- 449              		.loc 1 132 1
- 450 006c 12E0     		b	.L22
- 451              	.L20:
+ 115:./Core/Src/button.c **** 			}
+ 116:./Core/Src/button.c **** 
+ 117:./Core/Src/button.c **** 		}
+ 118:./Core/Src/button.c **** 		else{										//Nhan de
+ 119:./Core/Src/button.c **** 			if(KeyReg2_2 == PRESSED_STATE){			// Neu dang nhan de
  120:./Core/Src/button.c **** 				TimerforKeyPRESS2--;
- 452              		.loc 1 120 17
- 453 006e 0C4B     		ldr	r3, .L23+8
- 454 0070 1B68     		ldr	r3, [r3]
- 120:./Core/Src/button.c **** 				TimerforKeyPRESS2--;
- 455              		.loc 1 120 6
- 456 0072 002B     		cmp	r3, #0
- 457 0074 0ED1     		bne	.L22
  121:./Core/Src/button.c **** 				if (TimerforKeyPRESS2 == 0){			// Nhan de thanh cong
- 458              		.loc 1 121 22
- 459 0076 0E4B     		ldr	r3, .L23+24
- 460 0078 1B68     		ldr	r3, [r3]
- 461 007a 013B     		subs	r3, r3, #1
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s 			page 11
-
-
- 462 007c 0C4A     		ldr	r2, .L23+24
- 463 007e 1360     		str	r3, [r2]
  122:./Core/Src/button.c **** 					TimerforKeyPRESS2 = 50;			// Moi 1s nhan de thi RETURN button_flag 1 lan
- 464              		.loc 1 122 27
- 465 0080 0B4B     		ldr	r3, .L23+24
- 466 0082 1B68     		ldr	r3, [r3]
- 122:./Core/Src/button.c **** 					TimerforKeyPRESS2 = 50;			// Moi 1s nhan de thi RETURN button_flag 1 lan
- 467              		.loc 1 122 8
- 468 0084 002B     		cmp	r3, #0
- 469 0086 05D1     		bne	.L22
  123:./Core/Src/button.c **** 					button2_flag = 1;
- 470              		.loc 1 123 24
- 471 0088 094B     		ldr	r3, .L23+24
- 472 008a 3222     		movs	r2, #50
- 473 008c 1A60     		str	r2, [r3]
  124:./Core/Src/button.c **** 				}
- 474              		.loc 1 124 19
- 475 008e 074B     		ldr	r3, .L23+20
- 476 0090 0122     		movs	r2, #1
- 477 0092 1A60     		str	r2, [r3]
- 478              	.L22:
- 479              		.loc 1 132 1
- 480 0094 00BF     		nop
- 481 0096 80BD     		pop	{r7, pc}
- 482              	.L24:
- 483              		.align	2
- 484              	.L23:
- 485 0098 00000000 		.word	KeyReg1_2
- 486 009c 00000000 		.word	KeyReg0_2
- 487 00a0 00000000 		.word	KeyReg2_2
- 488 00a4 00080140 		.word	1073809408
- 489 00a8 00000000 		.word	KeyReg3_2
- 490 00ac 00000000 		.word	button2_flag
- 491 00b0 00000000 		.word	TimerforKeyPRESS2
- 492              		.cfi_endproc
- 493              	.LFE68:
- 495              		.global	KeyReg0_3
- 496              		.section	.data.KeyReg0_3,"aw"
- 497              		.align	2
- 500              	KeyReg0_3:
- 501 0000 01000000 		.word	1
- 502              		.global	KeyReg1_3
- 503              		.section	.data.KeyReg1_3,"aw"
+ 125:./Core/Src/button.c **** 			}
+ 126:./Core/Src/button.c **** 		}
+ 127:./Core/Src/button.c **** 
+ 128:./Core/Src/button.c **** 
+ 129:./Core/Src/button.c **** 	}
+ 130:./Core/Src/button.c **** 
+ 131:./Core/Src/button.c **** }
+ 445              		.loc 1 131 1
+ 446 005e 19E0     		b	.L22
+ 447              	.L21:
+ 112:./Core/Src/button.c **** 				TimerforKeyPRESS2 = 100;				//khi release thi RESET nhan de 1 giay
+ 448              		.loc 1 112 18
+ 449 0060 124B     		ldr	r3, .L23+20
+ 450 0062 0022     		movs	r2, #0
+ 451 0064 1A60     		str	r2, [r3]
+ 113:./Core/Src/button.c **** 													//neu nhan lai trong 1 giay thi tinh la nhan de
+ 452              		.loc 1 113 23
+ 453 0066 124B     		ldr	r3, .L23+24
+ 454 0068 6422     		movs	r2, #100
+ 455 006a 1A60     		str	r2, [r3]
+ 456              		.loc 1 131 1
+ 457 006c 12E0     		b	.L22
+ 458              	.L20:
+ 119:./Core/Src/button.c **** 				TimerforKeyPRESS2--;
+ 459              		.loc 1 119 17
+ 460 006e 0C4B     		ldr	r3, .L23+8
+ 461 0070 1B68     		ldr	r3, [r3]
+ 119:./Core/Src/button.c **** 				TimerforKeyPRESS2--;
+ 462              		.loc 1 119 6
+ 463 0072 002B     		cmp	r3, #0
+ 464 0074 0ED1     		bne	.L22
+ 120:./Core/Src/button.c **** 				if (TimerforKeyPRESS2 == 0){			// Nhan de thanh cong
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s 			page 11
+
+
+ 465              		.loc 1 120 22
+ 466 0076 0E4B     		ldr	r3, .L23+24
+ 467 0078 1B68     		ldr	r3, [r3]
+ 468 007a 013B     		subs	r3, r3, #1
+ 469 007c 0C4A     		ldr	r2, .L23+24
+ 470 007e 1360     		str	r3, [r2]
+ 121:./Core/Src/button.c **** 					TimerforKeyPRESS2 = 50;			// Moi 1s nhan de thi RETURN button_flag 1 lan
+ 471              		.loc 1 121 27
+ 472 0080 0B4B     		ldr	r3, .L23+24
+ 473 0082 1B68     		ldr	r3, [r3]
+ 121:./Core/Src/button.c **** 					TimerforKeyPRESS2 = 50;			// Moi 1s nhan de thi RETURN button_flag 1 lan
+ 474              		.loc 1 121 8
+ 475 0084 002B     		cmp	r3, #0
+ 476 0086 05D1     		bne	.L22
+ 122:./Core/Src/button.c **** 					button2_flag = 1;
+ 477              		.loc 1 122 24
+ 478 0088 094B     		ldr	r3, .L23+24
+ 479 008a 3222     		movs	r2, #50
+ 480 008c 1A60     		str	r2, [r3]
+ 123:./Core/Src/button.c **** 				}
+ 481              		.loc 1 123 19
+ 482 008e 074B     		ldr	r3, .L23+20
+ 483 0090 0122     		movs	r2, #1
+ 484 0092 1A60     		str	r2, [r3]
+ 485              	.L22:
+ 486              		.loc 1 131 1
+ 487 0094 00BF     		nop
+ 488 0096 80BD     		pop	{r7, pc}
+ 489              	.L24:
+ 490              		.align	2
+ 491              	.L23:
+ 492 0098 00000000 		.word	KeyReg1_2
+ 493 009c 00000000 		.word	KeyReg0_2
+ 494 00a0 00000000 		.word	KeyReg2_2
+ 495 00a4 00080140 		.word	1073809408
+ 496 00a8 00000000 		.word	KeyReg3_2
+ 497 00ac 00000000 		.word	button2_flag
+ 498 00b0 00000000 		.word	TimerforKeyPRESS2
+ 499              		.cfi_endproc
+ 500              	.LFE68:
+ 502              		.global	KeyReg0_3
+ 503              		.section	.data.KeyReg0_3,"aw"
  504              		.align	2
- 507              	KeyReg1_3:
+ 507              	KeyReg0_3:
  508 0000 01000000 		.word	1
- 509              		.global	KeyReg2_3
- 510              		.section	.data.KeyReg2_3,"aw"
+ 509              		.global	KeyReg1_3
+ 510              		.section	.data.KeyReg1_3,"aw"
  511              		.align	2
- 514              	KeyReg2_3:
+ 514              	KeyReg1_3:
  515 0000 01000000 		.word	1
- 516              		.global	KeyReg3_3
- 517              		.section	.data.KeyReg3_3,"aw"
+ 516              		.global	KeyReg2_3
+ 517              		.section	.data.KeyReg2_3,"aw"
  518              		.align	2
- 521              	KeyReg3_3:
+ 521              	KeyReg2_3:
  522 0000 01000000 		.word	1
- 523              		.global	TimerforKeyPRESS3
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s 			page 12
+ 523              		.global	KeyReg3_3
+ 524              		.section	.data.KeyReg3_3,"aw"
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s 			page 12
 
 
- 524              		.section	.data.TimerforKeyPRESS3,"aw"
  525              		.align	2
- 528              	TimerforKeyPRESS3:
- 529 0000 C8000000 		.word	200
- 530              		.section	.text.isButton3Pressed,"ax",%progbits
- 531              		.align	1
- 532              		.global	isButton3Pressed
- 533              		.syntax unified
- 534              		.thumb
- 535              		.thumb_func
- 537              	isButton3Pressed:
- 538              	.LFB69:
+ 528              	KeyReg3_3:
+ 529 0000 01000000 		.word	1
+ 530              		.global	TimerforKeyPRESS3
+ 531              		.section	.data.TimerforKeyPRESS3,"aw"
+ 532              		.align	2
+ 535              	TimerforKeyPRESS3:
+ 536 0000 C8000000 		.word	200
+ 537              		.global	TimerforDBClick4
+ 538              		.section	.bss.TimerforDBClick4,"aw",%nobits
+ 539              		.align	2
+ 542              	TimerforDBClick4:
+ 543 0000 00000000 		.space	4
+ 544              		.section	.text.isButton3Pressed,"ax",%progbits
+ 545              		.align	1
+ 546              		.global	isButton3Pressed
+ 547              		.syntax unified
+ 548              		.thumb
+ 549              		.thumb_func
+ 551              	isButton3Pressed:
+ 552              	.LFB69:
+ 132:./Core/Src/button.c **** 
  133:./Core/Src/button.c **** 
  134:./Core/Src/button.c **** 
  135:./Core/Src/button.c **** 
  136:./Core/Src/button.c **** 
  137:./Core/Src/button.c **** 
- 138:./Core/Src/button.c **** 
- 139:./Core/Src/button.c **** ///////////////////------------------------------
+ 138:./Core/Src/button.c **** ///////////////////------------------------------
+ 139:./Core/Src/button.c **** 
  140:./Core/Src/button.c **** 
  141:./Core/Src/button.c **** 
  142:./Core/Src/button.c **** 
  143:./Core/Src/button.c **** 
  144:./Core/Src/button.c **** 
  145:./Core/Src/button.c **** 
- 146:./Core/Src/button.c **** 
- 147:./Core/Src/button.c **** //KeyReg trong qua trinh rung
- 148:./Core/Src/button.c **** int KeyReg0_3 = NORMAL_STATE;
- 149:./Core/Src/button.c **** int KeyReg1_3 = NORMAL_STATE;
- 150:./Core/Src/button.c **** int KeyReg2_3 = NORMAL_STATE;
- 151:./Core/Src/button.c **** 
- 152:./Core/Src/button.c **** //KeyReg cua qua trinh on dinh truoc day
- 153:./Core/Src/button.c **** int KeyReg3_3 = NORMAL_STATE;
+ 146:./Core/Src/button.c **** //KeyReg trong qua trinh rung
+ 147:./Core/Src/button.c **** int KeyReg0_3 = NORMAL_STATE;
+ 148:./Core/Src/button.c **** int KeyReg1_3 = NORMAL_STATE;
+ 149:./Core/Src/button.c **** int KeyReg2_3 = NORMAL_STATE;
+ 150:./Core/Src/button.c **** 
+ 151:./Core/Src/button.c **** //KeyReg cua qua trinh on dinh truoc day
+ 152:./Core/Src/button.c **** int KeyReg3_3 = NORMAL_STATE;
+ 153:./Core/Src/button.c **** 
  154:./Core/Src/button.c **** 
- 155:./Core/Src/button.c **** 
- 156:./Core/Src/button.c **** //Thoi gian cua nhan de'
- 157:./Core/Src/button.c **** int TimerforKeyPRESS3 = 200;
+ 155:./Core/Src/button.c **** //Thoi gian cua nhan de'
+ 156:./Core/Src/button.c **** int TimerforKeyPRESS3 = 200;
+ 157:./Core/Src/button.c **** int TimerforDBClick4 = 0;
  158:./Core/Src/button.c **** 
  159:./Core/Src/button.c **** 
- 160:./Core/Src/button.c **** 
- 161:./Core/Src/button.c **** int isButton3Pressed(){
- 539              		.loc 1 161 23
- 540              		.cfi_startproc
- 541              		@ args = 0, pretend = 0, frame = 0
- 542              		@ frame_needed = 1, uses_anonymous_args = 0
- 543              		@ link register save eliminated.
- 544 0000 80B4     		push	{r7}
- 545              		.cfi_def_cfa_offset 4
- 546              		.cfi_offset 7, -4
- 547 0002 00AF     		add	r7, sp, #0
- 548              		.cfi_def_cfa_register 7
- 162:./Core/Src/button.c **** 	if (button3_flag == 1){
- 549              		.loc 1 162 19
- 550 0004 064B     		ldr	r3, .L28
- 551 0006 1B68     		ldr	r3, [r3]
- 552              		.loc 1 162 5
- 553 0008 012B     		cmp	r3, #1
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s 			page 13
+ 160:./Core/Src/button.c **** int isButton3Pressed(){
+ 553              		.loc 1 160 23
+ 554              		.cfi_startproc
+ 555              		@ args = 0, pretend = 0, frame = 0
+ 556              		@ frame_needed = 1, uses_anonymous_args = 0
+ 557              		@ link register save eliminated.
+ 558 0000 80B4     		push	{r7}
+ 559              		.cfi_def_cfa_offset 4
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s 			page 13
 
 
- 554 000a 04D1     		bne	.L26
- 163:./Core/Src/button.c **** 		button3_flag = 0;
- 555              		.loc 1 163 16
- 556 000c 044B     		ldr	r3, .L28
- 557 000e 0022     		movs	r2, #0
- 558 0010 1A60     		str	r2, [r3]
- 164:./Core/Src/button.c **** 		return 1;
- 559              		.loc 1 164 10
- 560 0012 0123     		movs	r3, #1
- 561 0014 00E0     		b	.L27
- 562              	.L26:
- 165:./Core/Src/button.c **** 	}
- 166:./Core/Src/button.c **** 	else return 0;
- 563              		.loc 1 166 14
- 564 0016 0023     		movs	r3, #0
- 565              	.L27:
- 167:./Core/Src/button.c **** }
- 566              		.loc 1 167 1
- 567 0018 1846     		mov	r0, r3
- 568 001a BD46     		mov	sp, r7
- 569              		.cfi_def_cfa_register 13
- 570              		@ sp needed
- 571 001c 80BC     		pop	{r7}
- 572              		.cfi_restore 7
- 573              		.cfi_def_cfa_offset 0
- 574 001e 7047     		bx	lr
- 575              	.L29:
- 576              		.align	2
- 577              	.L28:
- 578 0020 00000000 		.word	button3_flag
- 579              		.cfi_endproc
- 580              	.LFE69:
- 582              		.section	.text.getKeyInput3,"ax",%progbits
- 583              		.align	1
- 584              		.global	getKeyInput3
- 585              		.syntax unified
- 586              		.thumb
- 587              		.thumb_func
- 589              	getKeyInput3:
- 590              	.LFB70:
- 168:./Core/Src/button.c **** //
- 169:./Core/Src/button.c **** void getKeyInput3(){
- 591              		.loc 1 169 20
- 592              		.cfi_startproc
- 593              		@ args = 0, pretend = 0, frame = 0
- 594              		@ frame_needed = 1, uses_anonymous_args = 0
- 595 0000 80B5     		push	{r7, lr}
- 596              		.cfi_def_cfa_offset 8
- 597              		.cfi_offset 7, -8
- 598              		.cfi_offset 14, -4
- 599 0002 00AF     		add	r7, sp, #0
- 600              		.cfi_def_cfa_register 7
- 170:./Core/Src/button.c **** 	KeyReg0_3 = KeyReg1_3;
- 601              		.loc 1 170 12
- 602 0004 244B     		ldr	r3, .L35
- 603 0006 1B68     		ldr	r3, [r3]
- 604 0008 244A     		ldr	r2, .L35+4
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s 			page 14
+ 560              		.cfi_offset 7, -4
+ 561 0002 00AF     		add	r7, sp, #0
+ 562              		.cfi_def_cfa_register 7
+ 161:./Core/Src/button.c **** 	if (button3_flag == 1){
+ 563              		.loc 1 161 19
+ 564 0004 064B     		ldr	r3, .L28
+ 565 0006 1B68     		ldr	r3, [r3]
+ 566              		.loc 1 161 5
+ 567 0008 012B     		cmp	r3, #1
+ 568 000a 04D1     		bne	.L26
+ 162:./Core/Src/button.c **** 		button3_flag = 0;
+ 569              		.loc 1 162 16
+ 570 000c 044B     		ldr	r3, .L28
+ 571 000e 0022     		movs	r2, #0
+ 572 0010 1A60     		str	r2, [r3]
+ 163:./Core/Src/button.c **** 		return 1;
+ 573              		.loc 1 163 10
+ 574 0012 0123     		movs	r3, #1
+ 575 0014 00E0     		b	.L27
+ 576              	.L26:
+ 164:./Core/Src/button.c **** 	}
+ 165:./Core/Src/button.c **** 	else return 0;
+ 577              		.loc 1 165 14
+ 578 0016 0023     		movs	r3, #0
+ 579              	.L27:
+ 166:./Core/Src/button.c **** }
+ 580              		.loc 1 166 1
+ 581 0018 1846     		mov	r0, r3
+ 582 001a BD46     		mov	sp, r7
+ 583              		.cfi_def_cfa_register 13
+ 584              		@ sp needed
+ 585 001c 80BC     		pop	{r7}
+ 586              		.cfi_restore 7
+ 587              		.cfi_def_cfa_offset 0
+ 588 001e 7047     		bx	lr
+ 589              	.L29:
+ 590              		.align	2
+ 591              	.L28:
+ 592 0020 00000000 		.word	button3_flag
+ 593              		.cfi_endproc
+ 594              	.LFE69:
+ 596              		.section	.text.isButton3DoubleClick,"ax",%progbits
+ 597              		.align	1
+ 598              		.global	isButton3DoubleClick
+ 599              		.syntax unified
+ 600              		.thumb
+ 601              		.thumb_func
+ 603              	isButton3DoubleClick:
+ 604              	.LFB70:
+ 167:./Core/Src/button.c **** 
+ 168:./Core/Src/button.c **** 
+ 169:./Core/Src/button.c **** int isButton3DoubleClick(){
+ 605              		.loc 1 169 27
+ 606              		.cfi_startproc
+ 607              		@ args = 0, pretend = 0, frame = 0
+ 608              		@ frame_needed = 1, uses_anonymous_args = 0
+ 609              		@ link register save eliminated.
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s 			page 14
 
 
- 605 000a 1360     		str	r3, [r2]
- 171:./Core/Src/button.c **** 	KeyReg1_3 = KeyReg2_3;
- 606              		.loc 1 171 12
- 607 000c 244B     		ldr	r3, .L35+8
- 608 000e 1B68     		ldr	r3, [r3]
- 609 0010 214A     		ldr	r2, .L35
- 610 0012 1360     		str	r3, [r2]
- 172:./Core/Src/button.c **** 	KeyReg2_3 = HAL_GPIO_ReadPin(BUTTON3_GPIO_Port, BUTTON3_Pin);
- 611              		.loc 1 172 14
- 612 0014 0121     		movs	r1, #1
- 613 0016 2348     		ldr	r0, .L35+12
- 614 0018 FFF7FEFF 		bl	HAL_GPIO_ReadPin
- 615 001c 0346     		mov	r3, r0
- 616 001e 1A46     		mov	r2, r3
- 617              		.loc 1 172 12
- 618 0020 1F4B     		ldr	r3, .L35+8
- 619 0022 1A60     		str	r2, [r3]
- 173:./Core/Src/button.c **** 
- 174:./Core/Src/button.c **** 
- 175:./Core/Src/button.c **** 	if (KeyReg0_3 == KeyReg1_3 && KeyReg1_3 == KeyReg2_3){
- 620              		.loc 1 175 16
- 621 0024 1D4B     		ldr	r3, .L35+4
- 622 0026 1A68     		ldr	r2, [r3]
- 623 0028 1B4B     		ldr	r3, .L35
- 624 002a 1B68     		ldr	r3, [r3]
- 625              		.loc 1 175 5
- 626 002c 9A42     		cmp	r2, r3
- 627 002e 31D1     		bne	.L34
- 628              		.loc 1 175 42 discriminator 1
- 629 0030 194B     		ldr	r3, .L35
- 630 0032 1A68     		ldr	r2, [r3]
- 631 0034 1A4B     		ldr	r3, .L35+8
- 632 0036 1B68     		ldr	r3, [r3]
- 633              		.loc 1 175 29 discriminator 1
- 634 0038 9A42     		cmp	r2, r3
- 635 003a 2BD1     		bne	.L34
+ 610 0000 80B4     		push	{r7}
+ 611              		.cfi_def_cfa_offset 4
+ 612              		.cfi_offset 7, -4
+ 613 0002 00AF     		add	r7, sp, #0
+ 614              		.cfi_def_cfa_register 7
+ 170:./Core/Src/button.c **** 	if (button3_dbclick == 1){
+ 615              		.loc 1 170 22
+ 616 0004 064B     		ldr	r3, .L33
+ 617 0006 1B68     		ldr	r3, [r3]
+ 618              		.loc 1 170 5
+ 619 0008 012B     		cmp	r3, #1
+ 620 000a 04D1     		bne	.L31
+ 171:./Core/Src/button.c **** 		button3_dbclick = 0;
+ 621              		.loc 1 171 19
+ 622 000c 044B     		ldr	r3, .L33
+ 623 000e 0022     		movs	r2, #0
+ 624 0010 1A60     		str	r2, [r3]
+ 172:./Core/Src/button.c **** 		return 1;
+ 625              		.loc 1 172 10
+ 626 0012 0123     		movs	r3, #1
+ 627 0014 00E0     		b	.L32
+ 628              	.L31:
+ 173:./Core/Src/button.c **** 	}
+ 174:./Core/Src/button.c **** 	else return 0;
+ 629              		.loc 1 174 14
+ 630 0016 0023     		movs	r3, #0
+ 631              	.L32:
+ 175:./Core/Src/button.c **** }
+ 632              		.loc 1 175 1
+ 633 0018 1846     		mov	r0, r3
+ 634 001a BD46     		mov	sp, r7
+ 635              		.cfi_def_cfa_register 13
+ 636              		@ sp needed
+ 637 001c 80BC     		pop	{r7}
+ 638              		.cfi_restore 7
+ 639              		.cfi_def_cfa_offset 0
+ 640 001e 7047     		bx	lr
+ 641              	.L34:
+ 642              		.align	2
+ 643              	.L33:
+ 644 0020 00000000 		.word	button3_dbclick
+ 645              		.cfi_endproc
+ 646              	.LFE70:
+ 648              		.section	.text.getKeyInput3,"ax",%progbits
+ 649              		.align	1
+ 650              		.global	getKeyInput3
+ 651              		.syntax unified
+ 652              		.thumb
+ 653              		.thumb_func
+ 655              	getKeyInput3:
+ 656              	.LFB71:
  176:./Core/Src/button.c **** 
- 177:./Core/Src/button.c **** 		if (KeyReg2_3 != KeyReg3_3){					//Nhan doi trang thai
- 636              		.loc 1 177 17
- 637 003c 184B     		ldr	r3, .L35+8
- 638 003e 1A68     		ldr	r2, [r3]
- 639 0040 194B     		ldr	r3, .L35+16
- 640 0042 1B68     		ldr	r3, [r3]
- 641              		.loc 1 177 6
- 642 0044 9A42     		cmp	r2, r3
- 643 0046 12D0     		beq	.L32
- 178:./Core/Src/button.c **** 			KeyReg3_3 = KeyReg2_3;
- 644              		.loc 1 178 14
- 645 0048 154B     		ldr	r3, .L35+8
- 646 004a 1B68     		ldr	r3, [r3]
- 647 004c 164A     		ldr	r2, .L35+16
- 648 004e 1360     		str	r3, [r2]
- 179:./Core/Src/button.c **** 			if (KeyReg2_3 == PRESSED_STATE){			//Neu dang nhan
- 649              		.loc 1 179 18
- 650 0050 134B     		ldr	r3, .L35+8
- 651 0052 1B68     		ldr	r3, [r3]
- 652              		.loc 1 179 7
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s 			page 15
+ 177:./Core/Src/button.c **** 
+ 178:./Core/Src/button.c **** //
+ 179:./Core/Src/button.c **** void getKeyInput3(){
+ 657              		.loc 1 179 20
+ 658              		.cfi_startproc
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s 			page 15
 
 
- 653 0054 002B     		cmp	r3, #0
- 654 0056 03D1     		bne	.L33
- 180:./Core/Src/button.c **** 				button3_flag = 1;
- 655              		.loc 1 180 18
- 656 0058 144B     		ldr	r3, .L35+20
- 657 005a 0122     		movs	r2, #1
- 658 005c 1A60     		str	r2, [r3]
- 181:./Core/Src/button.c **** 			}
- 182:./Core/Src/button.c **** 			else{									//Luc truoc thi nhan, bay gio dang tha ra
- 183:./Core/Src/button.c **** 				button3_flag = 0;
- 184:./Core/Src/button.c **** 				TimerforKeyPRESS3 = 100;				//khi release thi RESET nhan de 1 giay
- 185:./Core/Src/button.c **** 													//neu nhan lai trong 1 giay thi tinh la nhan de
- 186:./Core/Src/button.c **** 			}
- 187:./Core/Src/button.c **** 
- 188:./Core/Src/button.c **** 		}
- 189:./Core/Src/button.c **** 		else{										//Nhan de
- 190:./Core/Src/button.c **** 			if(KeyReg2_3 == PRESSED_STATE){			// Neu dang nhan de
- 191:./Core/Src/button.c **** 				TimerforKeyPRESS3--;
- 192:./Core/Src/button.c **** 				if (TimerforKeyPRESS3 == 0){			// Nhan de thanh cong
- 193:./Core/Src/button.c **** 					TimerforKeyPRESS3 = 50;			// Moi 1s nhan de thi RETURN button_flag 1 lan
- 194:./Core/Src/button.c **** 					button3_flag = 1;
- 195:./Core/Src/button.c **** 				}
- 196:./Core/Src/button.c **** 			}
- 197:./Core/Src/button.c **** 		}
- 198:./Core/Src/button.c **** 
- 199:./Core/Src/button.c **** 
- 200:./Core/Src/button.c **** 	}
- 201:./Core/Src/button.c **** 
- 202:./Core/Src/button.c **** }
- 659              		.loc 1 202 1
- 660 005e 19E0     		b	.L34
- 661              	.L33:
- 183:./Core/Src/button.c **** 				TimerforKeyPRESS3 = 100;				//khi release thi RESET nhan de 1 giay
- 662              		.loc 1 183 18
- 663 0060 124B     		ldr	r3, .L35+20
- 664 0062 0022     		movs	r2, #0
- 665 0064 1A60     		str	r2, [r3]
- 184:./Core/Src/button.c **** 													//neu nhan lai trong 1 giay thi tinh la nhan de
- 666              		.loc 1 184 23
- 667 0066 124B     		ldr	r3, .L35+24
- 668 0068 6422     		movs	r2, #100
- 669 006a 1A60     		str	r2, [r3]
- 670              		.loc 1 202 1
- 671 006c 12E0     		b	.L34
- 672              	.L32:
- 190:./Core/Src/button.c **** 				TimerforKeyPRESS3--;
- 673              		.loc 1 190 17
- 674 006e 0C4B     		ldr	r3, .L35+8
- 675 0070 1B68     		ldr	r3, [r3]
- 190:./Core/Src/button.c **** 				TimerforKeyPRESS3--;
- 676              		.loc 1 190 6
- 677 0072 002B     		cmp	r3, #0
- 678 0074 0ED1     		bne	.L34
- 191:./Core/Src/button.c **** 				if (TimerforKeyPRESS3 == 0){			// Nhan de thanh cong
- 679              		.loc 1 191 22
- 680 0076 0E4B     		ldr	r3, .L35+24
- 681 0078 1B68     		ldr	r3, [r3]
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s 			page 16
+ 659              		@ args = 0, pretend = 0, frame = 0
+ 660              		@ frame_needed = 1, uses_anonymous_args = 0
+ 661 0000 80B5     		push	{r7, lr}
+ 662              		.cfi_def_cfa_offset 8
+ 663              		.cfi_offset 7, -8
+ 664              		.cfi_offset 14, -4
+ 665 0002 00AF     		add	r7, sp, #0
+ 666              		.cfi_def_cfa_register 7
+ 180:./Core/Src/button.c **** 	KeyReg0_3 = KeyReg1_3;
+ 667              		.loc 1 180 12
+ 668 0004 2C4B     		ldr	r3, .L41
+ 669 0006 1B68     		ldr	r3, [r3]
+ 670 0008 2C4A     		ldr	r2, .L41+4
+ 671 000a 1360     		str	r3, [r2]
+ 181:./Core/Src/button.c **** 	KeyReg1_3 = KeyReg2_3;
+ 672              		.loc 1 181 12
+ 673 000c 2C4B     		ldr	r3, .L41+8
+ 674 000e 1B68     		ldr	r3, [r3]
+ 675 0010 294A     		ldr	r2, .L41
+ 676 0012 1360     		str	r3, [r2]
+ 182:./Core/Src/button.c **** 	KeyReg2_3 = HAL_GPIO_ReadPin(BUTTON3_GPIO_Port, BUTTON3_Pin);
+ 677              		.loc 1 182 14
+ 678 0014 0121     		movs	r1, #1
+ 679 0016 2B48     		ldr	r0, .L41+12
+ 680 0018 FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 681 001c 0346     		mov	r3, r0
+ 682 001e 1A46     		mov	r2, r3
+ 683              		.loc 1 182 12
+ 684 0020 274B     		ldr	r3, .L41+8
+ 685 0022 1A60     		str	r2, [r3]
+ 183:./Core/Src/button.c **** 
+ 184:./Core/Src/button.c **** 
+ 185:./Core/Src/button.c **** 	if (KeyReg0_3 == KeyReg1_3 && KeyReg1_3 == KeyReg2_3){
+ 686              		.loc 1 185 16
+ 687 0024 254B     		ldr	r3, .L41+4
+ 688 0026 1A68     		ldr	r2, [r3]
+ 689 0028 234B     		ldr	r3, .L41
+ 690 002a 1B68     		ldr	r3, [r3]
+ 691              		.loc 1 185 5
+ 692 002c 9A42     		cmp	r2, r3
+ 693 002e 41D1     		bne	.L40
+ 694              		.loc 1 185 42 discriminator 1
+ 695 0030 214B     		ldr	r3, .L41
+ 696 0032 1A68     		ldr	r2, [r3]
+ 697 0034 224B     		ldr	r3, .L41+8
+ 698 0036 1B68     		ldr	r3, [r3]
+ 699              		.loc 1 185 29 discriminator 1
+ 700 0038 9A42     		cmp	r2, r3
+ 701 003a 3BD1     		bne	.L40
+ 186:./Core/Src/button.c **** 
+ 187:./Core/Src/button.c **** 		if (KeyReg2_3 != KeyReg3_3){					//Nhan doi trang thai
+ 702              		.loc 1 187 17
+ 703 003c 204B     		ldr	r3, .L41+8
+ 704 003e 1A68     		ldr	r2, [r3]
+ 705 0040 214B     		ldr	r3, .L41+16
+ 706 0042 1B68     		ldr	r3, [r3]
+ 707              		.loc 1 187 6
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s 			page 16
 
 
- 682 007a 013B     		subs	r3, r3, #1
- 683 007c 0C4A     		ldr	r2, .L35+24
- 684 007e 1360     		str	r3, [r2]
- 192:./Core/Src/button.c **** 					TimerforKeyPRESS3 = 50;			// Moi 1s nhan de thi RETURN button_flag 1 lan
- 685              		.loc 1 192 27
- 686 0080 0B4B     		ldr	r3, .L35+24
- 687 0082 1B68     		ldr	r3, [r3]
- 192:./Core/Src/button.c **** 					TimerforKeyPRESS3 = 50;			// Moi 1s nhan de thi RETURN button_flag 1 lan
- 688              		.loc 1 192 8
- 689 0084 002B     		cmp	r3, #0
- 690 0086 05D1     		bne	.L34
- 193:./Core/Src/button.c **** 					button3_flag = 1;
- 691              		.loc 1 193 24
- 692 0088 094B     		ldr	r3, .L35+24
- 693 008a 3222     		movs	r2, #50
- 694 008c 1A60     		str	r2, [r3]
- 194:./Core/Src/button.c **** 				}
- 695              		.loc 1 194 19
- 696 008e 074B     		ldr	r3, .L35+20
- 697 0090 0122     		movs	r2, #1
- 698 0092 1A60     		str	r2, [r3]
- 699              	.L34:
- 700              		.loc 1 202 1
- 701 0094 00BF     		nop
- 702 0096 80BD     		pop	{r7, pc}
- 703              	.L36:
- 704              		.align	2
- 705              	.L35:
- 706 0098 00000000 		.word	KeyReg1_3
- 707 009c 00000000 		.word	KeyReg0_3
- 708 00a0 00000000 		.word	KeyReg2_3
- 709 00a4 000C0140 		.word	1073810432
- 710 00a8 00000000 		.word	KeyReg3_3
- 711 00ac 00000000 		.word	button3_flag
- 712 00b0 00000000 		.word	TimerforKeyPRESS3
- 713              		.cfi_endproc
- 714              	.LFE70:
- 716              		.global	KeyReg0_4
- 717              		.section	.data.KeyReg0_4,"aw"
- 718              		.align	2
- 721              	KeyReg0_4:
- 722 0000 01000000 		.word	1
- 723              		.global	KeyReg1_4
- 724              		.section	.data.KeyReg1_4,"aw"
- 725              		.align	2
- 728              	KeyReg1_4:
- 729 0000 01000000 		.word	1
- 730              		.global	KeyReg2_4
- 731              		.section	.data.KeyReg2_4,"aw"
- 732              		.align	2
- 735              	KeyReg2_4:
- 736 0000 01000000 		.word	1
- 737              		.global	KeyReg3_4
- 738              		.section	.data.KeyReg3_4,"aw"
- 739              		.align	2
- 742              	KeyReg3_4:
- 743 0000 01000000 		.word	1
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s 			page 17
-
-
- 744              		.global	TimerforKeyPRESS4
- 745              		.section	.data.TimerforKeyPRESS4,"aw"
- 746              		.align	2
- 749              	TimerforKeyPRESS4:
- 750 0000 C8000000 		.word	200
- 751              		.section	.text.isButton4Pressed,"ax",%progbits
- 752              		.align	1
- 753              		.global	isButton4Pressed
- 754              		.syntax unified
- 755              		.thumb
- 756              		.thumb_func
- 758              	isButton4Pressed:
- 759              	.LFB71:
- 203:./Core/Src/button.c **** 
- 204:./Core/Src/button.c **** 
- 205:./Core/Src/button.c **** 
- 206:./Core/Src/button.c **** 
- 207:./Core/Src/button.c **** 
- 208:./Core/Src/button.c **** //USER BUTTON
- 209:./Core/Src/button.c **** //KeyReg trong qua trinh rung
- 210:./Core/Src/button.c **** int KeyReg0_4 = NORMAL_STATE;
- 211:./Core/Src/button.c **** int KeyReg1_4 = NORMAL_STATE;
- 212:./Core/Src/button.c **** int KeyReg2_4 = NORMAL_STATE;
+ 708 0044 9A42     		cmp	r2, r3
+ 709 0046 1CD0     		beq	.L37
+ 188:./Core/Src/button.c **** 			KeyReg3_3 = KeyReg2_3;
+ 710              		.loc 1 188 14
+ 711 0048 1D4B     		ldr	r3, .L41+8
+ 712 004a 1B68     		ldr	r3, [r3]
+ 713 004c 1E4A     		ldr	r2, .L41+16
+ 714 004e 1360     		str	r3, [r2]
+ 189:./Core/Src/button.c **** 			if (KeyReg2_3 == PRESSED_STATE){			//Neu dang nhan
+ 715              		.loc 1 189 18
+ 716 0050 1B4B     		ldr	r3, .L41+8
+ 717 0052 1B68     		ldr	r3, [r3]
+ 718              		.loc 1 189 7
+ 719 0054 002B     		cmp	r3, #0
+ 720 0056 0AD1     		bne	.L38
+ 190:./Core/Src/button.c **** 				button3_flag = 1;
+ 721              		.loc 1 190 18
+ 722 0058 1C4B     		ldr	r3, .L41+20
+ 723 005a 0122     		movs	r2, #1
+ 724 005c 1A60     		str	r2, [r3]
+ 191:./Core/Src/button.c **** 				if (TimerforDBClick4 > 0){
+ 725              		.loc 1 191 26
+ 726 005e 1C4B     		ldr	r3, .L41+24
+ 727 0060 1B68     		ldr	r3, [r3]
+ 728              		.loc 1 191 8
+ 729 0062 002B     		cmp	r3, #0
+ 730 0064 26DD     		ble	.L40
+ 192:./Core/Src/button.c **** 					button3_dbclick = 1;
+ 731              		.loc 1 192 22
+ 732 0066 1B4B     		ldr	r3, .L41+28
+ 733 0068 0122     		movs	r2, #1
+ 734 006a 1A60     		str	r2, [r3]
+ 193:./Core/Src/button.c **** 				}
+ 194:./Core/Src/button.c **** 			}
+ 195:./Core/Src/button.c **** 			else{									//Luc truoc thi nhan, bay gio dang tha ra
+ 196:./Core/Src/button.c **** 				button3_flag = 0;
+ 197:./Core/Src/button.c **** 				TimerforKeyPRESS3 = 100;				//khi release thi RESET nhan de 1 giay, neu nhan lai trong 1 giay t
+ 198:./Core/Src/button.c **** 				TimerforDBClick4 = 40;					// settimer double click 400ms.
+ 199:./Core/Src/button.c **** 			}
+ 200:./Core/Src/button.c **** 
+ 201:./Core/Src/button.c **** 		}
+ 202:./Core/Src/button.c **** 		else{										//Nhan de
+ 203:./Core/Src/button.c **** 			if(KeyReg2_3 == PRESSED_STATE){			// Neu dang nhan de
+ 204:./Core/Src/button.c **** 				TimerforKeyPRESS3--;
+ 205:./Core/Src/button.c **** 				if (TimerforKeyPRESS3 == 0){			// Nhan de thanh cong
+ 206:./Core/Src/button.c **** 					TimerforKeyPRESS3 = 50;			// Moi 1s nhan de thi RETURN button_flag 1 lan
+ 207:./Core/Src/button.c **** 					button3_flag = 1;
+ 208:./Core/Src/button.c **** 				}
+ 209:./Core/Src/button.c **** 			}
+ 210:./Core/Src/button.c **** 			else TimerforDBClick4--;				//Releasing , khong lam gi ca
+ 211:./Core/Src/button.c **** 		}
+ 212:./Core/Src/button.c **** 
  213:./Core/Src/button.c **** 
- 214:./Core/Src/button.c **** //KeyReg cua qua trinh on dinh truoc day
- 215:./Core/Src/button.c **** int KeyReg3_4 = NORMAL_STATE;
- 216:./Core/Src/button.c **** 
- 217:./Core/Src/button.c **** //Thoi gian cua nhan de'
- 218:./Core/Src/button.c **** int TimerforKeyPRESS4 = 200;
+ 214:./Core/Src/button.c **** 	}
+ 215:./Core/Src/button.c **** 
+ 216:./Core/Src/button.c **** }
+ 735              		.loc 1 216 1
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s 			page 17
+
+
+ 736 006c 22E0     		b	.L40
+ 737              	.L38:
+ 196:./Core/Src/button.c **** 				TimerforKeyPRESS3 = 100;				//khi release thi RESET nhan de 1 giay, neu nhan lai trong 1 giay t
+ 738              		.loc 1 196 18
+ 739 006e 174B     		ldr	r3, .L41+20
+ 740 0070 0022     		movs	r2, #0
+ 741 0072 1A60     		str	r2, [r3]
+ 197:./Core/Src/button.c **** 				TimerforDBClick4 = 40;					// settimer double click 400ms.
+ 742              		.loc 1 197 23
+ 743 0074 184B     		ldr	r3, .L41+32
+ 744 0076 6422     		movs	r2, #100
+ 745 0078 1A60     		str	r2, [r3]
+ 198:./Core/Src/button.c **** 			}
+ 746              		.loc 1 198 22
+ 747 007a 154B     		ldr	r3, .L41+24
+ 748 007c 2822     		movs	r2, #40
+ 749 007e 1A60     		str	r2, [r3]
+ 750              		.loc 1 216 1
+ 751 0080 18E0     		b	.L40
+ 752              	.L37:
+ 203:./Core/Src/button.c **** 				TimerforKeyPRESS3--;
+ 753              		.loc 1 203 17
+ 754 0082 0F4B     		ldr	r3, .L41+8
+ 755 0084 1B68     		ldr	r3, [r3]
+ 203:./Core/Src/button.c **** 				TimerforKeyPRESS3--;
+ 756              		.loc 1 203 6
+ 757 0086 002B     		cmp	r3, #0
+ 758 0088 0FD1     		bne	.L39
+ 204:./Core/Src/button.c **** 				if (TimerforKeyPRESS3 == 0){			// Nhan de thanh cong
+ 759              		.loc 1 204 22
+ 760 008a 134B     		ldr	r3, .L41+32
+ 761 008c 1B68     		ldr	r3, [r3]
+ 762 008e 013B     		subs	r3, r3, #1
+ 763 0090 114A     		ldr	r2, .L41+32
+ 764 0092 1360     		str	r3, [r2]
+ 205:./Core/Src/button.c **** 					TimerforKeyPRESS3 = 50;			// Moi 1s nhan de thi RETURN button_flag 1 lan
+ 765              		.loc 1 205 27
+ 766 0094 104B     		ldr	r3, .L41+32
+ 767 0096 1B68     		ldr	r3, [r3]
+ 205:./Core/Src/button.c **** 					TimerforKeyPRESS3 = 50;			// Moi 1s nhan de thi RETURN button_flag 1 lan
+ 768              		.loc 1 205 8
+ 769 0098 002B     		cmp	r3, #0
+ 770 009a 0BD1     		bne	.L40
+ 206:./Core/Src/button.c **** 					button3_flag = 1;
+ 771              		.loc 1 206 24
+ 772 009c 0E4B     		ldr	r3, .L41+32
+ 773 009e 3222     		movs	r2, #50
+ 774 00a0 1A60     		str	r2, [r3]
+ 207:./Core/Src/button.c **** 				}
+ 775              		.loc 1 207 19
+ 776 00a2 0A4B     		ldr	r3, .L41+20
+ 777 00a4 0122     		movs	r2, #1
+ 778 00a6 1A60     		str	r2, [r3]
+ 779              		.loc 1 216 1
+ 780 00a8 04E0     		b	.L40
+ 781              	.L39:
+ 210:./Core/Src/button.c **** 		}
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s 			page 18
+
+
+ 782              		.loc 1 210 25
+ 783 00aa 094B     		ldr	r3, .L41+24
+ 784 00ac 1B68     		ldr	r3, [r3]
+ 785 00ae 013B     		subs	r3, r3, #1
+ 786 00b0 074A     		ldr	r2, .L41+24
+ 787 00b2 1360     		str	r3, [r2]
+ 788              	.L40:
+ 789              		.loc 1 216 1
+ 790 00b4 00BF     		nop
+ 791 00b6 80BD     		pop	{r7, pc}
+ 792              	.L42:
+ 793              		.align	2
+ 794              	.L41:
+ 795 00b8 00000000 		.word	KeyReg1_3
+ 796 00bc 00000000 		.word	KeyReg0_3
+ 797 00c0 00000000 		.word	KeyReg2_3
+ 798 00c4 000C0140 		.word	1073810432
+ 799 00c8 00000000 		.word	KeyReg3_3
+ 800 00cc 00000000 		.word	button3_flag
+ 801 00d0 00000000 		.word	TimerforDBClick4
+ 802 00d4 00000000 		.word	button3_dbclick
+ 803 00d8 00000000 		.word	TimerforKeyPRESS3
+ 804              		.cfi_endproc
+ 805              	.LFE71:
+ 807              		.global	KeyReg0_4
+ 808              		.section	.data.KeyReg0_4,"aw"
+ 809              		.align	2
+ 812              	KeyReg0_4:
+ 813 0000 01000000 		.word	1
+ 814              		.global	KeyReg1_4
+ 815              		.section	.data.KeyReg1_4,"aw"
+ 816              		.align	2
+ 819              	KeyReg1_4:
+ 820 0000 01000000 		.word	1
+ 821              		.global	KeyReg2_4
+ 822              		.section	.data.KeyReg2_4,"aw"
+ 823              		.align	2
+ 826              	KeyReg2_4:
+ 827 0000 01000000 		.word	1
+ 828              		.global	KeyReg3_4
+ 829              		.section	.data.KeyReg3_4,"aw"
+ 830              		.align	2
+ 833              	KeyReg3_4:
+ 834 0000 01000000 		.word	1
+ 835              		.global	TimerforKeyPRESS4
+ 836              		.section	.data.TimerforKeyPRESS4,"aw"
+ 837              		.align	2
+ 840              	TimerforKeyPRESS4:
+ 841 0000 C8000000 		.word	200
+ 842              		.section	.text.isButton4Pressed,"ax",%progbits
+ 843              		.align	1
+ 844              		.global	isButton4Pressed
+ 845              		.syntax unified
+ 846              		.thumb
+ 847              		.thumb_func
+ 849              	isButton4Pressed:
+ 850              	.LFB72:
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s 			page 19
+
+
+ 217:./Core/Src/button.c **** 
+ 218:./Core/Src/button.c **** 
  219:./Core/Src/button.c **** 
- 220:./Core/Src/button.c **** int isButton4Pressed(){
- 760              		.loc 1 220 23
- 761              		.cfi_startproc
- 762              		@ args = 0, pretend = 0, frame = 0
- 763              		@ frame_needed = 1, uses_anonymous_args = 0
- 764              		@ link register save eliminated.
- 765 0000 80B4     		push	{r7}
- 766              		.cfi_def_cfa_offset 4
- 767              		.cfi_offset 7, -4
- 768 0002 00AF     		add	r7, sp, #0
- 769              		.cfi_def_cfa_register 7
- 221:./Core/Src/button.c **** 	if (button4_flag == 1){
- 770              		.loc 1 221 19
- 771 0004 064B     		ldr	r3, .L40
- 772 0006 1B68     		ldr	r3, [r3]
- 773              		.loc 1 221 5
- 774 0008 012B     		cmp	r3, #1
- 775 000a 04D1     		bne	.L38
- 222:./Core/Src/button.c **** 		button4_flag = 0;
- 776              		.loc 1 222 16
- 777 000c 044B     		ldr	r3, .L40
- 778 000e 0022     		movs	r2, #0
- 779 0010 1A60     		str	r2, [r3]
- 223:./Core/Src/button.c **** 		return 1;
- 780              		.loc 1 223 10
- 781 0012 0123     		movs	r3, #1
- 782 0014 00E0     		b	.L39
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s 			page 18
-
-
- 783              	.L38:
- 224:./Core/Src/button.c **** 	}
- 225:./Core/Src/button.c **** 	else return 0;
- 784              		.loc 1 225 14
- 785 0016 0023     		movs	r3, #0
- 786              	.L39:
- 226:./Core/Src/button.c **** }
- 787              		.loc 1 226 1
- 788 0018 1846     		mov	r0, r3
- 789 001a BD46     		mov	sp, r7
- 790              		.cfi_def_cfa_register 13
- 791              		@ sp needed
- 792 001c 80BC     		pop	{r7}
- 793              		.cfi_restore 7
- 794              		.cfi_def_cfa_offset 0
- 795 001e 7047     		bx	lr
- 796              	.L41:
- 797              		.align	2
- 798              	.L40:
- 799 0020 00000000 		.word	button4_flag
- 800              		.cfi_endproc
- 801              	.LFE71:
- 803              		.section	.text.getKeyInput4,"ax",%progbits
- 804              		.align	1
- 805              		.global	getKeyInput4
- 806              		.syntax unified
- 807              		.thumb
- 808              		.thumb_func
- 810              	getKeyInput4:
- 811              	.LFB72:
- 227:./Core/Src/button.c **** //
- 228:./Core/Src/button.c **** void getKeyInput4(){
- 812              		.loc 1 228 20
- 813              		.cfi_startproc
- 814              		@ args = 0, pretend = 0, frame = 0
- 815              		@ frame_needed = 1, uses_anonymous_args = 0
- 816 0000 80B5     		push	{r7, lr}
- 817              		.cfi_def_cfa_offset 8
- 818              		.cfi_offset 7, -8
- 819              		.cfi_offset 14, -4
- 820 0002 00AF     		add	r7, sp, #0
- 821              		.cfi_def_cfa_register 7
- 229:./Core/Src/button.c **** 	KeyReg0_4 = KeyReg1_4;
- 822              		.loc 1 229 12
- 823 0004 244B     		ldr	r3, .L47
- 824 0006 1B68     		ldr	r3, [r3]
- 825 0008 244A     		ldr	r2, .L47+4
- 826 000a 1360     		str	r3, [r2]
- 230:./Core/Src/button.c **** 	KeyReg1_4 = KeyReg2_4;
- 827              		.loc 1 230 12
- 828 000c 244B     		ldr	r3, .L47+8
- 829 000e 1B68     		ldr	r3, [r3]
- 830 0010 214A     		ldr	r2, .L47
- 831 0012 1360     		str	r3, [r2]
- 231:./Core/Src/button.c **** 	//KeyReg2_4 = HAL_GPIO_ReadPin(BUTTONUSER_GPIO_Port,BUTTONUSER_Pin);
- 232:./Core/Src/button.c **** 	KeyReg2_4 = HAL_GPIO_ReadPin(BUTTONUSER_GPIO_Port,BUTTONUSER_Pin);
- 832              		.loc 1 232 14
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s 			page 19
-
-
- 833 0014 0121     		movs	r1, #1
- 834 0016 2348     		ldr	r0, .L47+12
- 835 0018 FFF7FEFF 		bl	HAL_GPIO_ReadPin
- 836 001c 0346     		mov	r3, r0
- 837 001e 1A46     		mov	r2, r3
- 838              		.loc 1 232 12
- 839 0020 1F4B     		ldr	r3, .L47+8
- 840 0022 1A60     		str	r2, [r3]
+ 220:./Core/Src/button.c **** 
+ 221:./Core/Src/button.c **** 
+ 222:./Core/Src/button.c **** //USER BUTTON
+ 223:./Core/Src/button.c **** //KeyReg trong qua trinh rung
+ 224:./Core/Src/button.c **** int KeyReg0_4 = NORMAL_STATE;
+ 225:./Core/Src/button.c **** int KeyReg1_4 = NORMAL_STATE;
+ 226:./Core/Src/button.c **** int KeyReg2_4 = NORMAL_STATE;
+ 227:./Core/Src/button.c **** 
+ 228:./Core/Src/button.c **** //KeyReg cua qua trinh on dinh truoc day
+ 229:./Core/Src/button.c **** int KeyReg3_4 = NORMAL_STATE;
+ 230:./Core/Src/button.c **** 
+ 231:./Core/Src/button.c **** //Thoi gian cua nhan de'
+ 232:./Core/Src/button.c **** int TimerforKeyPRESS4 = 200;
  233:./Core/Src/button.c **** 
- 234:./Core/Src/button.c **** 
- 235:./Core/Src/button.c **** 	if (KeyReg0_4 == KeyReg1_4 && KeyReg1_4 == KeyReg2_4){
- 841              		.loc 1 235 16
- 842 0024 1D4B     		ldr	r3, .L47+4
- 843 0026 1A68     		ldr	r2, [r3]
- 844 0028 1B4B     		ldr	r3, .L47
- 845 002a 1B68     		ldr	r3, [r3]
- 846              		.loc 1 235 5
- 847 002c 9A42     		cmp	r2, r3
- 848 002e 31D1     		bne	.L46
- 849              		.loc 1 235 42 discriminator 1
- 850 0030 194B     		ldr	r3, .L47
- 851 0032 1A68     		ldr	r2, [r3]
- 852 0034 1A4B     		ldr	r3, .L47+8
- 853 0036 1B68     		ldr	r3, [r3]
- 854              		.loc 1 235 29 discriminator 1
- 855 0038 9A42     		cmp	r2, r3
- 856 003a 2BD1     		bne	.L46
- 236:./Core/Src/button.c **** 
- 237:./Core/Src/button.c **** 		if (KeyReg2_4 != KeyReg3_4){					//Nhan doi trang thai
- 857              		.loc 1 237 17
- 858 003c 184B     		ldr	r3, .L47+8
- 859 003e 1A68     		ldr	r2, [r3]
- 860 0040 194B     		ldr	r3, .L47+16
- 861 0042 1B68     		ldr	r3, [r3]
- 862              		.loc 1 237 6
- 863 0044 9A42     		cmp	r2, r3
- 864 0046 12D0     		beq	.L44
- 238:./Core/Src/button.c **** 			KeyReg3_4 = KeyReg2_4;
- 865              		.loc 1 238 14
- 866 0048 154B     		ldr	r3, .L47+8
- 867 004a 1B68     		ldr	r3, [r3]
- 868 004c 164A     		ldr	r2, .L47+16
- 869 004e 1360     		str	r3, [r2]
- 239:./Core/Src/button.c **** 			if (KeyReg2_4 == PRESSED_STATE){			//Neu dang nhan
- 870              		.loc 1 239 18
- 871 0050 134B     		ldr	r3, .L47+8
- 872 0052 1B68     		ldr	r3, [r3]
- 873              		.loc 1 239 7
- 874 0054 002B     		cmp	r3, #0
- 875 0056 03D1     		bne	.L45
- 240:./Core/Src/button.c **** 				button4_flag = 1;
- 876              		.loc 1 240 18
- 877 0058 144B     		ldr	r3, .L47+20
- 878 005a 0122     		movs	r2, #1
- 879 005c 1A60     		str	r2, [r3]
- 241:./Core/Src/button.c **** 			}
- 242:./Core/Src/button.c **** 			else{									//Luc truoc thi nhan, bay gio dang tha ra
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s 			page 20
+ 234:./Core/Src/button.c **** int isButton4Pressed(){
+ 851              		.loc 1 234 23
+ 852              		.cfi_startproc
+ 853              		@ args = 0, pretend = 0, frame = 0
+ 854              		@ frame_needed = 1, uses_anonymous_args = 0
+ 855              		@ link register save eliminated.
+ 856 0000 80B4     		push	{r7}
+ 857              		.cfi_def_cfa_offset 4
+ 858              		.cfi_offset 7, -4
+ 859 0002 00AF     		add	r7, sp, #0
+ 860              		.cfi_def_cfa_register 7
+ 235:./Core/Src/button.c **** 	if (button4_flag == 1){
+ 861              		.loc 1 235 19
+ 862 0004 064B     		ldr	r3, .L46
+ 863 0006 1B68     		ldr	r3, [r3]
+ 864              		.loc 1 235 5
+ 865 0008 012B     		cmp	r3, #1
+ 866 000a 04D1     		bne	.L44
+ 236:./Core/Src/button.c **** 		button4_flag = 0;
+ 867              		.loc 1 236 16
+ 868 000c 044B     		ldr	r3, .L46
+ 869 000e 0022     		movs	r2, #0
+ 870 0010 1A60     		str	r2, [r3]
+ 237:./Core/Src/button.c **** 		return 1;
+ 871              		.loc 1 237 10
+ 872 0012 0123     		movs	r3, #1
+ 873 0014 00E0     		b	.L45
+ 874              	.L44:
+ 238:./Core/Src/button.c **** 	}
+ 239:./Core/Src/button.c **** 	else return 0;
+ 875              		.loc 1 239 14
+ 876 0016 0023     		movs	r3, #0
+ 877              	.L45:
+ 240:./Core/Src/button.c **** }
+ 878              		.loc 1 240 1
+ 879 0018 1846     		mov	r0, r3
+ 880 001a BD46     		mov	sp, r7
+ 881              		.cfi_def_cfa_register 13
+ 882              		@ sp needed
+ 883 001c 80BC     		pop	{r7}
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s 			page 20
 
 
- 243:./Core/Src/button.c **** 				button4_flag = 0;
- 244:./Core/Src/button.c **** 				TimerforKeyPRESS4 = 100;				//khi release thi RESET nhan de 1 giay
- 245:./Core/Src/button.c **** 														//neu nhan lai trong 1 giay thi tinh la nhan de
- 246:./Core/Src/button.c **** 			}
- 247:./Core/Src/button.c **** 
- 248:./Core/Src/button.c **** 		}
- 249:./Core/Src/button.c **** 		else{										//Nhan de
- 250:./Core/Src/button.c **** 			if(KeyReg2_4 == PRESSED_STATE){			// Neu dang nhan de
- 251:./Core/Src/button.c **** 				TimerforKeyPRESS4--;
- 252:./Core/Src/button.c **** 				if (TimerforKeyPRESS4 == 0){			// Nhan de thanh cong
- 253:./Core/Src/button.c **** 					TimerforKeyPRESS4 = 50;			// Moi 1s nhan de thi RETURN button_flag 1 lan
- 254:./Core/Src/button.c **** 					button4_flag = 1;
- 255:./Core/Src/button.c **** 				}
- 256:./Core/Src/button.c **** 			}
- 257:./Core/Src/button.c **** 		}
- 258:./Core/Src/button.c **** 
- 259:./Core/Src/button.c **** 
- 260:./Core/Src/button.c **** 	}
- 261:./Core/Src/button.c **** 
- 262:./Core/Src/button.c **** }
- 880              		.loc 1 262 1
- 881 005e 19E0     		b	.L46
- 882              	.L45:
- 243:./Core/Src/button.c **** 				TimerforKeyPRESS4 = 100;				//khi release thi RESET nhan de 1 giay
- 883              		.loc 1 243 18
- 884 0060 124B     		ldr	r3, .L47+20
- 885 0062 0022     		movs	r2, #0
- 886 0064 1A60     		str	r2, [r3]
- 244:./Core/Src/button.c **** 														//neu nhan lai trong 1 giay thi tinh la nhan de
- 887              		.loc 1 244 23
- 888 0066 124B     		ldr	r3, .L47+24
- 889 0068 6422     		movs	r2, #100
- 890 006a 1A60     		str	r2, [r3]
- 891              		.loc 1 262 1
- 892 006c 12E0     		b	.L46
- 893              	.L44:
- 250:./Core/Src/button.c **** 				TimerforKeyPRESS4--;
- 894              		.loc 1 250 17
- 895 006e 0C4B     		ldr	r3, .L47+8
- 896 0070 1B68     		ldr	r3, [r3]
- 250:./Core/Src/button.c **** 				TimerforKeyPRESS4--;
- 897              		.loc 1 250 6
- 898 0072 002B     		cmp	r3, #0
- 899 0074 0ED1     		bne	.L46
- 251:./Core/Src/button.c **** 				if (TimerforKeyPRESS4 == 0){			// Nhan de thanh cong
- 900              		.loc 1 251 22
- 901 0076 0E4B     		ldr	r3, .L47+24
- 902 0078 1B68     		ldr	r3, [r3]
- 903 007a 013B     		subs	r3, r3, #1
- 904 007c 0C4A     		ldr	r2, .L47+24
- 905 007e 1360     		str	r3, [r2]
- 252:./Core/Src/button.c **** 					TimerforKeyPRESS4 = 50;			// Moi 1s nhan de thi RETURN button_flag 1 lan
- 906              		.loc 1 252 27
- 907 0080 0B4B     		ldr	r3, .L47+24
- 908 0082 1B68     		ldr	r3, [r3]
- 252:./Core/Src/button.c **** 					TimerforKeyPRESS4 = 50;			// Moi 1s nhan de thi RETURN button_flag 1 lan
- 909              		.loc 1 252 8
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s 			page 21
+ 884              		.cfi_restore 7
+ 885              		.cfi_def_cfa_offset 0
+ 886 001e 7047     		bx	lr
+ 887              	.L47:
+ 888              		.align	2
+ 889              	.L46:
+ 890 0020 00000000 		.word	button4_flag
+ 891              		.cfi_endproc
+ 892              	.LFE72:
+ 894              		.section	.text.getKeyInput4,"ax",%progbits
+ 895              		.align	1
+ 896              		.global	getKeyInput4
+ 897              		.syntax unified
+ 898              		.thumb
+ 899              		.thumb_func
+ 901              	getKeyInput4:
+ 902              	.LFB73:
+ 241:./Core/Src/button.c **** 
+ 242:./Core/Src/button.c **** 
+ 243:./Core/Src/button.c **** //
+ 244:./Core/Src/button.c **** void getKeyInput4(){
+ 903              		.loc 1 244 20
+ 904              		.cfi_startproc
+ 905              		@ args = 0, pretend = 0, frame = 0
+ 906              		@ frame_needed = 1, uses_anonymous_args = 0
+ 907 0000 80B5     		push	{r7, lr}
+ 908              		.cfi_def_cfa_offset 8
+ 909              		.cfi_offset 7, -8
+ 910              		.cfi_offset 14, -4
+ 911 0002 00AF     		add	r7, sp, #0
+ 912              		.cfi_def_cfa_register 7
+ 245:./Core/Src/button.c **** 	KeyReg0_4 = KeyReg1_4;
+ 913              		.loc 1 245 12
+ 914 0004 244B     		ldr	r3, .L53
+ 915 0006 1B68     		ldr	r3, [r3]
+ 916 0008 244A     		ldr	r2, .L53+4
+ 917 000a 1360     		str	r3, [r2]
+ 246:./Core/Src/button.c **** 	KeyReg1_4 = KeyReg2_4;
+ 918              		.loc 1 246 12
+ 919 000c 244B     		ldr	r3, .L53+8
+ 920 000e 1B68     		ldr	r3, [r3]
+ 921 0010 214A     		ldr	r2, .L53
+ 922 0012 1360     		str	r3, [r2]
+ 247:./Core/Src/button.c **** 	//KeyReg2_4 = HAL_GPIO_ReadPin(BUTTONUSER_GPIO_Port,BUTTONUSER_Pin);
+ 248:./Core/Src/button.c **** 	KeyReg2_4 = HAL_GPIO_ReadPin(BUTTONUSER_GPIO_Port,BUTTONUSER_Pin);
+ 923              		.loc 1 248 14
+ 924 0014 0121     		movs	r1, #1
+ 925 0016 2348     		ldr	r0, .L53+12
+ 926 0018 FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 927 001c 0346     		mov	r3, r0
+ 928 001e 1A46     		mov	r2, r3
+ 929              		.loc 1 248 12
+ 930 0020 1F4B     		ldr	r3, .L53+8
+ 931 0022 1A60     		str	r2, [r3]
+ 249:./Core/Src/button.c **** 
+ 250:./Core/Src/button.c **** 
+ 251:./Core/Src/button.c **** 	if (KeyReg0_4 == KeyReg1_4 && KeyReg1_4 == KeyReg2_4){
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s 			page 21
 
 
- 910 0084 002B     		cmp	r3, #0
- 911 0086 05D1     		bne	.L46
- 253:./Core/Src/button.c **** 					button4_flag = 1;
- 912              		.loc 1 253 24
- 913 0088 094B     		ldr	r3, .L47+24
- 914 008a 3222     		movs	r2, #50
- 915 008c 1A60     		str	r2, [r3]
- 254:./Core/Src/button.c **** 				}
- 916              		.loc 1 254 19
- 917 008e 074B     		ldr	r3, .L47+20
- 918 0090 0122     		movs	r2, #1
- 919 0092 1A60     		str	r2, [r3]
- 920              	.L46:
- 921              		.loc 1 262 1
- 922 0094 00BF     		nop
- 923 0096 80BD     		pop	{r7, pc}
- 924              	.L48:
- 925              		.align	2
- 926              	.L47:
- 927 0098 00000000 		.word	KeyReg1_4
- 928 009c 00000000 		.word	KeyReg0_4
- 929 00a0 00000000 		.word	KeyReg2_4
- 930 00a4 00080140 		.word	1073809408
- 931 00a8 00000000 		.word	KeyReg3_4
- 932 00ac 00000000 		.word	button4_flag
- 933 00b0 00000000 		.word	TimerforKeyPRESS4
- 934              		.cfi_endproc
- 935              	.LFE72:
- 937              		.text
- 938              	.Letext0:
- 939              		.file 2 "c:\\st\\stm32cubeide_1.7.0\\stm32cubeide\\plugins\\com.st.stm32cube.ide.mcu.externaltools
- 940              		.file 3 "c:\\st\\stm32cubeide_1.7.0\\stm32cubeide\\plugins\\com.st.stm32cube.ide.mcu.externaltools
- 941              		.file 4 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
- 942              		.file 5 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h"
- 943              		.file 6 "Core/Inc/button.h"
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s 			page 22
+ 932              		.loc 1 251 16
+ 933 0024 1D4B     		ldr	r3, .L53+4
+ 934 0026 1A68     		ldr	r2, [r3]
+ 935 0028 1B4B     		ldr	r3, .L53
+ 936 002a 1B68     		ldr	r3, [r3]
+ 937              		.loc 1 251 5
+ 938 002c 9A42     		cmp	r2, r3
+ 939 002e 31D1     		bne	.L52
+ 940              		.loc 1 251 42 discriminator 1
+ 941 0030 194B     		ldr	r3, .L53
+ 942 0032 1A68     		ldr	r2, [r3]
+ 943 0034 1A4B     		ldr	r3, .L53+8
+ 944 0036 1B68     		ldr	r3, [r3]
+ 945              		.loc 1 251 29 discriminator 1
+ 946 0038 9A42     		cmp	r2, r3
+ 947 003a 2BD1     		bne	.L52
+ 252:./Core/Src/button.c **** 
+ 253:./Core/Src/button.c **** 		if (KeyReg2_4 != KeyReg3_4){					//Nhan doi trang thai
+ 948              		.loc 1 253 17
+ 949 003c 184B     		ldr	r3, .L53+8
+ 950 003e 1A68     		ldr	r2, [r3]
+ 951 0040 194B     		ldr	r3, .L53+16
+ 952 0042 1B68     		ldr	r3, [r3]
+ 953              		.loc 1 253 6
+ 954 0044 9A42     		cmp	r2, r3
+ 955 0046 12D0     		beq	.L50
+ 254:./Core/Src/button.c **** 			KeyReg3_4 = KeyReg2_4;
+ 956              		.loc 1 254 14
+ 957 0048 154B     		ldr	r3, .L53+8
+ 958 004a 1B68     		ldr	r3, [r3]
+ 959 004c 164A     		ldr	r2, .L53+16
+ 960 004e 1360     		str	r3, [r2]
+ 255:./Core/Src/button.c **** 			if (KeyReg2_4 == PRESSED_STATE){			//Neu dang nhan
+ 961              		.loc 1 255 18
+ 962 0050 134B     		ldr	r3, .L53+8
+ 963 0052 1B68     		ldr	r3, [r3]
+ 964              		.loc 1 255 7
+ 965 0054 002B     		cmp	r3, #0
+ 966 0056 03D1     		bne	.L51
+ 256:./Core/Src/button.c **** 				button4_flag = 1;
+ 967              		.loc 1 256 18
+ 968 0058 144B     		ldr	r3, .L53+20
+ 969 005a 0122     		movs	r2, #1
+ 970 005c 1A60     		str	r2, [r3]
+ 257:./Core/Src/button.c **** 			}
+ 258:./Core/Src/button.c **** 			else{									//Luc truoc thi nhan, bay gio dang tha ra
+ 259:./Core/Src/button.c **** 				button4_flag = 0;
+ 260:./Core/Src/button.c **** 				TimerforKeyPRESS4 = 100;				//khi release thi RESET nhan de 1 giay
+ 261:./Core/Src/button.c **** 														//neu nhan lai trong 1 giay thi tinh la nhan de
+ 262:./Core/Src/button.c **** 			}
+ 263:./Core/Src/button.c **** 
+ 264:./Core/Src/button.c **** 		}
+ 265:./Core/Src/button.c **** 		else{										//Nhan de
+ 266:./Core/Src/button.c **** 			if(KeyReg2_4 == PRESSED_STATE){			// Neu dang nhan de
+ 267:./Core/Src/button.c **** 				TimerforKeyPRESS4--;
+ 268:./Core/Src/button.c **** 				if (TimerforKeyPRESS4 == 0){			// Nhan de thanh cong
+ 269:./Core/Src/button.c **** 					TimerforKeyPRESS4 = 50;			// Moi 1s nhan de thi RETURN button_flag 1 lan
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s 			page 22
+
+
+ 270:./Core/Src/button.c **** 					button4_flag = 1;
+ 271:./Core/Src/button.c **** 				}
+ 272:./Core/Src/button.c **** 			}
+ 273:./Core/Src/button.c **** 		}
+ 274:./Core/Src/button.c **** 
+ 275:./Core/Src/button.c **** 
+ 276:./Core/Src/button.c **** 	}
+ 277:./Core/Src/button.c **** 
+ 278:./Core/Src/button.c **** }
+ 971              		.loc 1 278 1
+ 972 005e 19E0     		b	.L52
+ 973              	.L51:
+ 259:./Core/Src/button.c **** 				TimerforKeyPRESS4 = 100;				//khi release thi RESET nhan de 1 giay
+ 974              		.loc 1 259 18
+ 975 0060 124B     		ldr	r3, .L53+20
+ 976 0062 0022     		movs	r2, #0
+ 977 0064 1A60     		str	r2, [r3]
+ 260:./Core/Src/button.c **** 														//neu nhan lai trong 1 giay thi tinh la nhan de
+ 978              		.loc 1 260 23
+ 979 0066 124B     		ldr	r3, .L53+24
+ 980 0068 6422     		movs	r2, #100
+ 981 006a 1A60     		str	r2, [r3]
+ 982              		.loc 1 278 1
+ 983 006c 12E0     		b	.L52
+ 984              	.L50:
+ 266:./Core/Src/button.c **** 				TimerforKeyPRESS4--;
+ 985              		.loc 1 266 17
+ 986 006e 0C4B     		ldr	r3, .L53+8
+ 987 0070 1B68     		ldr	r3, [r3]
+ 266:./Core/Src/button.c **** 				TimerforKeyPRESS4--;
+ 988              		.loc 1 266 6
+ 989 0072 002B     		cmp	r3, #0
+ 990 0074 0ED1     		bne	.L52
+ 267:./Core/Src/button.c **** 				if (TimerforKeyPRESS4 == 0){			// Nhan de thanh cong
+ 991              		.loc 1 267 22
+ 992 0076 0E4B     		ldr	r3, .L53+24
+ 993 0078 1B68     		ldr	r3, [r3]
+ 994 007a 013B     		subs	r3, r3, #1
+ 995 007c 0C4A     		ldr	r2, .L53+24
+ 996 007e 1360     		str	r3, [r2]
+ 268:./Core/Src/button.c **** 					TimerforKeyPRESS4 = 50;			// Moi 1s nhan de thi RETURN button_flag 1 lan
+ 997              		.loc 1 268 27
+ 998 0080 0B4B     		ldr	r3, .L53+24
+ 999 0082 1B68     		ldr	r3, [r3]
+ 268:./Core/Src/button.c **** 					TimerforKeyPRESS4 = 50;			// Moi 1s nhan de thi RETURN button_flag 1 lan
+ 1000              		.loc 1 268 8
+ 1001 0084 002B     		cmp	r3, #0
+ 1002 0086 05D1     		bne	.L52
+ 269:./Core/Src/button.c **** 					button4_flag = 1;
+ 1003              		.loc 1 269 24
+ 1004 0088 094B     		ldr	r3, .L53+24
+ 1005 008a 3222     		movs	r2, #50
+ 1006 008c 1A60     		str	r2, [r3]
+ 270:./Core/Src/button.c **** 				}
+ 1007              		.loc 1 270 19
+ 1008 008e 074B     		ldr	r3, .L53+20
+ 1009 0090 0122     		movs	r2, #1
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s 			page 23
+
+
+ 1010 0092 1A60     		str	r2, [r3]
+ 1011              	.L52:
+ 1012              		.loc 1 278 1
+ 1013 0094 00BF     		nop
+ 1014 0096 80BD     		pop	{r7, pc}
+ 1015              	.L54:
+ 1016              		.align	2
+ 1017              	.L53:
+ 1018 0098 00000000 		.word	KeyReg1_4
+ 1019 009c 00000000 		.word	KeyReg0_4
+ 1020 00a0 00000000 		.word	KeyReg2_4
+ 1021 00a4 00080140 		.word	1073809408
+ 1022 00a8 00000000 		.word	KeyReg3_4
+ 1023 00ac 00000000 		.word	button4_flag
+ 1024 00b0 00000000 		.word	TimerforKeyPRESS4
+ 1025              		.cfi_endproc
+ 1026              	.LFE73:
+ 1028              		.text
+ 1029              	.Letext0:
+ 1030              		.file 2 "c:\\st\\stm32cubeide_1.7.0\\stm32cubeide\\plugins\\com.st.stm32cube.ide.mcu.externaltools
+ 1031              		.file 3 "c:\\st\\stm32cubeide_1.7.0\\stm32cubeide\\plugins\\com.st.stm32cube.ide.mcu.externaltools
+ 1032              		.file 4 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
+ 1033              		.file 5 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h"
+ 1034              		.file 6 "Core/Inc/button.h"
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s 			page 24
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 button.c
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:22     .bss.button1_flag:0000000000000000 button1_flag
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:19     .bss.button1_flag:0000000000000000 $d
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:29     .bss.button2_flag:0000000000000000 button2_flag
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:26     .bss.button2_flag:0000000000000000 $d
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:36     .bss.button3_flag:0000000000000000 button3_flag
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:33     .bss.button3_flag:0000000000000000 $d
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:43     .bss.button4_flag:0000000000000000 button4_flag
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:40     .bss.button4_flag:0000000000000000 $d
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:50     .bss.button5_flag:0000000000000000 button5_flag
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:47     .bss.button5_flag:0000000000000000 $d
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:57     .data.KeyReg0_1:0000000000000000 KeyReg0_1
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:54     .data.KeyReg0_1:0000000000000000 $d
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:64     .data.KeyReg1_1:0000000000000000 KeyReg1_1
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:61     .data.KeyReg1_1:0000000000000000 $d
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:71     .data.KeyReg2_1:0000000000000000 KeyReg2_1
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:68     .data.KeyReg2_1:0000000000000000 $d
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:78     .data.KeyReg3_1:0000000000000000 KeyReg3_1
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:75     .data.KeyReg3_1:0000000000000000 $d
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:85     .data.TimerforKeyPRESS1:0000000000000000 TimerforKeyPRESS1
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:82     .data.TimerforKeyPRESS1:0000000000000000 $d
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:88     .text.isButton1Pressed:0000000000000000 $t
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:94     .text.isButton1Pressed:0000000000000000 isButton1Pressed
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:136    .text.isButton1Pressed:0000000000000020 $d
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:141    .text.getKeyInput1:0000000000000000 $t
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:147    .text.getKeyInput1:0000000000000000 getKeyInput1
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:264    .text.getKeyInput1:0000000000000098 $d
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:279    .data.KeyReg0_2:0000000000000000 KeyReg0_2
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:276    .data.KeyReg0_2:0000000000000000 $d
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:286    .data.KeyReg1_2:0000000000000000 KeyReg1_2
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:283    .data.KeyReg1_2:0000000000000000 $d
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:293    .data.KeyReg2_2:0000000000000000 KeyReg2_2
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:290    .data.KeyReg2_2:0000000000000000 $d
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:300    .data.KeyReg3_2:0000000000000000 KeyReg3_2
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:297    .data.KeyReg3_2:0000000000000000 $d
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:307    .data.TimerforKeyPRESS2:0000000000000000 TimerforKeyPRESS2
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:304    .data.TimerforKeyPRESS2:0000000000000000 $d
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:310    .text.isButton2Pressed:0000000000000000 $t
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:316    .text.isButton2Pressed:0000000000000000 isButton2Pressed
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:357    .text.isButton2Pressed:0000000000000020 $d
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:362    .text.getKeyInput2:0000000000000000 $t
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:368    .text.getKeyInput2:0000000000000000 getKeyInput2
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:485    .text.getKeyInput2:0000000000000098 $d
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:500    .data.KeyReg0_3:0000000000000000 KeyReg0_3
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:497    .data.KeyReg0_3:0000000000000000 $d
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:507    .data.KeyReg1_3:0000000000000000 KeyReg1_3
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:504    .data.KeyReg1_3:0000000000000000 $d
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:514    .data.KeyReg2_3:0000000000000000 KeyReg2_3
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:511    .data.KeyReg2_3:0000000000000000 $d
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:521    .data.KeyReg3_3:0000000000000000 KeyReg3_3
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:518    .data.KeyReg3_3:0000000000000000 $d
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:528    .data.TimerforKeyPRESS3:0000000000000000 TimerforKeyPRESS3
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:525    .data.TimerforKeyPRESS3:0000000000000000 $d
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:531    .text.isButton3Pressed:0000000000000000 $t
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:537    .text.isButton3Pressed:0000000000000000 isButton3Pressed
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:578    .text.isButton3Pressed:0000000000000020 $d
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s 			page 23
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:22     .bss.button1_flag:0000000000000000 button1_flag
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:19     .bss.button1_flag:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:29     .bss.button2_flag:0000000000000000 button2_flag
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:26     .bss.button2_flag:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:36     .bss.button3_flag:0000000000000000 button3_flag
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:33     .bss.button3_flag:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:43     .bss.button3_dbclick:0000000000000000 button3_dbclick
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:40     .bss.button3_dbclick:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:50     .bss.button4_flag:0000000000000000 button4_flag
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:47     .bss.button4_flag:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:57     .bss.button5_flag:0000000000000000 button5_flag
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:54     .bss.button5_flag:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:64     .data.KeyReg0_1:0000000000000000 KeyReg0_1
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:61     .data.KeyReg0_1:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:71     .data.KeyReg1_1:0000000000000000 KeyReg1_1
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:68     .data.KeyReg1_1:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:78     .data.KeyReg2_1:0000000000000000 KeyReg2_1
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:75     .data.KeyReg2_1:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:85     .data.KeyReg3_1:0000000000000000 KeyReg3_1
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:82     .data.KeyReg3_1:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:92     .data.TimerforKeyPRESS1:0000000000000000 TimerforKeyPRESS1
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:89     .data.TimerforKeyPRESS1:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:95     .text.isButton1Pressed:0000000000000000 $t
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:101    .text.isButton1Pressed:0000000000000000 isButton1Pressed
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:143    .text.isButton1Pressed:0000000000000020 $d
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:148    .text.getKeyInput1:0000000000000000 $t
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:154    .text.getKeyInput1:0000000000000000 getKeyInput1
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:271    .text.getKeyInput1:0000000000000098 $d
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:286    .data.KeyReg0_2:0000000000000000 KeyReg0_2
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:283    .data.KeyReg0_2:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:293    .data.KeyReg1_2:0000000000000000 KeyReg1_2
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:290    .data.KeyReg1_2:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:300    .data.KeyReg2_2:0000000000000000 KeyReg2_2
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:297    .data.KeyReg2_2:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:307    .data.KeyReg3_2:0000000000000000 KeyReg3_2
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:304    .data.KeyReg3_2:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:314    .data.TimerforKeyPRESS2:0000000000000000 TimerforKeyPRESS2
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:311    .data.TimerforKeyPRESS2:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:317    .text.isButton2Pressed:0000000000000000 $t
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:323    .text.isButton2Pressed:0000000000000000 isButton2Pressed
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:364    .text.isButton2Pressed:0000000000000020 $d
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:369    .text.getKeyInput2:0000000000000000 $t
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:375    .text.getKeyInput2:0000000000000000 getKeyInput2
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:492    .text.getKeyInput2:0000000000000098 $d
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:507    .data.KeyReg0_3:0000000000000000 KeyReg0_3
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:504    .data.KeyReg0_3:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:514    .data.KeyReg1_3:0000000000000000 KeyReg1_3
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:511    .data.KeyReg1_3:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:521    .data.KeyReg2_3:0000000000000000 KeyReg2_3
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:518    .data.KeyReg2_3:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:528    .data.KeyReg3_3:0000000000000000 KeyReg3_3
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:525    .data.KeyReg3_3:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:535    .data.TimerforKeyPRESS3:0000000000000000 TimerforKeyPRESS3
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:532    .data.TimerforKeyPRESS3:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:542    .bss.TimerforDBClick4:0000000000000000 TimerforDBClick4
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s 			page 25
 
 
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:583    .text.getKeyInput3:0000000000000000 $t
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:589    .text.getKeyInput3:0000000000000000 getKeyInput3
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:706    .text.getKeyInput3:0000000000000098 $d
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:721    .data.KeyReg0_4:0000000000000000 KeyReg0_4
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:718    .data.KeyReg0_4:0000000000000000 $d
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:728    .data.KeyReg1_4:0000000000000000 KeyReg1_4
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:725    .data.KeyReg1_4:0000000000000000 $d
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:735    .data.KeyReg2_4:0000000000000000 KeyReg2_4
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:732    .data.KeyReg2_4:0000000000000000 $d
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:742    .data.KeyReg3_4:0000000000000000 KeyReg3_4
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:739    .data.KeyReg3_4:0000000000000000 $d
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:749    .data.TimerforKeyPRESS4:0000000000000000 TimerforKeyPRESS4
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:746    .data.TimerforKeyPRESS4:0000000000000000 $d
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:752    .text.isButton4Pressed:0000000000000000 $t
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:758    .text.isButton4Pressed:0000000000000000 isButton4Pressed
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:799    .text.isButton4Pressed:0000000000000020 $d
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:804    .text.getKeyInput4:0000000000000000 $t
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:810    .text.getKeyInput4:0000000000000000 getKeyInput4
-C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:927    .text.getKeyInput4:0000000000000098 $d
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:539    .bss.TimerforDBClick4:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:545    .text.isButton3Pressed:0000000000000000 $t
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:551    .text.isButton3Pressed:0000000000000000 isButton3Pressed
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:592    .text.isButton3Pressed:0000000000000020 $d
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:597    .text.isButton3DoubleClick:0000000000000000 $t
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:603    .text.isButton3DoubleClick:0000000000000000 isButton3DoubleClick
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:644    .text.isButton3DoubleClick:0000000000000020 $d
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:649    .text.getKeyInput3:0000000000000000 $t
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:655    .text.getKeyInput3:0000000000000000 getKeyInput3
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:795    .text.getKeyInput3:00000000000000b8 $d
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:812    .data.KeyReg0_4:0000000000000000 KeyReg0_4
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:809    .data.KeyReg0_4:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:819    .data.KeyReg1_4:0000000000000000 KeyReg1_4
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:816    .data.KeyReg1_4:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:826    .data.KeyReg2_4:0000000000000000 KeyReg2_4
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:823    .data.KeyReg2_4:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:833    .data.KeyReg3_4:0000000000000000 KeyReg3_4
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:830    .data.KeyReg3_4:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:840    .data.TimerforKeyPRESS4:0000000000000000 TimerforKeyPRESS4
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:837    .data.TimerforKeyPRESS4:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:843    .text.isButton4Pressed:0000000000000000 $t
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:849    .text.isButton4Pressed:0000000000000000 isButton4Pressed
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:890    .text.isButton4Pressed:0000000000000020 $d
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:895    .text.getKeyInput4:0000000000000000 $t
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:901    .text.getKeyInput4:0000000000000000 getKeyInput4
+C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s:1018   .text.getKeyInput4:0000000000000098 $d
                            .group:0000000000000000 wm4.0.cb5f01749778df26340c4505df3d34d0
                            .group:0000000000000000 wm4.stm32f1xx_hal_conf.h.22.9203001c8f439cc72798ab2500313551
                            .group:0000000000000000 wm4.stm32f1xx.h.39.208bb8a61c892b7c37d899c49a031330
@@ -1349,6 +1465,9 @@ C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:927    .text.getKeyInput4:0000000000
                            .group:0000000000000000 wm4.stm32f1xx_hal_dma.h.409.cafcd2cfe701091535636be537c18293
                            .group:0000000000000000 wm4.stm32f1xx_hal_cortex.h.22.b5f4174bb6a50d95405567b8f50e0900
                            .group:0000000000000000 wm4.stm32f1xx_hal_flash.h.22.5cea9a7210e6315b41724b47b5fdf203
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\cc0z1tIj.s 			page 26
+
+
                            .group:0000000000000000 wm4.stm32f1xx_hal_flash_ex.h.22.d4e19c21f2a86fa2f8ec2c2d5f1ab2af
                            .group:0000000000000000 wm4.stm32f1xx_hal_pwr.h.22.3438c476faafc3240bf146f143df3fcd
                            .group:0000000000000000 wm4.stm32f1xx_hal_tim.h.22.a16e206564e97dbace9faae59a0d6008
@@ -1356,9 +1475,6 @@ C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s:927    .text.getKeyInput4:0000000000
                            .group:0000000000000000 wm4.stm32f1xx_hal.h.88.91065c0692bed6019c34f1e9c00589fd
                            .group:0000000000000000 wm4.main.h.62.215d12b3f54334165c3eb9a2c23b6466
                            .group:0000000000000000 wm4.global.h.15.407c81abcec812c5d10654add0683a73
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccvjIkqV.s 			page 24
-
-
                            .group:0000000000000000 wm4.button.h.13.502414bc4624a6b62bdc27e8db5e0ac4
 
 UNDEFINED SYMBOLS

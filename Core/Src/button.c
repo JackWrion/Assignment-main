@@ -10,7 +10,7 @@
 
 int button1_flag = 0;
 int button2_flag = 0;
-int button3_flag = 0;
+int button3_flag = 0; int button3_dbclick = 0;
 int button4_flag = 0;
 int button5_flag = 0;
 
@@ -87,7 +87,6 @@ int KeyReg3_2 = NORMAL_STATE;
 int TimerforKeyPRESS2 = 200;
 
 
-
 int isButton2Pressed(){
 	if (button2_flag == 1){
 		button2_flag = 0;
@@ -155,7 +154,7 @@ int KeyReg3_3 = NORMAL_STATE;
 
 //Thoi gian cua nhan de'
 int TimerforKeyPRESS3 = 200;
-
+int TimerforDBClick4 = 0;
 
 
 int isButton3Pressed(){
@@ -165,6 +164,17 @@ int isButton3Pressed(){
 	}
 	else return 0;
 }
+
+
+int isButton3DoubleClick(){
+	if (button3_dbclick == 1){
+		button3_dbclick = 0;
+		return 1;
+	}
+	else return 0;
+}
+
+
 //
 void getKeyInput3(){
 	KeyReg0_3 = KeyReg1_3;
@@ -178,11 +188,14 @@ void getKeyInput3(){
 			KeyReg3_3 = KeyReg2_3;
 			if (KeyReg2_3 == PRESSED_STATE){			//Neu dang nhan
 				button3_flag = 1;
+				if (TimerforDBClick4 > 0){
+					button3_dbclick = 1;
+				}
 			}
 			else{									//Luc truoc thi nhan, bay gio dang tha ra
 				button3_flag = 0;
-				TimerforKeyPRESS3 = 100;				//khi release thi RESET nhan de 1 giay
-													//neu nhan lai trong 1 giay thi tinh la nhan de
+				TimerforKeyPRESS3 = 100;				//khi release thi RESET nhan de 1 giay, neu nhan lai trong 1 giay thi tinh la nhan de
+				TimerforDBClick4 = 40;					// settimer double click 400ms.
 			}
 
 		}
@@ -194,6 +207,7 @@ void getKeyInput3(){
 					button3_flag = 1;
 				}
 			}
+			else TimerforDBClick4--;				//Releasing , khong lam gi ca
 		}
 
 
@@ -224,6 +238,8 @@ int isButton4Pressed(){
 	}
 	else return 0;
 }
+
+
 //
 void getKeyInput4(){
 	KeyReg0_4 = KeyReg1_4;

@@ -11,6 +11,7 @@
 
 int status_man = INIT;
 int temp_timer = 0;
+int reset = 0;
 
 void printstatus(){
 
@@ -18,6 +19,7 @@ void printstatus(){
 	case INIT:
 	{
 		char str2[100];
+		if (reset) HAL_UART_Transmit(&huart2,(uint8_t*) str2, sprintf(str2, "!RESET ALL----#\r\n"), 1000);
 		HAL_UART_Transmit(&huart2,(uint8_t*) str2, sprintf(str2, "!AUTO MODE----#\r\n"), 1000);
 	}
 		break;
@@ -47,6 +49,7 @@ void printstatus(){
 		break;
 	}
 
+	reset = 0;
 
 }
 
@@ -61,13 +64,14 @@ void fsm_manual_run(){
 			temp_timer = 0;
 			printstatus();
 		}
-		if (isButton3Pressed()){
+		if (isButton3DoubleClick()){
 			timer_red = RED_TIME;
 			timer_green = GREEN_TIME;
 			timer_yellow = YELLOW_TIME;
 			status_light1 = INIT1;
 			status_light2 = INIT2;
 			status_man = INIT;
+			reset = 1;
 			printstatus();
 		}
 		break;

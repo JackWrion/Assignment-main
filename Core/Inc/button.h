@@ -16,7 +16,7 @@
 
 extern int button1_flag;
 extern int button2_flag;
-extern int button3_flag;
+extern int button3_flag;	extern int button3_dbclick;
 extern int button4_flag;
 extern int button5_flag;
 
@@ -28,6 +28,7 @@ int isButton2Pressed();
 void getKeyInput2();
 
 int isButton3Pressed();
+int isButton3DoubleClick();
 void getKeyInput3();
 
 int isButton4Pressed();

@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s 			page 1
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccVQgeFh.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s 			page 1
    5:./Core/Src/main.c ****   * @brief          : Main program body
    6:./Core/Src/main.c ****   ******************************************************************************
    7:./Core/Src/main.c ****   * @attention
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s 			page 2
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccVQgeFh.s 			page 2
 
 
    8:./Core/Src/main.c ****   *
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s 			page 1
   62:./Core/Src/main.c **** 
   63:./Core/Src/main.c **** /* Private user code ---------------------------------------------------------*/
   64:./Core/Src/main.c **** /* USER CODE BEGIN 0 */
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s 			page 3
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccVQgeFh.s 			page 3
 
 
   65:./Core/Src/main.c **** 
@@ -178,19 +178,19 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s 			page 1
   66 0016 FFF7FEFF 		bl	MX_TIM2_Init
   98:./Core/Src/main.c ****   MX_TIM3_Init();
   67              		.loc 1 98 3
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s 			page 4
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccVQgeFh.s 			page 4
 
 
   68 001a FFF7FEFF 		bl	MX_TIM3_Init
   99:./Core/Src/main.c ****   /* USER CODE BEGIN 2 */
  100:./Core/Src/main.c ****   HAL_TIM_Base_Start_IT (&htim2) ;
   69              		.loc 1 100 3
-  70 001e 5D48     		ldr	r0, .L12
+  70 001e 5F48     		ldr	r0, .L13
   71 0020 FFF7FEFF 		bl	HAL_TIM_Base_Start_IT
  101:./Core/Src/main.c ****   HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
   72              		.loc 1 101 3
   73 0024 0021     		movs	r1, #0
-  74 0026 5C48     		ldr	r0, .L12+4
+  74 0026 5E48     		ldr	r0, .L13+4
   75 0028 FFF7FEFF 		bl	HAL_TIM_PWM_Start
  102:./Core/Src/main.c ****   /* USER CODE END 2 */
  103:./Core/Src/main.c **** 
@@ -215,7 +215,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s 			page 1
   84              		.loc 1 113 7
   85 003a 0323     		movs	r3, #3
   86 003c 3B67     		str	r3, [r7, #112]
-  87              	.L11:
+  87              	.L12:
  114:./Core/Src/main.c **** 
  115:./Core/Src/main.c ****   while (1)
  116:./Core/Src/main.c ****   {
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s 			page 1
  127:./Core/Src/main.c **** 	  if (isButton4Pressed()){		// Pedestrian pressed
   94              		.loc 1 127 8
   95 004a FFF7FEFF 		bl	isButton4Pressed
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s 			page 5
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccVQgeFh.s 			page 5
 
 
   96 004e 0346     		mov	r3, r0
@@ -257,7 +257,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s 			page 1
  130:./Core/Src/main.c **** 	  }
  131:./Core/Src/main.c **** 	  if (timer5_flag == 1){		// Time out
  107              		.loc 1 131 20
- 108 0060 4E4B     		ldr	r3, .L12+8
+ 108 0060 504B     		ldr	r3, .L13+8
  109 0062 1B68     		ldr	r3, [r3]
  110              		.loc 1 131 7
  111 0064 012B     		cmp	r3, #1
@@ -276,11 +276,11 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s 			page 1
  137:./Core/Src/main.c **** 
  138:./Core/Src/main.c **** 	  if (timer1_flag == 1){		// One duration blinky 250ms
  119              		.loc 1 138 20
- 120 0070 4B4B     		ldr	r3, .L12+12
+ 120 0070 4D4B     		ldr	r3, .L13+12
  121 0072 1B68     		ldr	r3, [r3]
  122              		.loc 1 138 7
  123 0074 012B     		cmp	r3, #1
- 124 0076 E2D1     		bne	.L11
+ 124 0076 E2D1     		bne	.L12
  139:./Core/Src/main.c **** 		  setTimer1(250);
  125              		.loc 1 139 5
  126 0078 FA20     		movs	r0, #250
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s 			page 1
  135 0088 18D1     		bne	.L5
  136              	.LBB4:
  143:./Core/Src/main.c **** 			  one_sec = 0;
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s 			page 6
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccVQgeFh.s 			page 6
 
 
  137              		.loc 1 143 14
@@ -306,10 +306,10 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s 			page 1
  139 008c 3B67     		str	r3, [r7, #112]
  144:./Core/Src/main.c **** 			  int time = timer3_counter/100;
  140              		.loc 1 144 31
- 141 008e 454B     		ldr	r3, .L12+16
+ 141 008e 474B     		ldr	r3, .L13+16
  142 0090 1B68     		ldr	r3, [r3]
  143              		.loc 1 144 10
- 144 0092 454A     		ldr	r2, .L12+20
+ 144 0092 474A     		ldr	r2, .L13+20
  145 0094 82FB0312 		smull	r1, r2, r2, r3
  146 0098 5211     		asrs	r2, r2, #5
  147 009a DB17     		asrs	r3, r3, #31
@@ -320,7 +320,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s 			page 1
  150              		.loc 1 146 48
  151 00a0 3B1D     		adds	r3, r7, #4
  152 00a2 FA6E     		ldr	r2, [r7, #108]
- 153 00a4 4149     		ldr	r1, .L12+24
+ 153 00a4 4349     		ldr	r1, .L13+24
  154 00a6 1846     		mov	r0, r3
  155 00a8 FFF7FEFF 		bl	sprintf
  156 00ac 0346     		mov	r3, r0
@@ -328,7 +328,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s 			page 1
  158 00ae 9AB2     		uxth	r2, r3
  159 00b0 391D     		adds	r1, r7, #4
  160 00b2 4FF47A73 		mov	r3, #1000
- 161 00b6 3E48     		ldr	r0, .L12+28
+ 161 00b6 4048     		ldr	r0, .L13+28
  162 00b8 FFF7FEFF 		bl	HAL_UART_Transmit
  163              	.L5:
  164              	.LBE4:
@@ -337,7 +337,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s 			page 1
  149:./Core/Src/main.c **** 	  		  //Cum den 1
  150:./Core/Src/main.c **** 		  if (RED1_flag){
  165              		.loc 1 150 9
- 166 00bc 3D4B     		ldr	r3, .L12+32
+ 166 00bc 3F4B     		ldr	r3, .L13+32
  167 00be 1B68     		ldr	r3, [r3]
  168              		.loc 1 150 8
  169 00c0 002B     		cmp	r3, #0
@@ -350,7 +350,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s 			page 1
  152:./Core/Src/main.c **** 		  }
  153:./Core/Src/main.c **** 		  else if(YELLOW1_flag){
  175              		.loc 1 153 13
- 176 00ca 3B4B     		ldr	r3, .L12+36
+ 176 00ca 3D4B     		ldr	r3, .L13+36
  177 00cc 1B68     		ldr	r3, [r3]
  178              		.loc 1 153 12
  179 00ce 002B     		cmp	r3, #0
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s 			page 1
  154:./Core/Src/main.c **** 			  YELLOW1_TOGGLE();
  181              		.loc 1 154 6
  182 00d2 FFF7FEFF 		bl	YELLOW1_TOGGLE
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s 			page 7
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccVQgeFh.s 			page 7
 
 
  183 00d6 05E0     		b	.L7
@@ -366,7 +366,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s 			page 1
  155:./Core/Src/main.c **** 		  }
  156:./Core/Src/main.c **** 		  else if(GREEN1_flag){
  185              		.loc 1 156 13
- 186 00d8 384B     		ldr	r3, .L12+40
+ 186 00d8 3A4B     		ldr	r3, .L13+40
  187 00da 1B68     		ldr	r3, [r3]
  188              		.loc 1 156 12
  189 00dc 002B     		cmp	r3, #0
@@ -380,7 +380,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s 			page 1
  160:./Core/Src/main.c **** 	  		  //Cum den 2
  161:./Core/Src/main.c **** 		  if(RED2_flag){
  194              		.loc 1 161 8
- 195 00e4 364B     		ldr	r3, .L12+44
+ 195 00e4 384B     		ldr	r3, .L13+44
  196 00e6 1B68     		ldr	r3, [r3]
  197              		.loc 1 161 7
  198 00e8 002B     		cmp	r3, #0
@@ -390,7 +390,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s 			page 1
  201 00ec FFF7FEFF 		bl	RED2_TOGGLE
  163:./Core/Src/main.c **** 	  		  __HAL_TIM_SetCompare (&htim3,TIM_CHANNEL_1,0);
  202              		.loc 1 163 8
- 203 00f0 294B     		ldr	r3, .L12+4
+ 203 00f0 2B4B     		ldr	r3, .L13+4
  204 00f2 1B68     		ldr	r3, [r3]
  205 00f4 0022     		movs	r2, #0
  206 00f6 5A63     		str	r2, [r3, #52]
@@ -398,19 +398,19 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s 			page 1
  207              		.loc 1 164 10
  208 00f8 7B6F     		ldr	r3, [r7, #116]
  209 00fa 002B     		cmp	r3, #0
- 210 00fc 9FD0     		beq	.L11
+ 210 00fc 9FD0     		beq	.L12
  211              		.loc 1 164 23 discriminator 1
  212 00fe FFF7FEFF 		bl	RED3_TOGGLE
- 213 0102 9CE7     		b	.L11
+ 213 0102 9CE7     		b	.L12
  214              	.L9:
  165:./Core/Src/main.c **** 		  }
  166:./Core/Src/main.c **** 		  else if(YELLOW2_flag){
  215              		.loc 1 166 13
- 216 0104 2F4B     		ldr	r3, .L12+48
+ 216 0104 314B     		ldr	r3, .L13+48
  217 0106 1B68     		ldr	r3, [r3]
  218              		.loc 1 166 12
  219 0108 002B     		cmp	r3, #0
- 220 010a 34D0     		beq	.L10
+ 220 010a 39D0     		beq	.L10
  167:./Core/Src/main.c **** 			  YELLOW2_TOGGLE();
  221              		.loc 1 167 6
  222 010c FFF7FEFF 		bl	YELLOW2_TOGGLE
@@ -418,17 +418,17 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s 			page 1
  223              		.loc 1 168 9
  224 0110 7B6F     		ldr	r3, [r7, #116]
  225 0112 002B     		cmp	r3, #0
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s 			page 8
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccVQgeFh.s 			page 8
 
 
- 226 0114 93D0     		beq	.L11
+ 226 0114 2FD0     		beq	.L11
  227              	.LBB5:
  169:./Core/Src/main.c **** 				  YELLOW3_TOGGLE();
  228              		.loc 1 169 7
  229 0116 FFF7FEFF 		bl	YELLOW3_TOGGLE
  170:./Core/Src/main.c **** 				  int feq = 100 - 100*(10*timer3_counter/timer_yellow);
  230              		.loc 1 170 30
- 231 011a 224B     		ldr	r3, .L12+16
+ 231 011a 244B     		ldr	r3, .L13+16
  232 011c 1A68     		ldr	r2, [r3]
  233 011e 1346     		mov	r3, r2
  234 0120 9B00     		lsls	r3, r3, #2
@@ -436,7 +436,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s 			page 1
  236 0124 5B00     		lsls	r3, r3, #1
  237 0126 1A46     		mov	r2, r3
  238              		.loc 1 170 45
- 239 0128 274B     		ldr	r3, .L12+52
+ 239 0128 294B     		ldr	r3, .L13+52
  240 012a 1B68     		ldr	r3, [r3]
  241 012c 92FBF3F3 		sdiv	r3, r2, r3
  242              		.loc 1 170 21
@@ -455,7 +455,7 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s 			page 1
  254 0146 1344     		add	r3, r3, r2
  255 0148 5B10     		asrs	r3, r3, #1
  256 014a 1A46     		mov	r2, r3
- 257 014c 124B     		ldr	r3, .L12+4
+ 257 014c 144B     		ldr	r3, .L13+4
  258 014e 1B68     		ldr	r3, [r3]
  259 0150 DA62     		str	r2, [r3, #44]
  260 0152 BA6E     		ldr	r2, [r7, #104]
@@ -466,11 +466,11 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s 			page 1
  265 015c 1344     		add	r3, r3, r2
  266 015e 5B10     		asrs	r3, r3, #1
  267 0160 1A46     		mov	r2, r3
- 268 0162 0D4B     		ldr	r3, .L12+4
+ 268 0162 0F4B     		ldr	r3, .L13+4
  269 0164 DA60     		str	r2, [r3, #12]
  172:./Core/Src/main.c **** 				  __HAL_TIM_SetCompare (&htim3,TIM_CHANNEL_1,feq);
  270              		.loc 1 172 7
- 271 0166 0C4B     		ldr	r3, .L12+4
+ 271 0166 0E4B     		ldr	r3, .L13+4
  272 0168 1B68     		ldr	r3, [r3]
  273 016a BA6E     		ldr	r2, [r7, #104]
  274 016c 5A63     		str	r2, [r3, #52]
@@ -478,1066 +478,1072 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s 			page 1
  275              		.loc 1 173 7
  276 016e 6420     		movs	r0, #100
  277 0170 FFF7FEFF 		bl	HAL_Delay
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s 			page 9
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccVQgeFh.s 			page 9
 
 
- 278 0174 63E7     		b	.L11
- 279              	.L10:
- 280              	.LBE5:
+ 278              	.LBE5:
+ 279 0174 63E7     		b	.L12
+ 280              	.L11:
  174:./Core/Src/main.c **** 			  }
- 175:./Core/Src/main.c **** 		  }
- 176:./Core/Src/main.c **** 	  	  else if(GREEN2_flag){
- 281              		.loc 1 176 15
- 282 0176 154B     		ldr	r3, .L12+56
+ 175:./Core/Src/main.c **** 			  else __HAL_TIM_SetCompare (&htim3,TIM_CHANNEL_1,0);
+ 281              		.loc 1 175 11
+ 282 0176 0A4B     		ldr	r3, .L13+4
  283 0178 1B68     		ldr	r3, [r3]
- 284              		.loc 1 176 14
- 285 017a 002B     		cmp	r3, #0
- 286 017c 3FF45FAF 		beq	.L11
- 177:./Core/Src/main.c **** 	  		  GREEN2_TOGGLE();
- 287              		.loc 1 177 8
- 288 0180 FFF7FEFF 		bl	GREEN2_TOGGLE
- 178:./Core/Src/main.c **** 	  		  if (userButton) GREEN3_TOGGLE();
- 289              		.loc 1 178 11
- 290 0184 7B6F     		ldr	r3, [r7, #116]
- 291 0186 002B     		cmp	r3, #0
- 292 0188 3FF459AF 		beq	.L11
- 293              		.loc 1 178 24 discriminator 1
- 294 018c FFF7FEFF 		bl	GREEN3_TOGGLE
+ 284 017a 0022     		movs	r2, #0
+ 285 017c 5A63     		str	r2, [r3, #52]
+ 286 017e 5EE7     		b	.L12
+ 287              	.L10:
+ 176:./Core/Src/main.c **** 		  }
+ 177:./Core/Src/main.c **** 	  	  else if(GREEN2_flag){
+ 288              		.loc 1 177 15
+ 289 0180 144B     		ldr	r3, .L13+56
+ 290 0182 1B68     		ldr	r3, [r3]
+ 291              		.loc 1 177 14
+ 292 0184 002B     		cmp	r3, #0
+ 293 0186 3FF45AAF 		beq	.L12
+ 178:./Core/Src/main.c **** 	  		  GREEN2_TOGGLE();
+ 294              		.loc 1 178 8
+ 295 018a FFF7FEFF 		bl	GREEN2_TOGGLE
+ 179:./Core/Src/main.c **** 	  		  if (userButton) GREEN3_TOGGLE();
+ 296              		.loc 1 179 11
+ 297 018e 7B6F     		ldr	r3, [r7, #116]
+ 298 0190 002B     		cmp	r3, #0
+ 299 0192 3FF454AF 		beq	.L12
+ 300              		.loc 1 179 24 discriminator 1
+ 301 0196 FFF7FEFF 		bl	GREEN3_TOGGLE
  122:./Core/Src/main.c **** 	  light_control_1();	//fsm for traffic light 1
- 295              		.loc 1 122 4 discriminator 1
- 296 0190 55E7     		b	.L11
- 297              	.L13:
- 298 0192 00BF     		.align	2
- 299              	.L12:
- 300 0194 00000000 		.word	htim2
- 301 0198 00000000 		.word	htim3
- 302 019c 00000000 		.word	timer5_flag
- 303 01a0 00000000 		.word	timer1_flag
- 304 01a4 00000000 		.word	timer3_counter
- 305 01a8 1F85EB51 		.word	1374389535
- 306 01ac 00000000 		.word	.LC0
- 307 01b0 00000000 		.word	huart2
- 308 01b4 00000000 		.word	RED1_flag
- 309 01b8 00000000 		.word	YELLOW1_flag
- 310 01bc 00000000 		.word	GREEN1_flag
- 311 01c0 00000000 		.word	RED2_flag
- 312 01c4 00000000 		.word	YELLOW2_flag
- 313 01c8 00000000 		.word	timer_yellow
- 314 01cc 00000000 		.word	GREEN2_flag
- 315              		.cfi_endproc
- 316              	.LFE68:
- 318              		.section	.text.SystemClock_Config,"ax",%progbits
- 319              		.align	1
- 320              		.global	SystemClock_Config
- 321              		.syntax unified
- 322              		.thumb
- 323              		.thumb_func
- 325              	SystemClock_Config:
- 326              	.LFB69:
- 179:./Core/Src/main.c **** 	  	  }
- 180:./Core/Src/main.c **** 
- 181:./Core/Src/main.c **** 
- 182:./Core/Src/main.c **** 	  }
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s 			page 10
+ 302              		.loc 1 122 4 discriminator 1
+ 303 019a 50E7     		b	.L12
+ 304              	.L14:
+ 305              		.align	2
+ 306              	.L13:
+ 307 019c 00000000 		.word	htim2
+ 308 01a0 00000000 		.word	htim3
+ 309 01a4 00000000 		.word	timer5_flag
+ 310 01a8 00000000 		.word	timer1_flag
+ 311 01ac 00000000 		.word	timer3_counter
+ 312 01b0 1F85EB51 		.word	1374389535
+ 313 01b4 00000000 		.word	.LC0
+ 314 01b8 00000000 		.word	huart2
+ 315 01bc 00000000 		.word	RED1_flag
+ 316 01c0 00000000 		.word	YELLOW1_flag
+ 317 01c4 00000000 		.word	GREEN1_flag
+ 318 01c8 00000000 		.word	RED2_flag
+ 319 01cc 00000000 		.word	YELLOW2_flag
+ 320 01d0 00000000 		.word	timer_yellow
+ 321 01d4 00000000 		.word	GREEN2_flag
+ 322              		.cfi_endproc
+ 323              	.LFE68:
+ 325              		.section	.text.SystemClock_Config,"ax",%progbits
+ 326              		.align	1
+ 327              		.global	SystemClock_Config
+ 328              		.syntax unified
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccVQgeFh.s 			page 10
 
 
- 183:./Core/Src/main.c ****   }
- 184:./Core/Src/main.c ****   /* USER CODE END 3 */
- 185:./Core/Src/main.c **** }
- 186:./Core/Src/main.c **** 
- 187:./Core/Src/main.c **** /**
- 188:./Core/Src/main.c ****   * @brief System Clock Configuration
- 189:./Core/Src/main.c ****   * @retval None
- 190:./Core/Src/main.c ****   */
- 191:./Core/Src/main.c **** void SystemClock_Config(void)
- 192:./Core/Src/main.c **** {
- 327              		.loc 1 192 1
- 328              		.cfi_startproc
- 329              		@ args = 0, pretend = 0, frame = 64
- 330              		@ frame_needed = 1, uses_anonymous_args = 0
- 331 0000 80B5     		push	{r7, lr}
- 332              		.cfi_def_cfa_offset 8
- 333              		.cfi_offset 7, -8
- 334              		.cfi_offset 14, -4
- 335 0002 90B0     		sub	sp, sp, #64
- 336              		.cfi_def_cfa_offset 72
- 337 0004 00AF     		add	r7, sp, #0
- 338              		.cfi_def_cfa_register 7
- 193:./Core/Src/main.c ****   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
- 339              		.loc 1 193 22
- 340 0006 07F11803 		add	r3, r7, #24
- 341 000a 2822     		movs	r2, #40
- 342 000c 0021     		movs	r1, #0
- 343 000e 1846     		mov	r0, r3
- 344 0010 FFF7FEFF 		bl	memset
- 194:./Core/Src/main.c ****   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
- 345              		.loc 1 194 22
- 346 0014 3B1D     		adds	r3, r7, #4
- 347 0016 0022     		movs	r2, #0
- 348 0018 1A60     		str	r2, [r3]
- 349 001a 5A60     		str	r2, [r3, #4]
- 350 001c 9A60     		str	r2, [r3, #8]
- 351 001e DA60     		str	r2, [r3, #12]
- 352 0020 1A61     		str	r2, [r3, #16]
- 195:./Core/Src/main.c **** 
- 196:./Core/Src/main.c ****   /** Initializes the RCC Oscillators according to the specified parameters
- 197:./Core/Src/main.c ****   * in the RCC_OscInitTypeDef structure.
- 198:./Core/Src/main.c ****   */
- 199:./Core/Src/main.c ****   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
- 353              		.loc 1 199 36
- 354 0022 0223     		movs	r3, #2
- 355 0024 BB61     		str	r3, [r7, #24]
- 200:./Core/Src/main.c ****   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
- 356              		.loc 1 200 30
- 357 0026 0123     		movs	r3, #1
- 358 0028 BB62     		str	r3, [r7, #40]
- 201:./Core/Src/main.c ****   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
- 359              		.loc 1 201 41
- 360 002a 1023     		movs	r3, #16
- 361 002c FB62     		str	r3, [r7, #44]
- 202:./Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
- 362              		.loc 1 202 34
- 363 002e 0223     		movs	r3, #2
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s 			page 11
+ 329              		.thumb
+ 330              		.thumb_func
+ 332              	SystemClock_Config:
+ 333              	.LFB69:
+ 180:./Core/Src/main.c **** 	  	  }
+ 181:./Core/Src/main.c **** 	  }
+ 182:./Core/Src/main.c ****   }
+ 183:./Core/Src/main.c ****   /* USER CODE END 3 */
+ 184:./Core/Src/main.c **** }
+ 185:./Core/Src/main.c **** 
+ 186:./Core/Src/main.c **** /**
+ 187:./Core/Src/main.c ****   * @brief System Clock Configuration
+ 188:./Core/Src/main.c ****   * @retval None
+ 189:./Core/Src/main.c ****   */
+ 190:./Core/Src/main.c **** void SystemClock_Config(void)
+ 191:./Core/Src/main.c **** {
+ 334              		.loc 1 191 1
+ 335              		.cfi_startproc
+ 336              		@ args = 0, pretend = 0, frame = 64
+ 337              		@ frame_needed = 1, uses_anonymous_args = 0
+ 338 0000 80B5     		push	{r7, lr}
+ 339              		.cfi_def_cfa_offset 8
+ 340              		.cfi_offset 7, -8
+ 341              		.cfi_offset 14, -4
+ 342 0002 90B0     		sub	sp, sp, #64
+ 343              		.cfi_def_cfa_offset 72
+ 344 0004 00AF     		add	r7, sp, #0
+ 345              		.cfi_def_cfa_register 7
+ 192:./Core/Src/main.c ****   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+ 346              		.loc 1 192 22
+ 347 0006 07F11803 		add	r3, r7, #24
+ 348 000a 2822     		movs	r2, #40
+ 349 000c 0021     		movs	r1, #0
+ 350 000e 1846     		mov	r0, r3
+ 351 0010 FFF7FEFF 		bl	memset
+ 193:./Core/Src/main.c ****   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+ 352              		.loc 1 193 22
+ 353 0014 3B1D     		adds	r3, r7, #4
+ 354 0016 0022     		movs	r2, #0
+ 355 0018 1A60     		str	r2, [r3]
+ 356 001a 5A60     		str	r2, [r3, #4]
+ 357 001c 9A60     		str	r2, [r3, #8]
+ 358 001e DA60     		str	r2, [r3, #12]
+ 359 0020 1A61     		str	r2, [r3, #16]
+ 194:./Core/Src/main.c **** 
+ 195:./Core/Src/main.c ****   /** Initializes the RCC Oscillators according to the specified parameters
+ 196:./Core/Src/main.c ****   * in the RCC_OscInitTypeDef structure.
+ 197:./Core/Src/main.c ****   */
+ 198:./Core/Src/main.c ****   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
+ 360              		.loc 1 198 36
+ 361 0022 0223     		movs	r3, #2
+ 362 0024 BB61     		str	r3, [r7, #24]
+ 199:./Core/Src/main.c ****   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+ 363              		.loc 1 199 30
+ 364 0026 0123     		movs	r3, #1
+ 365 0028 BB62     		str	r3, [r7, #40]
+ 200:./Core/Src/main.c ****   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccVQgeFh.s 			page 11
 
 
- 364 0030 7B63     		str	r3, [r7, #52]
- 203:./Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI_DIV2;
- 365              		.loc 1 203 35
- 366 0032 0023     		movs	r3, #0
- 367 0034 BB63     		str	r3, [r7, #56]
- 204:./Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL16;
- 368              		.loc 1 204 32
- 369 0036 4FF46013 		mov	r3, #3670016
- 370 003a FB63     		str	r3, [r7, #60]
- 205:./Core/Src/main.c ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
- 371              		.loc 1 205 7
- 372 003c 07F11803 		add	r3, r7, #24
- 373 0040 1846     		mov	r0, r3
- 374 0042 FFF7FEFF 		bl	HAL_RCC_OscConfig
- 375 0046 0346     		mov	r3, r0
- 376              		.loc 1 205 6
- 377 0048 002B     		cmp	r3, #0
- 378 004a 01D0     		beq	.L15
- 206:./Core/Src/main.c ****   {
- 207:./Core/Src/main.c ****     Error_Handler();
- 379              		.loc 1 207 5
- 380 004c FFF7FEFF 		bl	Error_Handler
- 381              	.L15:
- 208:./Core/Src/main.c ****   }
- 209:./Core/Src/main.c **** 
- 210:./Core/Src/main.c ****   /** Initializes the CPU, AHB and APB buses clocks
- 211:./Core/Src/main.c ****   */
- 212:./Core/Src/main.c ****   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
- 382              		.loc 1 212 31
- 383 0050 0F23     		movs	r3, #15
- 384 0052 7B60     		str	r3, [r7, #4]
- 213:./Core/Src/main.c ****                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
- 214:./Core/Src/main.c ****   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
- 385              		.loc 1 214 34
- 386 0054 0223     		movs	r3, #2
- 387 0056 BB60     		str	r3, [r7, #8]
- 215:./Core/Src/main.c ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
- 388              		.loc 1 215 35
- 389 0058 0023     		movs	r3, #0
- 390 005a FB60     		str	r3, [r7, #12]
- 216:./Core/Src/main.c ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
- 391              		.loc 1 216 36
- 392 005c 4FF48063 		mov	r3, #1024
- 393 0060 3B61     		str	r3, [r7, #16]
- 217:./Core/Src/main.c ****   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
- 394              		.loc 1 217 36
- 395 0062 0023     		movs	r3, #0
- 396 0064 7B61     		str	r3, [r7, #20]
- 218:./Core/Src/main.c **** 
- 219:./Core/Src/main.c ****   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
- 397              		.loc 1 219 7
- 398 0066 3B1D     		adds	r3, r7, #4
- 399 0068 0221     		movs	r1, #2
- 400 006a 1846     		mov	r0, r3
- 401 006c FFF7FEFF 		bl	HAL_RCC_ClockConfig
- 402 0070 0346     		mov	r3, r0
- 403              		.loc 1 219 6
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s 			page 12
+ 366              		.loc 1 200 41
+ 367 002a 1023     		movs	r3, #16
+ 368 002c FB62     		str	r3, [r7, #44]
+ 201:./Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+ 369              		.loc 1 201 34
+ 370 002e 0223     		movs	r3, #2
+ 371 0030 7B63     		str	r3, [r7, #52]
+ 202:./Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI_DIV2;
+ 372              		.loc 1 202 35
+ 373 0032 0023     		movs	r3, #0
+ 374 0034 BB63     		str	r3, [r7, #56]
+ 203:./Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL16;
+ 375              		.loc 1 203 32
+ 376 0036 4FF46013 		mov	r3, #3670016
+ 377 003a FB63     		str	r3, [r7, #60]
+ 204:./Core/Src/main.c ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+ 378              		.loc 1 204 7
+ 379 003c 07F11803 		add	r3, r7, #24
+ 380 0040 1846     		mov	r0, r3
+ 381 0042 FFF7FEFF 		bl	HAL_RCC_OscConfig
+ 382 0046 0346     		mov	r3, r0
+ 383              		.loc 1 204 6
+ 384 0048 002B     		cmp	r3, #0
+ 385 004a 01D0     		beq	.L16
+ 205:./Core/Src/main.c ****   {
+ 206:./Core/Src/main.c ****     Error_Handler();
+ 386              		.loc 1 206 5
+ 387 004c FFF7FEFF 		bl	Error_Handler
+ 388              	.L16:
+ 207:./Core/Src/main.c ****   }
+ 208:./Core/Src/main.c **** 
+ 209:./Core/Src/main.c ****   /** Initializes the CPU, AHB and APB buses clocks
+ 210:./Core/Src/main.c ****   */
+ 211:./Core/Src/main.c ****   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
+ 389              		.loc 1 211 31
+ 390 0050 0F23     		movs	r3, #15
+ 391 0052 7B60     		str	r3, [r7, #4]
+ 212:./Core/Src/main.c ****                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+ 213:./Core/Src/main.c ****   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
+ 392              		.loc 1 213 34
+ 393 0054 0223     		movs	r3, #2
+ 394 0056 BB60     		str	r3, [r7, #8]
+ 214:./Core/Src/main.c ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+ 395              		.loc 1 214 35
+ 396 0058 0023     		movs	r3, #0
+ 397 005a FB60     		str	r3, [r7, #12]
+ 215:./Core/Src/main.c ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
+ 398              		.loc 1 215 36
+ 399 005c 4FF48063 		mov	r3, #1024
+ 400 0060 3B61     		str	r3, [r7, #16]
+ 216:./Core/Src/main.c ****   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+ 401              		.loc 1 216 36
+ 402 0062 0023     		movs	r3, #0
+ 403 0064 7B61     		str	r3, [r7, #20]
+ 217:./Core/Src/main.c **** 
+ 218:./Core/Src/main.c ****   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
+ 404              		.loc 1 218 7
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccVQgeFh.s 			page 12
 
 
- 404 0072 002B     		cmp	r3, #0
- 405 0074 01D0     		beq	.L17
- 220:./Core/Src/main.c ****   {
- 221:./Core/Src/main.c ****     Error_Handler();
- 406              		.loc 1 221 5
- 407 0076 FFF7FEFF 		bl	Error_Handler
- 408              	.L17:
- 222:./Core/Src/main.c ****   }
- 223:./Core/Src/main.c **** }
- 409              		.loc 1 223 1
- 410 007a 00BF     		nop
- 411 007c 4037     		adds	r7, r7, #64
- 412              		.cfi_def_cfa_offset 8
- 413 007e BD46     		mov	sp, r7
- 414              		.cfi_def_cfa_register 13
- 415              		@ sp needed
- 416 0080 80BD     		pop	{r7, pc}
- 417              		.cfi_endproc
- 418              	.LFE69:
- 420              		.section	.text.MX_TIM2_Init,"ax",%progbits
- 421              		.align	1
- 422              		.syntax unified
- 423              		.thumb
- 424              		.thumb_func
- 426              	MX_TIM2_Init:
- 427              	.LFB70:
- 224:./Core/Src/main.c **** 
- 225:./Core/Src/main.c **** /**
- 226:./Core/Src/main.c ****   * @brief TIM2 Initialization Function
- 227:./Core/Src/main.c ****   * @param None
- 228:./Core/Src/main.c ****   * @retval None
- 229:./Core/Src/main.c ****   */
- 230:./Core/Src/main.c **** static void MX_TIM2_Init(void)
- 231:./Core/Src/main.c **** {
- 428              		.loc 1 231 1
- 429              		.cfi_startproc
- 430              		@ args = 0, pretend = 0, frame = 24
- 431              		@ frame_needed = 1, uses_anonymous_args = 0
- 432 0000 80B5     		push	{r7, lr}
- 433              		.cfi_def_cfa_offset 8
- 434              		.cfi_offset 7, -8
- 435              		.cfi_offset 14, -4
- 436 0002 86B0     		sub	sp, sp, #24
- 437              		.cfi_def_cfa_offset 32
- 438 0004 00AF     		add	r7, sp, #0
- 439              		.cfi_def_cfa_register 7
- 232:./Core/Src/main.c **** 
- 233:./Core/Src/main.c ****   /* USER CODE BEGIN TIM2_Init 0 */
- 234:./Core/Src/main.c **** 
- 235:./Core/Src/main.c ****   /* USER CODE END TIM2_Init 0 */
- 236:./Core/Src/main.c **** 
- 237:./Core/Src/main.c ****   TIM_ClockConfigTypeDef sClockSourceConfig = {0};
- 440              		.loc 1 237 26
- 441 0006 07F10803 		add	r3, r7, #8
- 442 000a 0022     		movs	r2, #0
- 443 000c 1A60     		str	r2, [r3]
- 444 000e 5A60     		str	r2, [r3, #4]
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s 			page 13
+ 405 0066 3B1D     		adds	r3, r7, #4
+ 406 0068 0221     		movs	r1, #2
+ 407 006a 1846     		mov	r0, r3
+ 408 006c FFF7FEFF 		bl	HAL_RCC_ClockConfig
+ 409 0070 0346     		mov	r3, r0
+ 410              		.loc 1 218 6
+ 411 0072 002B     		cmp	r3, #0
+ 412 0074 01D0     		beq	.L18
+ 219:./Core/Src/main.c ****   {
+ 220:./Core/Src/main.c ****     Error_Handler();
+ 413              		.loc 1 220 5
+ 414 0076 FFF7FEFF 		bl	Error_Handler
+ 415              	.L18:
+ 221:./Core/Src/main.c ****   }
+ 222:./Core/Src/main.c **** }
+ 416              		.loc 1 222 1
+ 417 007a 00BF     		nop
+ 418 007c 4037     		adds	r7, r7, #64
+ 419              		.cfi_def_cfa_offset 8
+ 420 007e BD46     		mov	sp, r7
+ 421              		.cfi_def_cfa_register 13
+ 422              		@ sp needed
+ 423 0080 80BD     		pop	{r7, pc}
+ 424              		.cfi_endproc
+ 425              	.LFE69:
+ 427              		.section	.text.MX_TIM2_Init,"ax",%progbits
+ 428              		.align	1
+ 429              		.syntax unified
+ 430              		.thumb
+ 431              		.thumb_func
+ 433              	MX_TIM2_Init:
+ 434              	.LFB70:
+ 223:./Core/Src/main.c **** 
+ 224:./Core/Src/main.c **** /**
+ 225:./Core/Src/main.c ****   * @brief TIM2 Initialization Function
+ 226:./Core/Src/main.c ****   * @param None
+ 227:./Core/Src/main.c ****   * @retval None
+ 228:./Core/Src/main.c ****   */
+ 229:./Core/Src/main.c **** static void MX_TIM2_Init(void)
+ 230:./Core/Src/main.c **** {
+ 435              		.loc 1 230 1
+ 436              		.cfi_startproc
+ 437              		@ args = 0, pretend = 0, frame = 24
+ 438              		@ frame_needed = 1, uses_anonymous_args = 0
+ 439 0000 80B5     		push	{r7, lr}
+ 440              		.cfi_def_cfa_offset 8
+ 441              		.cfi_offset 7, -8
+ 442              		.cfi_offset 14, -4
+ 443 0002 86B0     		sub	sp, sp, #24
+ 444              		.cfi_def_cfa_offset 32
+ 445 0004 00AF     		add	r7, sp, #0
+ 446              		.cfi_def_cfa_register 7
+ 231:./Core/Src/main.c **** 
+ 232:./Core/Src/main.c ****   /* USER CODE BEGIN TIM2_Init 0 */
+ 233:./Core/Src/main.c **** 
+ 234:./Core/Src/main.c ****   /* USER CODE END TIM2_Init 0 */
+ 235:./Core/Src/main.c **** 
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccVQgeFh.s 			page 13
 
 
- 445 0010 9A60     		str	r2, [r3, #8]
- 446 0012 DA60     		str	r2, [r3, #12]
- 238:./Core/Src/main.c ****   TIM_MasterConfigTypeDef sMasterConfig = {0};
- 447              		.loc 1 238 27
- 448 0014 3B46     		mov	r3, r7
- 449 0016 0022     		movs	r2, #0
- 450 0018 1A60     		str	r2, [r3]
- 451 001a 5A60     		str	r2, [r3, #4]
- 239:./Core/Src/main.c **** 
- 240:./Core/Src/main.c ****   /* USER CODE BEGIN TIM2_Init 1 */
- 241:./Core/Src/main.c **** 
- 242:./Core/Src/main.c ****   /* USER CODE END TIM2_Init 1 */
- 243:./Core/Src/main.c ****   htim2.Instance = TIM2;
- 452              		.loc 1 243 18
- 453 001c 1D4B     		ldr	r3, .L23
- 454 001e 4FF08042 		mov	r2, #1073741824
- 455 0022 1A60     		str	r2, [r3]
- 244:./Core/Src/main.c ****   htim2.Init.Prescaler = 7999;
- 456              		.loc 1 244 24
- 457 0024 1B4B     		ldr	r3, .L23
- 458 0026 41F63F72 		movw	r2, #7999
- 459 002a 5A60     		str	r2, [r3, #4]
- 245:./Core/Src/main.c ****   htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
- 460              		.loc 1 245 26
- 461 002c 194B     		ldr	r3, .L23
- 462 002e 0022     		movs	r2, #0
- 463 0030 9A60     		str	r2, [r3, #8]
- 246:./Core/Src/main.c ****   htim2.Init.Period = 79;
- 464              		.loc 1 246 21
- 465 0032 184B     		ldr	r3, .L23
- 466 0034 4F22     		movs	r2, #79
- 467 0036 DA60     		str	r2, [r3, #12]
- 247:./Core/Src/main.c ****   htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
- 468              		.loc 1 247 28
- 469 0038 164B     		ldr	r3, .L23
- 470 003a 0022     		movs	r2, #0
- 471 003c 1A61     		str	r2, [r3, #16]
- 248:./Core/Src/main.c ****   htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
- 472              		.loc 1 248 32
- 473 003e 154B     		ldr	r3, .L23
- 474 0040 0022     		movs	r2, #0
- 475 0042 9A61     		str	r2, [r3, #24]
- 249:./Core/Src/main.c ****   if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
- 476              		.loc 1 249 7
- 477 0044 1348     		ldr	r0, .L23
- 478 0046 FFF7FEFF 		bl	HAL_TIM_Base_Init
- 479 004a 0346     		mov	r3, r0
- 480              		.loc 1 249 6
- 481 004c 002B     		cmp	r3, #0
- 482 004e 01D0     		beq	.L19
- 250:./Core/Src/main.c ****   {
- 251:./Core/Src/main.c ****     Error_Handler();
- 483              		.loc 1 251 5
- 484 0050 FFF7FEFF 		bl	Error_Handler
- 485              	.L19:
- 252:./Core/Src/main.c ****   }
- 253:./Core/Src/main.c ****   sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s 			page 14
+ 236:./Core/Src/main.c ****   TIM_ClockConfigTypeDef sClockSourceConfig = {0};
+ 447              		.loc 1 236 26
+ 448 0006 07F10803 		add	r3, r7, #8
+ 449 000a 0022     		movs	r2, #0
+ 450 000c 1A60     		str	r2, [r3]
+ 451 000e 5A60     		str	r2, [r3, #4]
+ 452 0010 9A60     		str	r2, [r3, #8]
+ 453 0012 DA60     		str	r2, [r3, #12]
+ 237:./Core/Src/main.c ****   TIM_MasterConfigTypeDef sMasterConfig = {0};
+ 454              		.loc 1 237 27
+ 455 0014 3B46     		mov	r3, r7
+ 456 0016 0022     		movs	r2, #0
+ 457 0018 1A60     		str	r2, [r3]
+ 458 001a 5A60     		str	r2, [r3, #4]
+ 238:./Core/Src/main.c **** 
+ 239:./Core/Src/main.c ****   /* USER CODE BEGIN TIM2_Init 1 */
+ 240:./Core/Src/main.c **** 
+ 241:./Core/Src/main.c ****   /* USER CODE END TIM2_Init 1 */
+ 242:./Core/Src/main.c ****   htim2.Instance = TIM2;
+ 459              		.loc 1 242 18
+ 460 001c 1D4B     		ldr	r3, .L24
+ 461 001e 4FF08042 		mov	r2, #1073741824
+ 462 0022 1A60     		str	r2, [r3]
+ 243:./Core/Src/main.c ****   htim2.Init.Prescaler = 7999;
+ 463              		.loc 1 243 24
+ 464 0024 1B4B     		ldr	r3, .L24
+ 465 0026 41F63F72 		movw	r2, #7999
+ 466 002a 5A60     		str	r2, [r3, #4]
+ 244:./Core/Src/main.c ****   htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
+ 467              		.loc 1 244 26
+ 468 002c 194B     		ldr	r3, .L24
+ 469 002e 0022     		movs	r2, #0
+ 470 0030 9A60     		str	r2, [r3, #8]
+ 245:./Core/Src/main.c ****   htim2.Init.Period = 79;
+ 471              		.loc 1 245 21
+ 472 0032 184B     		ldr	r3, .L24
+ 473 0034 4F22     		movs	r2, #79
+ 474 0036 DA60     		str	r2, [r3, #12]
+ 246:./Core/Src/main.c ****   htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+ 475              		.loc 1 246 28
+ 476 0038 164B     		ldr	r3, .L24
+ 477 003a 0022     		movs	r2, #0
+ 478 003c 1A61     		str	r2, [r3, #16]
+ 247:./Core/Src/main.c ****   htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+ 479              		.loc 1 247 32
+ 480 003e 154B     		ldr	r3, .L24
+ 481 0040 0022     		movs	r2, #0
+ 482 0042 9A61     		str	r2, [r3, #24]
+ 248:./Core/Src/main.c ****   if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
+ 483              		.loc 1 248 7
+ 484 0044 1348     		ldr	r0, .L24
+ 485 0046 FFF7FEFF 		bl	HAL_TIM_Base_Init
+ 486 004a 0346     		mov	r3, r0
+ 487              		.loc 1 248 6
+ 488 004c 002B     		cmp	r3, #0
+ 489 004e 01D0     		beq	.L20
+ 249:./Core/Src/main.c ****   {
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccVQgeFh.s 			page 14
 
 
- 486              		.loc 1 253 34
- 487 0054 4FF48053 		mov	r3, #4096
- 488 0058 BB60     		str	r3, [r7, #8]
- 254:./Core/Src/main.c ****   if (HAL_TIM_ConfigClockSource(&htim2, &sClockSourceConfig) != HAL_OK)
- 489              		.loc 1 254 7
- 490 005a 07F10803 		add	r3, r7, #8
- 491 005e 1946     		mov	r1, r3
- 492 0060 0C48     		ldr	r0, .L23
- 493 0062 FFF7FEFF 		bl	HAL_TIM_ConfigClockSource
- 494 0066 0346     		mov	r3, r0
- 495              		.loc 1 254 6
- 496 0068 002B     		cmp	r3, #0
- 497 006a 01D0     		beq	.L20
- 255:./Core/Src/main.c ****   {
- 256:./Core/Src/main.c ****     Error_Handler();
- 498              		.loc 1 256 5
- 499 006c FFF7FEFF 		bl	Error_Handler
- 500              	.L20:
- 257:./Core/Src/main.c ****   }
- 258:./Core/Src/main.c ****   sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
- 501              		.loc 1 258 37
- 502 0070 0023     		movs	r3, #0
- 503 0072 3B60     		str	r3, [r7]
- 259:./Core/Src/main.c ****   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
- 504              		.loc 1 259 33
- 505 0074 0023     		movs	r3, #0
- 506 0076 7B60     		str	r3, [r7, #4]
- 260:./Core/Src/main.c ****   if (HAL_TIMEx_MasterConfigSynchronization(&htim2, &sMasterConfig) != HAL_OK)
- 507              		.loc 1 260 7
- 508 0078 3B46     		mov	r3, r7
- 509 007a 1946     		mov	r1, r3
- 510 007c 0548     		ldr	r0, .L23
- 511 007e FFF7FEFF 		bl	HAL_TIMEx_MasterConfigSynchronization
- 512 0082 0346     		mov	r3, r0
- 513              		.loc 1 260 6
- 514 0084 002B     		cmp	r3, #0
- 515 0086 01D0     		beq	.L22
- 261:./Core/Src/main.c ****   {
- 262:./Core/Src/main.c ****     Error_Handler();
- 516              		.loc 1 262 5
- 517 0088 FFF7FEFF 		bl	Error_Handler
- 518              	.L22:
- 263:./Core/Src/main.c ****   }
- 264:./Core/Src/main.c ****   /* USER CODE BEGIN TIM2_Init 2 */
- 265:./Core/Src/main.c **** 
- 266:./Core/Src/main.c ****   /* USER CODE END TIM2_Init 2 */
- 267:./Core/Src/main.c **** 
- 268:./Core/Src/main.c **** }
- 519              		.loc 1 268 1
- 520 008c 00BF     		nop
- 521 008e 1837     		adds	r7, r7, #24
- 522              		.cfi_def_cfa_offset 8
- 523 0090 BD46     		mov	sp, r7
- 524              		.cfi_def_cfa_register 13
- 525              		@ sp needed
- 526 0092 80BD     		pop	{r7, pc}
- 527              	.L24:
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s 			page 15
+ 250:./Core/Src/main.c ****     Error_Handler();
+ 490              		.loc 1 250 5
+ 491 0050 FFF7FEFF 		bl	Error_Handler
+ 492              	.L20:
+ 251:./Core/Src/main.c ****   }
+ 252:./Core/Src/main.c ****   sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+ 493              		.loc 1 252 34
+ 494 0054 4FF48053 		mov	r3, #4096
+ 495 0058 BB60     		str	r3, [r7, #8]
+ 253:./Core/Src/main.c ****   if (HAL_TIM_ConfigClockSource(&htim2, &sClockSourceConfig) != HAL_OK)
+ 496              		.loc 1 253 7
+ 497 005a 07F10803 		add	r3, r7, #8
+ 498 005e 1946     		mov	r1, r3
+ 499 0060 0C48     		ldr	r0, .L24
+ 500 0062 FFF7FEFF 		bl	HAL_TIM_ConfigClockSource
+ 501 0066 0346     		mov	r3, r0
+ 502              		.loc 1 253 6
+ 503 0068 002B     		cmp	r3, #0
+ 504 006a 01D0     		beq	.L21
+ 254:./Core/Src/main.c ****   {
+ 255:./Core/Src/main.c ****     Error_Handler();
+ 505              		.loc 1 255 5
+ 506 006c FFF7FEFF 		bl	Error_Handler
+ 507              	.L21:
+ 256:./Core/Src/main.c ****   }
+ 257:./Core/Src/main.c ****   sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+ 508              		.loc 1 257 37
+ 509 0070 0023     		movs	r3, #0
+ 510 0072 3B60     		str	r3, [r7]
+ 258:./Core/Src/main.c ****   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+ 511              		.loc 1 258 33
+ 512 0074 0023     		movs	r3, #0
+ 513 0076 7B60     		str	r3, [r7, #4]
+ 259:./Core/Src/main.c ****   if (HAL_TIMEx_MasterConfigSynchronization(&htim2, &sMasterConfig) != HAL_OK)
+ 514              		.loc 1 259 7
+ 515 0078 3B46     		mov	r3, r7
+ 516 007a 1946     		mov	r1, r3
+ 517 007c 0548     		ldr	r0, .L24
+ 518 007e FFF7FEFF 		bl	HAL_TIMEx_MasterConfigSynchronization
+ 519 0082 0346     		mov	r3, r0
+ 520              		.loc 1 259 6
+ 521 0084 002B     		cmp	r3, #0
+ 522 0086 01D0     		beq	.L23
+ 260:./Core/Src/main.c ****   {
+ 261:./Core/Src/main.c ****     Error_Handler();
+ 523              		.loc 1 261 5
+ 524 0088 FFF7FEFF 		bl	Error_Handler
+ 525              	.L23:
+ 262:./Core/Src/main.c ****   }
+ 263:./Core/Src/main.c ****   /* USER CODE BEGIN TIM2_Init 2 */
+ 264:./Core/Src/main.c **** 
+ 265:./Core/Src/main.c ****   /* USER CODE END TIM2_Init 2 */
+ 266:./Core/Src/main.c **** 
+ 267:./Core/Src/main.c **** }
+ 526              		.loc 1 267 1
+ 527 008c 00BF     		nop
+ 528 008e 1837     		adds	r7, r7, #24
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccVQgeFh.s 			page 15
 
 
- 528              		.align	2
- 529              	.L23:
- 530 0094 00000000 		.word	htim2
- 531              		.cfi_endproc
- 532              	.LFE70:
- 534              		.section	.text.MX_TIM3_Init,"ax",%progbits
- 535              		.align	1
- 536              		.syntax unified
- 537              		.thumb
- 538              		.thumb_func
- 540              	MX_TIM3_Init:
- 541              	.LFB71:
- 269:./Core/Src/main.c **** 
- 270:./Core/Src/main.c **** /**
- 271:./Core/Src/main.c ****   * @brief TIM3 Initialization Function
- 272:./Core/Src/main.c ****   * @param None
- 273:./Core/Src/main.c ****   * @retval None
- 274:./Core/Src/main.c ****   */
- 275:./Core/Src/main.c **** static void MX_TIM3_Init(void)
- 276:./Core/Src/main.c **** {
- 542              		.loc 1 276 1
- 543              		.cfi_startproc
- 544              		@ args = 0, pretend = 0, frame = 56
- 545              		@ frame_needed = 1, uses_anonymous_args = 0
- 546 0000 80B5     		push	{r7, lr}
- 547              		.cfi_def_cfa_offset 8
- 548              		.cfi_offset 7, -8
- 549              		.cfi_offset 14, -4
- 550 0002 8EB0     		sub	sp, sp, #56
- 551              		.cfi_def_cfa_offset 64
- 552 0004 00AF     		add	r7, sp, #0
- 553              		.cfi_def_cfa_register 7
- 277:./Core/Src/main.c **** 
- 278:./Core/Src/main.c ****   /* USER CODE BEGIN TIM3_Init 0 */
- 279:./Core/Src/main.c **** 
- 280:./Core/Src/main.c ****   /* USER CODE END TIM3_Init 0 */
- 281:./Core/Src/main.c **** 
- 282:./Core/Src/main.c ****   TIM_ClockConfigTypeDef sClockSourceConfig = {0};
- 554              		.loc 1 282 26
- 555 0006 07F12803 		add	r3, r7, #40
- 556 000a 0022     		movs	r2, #0
- 557 000c 1A60     		str	r2, [r3]
- 558 000e 5A60     		str	r2, [r3, #4]
- 559 0010 9A60     		str	r2, [r3, #8]
- 560 0012 DA60     		str	r2, [r3, #12]
- 283:./Core/Src/main.c ****   TIM_MasterConfigTypeDef sMasterConfig = {0};
- 561              		.loc 1 283 27
- 562 0014 07F12003 		add	r3, r7, #32
- 563 0018 0022     		movs	r2, #0
- 564 001a 1A60     		str	r2, [r3]
- 565 001c 5A60     		str	r2, [r3, #4]
- 284:./Core/Src/main.c ****   TIM_OC_InitTypeDef sConfigOC = {0};
- 566              		.loc 1 284 22
- 567 001e 3B1D     		adds	r3, r7, #4
- 568 0020 0022     		movs	r2, #0
- 569 0022 1A60     		str	r2, [r3]
- 570 0024 5A60     		str	r2, [r3, #4]
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s 			page 16
+ 529              		.cfi_def_cfa_offset 8
+ 530 0090 BD46     		mov	sp, r7
+ 531              		.cfi_def_cfa_register 13
+ 532              		@ sp needed
+ 533 0092 80BD     		pop	{r7, pc}
+ 534              	.L25:
+ 535              		.align	2
+ 536              	.L24:
+ 537 0094 00000000 		.word	htim2
+ 538              		.cfi_endproc
+ 539              	.LFE70:
+ 541              		.section	.text.MX_TIM3_Init,"ax",%progbits
+ 542              		.align	1
+ 543              		.syntax unified
+ 544              		.thumb
+ 545              		.thumb_func
+ 547              	MX_TIM3_Init:
+ 548              	.LFB71:
+ 268:./Core/Src/main.c **** 
+ 269:./Core/Src/main.c **** /**
+ 270:./Core/Src/main.c ****   * @brief TIM3 Initialization Function
+ 271:./Core/Src/main.c ****   * @param None
+ 272:./Core/Src/main.c ****   * @retval None
+ 273:./Core/Src/main.c ****   */
+ 274:./Core/Src/main.c **** static void MX_TIM3_Init(void)
+ 275:./Core/Src/main.c **** {
+ 549              		.loc 1 275 1
+ 550              		.cfi_startproc
+ 551              		@ args = 0, pretend = 0, frame = 56
+ 552              		@ frame_needed = 1, uses_anonymous_args = 0
+ 553 0000 80B5     		push	{r7, lr}
+ 554              		.cfi_def_cfa_offset 8
+ 555              		.cfi_offset 7, -8
+ 556              		.cfi_offset 14, -4
+ 557 0002 8EB0     		sub	sp, sp, #56
+ 558              		.cfi_def_cfa_offset 64
+ 559 0004 00AF     		add	r7, sp, #0
+ 560              		.cfi_def_cfa_register 7
+ 276:./Core/Src/main.c **** 
+ 277:./Core/Src/main.c ****   /* USER CODE BEGIN TIM3_Init 0 */
+ 278:./Core/Src/main.c **** 
+ 279:./Core/Src/main.c ****   /* USER CODE END TIM3_Init 0 */
+ 280:./Core/Src/main.c **** 
+ 281:./Core/Src/main.c ****   TIM_ClockConfigTypeDef sClockSourceConfig = {0};
+ 561              		.loc 1 281 26
+ 562 0006 07F12803 		add	r3, r7, #40
+ 563 000a 0022     		movs	r2, #0
+ 564 000c 1A60     		str	r2, [r3]
+ 565 000e 5A60     		str	r2, [r3, #4]
+ 566 0010 9A60     		str	r2, [r3, #8]
+ 567 0012 DA60     		str	r2, [r3, #12]
+ 282:./Core/Src/main.c ****   TIM_MasterConfigTypeDef sMasterConfig = {0};
+ 568              		.loc 1 282 27
+ 569 0014 07F12003 		add	r3, r7, #32
+ 570 0018 0022     		movs	r2, #0
+ 571 001a 1A60     		str	r2, [r3]
+ 572 001c 5A60     		str	r2, [r3, #4]
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccVQgeFh.s 			page 16
 
 
- 571 0026 9A60     		str	r2, [r3, #8]
- 572 0028 DA60     		str	r2, [r3, #12]
- 573 002a 1A61     		str	r2, [r3, #16]
- 574 002c 5A61     		str	r2, [r3, #20]
- 575 002e 9A61     		str	r2, [r3, #24]
- 285:./Core/Src/main.c **** 
- 286:./Core/Src/main.c ****   /* USER CODE BEGIN TIM3_Init 1 */
- 287:./Core/Src/main.c **** 
- 288:./Core/Src/main.c ****   /* USER CODE END TIM3_Init 1 */
- 289:./Core/Src/main.c ****   htim3.Instance = TIM3;
- 576              		.loc 1 289 18
- 577 0030 2C4B     		ldr	r3, .L31
- 578 0032 2D4A     		ldr	r2, .L31+4
- 579 0034 1A60     		str	r2, [r3]
- 290:./Core/Src/main.c ****   htim3.Init.Prescaler = 63;
- 580              		.loc 1 290 24
- 581 0036 2B4B     		ldr	r3, .L31
- 582 0038 3F22     		movs	r2, #63
- 583 003a 5A60     		str	r2, [r3, #4]
- 291:./Core/Src/main.c ****   htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
- 584              		.loc 1 291 26
- 585 003c 294B     		ldr	r3, .L31
- 586 003e 0022     		movs	r2, #0
- 587 0040 9A60     		str	r2, [r3, #8]
- 292:./Core/Src/main.c ****   htim3.Init.Period = 999;
- 588              		.loc 1 292 21
- 589 0042 284B     		ldr	r3, .L31
- 590 0044 40F2E732 		movw	r2, #999
- 591 0048 DA60     		str	r2, [r3, #12]
- 293:./Core/Src/main.c ****   htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
- 592              		.loc 1 293 28
- 593 004a 264B     		ldr	r3, .L31
- 594 004c 0022     		movs	r2, #0
- 595 004e 1A61     		str	r2, [r3, #16]
- 294:./Core/Src/main.c ****   htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
- 596              		.loc 1 294 32
- 597 0050 244B     		ldr	r3, .L31
- 598 0052 0022     		movs	r2, #0
- 599 0054 9A61     		str	r2, [r3, #24]
- 295:./Core/Src/main.c ****   if (HAL_TIM_Base_Init(&htim3) != HAL_OK)
- 600              		.loc 1 295 7
- 601 0056 2348     		ldr	r0, .L31
- 602 0058 FFF7FEFF 		bl	HAL_TIM_Base_Init
- 603 005c 0346     		mov	r3, r0
- 604              		.loc 1 295 6
- 605 005e 002B     		cmp	r3, #0
- 606 0060 01D0     		beq	.L26
- 296:./Core/Src/main.c ****   {
- 297:./Core/Src/main.c ****     Error_Handler();
- 607              		.loc 1 297 5
- 608 0062 FFF7FEFF 		bl	Error_Handler
- 609              	.L26:
- 298:./Core/Src/main.c ****   }
- 299:./Core/Src/main.c ****   sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
- 610              		.loc 1 299 34
- 611 0066 4FF48053 		mov	r3, #4096
- 612 006a BB62     		str	r3, [r7, #40]
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s 			page 17
+ 283:./Core/Src/main.c ****   TIM_OC_InitTypeDef sConfigOC = {0};
+ 573              		.loc 1 283 22
+ 574 001e 3B1D     		adds	r3, r7, #4
+ 575 0020 0022     		movs	r2, #0
+ 576 0022 1A60     		str	r2, [r3]
+ 577 0024 5A60     		str	r2, [r3, #4]
+ 578 0026 9A60     		str	r2, [r3, #8]
+ 579 0028 DA60     		str	r2, [r3, #12]
+ 580 002a 1A61     		str	r2, [r3, #16]
+ 581 002c 5A61     		str	r2, [r3, #20]
+ 582 002e 9A61     		str	r2, [r3, #24]
+ 284:./Core/Src/main.c **** 
+ 285:./Core/Src/main.c ****   /* USER CODE BEGIN TIM3_Init 1 */
+ 286:./Core/Src/main.c **** 
+ 287:./Core/Src/main.c ****   /* USER CODE END TIM3_Init 1 */
+ 288:./Core/Src/main.c ****   htim3.Instance = TIM3;
+ 583              		.loc 1 288 18
+ 584 0030 2C4B     		ldr	r3, .L32
+ 585 0032 2D4A     		ldr	r2, .L32+4
+ 586 0034 1A60     		str	r2, [r3]
+ 289:./Core/Src/main.c ****   htim3.Init.Prescaler = 63;
+ 587              		.loc 1 289 24
+ 588 0036 2B4B     		ldr	r3, .L32
+ 589 0038 3F22     		movs	r2, #63
+ 590 003a 5A60     		str	r2, [r3, #4]
+ 290:./Core/Src/main.c ****   htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
+ 591              		.loc 1 290 26
+ 592 003c 294B     		ldr	r3, .L32
+ 593 003e 0022     		movs	r2, #0
+ 594 0040 9A60     		str	r2, [r3, #8]
+ 291:./Core/Src/main.c ****   htim3.Init.Period = 999;
+ 595              		.loc 1 291 21
+ 596 0042 284B     		ldr	r3, .L32
+ 597 0044 40F2E732 		movw	r2, #999
+ 598 0048 DA60     		str	r2, [r3, #12]
+ 292:./Core/Src/main.c ****   htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+ 599              		.loc 1 292 28
+ 600 004a 264B     		ldr	r3, .L32
+ 601 004c 0022     		movs	r2, #0
+ 602 004e 1A61     		str	r2, [r3, #16]
+ 293:./Core/Src/main.c ****   htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+ 603              		.loc 1 293 32
+ 604 0050 244B     		ldr	r3, .L32
+ 605 0052 0022     		movs	r2, #0
+ 606 0054 9A61     		str	r2, [r3, #24]
+ 294:./Core/Src/main.c ****   if (HAL_TIM_Base_Init(&htim3) != HAL_OK)
+ 607              		.loc 1 294 7
+ 608 0056 2348     		ldr	r0, .L32
+ 609 0058 FFF7FEFF 		bl	HAL_TIM_Base_Init
+ 610 005c 0346     		mov	r3, r0
+ 611              		.loc 1 294 6
+ 612 005e 002B     		cmp	r3, #0
+ 613 0060 01D0     		beq	.L27
+ 295:./Core/Src/main.c ****   {
+ 296:./Core/Src/main.c ****     Error_Handler();
+ 614              		.loc 1 296 5
+ 615 0062 FFF7FEFF 		bl	Error_Handler
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccVQgeFh.s 			page 17
 
 
- 300:./Core/Src/main.c ****   if (HAL_TIM_ConfigClockSource(&htim3, &sClockSourceConfig) != HAL_OK)
- 613              		.loc 1 300 7
- 614 006c 07F12803 		add	r3, r7, #40
- 615 0070 1946     		mov	r1, r3
- 616 0072 1C48     		ldr	r0, .L31
- 617 0074 FFF7FEFF 		bl	HAL_TIM_ConfigClockSource
- 618 0078 0346     		mov	r3, r0
- 619              		.loc 1 300 6
- 620 007a 002B     		cmp	r3, #0
- 621 007c 01D0     		beq	.L27
- 301:./Core/Src/main.c ****   {
- 302:./Core/Src/main.c ****     Error_Handler();
- 622              		.loc 1 302 5
- 623 007e FFF7FEFF 		bl	Error_Handler
- 624              	.L27:
- 303:./Core/Src/main.c ****   }
- 304:./Core/Src/main.c ****   if (HAL_TIM_PWM_Init(&htim3) != HAL_OK)
- 625              		.loc 1 304 7
- 626 0082 1848     		ldr	r0, .L31
- 627 0084 FFF7FEFF 		bl	HAL_TIM_PWM_Init
- 628 0088 0346     		mov	r3, r0
- 629              		.loc 1 304 6
- 630 008a 002B     		cmp	r3, #0
- 631 008c 01D0     		beq	.L28
- 305:./Core/Src/main.c ****   {
- 306:./Core/Src/main.c ****     Error_Handler();
- 632              		.loc 1 306 5
- 633 008e FFF7FEFF 		bl	Error_Handler
- 634              	.L28:
- 307:./Core/Src/main.c ****   }
- 308:./Core/Src/main.c ****   sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
- 635              		.loc 1 308 37
- 636 0092 0023     		movs	r3, #0
- 637 0094 3B62     		str	r3, [r7, #32]
- 309:./Core/Src/main.c ****   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
- 638              		.loc 1 309 33
- 639 0096 0023     		movs	r3, #0
- 640 0098 7B62     		str	r3, [r7, #36]
- 310:./Core/Src/main.c ****   if (HAL_TIMEx_MasterConfigSynchronization(&htim3, &sMasterConfig) != HAL_OK)
- 641              		.loc 1 310 7
- 642 009a 07F12003 		add	r3, r7, #32
- 643 009e 1946     		mov	r1, r3
- 644 00a0 1048     		ldr	r0, .L31
- 645 00a2 FFF7FEFF 		bl	HAL_TIMEx_MasterConfigSynchronization
- 646 00a6 0346     		mov	r3, r0
- 647              		.loc 1 310 6
- 648 00a8 002B     		cmp	r3, #0
- 649 00aa 01D0     		beq	.L29
- 311:./Core/Src/main.c ****   {
- 312:./Core/Src/main.c ****     Error_Handler();
- 650              		.loc 1 312 5
- 651 00ac FFF7FEFF 		bl	Error_Handler
- 652              	.L29:
- 313:./Core/Src/main.c ****   }
- 314:./Core/Src/main.c ****   sConfigOC.OCMode = TIM_OCMODE_PWM1;
- 653              		.loc 1 314 20
- 654 00b0 6023     		movs	r3, #96
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s 			page 18
+ 616              	.L27:
+ 297:./Core/Src/main.c ****   }
+ 298:./Core/Src/main.c ****   sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+ 617              		.loc 1 298 34
+ 618 0066 4FF48053 		mov	r3, #4096
+ 619 006a BB62     		str	r3, [r7, #40]
+ 299:./Core/Src/main.c ****   if (HAL_TIM_ConfigClockSource(&htim3, &sClockSourceConfig) != HAL_OK)
+ 620              		.loc 1 299 7
+ 621 006c 07F12803 		add	r3, r7, #40
+ 622 0070 1946     		mov	r1, r3
+ 623 0072 1C48     		ldr	r0, .L32
+ 624 0074 FFF7FEFF 		bl	HAL_TIM_ConfigClockSource
+ 625 0078 0346     		mov	r3, r0
+ 626              		.loc 1 299 6
+ 627 007a 002B     		cmp	r3, #0
+ 628 007c 01D0     		beq	.L28
+ 300:./Core/Src/main.c ****   {
+ 301:./Core/Src/main.c ****     Error_Handler();
+ 629              		.loc 1 301 5
+ 630 007e FFF7FEFF 		bl	Error_Handler
+ 631              	.L28:
+ 302:./Core/Src/main.c ****   }
+ 303:./Core/Src/main.c ****   if (HAL_TIM_PWM_Init(&htim3) != HAL_OK)
+ 632              		.loc 1 303 7
+ 633 0082 1848     		ldr	r0, .L32
+ 634 0084 FFF7FEFF 		bl	HAL_TIM_PWM_Init
+ 635 0088 0346     		mov	r3, r0
+ 636              		.loc 1 303 6
+ 637 008a 002B     		cmp	r3, #0
+ 638 008c 01D0     		beq	.L29
+ 304:./Core/Src/main.c ****   {
+ 305:./Core/Src/main.c ****     Error_Handler();
+ 639              		.loc 1 305 5
+ 640 008e FFF7FEFF 		bl	Error_Handler
+ 641              	.L29:
+ 306:./Core/Src/main.c ****   }
+ 307:./Core/Src/main.c ****   sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+ 642              		.loc 1 307 37
+ 643 0092 0023     		movs	r3, #0
+ 644 0094 3B62     		str	r3, [r7, #32]
+ 308:./Core/Src/main.c ****   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+ 645              		.loc 1 308 33
+ 646 0096 0023     		movs	r3, #0
+ 647 0098 7B62     		str	r3, [r7, #36]
+ 309:./Core/Src/main.c ****   if (HAL_TIMEx_MasterConfigSynchronization(&htim3, &sMasterConfig) != HAL_OK)
+ 648              		.loc 1 309 7
+ 649 009a 07F12003 		add	r3, r7, #32
+ 650 009e 1946     		mov	r1, r3
+ 651 00a0 1048     		ldr	r0, .L32
+ 652 00a2 FFF7FEFF 		bl	HAL_TIMEx_MasterConfigSynchronization
+ 653 00a6 0346     		mov	r3, r0
+ 654              		.loc 1 309 6
+ 655 00a8 002B     		cmp	r3, #0
+ 656 00aa 01D0     		beq	.L30
+ 310:./Core/Src/main.c ****   {
+ 311:./Core/Src/main.c ****     Error_Handler();
+ 657              		.loc 1 311 5
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccVQgeFh.s 			page 18
 
 
- 655 00b2 7B60     		str	r3, [r7, #4]
- 315:./Core/Src/main.c ****   sConfigOC.Pulse = 0;
- 656              		.loc 1 315 19
- 657 00b4 0023     		movs	r3, #0
- 658 00b6 BB60     		str	r3, [r7, #8]
- 316:./Core/Src/main.c ****   sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
- 659              		.loc 1 316 24
- 660 00b8 0023     		movs	r3, #0
- 661 00ba FB60     		str	r3, [r7, #12]
- 317:./Core/Src/main.c ****   sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
- 662              		.loc 1 317 24
- 663 00bc 0023     		movs	r3, #0
- 664 00be 7B61     		str	r3, [r7, #20]
- 318:./Core/Src/main.c ****   if (HAL_TIM_PWM_ConfigChannel(&htim3, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
- 665              		.loc 1 318 7
- 666 00c0 3B1D     		adds	r3, r7, #4
- 667 00c2 0022     		movs	r2, #0
- 668 00c4 1946     		mov	r1, r3
- 669 00c6 0748     		ldr	r0, .L31
- 670 00c8 FFF7FEFF 		bl	HAL_TIM_PWM_ConfigChannel
- 671 00cc 0346     		mov	r3, r0
- 672              		.loc 1 318 6
- 673 00ce 002B     		cmp	r3, #0
- 674 00d0 01D0     		beq	.L30
- 319:./Core/Src/main.c ****   {
- 320:./Core/Src/main.c ****     Error_Handler();
- 675              		.loc 1 320 5
- 676 00d2 FFF7FEFF 		bl	Error_Handler
- 677              	.L30:
- 321:./Core/Src/main.c ****   }
- 322:./Core/Src/main.c ****   /* USER CODE BEGIN TIM3_Init 2 */
- 323:./Core/Src/main.c **** 
- 324:./Core/Src/main.c ****   /* USER CODE END TIM3_Init 2 */
- 325:./Core/Src/main.c ****   HAL_TIM_MspPostInit(&htim3);
- 678              		.loc 1 325 3
- 679 00d6 0348     		ldr	r0, .L31
- 680 00d8 FFF7FEFF 		bl	HAL_TIM_MspPostInit
- 326:./Core/Src/main.c **** 
- 327:./Core/Src/main.c **** }
- 681              		.loc 1 327 1
- 682 00dc 00BF     		nop
- 683 00de 3837     		adds	r7, r7, #56
- 684              		.cfi_def_cfa_offset 8
- 685 00e0 BD46     		mov	sp, r7
- 686              		.cfi_def_cfa_register 13
- 687              		@ sp needed
- 688 00e2 80BD     		pop	{r7, pc}
- 689              	.L32:
- 690              		.align	2
- 691              	.L31:
- 692 00e4 00000000 		.word	htim3
- 693 00e8 00040040 		.word	1073742848
- 694              		.cfi_endproc
- 695              	.LFE71:
- 697              		.section	.text.MX_USART2_UART_Init,"ax",%progbits
- 698              		.align	1
- 699              		.syntax unified
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s 			page 19
+ 658 00ac FFF7FEFF 		bl	Error_Handler
+ 659              	.L30:
+ 312:./Core/Src/main.c ****   }
+ 313:./Core/Src/main.c ****   sConfigOC.OCMode = TIM_OCMODE_PWM1;
+ 660              		.loc 1 313 20
+ 661 00b0 6023     		movs	r3, #96
+ 662 00b2 7B60     		str	r3, [r7, #4]
+ 314:./Core/Src/main.c ****   sConfigOC.Pulse = 0;
+ 663              		.loc 1 314 19
+ 664 00b4 0023     		movs	r3, #0
+ 665 00b6 BB60     		str	r3, [r7, #8]
+ 315:./Core/Src/main.c ****   sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+ 666              		.loc 1 315 24
+ 667 00b8 0023     		movs	r3, #0
+ 668 00ba FB60     		str	r3, [r7, #12]
+ 316:./Core/Src/main.c ****   sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
+ 669              		.loc 1 316 24
+ 670 00bc 0023     		movs	r3, #0
+ 671 00be 7B61     		str	r3, [r7, #20]
+ 317:./Core/Src/main.c ****   if (HAL_TIM_PWM_ConfigChannel(&htim3, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
+ 672              		.loc 1 317 7
+ 673 00c0 3B1D     		adds	r3, r7, #4
+ 674 00c2 0022     		movs	r2, #0
+ 675 00c4 1946     		mov	r1, r3
+ 676 00c6 0748     		ldr	r0, .L32
+ 677 00c8 FFF7FEFF 		bl	HAL_TIM_PWM_ConfigChannel
+ 678 00cc 0346     		mov	r3, r0
+ 679              		.loc 1 317 6
+ 680 00ce 002B     		cmp	r3, #0
+ 681 00d0 01D0     		beq	.L31
+ 318:./Core/Src/main.c ****   {
+ 319:./Core/Src/main.c ****     Error_Handler();
+ 682              		.loc 1 319 5
+ 683 00d2 FFF7FEFF 		bl	Error_Handler
+ 684              	.L31:
+ 320:./Core/Src/main.c ****   }
+ 321:./Core/Src/main.c ****   /* USER CODE BEGIN TIM3_Init 2 */
+ 322:./Core/Src/main.c **** 
+ 323:./Core/Src/main.c ****   /* USER CODE END TIM3_Init 2 */
+ 324:./Core/Src/main.c ****   HAL_TIM_MspPostInit(&htim3);
+ 685              		.loc 1 324 3
+ 686 00d6 0348     		ldr	r0, .L32
+ 687 00d8 FFF7FEFF 		bl	HAL_TIM_MspPostInit
+ 325:./Core/Src/main.c **** 
+ 326:./Core/Src/main.c **** }
+ 688              		.loc 1 326 1
+ 689 00dc 00BF     		nop
+ 690 00de 3837     		adds	r7, r7, #56
+ 691              		.cfi_def_cfa_offset 8
+ 692 00e0 BD46     		mov	sp, r7
+ 693              		.cfi_def_cfa_register 13
+ 694              		@ sp needed
+ 695 00e2 80BD     		pop	{r7, pc}
+ 696              	.L33:
+ 697              		.align	2
+ 698              	.L32:
+ 699 00e4 00000000 		.word	htim3
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccVQgeFh.s 			page 19
 
 
- 700              		.thumb
- 701              		.thumb_func
- 703              	MX_USART2_UART_Init:
- 704              	.LFB72:
- 328:./Core/Src/main.c **** 
- 329:./Core/Src/main.c **** /**
- 330:./Core/Src/main.c ****   * @brief USART2 Initialization Function
- 331:./Core/Src/main.c ****   * @param None
- 332:./Core/Src/main.c ****   * @retval None
- 333:./Core/Src/main.c ****   */
- 334:./Core/Src/main.c **** static void MX_USART2_UART_Init(void)
- 335:./Core/Src/main.c **** {
- 705              		.loc 1 335 1
- 706              		.cfi_startproc
- 707              		@ args = 0, pretend = 0, frame = 0
- 708              		@ frame_needed = 1, uses_anonymous_args = 0
- 709 0000 80B5     		push	{r7, lr}
- 710              		.cfi_def_cfa_offset 8
- 711              		.cfi_offset 7, -8
- 712              		.cfi_offset 14, -4
- 713 0002 00AF     		add	r7, sp, #0
- 714              		.cfi_def_cfa_register 7
- 336:./Core/Src/main.c **** 
- 337:./Core/Src/main.c ****   /* USER CODE BEGIN USART2_Init 0 */
- 338:./Core/Src/main.c **** 
- 339:./Core/Src/main.c ****   /* USER CODE END USART2_Init 0 */
- 340:./Core/Src/main.c **** 
- 341:./Core/Src/main.c ****   /* USER CODE BEGIN USART2_Init 1 */
- 342:./Core/Src/main.c **** 
- 343:./Core/Src/main.c ****   /* USER CODE END USART2_Init 1 */
- 344:./Core/Src/main.c ****   huart2.Instance = USART2;
- 715              		.loc 1 344 19
- 716 0004 114B     		ldr	r3, .L36
- 717 0006 124A     		ldr	r2, .L36+4
- 718 0008 1A60     		str	r2, [r3]
- 345:./Core/Src/main.c ****   huart2.Init.BaudRate = 115200;
- 719              		.loc 1 345 24
- 720 000a 104B     		ldr	r3, .L36
- 721 000c 4FF4E132 		mov	r2, #115200
- 722 0010 5A60     		str	r2, [r3, #4]
- 346:./Core/Src/main.c ****   huart2.Init.WordLength = UART_WORDLENGTH_8B;
- 723              		.loc 1 346 26
- 724 0012 0E4B     		ldr	r3, .L36
- 725 0014 0022     		movs	r2, #0
- 726 0016 9A60     		str	r2, [r3, #8]
- 347:./Core/Src/main.c ****   huart2.Init.StopBits = UART_STOPBITS_1;
- 727              		.loc 1 347 24
- 728 0018 0C4B     		ldr	r3, .L36
- 729 001a 0022     		movs	r2, #0
- 730 001c DA60     		str	r2, [r3, #12]
- 348:./Core/Src/main.c ****   huart2.Init.Parity = UART_PARITY_NONE;
- 731              		.loc 1 348 22
- 732 001e 0B4B     		ldr	r3, .L36
- 733 0020 0022     		movs	r2, #0
- 734 0022 1A61     		str	r2, [r3, #16]
- 349:./Core/Src/main.c ****   huart2.Init.Mode = UART_MODE_TX_RX;
- 735              		.loc 1 349 20
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s 			page 20
+ 700 00e8 00040040 		.word	1073742848
+ 701              		.cfi_endproc
+ 702              	.LFE71:
+ 704              		.section	.text.MX_USART2_UART_Init,"ax",%progbits
+ 705              		.align	1
+ 706              		.syntax unified
+ 707              		.thumb
+ 708              		.thumb_func
+ 710              	MX_USART2_UART_Init:
+ 711              	.LFB72:
+ 327:./Core/Src/main.c **** 
+ 328:./Core/Src/main.c **** /**
+ 329:./Core/Src/main.c ****   * @brief USART2 Initialization Function
+ 330:./Core/Src/main.c ****   * @param None
+ 331:./Core/Src/main.c ****   * @retval None
+ 332:./Core/Src/main.c ****   */
+ 333:./Core/Src/main.c **** static void MX_USART2_UART_Init(void)
+ 334:./Core/Src/main.c **** {
+ 712              		.loc 1 334 1
+ 713              		.cfi_startproc
+ 714              		@ args = 0, pretend = 0, frame = 0
+ 715              		@ frame_needed = 1, uses_anonymous_args = 0
+ 716 0000 80B5     		push	{r7, lr}
+ 717              		.cfi_def_cfa_offset 8
+ 718              		.cfi_offset 7, -8
+ 719              		.cfi_offset 14, -4
+ 720 0002 00AF     		add	r7, sp, #0
+ 721              		.cfi_def_cfa_register 7
+ 335:./Core/Src/main.c **** 
+ 336:./Core/Src/main.c ****   /* USER CODE BEGIN USART2_Init 0 */
+ 337:./Core/Src/main.c **** 
+ 338:./Core/Src/main.c ****   /* USER CODE END USART2_Init 0 */
+ 339:./Core/Src/main.c **** 
+ 340:./Core/Src/main.c ****   /* USER CODE BEGIN USART2_Init 1 */
+ 341:./Core/Src/main.c **** 
+ 342:./Core/Src/main.c ****   /* USER CODE END USART2_Init 1 */
+ 343:./Core/Src/main.c ****   huart2.Instance = USART2;
+ 722              		.loc 1 343 19
+ 723 0004 114B     		ldr	r3, .L37
+ 724 0006 124A     		ldr	r2, .L37+4
+ 725 0008 1A60     		str	r2, [r3]
+ 344:./Core/Src/main.c ****   huart2.Init.BaudRate = 115200;
+ 726              		.loc 1 344 24
+ 727 000a 104B     		ldr	r3, .L37
+ 728 000c 4FF4E132 		mov	r2, #115200
+ 729 0010 5A60     		str	r2, [r3, #4]
+ 345:./Core/Src/main.c ****   huart2.Init.WordLength = UART_WORDLENGTH_8B;
+ 730              		.loc 1 345 26
+ 731 0012 0E4B     		ldr	r3, .L37
+ 732 0014 0022     		movs	r2, #0
+ 733 0016 9A60     		str	r2, [r3, #8]
+ 346:./Core/Src/main.c ****   huart2.Init.StopBits = UART_STOPBITS_1;
+ 734              		.loc 1 346 24
+ 735 0018 0C4B     		ldr	r3, .L37
+ 736 001a 0022     		movs	r2, #0
+ 737 001c DA60     		str	r2, [r3, #12]
+ 347:./Core/Src/main.c ****   huart2.Init.Parity = UART_PARITY_NONE;
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccVQgeFh.s 			page 20
 
 
- 736 0024 094B     		ldr	r3, .L36
- 737 0026 0C22     		movs	r2, #12
- 738 0028 5A61     		str	r2, [r3, #20]
- 350:./Core/Src/main.c ****   huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
- 739              		.loc 1 350 25
- 740 002a 084B     		ldr	r3, .L36
- 741 002c 0022     		movs	r2, #0
- 742 002e 9A61     		str	r2, [r3, #24]
- 351:./Core/Src/main.c ****   huart2.Init.OverSampling = UART_OVERSAMPLING_16;
- 743              		.loc 1 351 28
- 744 0030 064B     		ldr	r3, .L36
- 745 0032 0022     		movs	r2, #0
- 746 0034 DA61     		str	r2, [r3, #28]
- 352:./Core/Src/main.c ****   if (HAL_UART_Init(&huart2) != HAL_OK)
- 747              		.loc 1 352 7
- 748 0036 0548     		ldr	r0, .L36
- 749 0038 FFF7FEFF 		bl	HAL_UART_Init
- 750 003c 0346     		mov	r3, r0
- 751              		.loc 1 352 6
- 752 003e 002B     		cmp	r3, #0
- 753 0040 01D0     		beq	.L35
- 353:./Core/Src/main.c ****   {
- 354:./Core/Src/main.c ****     Error_Handler();
- 754              		.loc 1 354 5
- 755 0042 FFF7FEFF 		bl	Error_Handler
- 756              	.L35:
- 355:./Core/Src/main.c ****   }
- 356:./Core/Src/main.c ****   /* USER CODE BEGIN USART2_Init 2 */
- 357:./Core/Src/main.c **** 
- 358:./Core/Src/main.c ****   /* USER CODE END USART2_Init 2 */
- 359:./Core/Src/main.c **** 
- 360:./Core/Src/main.c **** }
- 757              		.loc 1 360 1
- 758 0046 00BF     		nop
- 759 0048 80BD     		pop	{r7, pc}
- 760              	.L37:
- 761 004a 00BF     		.align	2
- 762              	.L36:
- 763 004c 00000000 		.word	huart2
- 764 0050 00440040 		.word	1073759232
- 765              		.cfi_endproc
- 766              	.LFE72:
- 768              		.section	.text.MX_GPIO_Init,"ax",%progbits
- 769              		.align	1
- 770              		.syntax unified
- 771              		.thumb
- 772              		.thumb_func
- 774              	MX_GPIO_Init:
- 775              	.LFB73:
- 361:./Core/Src/main.c **** 
- 362:./Core/Src/main.c **** /**
- 363:./Core/Src/main.c ****   * @brief GPIO Initialization Function
- 364:./Core/Src/main.c ****   * @param None
- 365:./Core/Src/main.c ****   * @retval None
- 366:./Core/Src/main.c ****   */
- 367:./Core/Src/main.c **** static void MX_GPIO_Init(void)
- 368:./Core/Src/main.c **** {
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s 			page 21
+ 738              		.loc 1 347 22
+ 739 001e 0B4B     		ldr	r3, .L37
+ 740 0020 0022     		movs	r2, #0
+ 741 0022 1A61     		str	r2, [r3, #16]
+ 348:./Core/Src/main.c ****   huart2.Init.Mode = UART_MODE_TX_RX;
+ 742              		.loc 1 348 20
+ 743 0024 094B     		ldr	r3, .L37
+ 744 0026 0C22     		movs	r2, #12
+ 745 0028 5A61     		str	r2, [r3, #20]
+ 349:./Core/Src/main.c ****   huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+ 746              		.loc 1 349 25
+ 747 002a 084B     		ldr	r3, .L37
+ 748 002c 0022     		movs	r2, #0
+ 749 002e 9A61     		str	r2, [r3, #24]
+ 350:./Core/Src/main.c ****   huart2.Init.OverSampling = UART_OVERSAMPLING_16;
+ 750              		.loc 1 350 28
+ 751 0030 064B     		ldr	r3, .L37
+ 752 0032 0022     		movs	r2, #0
+ 753 0034 DA61     		str	r2, [r3, #28]
+ 351:./Core/Src/main.c ****   if (HAL_UART_Init(&huart2) != HAL_OK)
+ 754              		.loc 1 351 7
+ 755 0036 0548     		ldr	r0, .L37
+ 756 0038 FFF7FEFF 		bl	HAL_UART_Init
+ 757 003c 0346     		mov	r3, r0
+ 758              		.loc 1 351 6
+ 759 003e 002B     		cmp	r3, #0
+ 760 0040 01D0     		beq	.L36
+ 352:./Core/Src/main.c ****   {
+ 353:./Core/Src/main.c ****     Error_Handler();
+ 761              		.loc 1 353 5
+ 762 0042 FFF7FEFF 		bl	Error_Handler
+ 763              	.L36:
+ 354:./Core/Src/main.c ****   }
+ 355:./Core/Src/main.c ****   /* USER CODE BEGIN USART2_Init 2 */
+ 356:./Core/Src/main.c **** 
+ 357:./Core/Src/main.c ****   /* USER CODE END USART2_Init 2 */
+ 358:./Core/Src/main.c **** 
+ 359:./Core/Src/main.c **** }
+ 764              		.loc 1 359 1
+ 765 0046 00BF     		nop
+ 766 0048 80BD     		pop	{r7, pc}
+ 767              	.L38:
+ 768 004a 00BF     		.align	2
+ 769              	.L37:
+ 770 004c 00000000 		.word	huart2
+ 771 0050 00440040 		.word	1073759232
+ 772              		.cfi_endproc
+ 773              	.LFE72:
+ 775              		.section	.text.MX_GPIO_Init,"ax",%progbits
+ 776              		.align	1
+ 777              		.syntax unified
+ 778              		.thumb
+ 779              		.thumb_func
+ 781              	MX_GPIO_Init:
+ 782              	.LFB73:
+ 360:./Core/Src/main.c **** 
+ 361:./Core/Src/main.c **** /**
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccVQgeFh.s 			page 21
 
 
- 776              		.loc 1 368 1
- 777              		.cfi_startproc
- 778              		@ args = 0, pretend = 0, frame = 32
- 779              		@ frame_needed = 1, uses_anonymous_args = 0
- 780 0000 80B5     		push	{r7, lr}
- 781              		.cfi_def_cfa_offset 8
- 782              		.cfi_offset 7, -8
- 783              		.cfi_offset 14, -4
- 784 0002 88B0     		sub	sp, sp, #32
- 785              		.cfi_def_cfa_offset 40
- 786 0004 00AF     		add	r7, sp, #0
- 787              		.cfi_def_cfa_register 7
- 369:./Core/Src/main.c ****   GPIO_InitTypeDef GPIO_InitStruct = {0};
- 788              		.loc 1 369 20
- 789 0006 07F11003 		add	r3, r7, #16
- 790 000a 0022     		movs	r2, #0
- 791 000c 1A60     		str	r2, [r3]
- 792 000e 5A60     		str	r2, [r3, #4]
- 793 0010 9A60     		str	r2, [r3, #8]
- 794 0012 DA60     		str	r2, [r3, #12]
- 795              	.LBB6:
- 370:./Core/Src/main.c **** 
- 371:./Core/Src/main.c ****   /* GPIO Ports Clock Enable */
- 372:./Core/Src/main.c ****   __HAL_RCC_GPIOC_CLK_ENABLE();
- 796              		.loc 1 372 3
- 797 0014 454B     		ldr	r3, .L39
- 798 0016 9B69     		ldr	r3, [r3, #24]
- 799 0018 444A     		ldr	r2, .L39
- 800 001a 43F01003 		orr	r3, r3, #16
- 801 001e 9361     		str	r3, [r2, #24]
- 802 0020 424B     		ldr	r3, .L39
- 803 0022 9B69     		ldr	r3, [r3, #24]
- 804 0024 03F01003 		and	r3, r3, #16
- 805 0028 FB60     		str	r3, [r7, #12]
- 806 002a FB68     		ldr	r3, [r7, #12]
- 807              	.LBE6:
- 808              	.LBB7:
- 373:./Core/Src/main.c ****   __HAL_RCC_GPIOD_CLK_ENABLE();
- 809              		.loc 1 373 3
- 810 002c 3F4B     		ldr	r3, .L39
- 811 002e 9B69     		ldr	r3, [r3, #24]
- 812 0030 3E4A     		ldr	r2, .L39
- 813 0032 43F02003 		orr	r3, r3, #32
- 814 0036 9361     		str	r3, [r2, #24]
- 815 0038 3C4B     		ldr	r3, .L39
- 816 003a 9B69     		ldr	r3, [r3, #24]
- 817 003c 03F02003 		and	r3, r3, #32
- 818 0040 BB60     		str	r3, [r7, #8]
- 819 0042 BB68     		ldr	r3, [r7, #8]
- 820              	.LBE7:
- 821              	.LBB8:
- 374:./Core/Src/main.c ****   __HAL_RCC_GPIOA_CLK_ENABLE();
- 822              		.loc 1 374 3
- 823 0044 394B     		ldr	r3, .L39
- 824 0046 9B69     		ldr	r3, [r3, #24]
- 825 0048 384A     		ldr	r2, .L39
- 826 004a 43F00403 		orr	r3, r3, #4
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s 			page 22
+ 362:./Core/Src/main.c ****   * @brief GPIO Initialization Function
+ 363:./Core/Src/main.c ****   * @param None
+ 364:./Core/Src/main.c ****   * @retval None
+ 365:./Core/Src/main.c ****   */
+ 366:./Core/Src/main.c **** static void MX_GPIO_Init(void)
+ 367:./Core/Src/main.c **** {
+ 783              		.loc 1 367 1
+ 784              		.cfi_startproc
+ 785              		@ args = 0, pretend = 0, frame = 32
+ 786              		@ frame_needed = 1, uses_anonymous_args = 0
+ 787 0000 80B5     		push	{r7, lr}
+ 788              		.cfi_def_cfa_offset 8
+ 789              		.cfi_offset 7, -8
+ 790              		.cfi_offset 14, -4
+ 791 0002 88B0     		sub	sp, sp, #32
+ 792              		.cfi_def_cfa_offset 40
+ 793 0004 00AF     		add	r7, sp, #0
+ 794              		.cfi_def_cfa_register 7
+ 368:./Core/Src/main.c ****   GPIO_InitTypeDef GPIO_InitStruct = {0};
+ 795              		.loc 1 368 20
+ 796 0006 07F11003 		add	r3, r7, #16
+ 797 000a 0022     		movs	r2, #0
+ 798 000c 1A60     		str	r2, [r3]
+ 799 000e 5A60     		str	r2, [r3, #4]
+ 800 0010 9A60     		str	r2, [r3, #8]
+ 801 0012 DA60     		str	r2, [r3, #12]
+ 802              	.LBB6:
+ 369:./Core/Src/main.c **** 
+ 370:./Core/Src/main.c ****   /* GPIO Ports Clock Enable */
+ 371:./Core/Src/main.c ****   __HAL_RCC_GPIOC_CLK_ENABLE();
+ 803              		.loc 1 371 3
+ 804 0014 454B     		ldr	r3, .L40
+ 805 0016 9B69     		ldr	r3, [r3, #24]
+ 806 0018 444A     		ldr	r2, .L40
+ 807 001a 43F01003 		orr	r3, r3, #16
+ 808 001e 9361     		str	r3, [r2, #24]
+ 809 0020 424B     		ldr	r3, .L40
+ 810 0022 9B69     		ldr	r3, [r3, #24]
+ 811 0024 03F01003 		and	r3, r3, #16
+ 812 0028 FB60     		str	r3, [r7, #12]
+ 813 002a FB68     		ldr	r3, [r7, #12]
+ 814              	.LBE6:
+ 815              	.LBB7:
+ 372:./Core/Src/main.c ****   __HAL_RCC_GPIOD_CLK_ENABLE();
+ 816              		.loc 1 372 3
+ 817 002c 3F4B     		ldr	r3, .L40
+ 818 002e 9B69     		ldr	r3, [r3, #24]
+ 819 0030 3E4A     		ldr	r2, .L40
+ 820 0032 43F02003 		orr	r3, r3, #32
+ 821 0036 9361     		str	r3, [r2, #24]
+ 822 0038 3C4B     		ldr	r3, .L40
+ 823 003a 9B69     		ldr	r3, [r3, #24]
+ 824 003c 03F02003 		and	r3, r3, #32
+ 825 0040 BB60     		str	r3, [r7, #8]
+ 826 0042 BB68     		ldr	r3, [r7, #8]
+ 827              	.LBE7:
+ 828              	.LBB8:
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccVQgeFh.s 			page 22
 
 
- 827 004e 9361     		str	r3, [r2, #24]
- 828 0050 364B     		ldr	r3, .L39
- 829 0052 9B69     		ldr	r3, [r3, #24]
- 830 0054 03F00403 		and	r3, r3, #4
- 831 0058 7B60     		str	r3, [r7, #4]
- 832 005a 7B68     		ldr	r3, [r7, #4]
- 833              	.LBE8:
- 834              	.LBB9:
- 375:./Core/Src/main.c ****   __HAL_RCC_GPIOB_CLK_ENABLE();
- 835              		.loc 1 375 3
- 836 005c 334B     		ldr	r3, .L39
- 837 005e 9B69     		ldr	r3, [r3, #24]
- 838 0060 324A     		ldr	r2, .L39
- 839 0062 43F00803 		orr	r3, r3, #8
- 840 0066 9361     		str	r3, [r2, #24]
- 841 0068 304B     		ldr	r3, .L39
- 842 006a 9B69     		ldr	r3, [r3, #24]
- 843 006c 03F00803 		and	r3, r3, #8
- 844 0070 3B60     		str	r3, [r7]
- 845 0072 3B68     		ldr	r3, [r7]
- 846              	.LBE9:
- 376:./Core/Src/main.c **** 
- 377:./Core/Src/main.c ****   /*Configure GPIO pin Output Level */
- 378:./Core/Src/main.c ****   HAL_GPIO_WritePin(GPIOA, LD2_Pin|LED3B_Pin|LED1A_Pin, GPIO_PIN_RESET);
- 847              		.loc 1 378 3
- 848 0074 0022     		movs	r2, #0
- 849 0076 4FF4A461 		mov	r1, #1312
- 850 007a 2D48     		ldr	r0, .L39+4
- 851 007c FFF7FEFF 		bl	HAL_GPIO_WritePin
- 379:./Core/Src/main.c **** 
- 380:./Core/Src/main.c ****   /*Configure GPIO pin Output Level */
- 381:./Core/Src/main.c ****   HAL_GPIO_WritePin(GPIOB, LED_RED1_Pin|LED3A_Pin|LED_YELLOW1_Pin|LED_GREEN1_Pin
- 852              		.loc 1 381 3
- 853 0080 0022     		movs	r2, #0
- 854 0082 4FF6BC71 		movw	r1, #65468
- 855 0086 2B48     		ldr	r0, .L39+8
- 856 0088 FFF7FEFF 		bl	HAL_GPIO_WritePin
- 382:./Core/Src/main.c ****                           |LED_RED2_Pin|LED_YELLOW2_Pin|LED_GREEN2_Pin|LED1B_Pin
- 383:./Core/Src/main.c ****                           |LED2B_Pin|LED2A_Pin|LED_RED3_Pin|LED_YELLOW3_Pin
- 384:./Core/Src/main.c ****                           |LED_GREEN3_Pin, GPIO_PIN_RESET);
- 385:./Core/Src/main.c **** 
- 386:./Core/Src/main.c ****   /*Configure GPIO pin : B1_Pin */
- 387:./Core/Src/main.c ****   GPIO_InitStruct.Pin = B1_Pin;
- 857              		.loc 1 387 23
- 858 008c 4FF40053 		mov	r3, #8192
- 859 0090 3B61     		str	r3, [r7, #16]
- 388:./Core/Src/main.c ****   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
- 860              		.loc 1 388 24
- 861 0092 294B     		ldr	r3, .L39+12
- 862 0094 7B61     		str	r3, [r7, #20]
- 389:./Core/Src/main.c ****   GPIO_InitStruct.Pull = GPIO_PULLUP;
- 863              		.loc 1 389 24
- 864 0096 0123     		movs	r3, #1
- 865 0098 BB61     		str	r3, [r7, #24]
- 390:./Core/Src/main.c ****   HAL_GPIO_Init(B1_GPIO_Port, &GPIO_InitStruct);
- 866              		.loc 1 390 3
- 867 009a 07F11003 		add	r3, r7, #16
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s 			page 23
+ 373:./Core/Src/main.c ****   __HAL_RCC_GPIOA_CLK_ENABLE();
+ 829              		.loc 1 373 3
+ 830 0044 394B     		ldr	r3, .L40
+ 831 0046 9B69     		ldr	r3, [r3, #24]
+ 832 0048 384A     		ldr	r2, .L40
+ 833 004a 43F00403 		orr	r3, r3, #4
+ 834 004e 9361     		str	r3, [r2, #24]
+ 835 0050 364B     		ldr	r3, .L40
+ 836 0052 9B69     		ldr	r3, [r3, #24]
+ 837 0054 03F00403 		and	r3, r3, #4
+ 838 0058 7B60     		str	r3, [r7, #4]
+ 839 005a 7B68     		ldr	r3, [r7, #4]
+ 840              	.LBE8:
+ 841              	.LBB9:
+ 374:./Core/Src/main.c ****   __HAL_RCC_GPIOB_CLK_ENABLE();
+ 842              		.loc 1 374 3
+ 843 005c 334B     		ldr	r3, .L40
+ 844 005e 9B69     		ldr	r3, [r3, #24]
+ 845 0060 324A     		ldr	r2, .L40
+ 846 0062 43F00803 		orr	r3, r3, #8
+ 847 0066 9361     		str	r3, [r2, #24]
+ 848 0068 304B     		ldr	r3, .L40
+ 849 006a 9B69     		ldr	r3, [r3, #24]
+ 850 006c 03F00803 		and	r3, r3, #8
+ 851 0070 3B60     		str	r3, [r7]
+ 852 0072 3B68     		ldr	r3, [r7]
+ 853              	.LBE9:
+ 375:./Core/Src/main.c **** 
+ 376:./Core/Src/main.c ****   /*Configure GPIO pin Output Level */
+ 377:./Core/Src/main.c ****   HAL_GPIO_WritePin(GPIOA, LD2_Pin|LED3B_Pin|LED1A_Pin, GPIO_PIN_RESET);
+ 854              		.loc 1 377 3
+ 855 0074 0022     		movs	r2, #0
+ 856 0076 4FF4A461 		mov	r1, #1312
+ 857 007a 2D48     		ldr	r0, .L40+4
+ 858 007c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 378:./Core/Src/main.c **** 
+ 379:./Core/Src/main.c ****   /*Configure GPIO pin Output Level */
+ 380:./Core/Src/main.c ****   HAL_GPIO_WritePin(GPIOB, LED_RED1_Pin|LED3A_Pin|LED_YELLOW1_Pin|LED_GREEN1_Pin
+ 859              		.loc 1 380 3
+ 860 0080 0022     		movs	r2, #0
+ 861 0082 4FF6BC71 		movw	r1, #65468
+ 862 0086 2B48     		ldr	r0, .L40+8
+ 863 0088 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 381:./Core/Src/main.c ****                           |LED_RED2_Pin|LED_YELLOW2_Pin|LED_GREEN2_Pin|LED1B_Pin
+ 382:./Core/Src/main.c ****                           |LED2B_Pin|LED2A_Pin|LED_RED3_Pin|LED_YELLOW3_Pin
+ 383:./Core/Src/main.c ****                           |LED_GREEN3_Pin, GPIO_PIN_RESET);
+ 384:./Core/Src/main.c **** 
+ 385:./Core/Src/main.c ****   /*Configure GPIO pin : B1_Pin */
+ 386:./Core/Src/main.c ****   GPIO_InitStruct.Pin = B1_Pin;
+ 864              		.loc 1 386 23
+ 865 008c 4FF40053 		mov	r3, #8192
+ 866 0090 3B61     		str	r3, [r7, #16]
+ 387:./Core/Src/main.c ****   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+ 867              		.loc 1 387 24
+ 868 0092 294B     		ldr	r3, .L40+12
+ 869 0094 7B61     		str	r3, [r7, #20]
+ 388:./Core/Src/main.c ****   GPIO_InitStruct.Pull = GPIO_PULLUP;
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccVQgeFh.s 			page 23
 
 
- 868 009e 1946     		mov	r1, r3
- 869 00a0 2648     		ldr	r0, .L39+16
- 870 00a2 FFF7FEFF 		bl	HAL_GPIO_Init
- 391:./Core/Src/main.c **** 
- 392:./Core/Src/main.c ****   /*Configure GPIO pins : BUTTONUSER_Pin BUTTON1_Pin BUTTON2_Pin */
- 393:./Core/Src/main.c ****   GPIO_InitStruct.Pin = BUTTONUSER_Pin|BUTTON1_Pin|BUTTON2_Pin;
- 871              		.loc 1 393 23
- 872 00a6 1323     		movs	r3, #19
- 873 00a8 3B61     		str	r3, [r7, #16]
- 394:./Core/Src/main.c ****   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
- 874              		.loc 1 394 24
- 875 00aa 0023     		movs	r3, #0
- 876 00ac 7B61     		str	r3, [r7, #20]
- 395:./Core/Src/main.c ****   GPIO_InitStruct.Pull = GPIO_PULLUP;
- 877              		.loc 1 395 24
- 878 00ae 0123     		movs	r3, #1
- 879 00b0 BB61     		str	r3, [r7, #24]
- 396:./Core/Src/main.c ****   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
- 880              		.loc 1 396 3
- 881 00b2 07F11003 		add	r3, r7, #16
- 882 00b6 1946     		mov	r1, r3
- 883 00b8 1D48     		ldr	r0, .L39+4
- 884 00ba FFF7FEFF 		bl	HAL_GPIO_Init
- 397:./Core/Src/main.c **** 
- 398:./Core/Src/main.c ****   /*Configure GPIO pins : LD2_Pin LED3B_Pin LED1A_Pin */
- 399:./Core/Src/main.c ****   GPIO_InitStruct.Pin = LD2_Pin|LED3B_Pin|LED1A_Pin;
- 885              		.loc 1 399 23
- 886 00be 4FF4A463 		mov	r3, #1312
- 887 00c2 3B61     		str	r3, [r7, #16]
- 400:./Core/Src/main.c ****   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
- 888              		.loc 1 400 24
- 889 00c4 0123     		movs	r3, #1
- 890 00c6 7B61     		str	r3, [r7, #20]
- 401:./Core/Src/main.c ****   GPIO_InitStruct.Pull = GPIO_NOPULL;
- 891              		.loc 1 401 24
- 892 00c8 0023     		movs	r3, #0
- 893 00ca BB61     		str	r3, [r7, #24]
- 402:./Core/Src/main.c ****   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
- 894              		.loc 1 402 25
- 895 00cc 0223     		movs	r3, #2
- 896 00ce FB61     		str	r3, [r7, #28]
- 403:./Core/Src/main.c ****   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
- 897              		.loc 1 403 3
- 898 00d0 07F11003 		add	r3, r7, #16
- 899 00d4 1946     		mov	r1, r3
- 900 00d6 1648     		ldr	r0, .L39+4
- 901 00d8 FFF7FEFF 		bl	HAL_GPIO_Init
- 404:./Core/Src/main.c **** 
- 405:./Core/Src/main.c ****   /*Configure GPIO pin : BUTTON3_Pin */
- 406:./Core/Src/main.c ****   GPIO_InitStruct.Pin = BUTTON3_Pin;
- 902              		.loc 1 406 23
- 903 00dc 0123     		movs	r3, #1
- 904 00de 3B61     		str	r3, [r7, #16]
- 407:./Core/Src/main.c ****   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
- 905              		.loc 1 407 24
- 906 00e0 0023     		movs	r3, #0
- 907 00e2 7B61     		str	r3, [r7, #20]
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s 			page 24
+ 870              		.loc 1 388 24
+ 871 0096 0123     		movs	r3, #1
+ 872 0098 BB61     		str	r3, [r7, #24]
+ 389:./Core/Src/main.c ****   HAL_GPIO_Init(B1_GPIO_Port, &GPIO_InitStruct);
+ 873              		.loc 1 389 3
+ 874 009a 07F11003 		add	r3, r7, #16
+ 875 009e 1946     		mov	r1, r3
+ 876 00a0 2648     		ldr	r0, .L40+16
+ 877 00a2 FFF7FEFF 		bl	HAL_GPIO_Init
+ 390:./Core/Src/main.c **** 
+ 391:./Core/Src/main.c ****   /*Configure GPIO pins : BUTTONUSER_Pin BUTTON1_Pin BUTTON2_Pin */
+ 392:./Core/Src/main.c ****   GPIO_InitStruct.Pin = BUTTONUSER_Pin|BUTTON1_Pin|BUTTON2_Pin;
+ 878              		.loc 1 392 23
+ 879 00a6 1323     		movs	r3, #19
+ 880 00a8 3B61     		str	r3, [r7, #16]
+ 393:./Core/Src/main.c ****   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+ 881              		.loc 1 393 24
+ 882 00aa 0023     		movs	r3, #0
+ 883 00ac 7B61     		str	r3, [r7, #20]
+ 394:./Core/Src/main.c ****   GPIO_InitStruct.Pull = GPIO_PULLUP;
+ 884              		.loc 1 394 24
+ 885 00ae 0123     		movs	r3, #1
+ 886 00b0 BB61     		str	r3, [r7, #24]
+ 395:./Core/Src/main.c ****   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+ 887              		.loc 1 395 3
+ 888 00b2 07F11003 		add	r3, r7, #16
+ 889 00b6 1946     		mov	r1, r3
+ 890 00b8 1D48     		ldr	r0, .L40+4
+ 891 00ba FFF7FEFF 		bl	HAL_GPIO_Init
+ 396:./Core/Src/main.c **** 
+ 397:./Core/Src/main.c ****   /*Configure GPIO pins : LD2_Pin LED3B_Pin LED1A_Pin */
+ 398:./Core/Src/main.c ****   GPIO_InitStruct.Pin = LD2_Pin|LED3B_Pin|LED1A_Pin;
+ 892              		.loc 1 398 23
+ 893 00be 4FF4A463 		mov	r3, #1312
+ 894 00c2 3B61     		str	r3, [r7, #16]
+ 399:./Core/Src/main.c ****   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+ 895              		.loc 1 399 24
+ 896 00c4 0123     		movs	r3, #1
+ 897 00c6 7B61     		str	r3, [r7, #20]
+ 400:./Core/Src/main.c ****   GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 898              		.loc 1 400 24
+ 899 00c8 0023     		movs	r3, #0
+ 900 00ca BB61     		str	r3, [r7, #24]
+ 401:./Core/Src/main.c ****   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+ 901              		.loc 1 401 25
+ 902 00cc 0223     		movs	r3, #2
+ 903 00ce FB61     		str	r3, [r7, #28]
+ 402:./Core/Src/main.c ****   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+ 904              		.loc 1 402 3
+ 905 00d0 07F11003 		add	r3, r7, #16
+ 906 00d4 1946     		mov	r1, r3
+ 907 00d6 1648     		ldr	r0, .L40+4
+ 908 00d8 FFF7FEFF 		bl	HAL_GPIO_Init
+ 403:./Core/Src/main.c **** 
+ 404:./Core/Src/main.c ****   /*Configure GPIO pin : BUTTON3_Pin */
+ 405:./Core/Src/main.c ****   GPIO_InitStruct.Pin = BUTTON3_Pin;
+ 909              		.loc 1 405 23
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccVQgeFh.s 			page 24
 
 
- 408:./Core/Src/main.c ****   GPIO_InitStruct.Pull = GPIO_PULLUP;
- 908              		.loc 1 408 24
- 909 00e4 0123     		movs	r3, #1
- 910 00e6 BB61     		str	r3, [r7, #24]
- 409:./Core/Src/main.c ****   HAL_GPIO_Init(BUTTON3_GPIO_Port, &GPIO_InitStruct);
- 911              		.loc 1 409 3
- 912 00e8 07F11003 		add	r3, r7, #16
- 913 00ec 1946     		mov	r1, r3
- 914 00ee 1148     		ldr	r0, .L39+8
- 915 00f0 FFF7FEFF 		bl	HAL_GPIO_Init
- 410:./Core/Src/main.c **** 
- 411:./Core/Src/main.c ****   /*Configure GPIO pins : LED_RED1_Pin LED3A_Pin LED_YELLOW1_Pin LED_GREEN1_Pin
- 412:./Core/Src/main.c ****                            LED_RED2_Pin LED_YELLOW2_Pin LED_GREEN2_Pin LED1B_Pin
- 413:./Core/Src/main.c ****                            LED2B_Pin LED2A_Pin LED_RED3_Pin LED_YELLOW3_Pin
- 414:./Core/Src/main.c ****                            LED_GREEN3_Pin */
- 415:./Core/Src/main.c ****   GPIO_InitStruct.Pin = LED_RED1_Pin|LED3A_Pin|LED_YELLOW1_Pin|LED_GREEN1_Pin
- 916              		.loc 1 415 23
- 917 00f4 4FF6BC73 		movw	r3, #65468
- 918 00f8 3B61     		str	r3, [r7, #16]
- 416:./Core/Src/main.c ****                           |LED_RED2_Pin|LED_YELLOW2_Pin|LED_GREEN2_Pin|LED1B_Pin
- 417:./Core/Src/main.c ****                           |LED2B_Pin|LED2A_Pin|LED_RED3_Pin|LED_YELLOW3_Pin
- 418:./Core/Src/main.c ****                           |LED_GREEN3_Pin;
- 419:./Core/Src/main.c ****   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
- 919              		.loc 1 419 24
- 920 00fa 0123     		movs	r3, #1
- 921 00fc 7B61     		str	r3, [r7, #20]
- 420:./Core/Src/main.c ****   GPIO_InitStruct.Pull = GPIO_NOPULL;
- 922              		.loc 1 420 24
- 923 00fe 0023     		movs	r3, #0
- 924 0100 BB61     		str	r3, [r7, #24]
- 421:./Core/Src/main.c ****   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
- 925              		.loc 1 421 25
- 926 0102 0223     		movs	r3, #2
- 927 0104 FB61     		str	r3, [r7, #28]
- 422:./Core/Src/main.c ****   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
- 928              		.loc 1 422 3
- 929 0106 07F11003 		add	r3, r7, #16
- 930 010a 1946     		mov	r1, r3
- 931 010c 0948     		ldr	r0, .L39+8
- 932 010e FFF7FEFF 		bl	HAL_GPIO_Init
- 423:./Core/Src/main.c **** 
- 424:./Core/Src/main.c ****   /* EXTI interrupt init*/
- 425:./Core/Src/main.c ****   HAL_NVIC_SetPriority(EXTI15_10_IRQn, 0, 0);
- 933              		.loc 1 425 3
- 934 0112 0022     		movs	r2, #0
- 935 0114 0021     		movs	r1, #0
- 936 0116 2820     		movs	r0, #40
- 937 0118 FFF7FEFF 		bl	HAL_NVIC_SetPriority
- 426:./Core/Src/main.c ****   HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
- 938              		.loc 1 426 3
- 939 011c 2820     		movs	r0, #40
- 940 011e FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
- 427:./Core/Src/main.c **** 
- 428:./Core/Src/main.c **** }
- 941              		.loc 1 428 1
- 942 0122 00BF     		nop
- 943 0124 2037     		adds	r7, r7, #32
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s 			page 25
+ 910 00dc 0123     		movs	r3, #1
+ 911 00de 3B61     		str	r3, [r7, #16]
+ 406:./Core/Src/main.c ****   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+ 912              		.loc 1 406 24
+ 913 00e0 0023     		movs	r3, #0
+ 914 00e2 7B61     		str	r3, [r7, #20]
+ 407:./Core/Src/main.c ****   GPIO_InitStruct.Pull = GPIO_PULLUP;
+ 915              		.loc 1 407 24
+ 916 00e4 0123     		movs	r3, #1
+ 917 00e6 BB61     		str	r3, [r7, #24]
+ 408:./Core/Src/main.c ****   HAL_GPIO_Init(BUTTON3_GPIO_Port, &GPIO_InitStruct);
+ 918              		.loc 1 408 3
+ 919 00e8 07F11003 		add	r3, r7, #16
+ 920 00ec 1946     		mov	r1, r3
+ 921 00ee 1148     		ldr	r0, .L40+8
+ 922 00f0 FFF7FEFF 		bl	HAL_GPIO_Init
+ 409:./Core/Src/main.c **** 
+ 410:./Core/Src/main.c ****   /*Configure GPIO pins : LED_RED1_Pin LED3A_Pin LED_YELLOW1_Pin LED_GREEN1_Pin
+ 411:./Core/Src/main.c ****                            LED_RED2_Pin LED_YELLOW2_Pin LED_GREEN2_Pin LED1B_Pin
+ 412:./Core/Src/main.c ****                            LED2B_Pin LED2A_Pin LED_RED3_Pin LED_YELLOW3_Pin
+ 413:./Core/Src/main.c ****                            LED_GREEN3_Pin */
+ 414:./Core/Src/main.c ****   GPIO_InitStruct.Pin = LED_RED1_Pin|LED3A_Pin|LED_YELLOW1_Pin|LED_GREEN1_Pin
+ 923              		.loc 1 414 23
+ 924 00f4 4FF6BC73 		movw	r3, #65468
+ 925 00f8 3B61     		str	r3, [r7, #16]
+ 415:./Core/Src/main.c ****                           |LED_RED2_Pin|LED_YELLOW2_Pin|LED_GREEN2_Pin|LED1B_Pin
+ 416:./Core/Src/main.c ****                           |LED2B_Pin|LED2A_Pin|LED_RED3_Pin|LED_YELLOW3_Pin
+ 417:./Core/Src/main.c ****                           |LED_GREEN3_Pin;
+ 418:./Core/Src/main.c ****   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+ 926              		.loc 1 418 24
+ 927 00fa 0123     		movs	r3, #1
+ 928 00fc 7B61     		str	r3, [r7, #20]
+ 419:./Core/Src/main.c ****   GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 929              		.loc 1 419 24
+ 930 00fe 0023     		movs	r3, #0
+ 931 0100 BB61     		str	r3, [r7, #24]
+ 420:./Core/Src/main.c ****   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+ 932              		.loc 1 420 25
+ 933 0102 0223     		movs	r3, #2
+ 934 0104 FB61     		str	r3, [r7, #28]
+ 421:./Core/Src/main.c ****   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+ 935              		.loc 1 421 3
+ 936 0106 07F11003 		add	r3, r7, #16
+ 937 010a 1946     		mov	r1, r3
+ 938 010c 0948     		ldr	r0, .L40+8
+ 939 010e FFF7FEFF 		bl	HAL_GPIO_Init
+ 422:./Core/Src/main.c **** 
+ 423:./Core/Src/main.c ****   /* EXTI interrupt init*/
+ 424:./Core/Src/main.c ****   HAL_NVIC_SetPriority(EXTI15_10_IRQn, 0, 0);
+ 940              		.loc 1 424 3
+ 941 0112 0022     		movs	r2, #0
+ 942 0114 0021     		movs	r1, #0
+ 943 0116 2820     		movs	r0, #40
+ 944 0118 FFF7FEFF 		bl	HAL_NVIC_SetPriority
+ 425:./Core/Src/main.c ****   HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
+ 945              		.loc 1 425 3
+ 946 011c 2820     		movs	r0, #40
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccVQgeFh.s 			page 25
 
 
- 944              		.cfi_def_cfa_offset 8
- 945 0126 BD46     		mov	sp, r7
- 946              		.cfi_def_cfa_register 13
- 947              		@ sp needed
- 948 0128 80BD     		pop	{r7, pc}
- 949              	.L40:
- 950 012a 00BF     		.align	2
- 951              	.L39:
- 952 012c 00100240 		.word	1073876992
- 953 0130 00080140 		.word	1073809408
- 954 0134 000C0140 		.word	1073810432
- 955 0138 00001110 		.word	269549568
- 956 013c 00100140 		.word	1073811456
- 957              		.cfi_endproc
- 958              	.LFE73:
- 960              		.section	.text.HAL_TIM_PeriodElapsedCallback,"ax",%progbits
- 961              		.align	1
- 962              		.global	HAL_TIM_PeriodElapsedCallback
- 963              		.syntax unified
- 964              		.thumb
- 965              		.thumb_func
- 967              	HAL_TIM_PeriodElapsedCallback:
- 968              	.LFB74:
- 429:./Core/Src/main.c **** 
- 430:./Core/Src/main.c **** /* USER CODE BEGIN 4 */
- 431:./Core/Src/main.c **** void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
- 969              		.loc 1 431 60
- 970              		.cfi_startproc
- 971              		@ args = 0, pretend = 0, frame = 8
- 972              		@ frame_needed = 1, uses_anonymous_args = 0
- 973 0000 80B5     		push	{r7, lr}
- 974              		.cfi_def_cfa_offset 8
- 975              		.cfi_offset 7, -8
- 976              		.cfi_offset 14, -4
- 977 0002 82B0     		sub	sp, sp, #8
- 978              		.cfi_def_cfa_offset 16
- 979 0004 00AF     		add	r7, sp, #0
- 980              		.cfi_def_cfa_register 7
- 981 0006 7860     		str	r0, [r7, #4]
- 432:./Core/Src/main.c **** 	timerRun();
- 982              		.loc 1 432 2
- 983 0008 FFF7FEFF 		bl	timerRun
- 433:./Core/Src/main.c **** 	getKeyInput1();
- 984              		.loc 1 433 2
- 985 000c FFF7FEFF 		bl	getKeyInput1
- 434:./Core/Src/main.c **** 	getKeyInput2();
- 986              		.loc 1 434 2
- 987 0010 FFF7FEFF 		bl	getKeyInput2
- 435:./Core/Src/main.c **** 	getKeyInput3();
- 988              		.loc 1 435 2
- 989 0014 FFF7FEFF 		bl	getKeyInput3
- 436:./Core/Src/main.c **** 	getKeyInput4();
- 990              		.loc 1 436 2
- 991 0018 FFF7FEFF 		bl	getKeyInput4
- 437:./Core/Src/main.c **** }
- 992              		.loc 1 437 1
- 993 001c 00BF     		nop
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s 			page 26
+ 947 011e FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
+ 426:./Core/Src/main.c **** 
+ 427:./Core/Src/main.c **** }
+ 948              		.loc 1 427 1
+ 949 0122 00BF     		nop
+ 950 0124 2037     		adds	r7, r7, #32
+ 951              		.cfi_def_cfa_offset 8
+ 952 0126 BD46     		mov	sp, r7
+ 953              		.cfi_def_cfa_register 13
+ 954              		@ sp needed
+ 955 0128 80BD     		pop	{r7, pc}
+ 956              	.L41:
+ 957 012a 00BF     		.align	2
+ 958              	.L40:
+ 959 012c 00100240 		.word	1073876992
+ 960 0130 00080140 		.word	1073809408
+ 961 0134 000C0140 		.word	1073810432
+ 962 0138 00001110 		.word	269549568
+ 963 013c 00100140 		.word	1073811456
+ 964              		.cfi_endproc
+ 965              	.LFE73:
+ 967              		.section	.text.HAL_TIM_PeriodElapsedCallback,"ax",%progbits
+ 968              		.align	1
+ 969              		.global	HAL_TIM_PeriodElapsedCallback
+ 970              		.syntax unified
+ 971              		.thumb
+ 972              		.thumb_func
+ 974              	HAL_TIM_PeriodElapsedCallback:
+ 975              	.LFB74:
+ 428:./Core/Src/main.c **** 
+ 429:./Core/Src/main.c **** /* USER CODE BEGIN 4 */
+ 430:./Core/Src/main.c **** void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
+ 976              		.loc 1 430 60
+ 977              		.cfi_startproc
+ 978              		@ args = 0, pretend = 0, frame = 8
+ 979              		@ frame_needed = 1, uses_anonymous_args = 0
+ 980 0000 80B5     		push	{r7, lr}
+ 981              		.cfi_def_cfa_offset 8
+ 982              		.cfi_offset 7, -8
+ 983              		.cfi_offset 14, -4
+ 984 0002 82B0     		sub	sp, sp, #8
+ 985              		.cfi_def_cfa_offset 16
+ 986 0004 00AF     		add	r7, sp, #0
+ 987              		.cfi_def_cfa_register 7
+ 988 0006 7860     		str	r0, [r7, #4]
+ 431:./Core/Src/main.c **** 	timerRun();
+ 989              		.loc 1 431 2
+ 990 0008 FFF7FEFF 		bl	timerRun
+ 432:./Core/Src/main.c **** 	getKeyInput1();
+ 991              		.loc 1 432 2
+ 992 000c FFF7FEFF 		bl	getKeyInput1
+ 433:./Core/Src/main.c **** 	getKeyInput2();
+ 993              		.loc 1 433 2
+ 994 0010 FFF7FEFF 		bl	getKeyInput2
+ 434:./Core/Src/main.c **** 	getKeyInput3();
+ 995              		.loc 1 434 2
+ 996 0014 FFF7FEFF 		bl	getKeyInput3
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccVQgeFh.s 			page 26
 
 
- 994 001e 0837     		adds	r7, r7, #8
- 995              		.cfi_def_cfa_offset 8
- 996 0020 BD46     		mov	sp, r7
- 997              		.cfi_def_cfa_register 13
- 998              		@ sp needed
- 999 0022 80BD     		pop	{r7, pc}
- 1000              		.cfi_endproc
- 1001              	.LFE74:
- 1003              		.section	.text.Error_Handler,"ax",%progbits
- 1004              		.align	1
- 1005              		.global	Error_Handler
- 1006              		.syntax unified
- 1007              		.thumb
- 1008              		.thumb_func
- 1010              	Error_Handler:
- 1011              	.LFB75:
- 438:./Core/Src/main.c **** /* USER CODE END 4 */
- 439:./Core/Src/main.c **** 
- 440:./Core/Src/main.c **** /**
- 441:./Core/Src/main.c ****   * @brief  This function is executed in case of error occurrence.
- 442:./Core/Src/main.c ****   * @retval None
- 443:./Core/Src/main.c ****   */
- 444:./Core/Src/main.c **** void Error_Handler(void)
- 445:./Core/Src/main.c **** {
- 1012              		.loc 1 445 1
- 1013              		.cfi_startproc
- 1014              		@ args = 0, pretend = 0, frame = 0
- 1015              		@ frame_needed = 1, uses_anonymous_args = 0
- 1016              		@ link register save eliminated.
- 1017 0000 80B4     		push	{r7}
- 1018              		.cfi_def_cfa_offset 4
- 1019              		.cfi_offset 7, -4
- 1020 0002 00AF     		add	r7, sp, #0
- 1021              		.cfi_def_cfa_register 7
- 1022              	.LBB10:
- 1023              	.LBB11:
- 1024              		.file 2 "Drivers/CMSIS/Include/cmsis_gcc.h"
+ 435:./Core/Src/main.c **** 	getKeyInput4();
+ 997              		.loc 1 435 2
+ 998 0018 FFF7FEFF 		bl	getKeyInput4
+ 436:./Core/Src/main.c **** }
+ 999              		.loc 1 436 1
+ 1000 001c 00BF     		nop
+ 1001 001e 0837     		adds	r7, r7, #8
+ 1002              		.cfi_def_cfa_offset 8
+ 1003 0020 BD46     		mov	sp, r7
+ 1004              		.cfi_def_cfa_register 13
+ 1005              		@ sp needed
+ 1006 0022 80BD     		pop	{r7, pc}
+ 1007              		.cfi_endproc
+ 1008              	.LFE74:
+ 1010              		.section	.text.Error_Handler,"ax",%progbits
+ 1011              		.align	1
+ 1012              		.global	Error_Handler
+ 1013              		.syntax unified
+ 1014              		.thumb
+ 1015              		.thumb_func
+ 1017              	Error_Handler:
+ 1018              	.LFB75:
+ 437:./Core/Src/main.c **** /* USER CODE END 4 */
+ 438:./Core/Src/main.c **** 
+ 439:./Core/Src/main.c **** /**
+ 440:./Core/Src/main.c ****   * @brief  This function is executed in case of error occurrence.
+ 441:./Core/Src/main.c ****   * @retval None
+ 442:./Core/Src/main.c ****   */
+ 443:./Core/Src/main.c **** void Error_Handler(void)
+ 444:./Core/Src/main.c **** {
+ 1019              		.loc 1 444 1
+ 1020              		.cfi_startproc
+ 1021              		@ args = 0, pretend = 0, frame = 0
+ 1022              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1023              		@ link register save eliminated.
+ 1024 0000 80B4     		push	{r7}
+ 1025              		.cfi_def_cfa_offset 4
+ 1026              		.cfi_offset 7, -4
+ 1027 0002 00AF     		add	r7, sp, #0
+ 1028              		.cfi_def_cfa_register 7
+ 1029              	.LBB10:
+ 1030              	.LBB11:
+ 1031              		.file 2 "Drivers/CMSIS/Include/cmsis_gcc.h"
    1:Drivers/CMSIS/Include/cmsis_gcc.h **** /**************************************************************************//**
    2:Drivers/CMSIS/Include/cmsis_gcc.h ****  * @file     cmsis_gcc.h
    3:Drivers/CMSIS/Include/cmsis_gcc.h ****  * @brief    CMSIS compiler GCC header file
@@ -1552,15 +1558,15 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s 			page 1
   12:Drivers/CMSIS/Include/cmsis_gcc.h ****  * Licensed under the Apache License, Version 2.0 (the License); you may
   13:Drivers/CMSIS/Include/cmsis_gcc.h ****  * not use this file except in compliance with the License.
   14:Drivers/CMSIS/Include/cmsis_gcc.h ****  * You may obtain a copy of the License at
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccVQgeFh.s 			page 27
+
+
   15:Drivers/CMSIS/Include/cmsis_gcc.h ****  *
   16:Drivers/CMSIS/Include/cmsis_gcc.h ****  * www.apache.org/licenses/LICENSE-2.0
   17:Drivers/CMSIS/Include/cmsis_gcc.h ****  *
   18:Drivers/CMSIS/Include/cmsis_gcc.h ****  * Unless required by applicable law or agreed to in writing, software
   19:Drivers/CMSIS/Include/cmsis_gcc.h ****  * distributed under the License is distributed on an AS IS BASIS, WITHOUT
   20:Drivers/CMSIS/Include/cmsis_gcc.h ****  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s 			page 27
-
-
   21:Drivers/CMSIS/Include/cmsis_gcc.h ****  * See the License for the specific language governing permissions and
   22:Drivers/CMSIS/Include/cmsis_gcc.h ****  * limitations under the License.
   23:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
@@ -1612,15 +1618,15 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s 			page 1
   69:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
   70:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT32        /* deprecated */
   71:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic push
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccVQgeFh.s 			page 28
+
+
   72:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
   73:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
   74:Drivers/CMSIS/Include/cmsis_gcc.h ****   struct __attribute__((packed)) T_UINT32 { uint32_t v; };
   75:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
   76:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __UNALIGNED_UINT32(x)                  (((struct T_UINT32 *)(x))->v)
   77:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s 			page 28
-
-
   78:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT16_WRITE
   79:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic push
   80:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
@@ -1672,15 +1678,15 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s 			page 1
  126:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Enables IRQ interrupts by clearing the I-bit in the CPSR.
  127:Drivers/CMSIS/Include/cmsis_gcc.h ****            Can only be executed in Privileged modes.
  128:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccVQgeFh.s 			page 29
+
+
  129:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __enable_irq(void)
  130:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  131:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("cpsie i" : : : "memory");
  132:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  133:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  134:Drivers/CMSIS/Include/cmsis_gcc.h **** 
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s 			page 29
-
-
  135:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  136:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Disable IRQ Interrupts
  137:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Disables IRQ interrupts by setting the I-bit in the CPSR.
@@ -1689,81 +1695,84 @@ ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s 			page 1
  140:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __disable_irq(void)
  141:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  142:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("cpsid i" : : : "memory");
- 1025              		.loc 2 142 3
- 1026              		.syntax unified
- 1027              	@ 142 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
- 1028 0004 72B6     		cpsid i
- 1029              	@ 0 "" 2
+ 1032              		.loc 2 142 3
+ 1033              		.syntax unified
+ 1034              	@ 142 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 1035 0004 72B6     		cpsid i
+ 1036              	@ 0 "" 2
  143:Drivers/CMSIS/Include/cmsis_gcc.h **** }
- 1030              		.loc 2 143 1
- 1031              		.thumb
- 1032              		.syntax unified
- 1033 0006 00BF     		nop
- 1034              	.L43:
- 1035              	.LBE11:
- 1036              	.LBE10:
- 446:./Core/Src/main.c ****   /* USER CODE BEGIN Error_Handler_Debug */
- 447:./Core/Src/main.c ****   /* User can add his own implementation to report the HAL error return state */
- 448:./Core/Src/main.c ****   __disable_irq();
- 449:./Core/Src/main.c ****   while (1)
- 1037              		.loc 1 449 9 discriminator 1
- 1038 0008 FEE7     		b	.L43
- 1039              		.cfi_endproc
- 1040              	.LFE75:
- 1042              		.text
- 1043              	.Letext0:
- 1044              		.file 3 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
- 1045              		.file 4 "c:\\st\\stm32cubeide_1.7.0\\stm32cubeide\\plugins\\com.st.stm32cube.ide.mcu.externaltools
- 1046              		.file 5 "c:\\st\\stm32cubeide_1.7.0\\stm32cubeide\\plugins\\com.st.stm32cube.ide.mcu.externaltools
- 1047              		.file 6 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h"
- 1048              		.file 7 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h"
- 1049              		.file 8 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc_ex.h"
- 1050              		.file 9 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h"
- 1051              		.file 10 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h"
- 1052              		.file 11 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h"
- 1053              		.file 12 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h"
- 1054              		.file 13 "Core/Inc/Software_Timer.h"
- 1055              		.file 14 "Core/Inc/global.h"
- 1056              		.file 15 "Core/Inc/traffic_timer.h"
- 1057              		.file 16 "Core/Inc/button.h"
- 1058              		.file 17 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h"
- 1059              		.file 18 "Core/Inc/main.h"
- 1060              		.file 19 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h"
- 1061              		.file 20 "Core/Inc/LED_TOGGLE.h"
- 1062              		.file 21 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h"
- 1063              		.file 22 "c:\\st\\stm32cubeide_1.7.0\\stm32cubeide\\plugins\\com.st.stm32cube.ide.mcu.externaltool
- 1064              		.file 23 "Core/Inc/fsm_manual.h"
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s 			page 30
+ 1037              		.loc 2 143 1
+ 1038              		.thumb
+ 1039              		.syntax unified
+ 1040 0006 00BF     		nop
+ 1041              	.L44:
+ 1042              	.LBE11:
+ 1043              	.LBE10:
+ 445:./Core/Src/main.c ****   /* USER CODE BEGIN Error_Handler_Debug */
+ 446:./Core/Src/main.c ****   /* User can add his own implementation to report the HAL error return state */
+ 447:./Core/Src/main.c ****   __disable_irq();
+ 448:./Core/Src/main.c ****   while (1)
+ 1044              		.loc 1 448 9 discriminator 1
+ 1045 0008 FEE7     		b	.L44
+ 1046              		.cfi_endproc
+ 1047              	.LFE75:
+ 1049              		.text
+ 1050              	.Letext0:
+ 1051              		.file 3 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
+ 1052              		.file 4 "c:\\st\\stm32cubeide_1.7.0\\stm32cubeide\\plugins\\com.st.stm32cube.ide.mcu.externaltools
+ 1053              		.file 5 "c:\\st\\stm32cubeide_1.7.0\\stm32cubeide\\plugins\\com.st.stm32cube.ide.mcu.externaltools
+ 1054              		.file 6 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h"
+ 1055              		.file 7 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h"
+ 1056              		.file 8 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc_ex.h"
+ 1057              		.file 9 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h"
+ 1058              		.file 10 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h"
+ 1059              		.file 11 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h"
+ 1060              		.file 12 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h"
+ 1061              		.file 13 "Core/Inc/Software_Timer.h"
+ 1062              		.file 14 "Core/Inc/global.h"
+ 1063              		.file 15 "Core/Inc/traffic_timer.h"
+ 1064              		.file 16 "Core/Inc/button.h"
+ 1065              		.file 17 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h"
+ 1066              		.file 18 "Core/Inc/main.h"
+ 1067              		.file 19 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h"
+ 1068              		.file 20 "Core/Inc/LED_TOGGLE.h"
+ 1069              		.file 21 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h"
+ 1070              		.file 22 "c:\\st\\stm32cubeide_1.7.0\\stm32cubeide\\plugins\\com.st.stm32cube.ide.mcu.externaltool
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccVQgeFh.s 			page 30
+
+
+ 1071              		.file 23 "Core/Inc/fsm_manual.h"
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccVQgeFh.s 			page 31
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 main.c
-C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s:22     .bss.htim2:0000000000000000 htim2
-C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s:19     .bss.htim2:0000000000000000 $d
-C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s:29     .bss.htim3:0000000000000000 htim3
-C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s:26     .bss.htim3:0000000000000000 $d
-C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s:32     .rodata:0000000000000000 $d
-C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s:36     .text.main:0000000000000000 $t
-C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s:42     .text.main:0000000000000000 main
-C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s:325    .text.SystemClock_Config:0000000000000000 SystemClock_Config
-C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s:774    .text.MX_GPIO_Init:0000000000000000 MX_GPIO_Init
-C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s:703    .text.MX_USART2_UART_Init:0000000000000000 MX_USART2_UART_Init
-C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s:426    .text.MX_TIM2_Init:0000000000000000 MX_TIM2_Init
-C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s:540    .text.MX_TIM3_Init:0000000000000000 MX_TIM3_Init
-C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s:300    .text.main:0000000000000194 $d
-C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s:319    .text.SystemClock_Config:0000000000000000 $t
-C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s:1010   .text.Error_Handler:0000000000000000 Error_Handler
-C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s:421    .text.MX_TIM2_Init:0000000000000000 $t
-C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s:530    .text.MX_TIM2_Init:0000000000000094 $d
-C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s:535    .text.MX_TIM3_Init:0000000000000000 $t
-C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s:692    .text.MX_TIM3_Init:00000000000000e4 $d
-C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s:698    .text.MX_USART2_UART_Init:0000000000000000 $t
-C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s:763    .text.MX_USART2_UART_Init:000000000000004c $d
-C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s:769    .text.MX_GPIO_Init:0000000000000000 $t
-C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s:952    .text.MX_GPIO_Init:000000000000012c $d
-C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s:961    .text.HAL_TIM_PeriodElapsedCallback:0000000000000000 $t
-C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s:967    .text.HAL_TIM_PeriodElapsedCallback:0000000000000000 HAL_TIM_PeriodElapsedCallback
-C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s:1004   .text.Error_Handler:0000000000000000 $t
+C:\Users\ASUS\AppData\Local\Temp\ccVQgeFh.s:22     .bss.htim2:0000000000000000 htim2
+C:\Users\ASUS\AppData\Local\Temp\ccVQgeFh.s:19     .bss.htim2:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\ccVQgeFh.s:29     .bss.htim3:0000000000000000 htim3
+C:\Users\ASUS\AppData\Local\Temp\ccVQgeFh.s:26     .bss.htim3:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\ccVQgeFh.s:32     .rodata:0000000000000000 $d
+C:\Users\ASUS\AppData\Local\Temp\ccVQgeFh.s:36     .text.main:0000000000000000 $t
+C:\Users\ASUS\AppData\Local\Temp\ccVQgeFh.s:42     .text.main:0000000000000000 main
+C:\Users\ASUS\AppData\Local\Temp\ccVQgeFh.s:332    .text.SystemClock_Config:0000000000000000 SystemClock_Config
+C:\Users\ASUS\AppData\Local\Temp\ccVQgeFh.s:781    .text.MX_GPIO_Init:0000000000000000 MX_GPIO_Init
+C:\Users\ASUS\AppData\Local\Temp\ccVQgeFh.s:710    .text.MX_USART2_UART_Init:0000000000000000 MX_USART2_UART_Init
+C:\Users\ASUS\AppData\Local\Temp\ccVQgeFh.s:433    .text.MX_TIM2_Init:0000000000000000 MX_TIM2_Init
+C:\Users\ASUS\AppData\Local\Temp\ccVQgeFh.s:547    .text.MX_TIM3_Init:0000000000000000 MX_TIM3_Init
+C:\Users\ASUS\AppData\Local\Temp\ccVQgeFh.s:307    .text.main:000000000000019c $d
+C:\Users\ASUS\AppData\Local\Temp\ccVQgeFh.s:326    .text.SystemClock_Config:0000000000000000 $t
+C:\Users\ASUS\AppData\Local\Temp\ccVQgeFh.s:1017   .text.Error_Handler:0000000000000000 Error_Handler
+C:\Users\ASUS\AppData\Local\Temp\ccVQgeFh.s:428    .text.MX_TIM2_Init:0000000000000000 $t
+C:\Users\ASUS\AppData\Local\Temp\ccVQgeFh.s:537    .text.MX_TIM2_Init:0000000000000094 $d
+C:\Users\ASUS\AppData\Local\Temp\ccVQgeFh.s:542    .text.MX_TIM3_Init:0000000000000000 $t
+C:\Users\ASUS\AppData\Local\Temp\ccVQgeFh.s:699    .text.MX_TIM3_Init:00000000000000e4 $d
+C:\Users\ASUS\AppData\Local\Temp\ccVQgeFh.s:705    .text.MX_USART2_UART_Init:0000000000000000 $t
+C:\Users\ASUS\AppData\Local\Temp\ccVQgeFh.s:770    .text.MX_USART2_UART_Init:000000000000004c $d
+C:\Users\ASUS\AppData\Local\Temp\ccVQgeFh.s:776    .text.MX_GPIO_Init:0000000000000000 $t
+C:\Users\ASUS\AppData\Local\Temp\ccVQgeFh.s:959    .text.MX_GPIO_Init:000000000000012c $d
+C:\Users\ASUS\AppData\Local\Temp\ccVQgeFh.s:968    .text.HAL_TIM_PeriodElapsedCallback:0000000000000000 $t
+C:\Users\ASUS\AppData\Local\Temp\ccVQgeFh.s:974    .text.HAL_TIM_PeriodElapsedCallback:0000000000000000 HAL_TIM_PeriodElapsedCallback
+C:\Users\ASUS\AppData\Local\Temp\ccVQgeFh.s:1011   .text.Error_Handler:0000000000000000 $t
                            .group:0000000000000000 wm4.0.cb5f01749778df26340c4505df3d34d0
                            .group:0000000000000000 wm4.stm32f1xx_hal_conf.h.22.9203001c8f439cc72798ab2500313551
                            .group:0000000000000000 wm4.stm32f1xx.h.39.208bb8a61c892b7c37d899c49a031330
@@ -1793,7 +1802,7 @@ C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s:1004   .text.Error_Handler:000000000
                            .group:0000000000000000 wm4.stm32f1xx_hal_dma.h.22.3c14338534886827bf3aeaa2a7f412a1
                            .group:0000000000000000 wm4.stm32f1xx_hal_dma_ex.h.22.001ac4d7f81ccbdcae49bd65c13858c8
                            .group:0000000000000000 wm4.stm32f1xx_hal_dma.h.409.cafcd2cfe701091535636be537c18293
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s 			page 31
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccVQgeFh.s 			page 32
 
 
                            .group:0000000000000000 wm4.stm32f1xx_hal_cortex.h.22.b5f4174bb6a50d95405567b8f50e0900
@@ -1853,7 +1862,7 @@ GREEN1_TOGGLE
 RED2_TOGGLE
 RED3_TOGGLE
 YELLOW2_TOGGLE
-ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccyY8BNI.s 			page 32
+ARM GAS  C:\Users\ASUS\AppData\Local\Temp\ccVQgeFh.s 			page 33
 
 
 YELLOW3_TOGGLE

@@ -172,13 +172,12 @@ int main(void)
 				  __HAL_TIM_SetCompare (&htim3,TIM_CHANNEL_1,feq);
 				  HAL_Delay(100);
 			  }
+			  else __HAL_TIM_SetCompare (&htim3,TIM_CHANNEL_1,0);
 		  }
 	  	  else if(GREEN2_flag){
 	  		  GREEN2_TOGGLE();
 	  		  if (userButton) GREEN3_TOGGLE();
 	  	  }
-
-
 	  }
   }
   /* USER CODE END 3 */
