@@ -24,6 +24,7 @@
 #include "fsm_manual.h"
 #include "traffic_timer.h"
 #include "stdio.h"
+#include "buzzer.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -160,19 +161,29 @@ int main(void)
 	  		  //Cum den 2
 		  if(RED2_flag){
 	  		  RED2_TOGGLE();
-	  		  __HAL_TIM_SetCompare (&htim3,TIM_CHANNEL_1,0);
-	 		  if (userButton) RED3_TOGGLE();
+	  		  //__HAL_TIM_SetCompare (&htim3,TIM_CHANNEL_1,0);
+          //toggle = -1;
+	 		  if (userButton) {
+          RED3_TOGGLE();
+          __HAL_TIM_SetCompare (&htim3,TIM_CHANNEL_1,-100);
+        }
+        
 		  }
 		  else if(YELLOW2_flag){
 			  YELLOW2_TOGGLE();
 			  if (userButton) {
 				  YELLOW3_TOGGLE();
-				  int feq = 100 - 100*(10*timer3_counter/timer_yellow);
-				  __HAL_TIM_SET_AUTORELOAD(&htim3,feq*5/2);
-				  __HAL_TIM_SetCompare (&htim3,TIM_CHANNEL_1,feq);
-				  HAL_Delay(100);
+				  // int feq = 100 - 100*(10*timer3_counter/timer_yellow);
+				  // __HAL_TIM_SET_AUTORELOAD(&htim3,feq*5/2);
+				  // __HAL_TIM_SetCompare (&htim3,TIM_CHANNEL_1,feq);
+				  //toggle =1-toggle;
+          // HAL_Delay(100);
+          act_buzzer =1 ;
 			  }
-			  else __HAL_TIM_SetCompare (&htim3,TIM_CHANNEL_1,0);
+			  else {
+          act_buzzer =0;
+          __HAL_TIM_SetCompare (&htim3,TIM_CHANNEL_1,0);
+        }
 		  }
 	  	  else if(GREEN2_flag){
 	  		  GREEN2_TOGGLE();
@@ -433,6 +444,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 	getKeyInput2();
 	getKeyInput3();
 	getKeyInput4();
+  buzzer();
 }
 /* USER CODE END 4 */
 

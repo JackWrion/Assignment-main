@@ -22,6 +22,7 @@ extern int timer_yellow;
 extern int timer_green;
 
 extern UART_HandleTypeDef huart2;
+extern TIM_HandleTypeDef htim3;
 
 
 #endif /* INC_GLOBAL_H_ */
