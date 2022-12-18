@@ -92,8 +92,13 @@ void fsm_manual_run(){
 		}
 		if (isButton3Pressed()){
 			timer_red = temp_timer;
-			if (timer_red < timer_green + timer_yellow) timer_red = timer_green + timer_yellow;
-			else timer_green = timer_red - timer_yellow;
+			if (timer_red < timer_green + timer_yellow){			// timer red decrease
+				if (timer_red >= timer_green + 1 ) {
+					timer_yellow = timer_red - timer_green;
+				}
+				else timer_red = timer_green + timer_yellow;
+			}
+			else timer_green = timer_red - timer_yellow;			// timer red increase
 			status_man = INIT;
 			printstatus();
 		}

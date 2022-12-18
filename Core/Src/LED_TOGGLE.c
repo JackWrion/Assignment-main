@@ -24,7 +24,7 @@ int GREEN3 = 0;
 //-------------------For TEST ONLY------------------////
 ///////////////////////////////////////////////////////
 
-/*
+
 
 
 // GROUP LED1;
@@ -144,7 +144,7 @@ void GREEN3_TOGGLE(){
 }
 
 
-*/
+
 
 
 
@@ -155,7 +155,7 @@ void GREEN3_TOGGLE(){
 ////////////////////////
 
 
-
+/*
 // GROUP LED1;
 void LED1_OFF(){
 	HAL_GPIO_WritePin(LED1A_GPIO_Port, LED1A_Pin, RESET);
@@ -280,7 +280,7 @@ void GREEN3_TOGGLE(){
 
 
 
-
+*/
 
 
 

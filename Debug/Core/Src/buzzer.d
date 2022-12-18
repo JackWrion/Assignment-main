@@ -1,4 +1,4 @@
-Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/fsm_manual.h \
+Core/Src/buzzer.o: ../Core/Src/buzzer.c ../Core/Inc/buzzer.h \
  ../Core/Inc/global.h ../Core/Inc/main.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h \
  ../Core/Inc/stm32f1xx_hal_conf.h \
@@ -26,9 +26,8 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/fsm_manual.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h \
  ../Core/Inc/button.h ../Core/Inc/Software_Timer.h \
- ../Core/Inc/LED_TOGGLE.h ../Core/Inc/traffic_timer.h \
- ../Core/Inc/traffic_timer.h ../Core/Inc/buzzer.h
-../Core/Inc/fsm_manual.h:
+ ../Core/Inc/LED_TOGGLE.h
+../Core/Inc/buzzer.h:
 ../Core/Inc/global.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:
@@ -59,6 +58,3 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/fsm_manual.h \
 ../Core/Inc/button.h:
 ../Core/Inc/Software_Timer.h:
 ../Core/Inc/LED_TOGGLE.h:
-../Core/Inc/traffic_timer.h:
-../Core/Inc/traffic_timer.h:
-../Core/Inc/buzzer.h:

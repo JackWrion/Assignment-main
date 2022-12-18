@@ -1,6 +1,7 @@
 "./Core/Src/LED_TOGGLE.o"
 "./Core/Src/Software_Timer.o"
 "./Core/Src/button.o"
+"./Core/Src/buzzer.o"
 "./Core/Src/fsm_manual.o"
 "./Core/Src/global.o"
 "./Core/Src/main.o"
